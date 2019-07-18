@@ -99,6 +99,8 @@ void CorrectionTask::Process() {
 
 	for(Int_t idx=0; idx<nModules; idx++) 
 	{
+		if( !fSelector->IsCorrectFwHit(idx, 0, "adc", 80.0) )
+			continue;
 		varContainer[kFwModuleRing]=fEvent->GetPSDModule(idx)->GetRing();
 		varContainer[kFwModuleId]=fEvent->GetPSDModule(idx)->GetId();
 		varContainer[kFwModuleAdc]=fEvent->GetPSDModule(idx)->GetEnergy();

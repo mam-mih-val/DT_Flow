@@ -44,6 +44,7 @@ class CorrectionTask {
 	void Finalize();
 
 	protected:
+	
 	enum Vars{
 		kCentrality=0,
 		kFwModuleRing,
