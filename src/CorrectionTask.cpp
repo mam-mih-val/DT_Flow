@@ -90,9 +90,10 @@ void CorrectionTask::Initialize() {
 	fManager.AddCut("Fw3", {"FwRing"}, Is3se);
 	fManager.SetCorrectionSteps("Fw3", FwConfiguration);
   
+	fManager.AddEventHisto1D({{"Centrality", 20, 0, 100}});
 	fManager.SetTree(out_tree_);
 	cout << "93 line" << endl;
-	// fManager.Initialize(in_calibration_file_);
+	fManager.Initialize(in_calibration_file_);
 	cout << "95 line" << endl;
 
 }
@@ -101,23 +102,25 @@ void CorrectionTask::Process() {
 	fManager.Reset();
 	auto varContainer = fManager.GetVariableContainer(); 
 	varContainer[kCentrality]=fEvent->GetCentrality(HADES_constants::kNhitsTOF_RPC_cut);
+	fManager.ProcessEvent();
 	Int_t nModules = fEvent->GetNPSDModules();
 
 	for(Int_t idx=0; idx<nModules; idx++) 
 	{
 		if( !fSelector->IsCorrectFwHit(idx, 0, "adc", 80.0) )
 			continue;
-		varContainer[kFwModuleRing]=fEvent->GetPSDModule(idx)->GetRing();
-		varContainer[kFwModuleId]=fEvent->GetPSDModule(idx)->GetId();
-		varContainer[kFwModuleAdc]=fEvent->GetPSDModule(idx)->GetEnergy();
-		varContainer[kFwModulePhi]=fEvent->GetPSDModule(idx)->GetPhi();
-		fManager.FillTrackingDetectors();
+		varContainer[kFwModuleRing]=(double)fEvent->GetPSDModule(idx)->GetRing();
+		varContainer[kFwModuleId]=	(double)fEvent->GetPSDModule(idx)->GetId();
+		varContainer[kFwModuleAdc]=	(double)fEvent->GetPSDModule(idx)->GetEnergy();
+		varContainer[kFwModulePhi]=	(double)fEvent->GetPSDModule(idx)->GetPhi();
+		fManager.FillChannelDetectors();
 	}
 	fManager.ProcessQnVectors();
 }
 
 void CorrectionTask::Finalize() {
-	// fManager.Finalize();
-	// fManager.SaveOutput(out_calibration_file_, out_file_);
+	fManager.Finalize();
+	fManager.SaveOutput(out_calibration_file_, out_file_);
+	std::cout << "Successfully Finalized." << std::endl;
 }
 }
