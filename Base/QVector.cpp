@@ -25,30 +25,27 @@ namespace Qn {
  * @param norm normalisation method
  * @param vector QnCorrectionsQnVector to construct the QVector from. It is used internally by the framework but not exposed to the user.
  */
-QVector::QVector(QVector::Normalization norm, const CorrectionQnVector *vector, std::bitset<kMaxNHarmonics> bits) :
+QVector::QVector(QVector::Normalization norm, const CorrectionQnVector *vector, std::bitset<8> bits) :
     norm_(norm),
     bits_(bits) {
   q_.resize(static_cast<size_t>(bits.count()));
   if (vector) {
-    if (vector->IsGoodQuality()) {
-      n_ = vector->GetN();
-      sum_weights_ = vector->GetSumOfWeights();
-      auto harmonicsmap = new int[kMaxNHarmonics];
-      vector->GetHarmonicsMap(harmonicsmap);
-      for (unsigned int i = 0; i < bits.count(); i++) {
-        auto iharmonic = harmonicsmap[i];
-        if (!std::isinf(vector->Qx(iharmonic)) && !std::isinf(vector->Qy(iharmonic)) &&
-            !std::isnan(vector->Qx(iharmonic)) && !std::isnan(vector->Qy(iharmonic)))
-          q_[i] = QVec(vector->Qx(iharmonic), vector->Qy(iharmonic));
-      }
-      delete[] harmonicsmap;
+    n_ = vector->GetN();
+    sum_weights_ = vector->GetSumOfWeights();
+    int *harmonicsmap = new int[8];
+    vector->GetHarmonicsMap(harmonicsmap);
+    for (unsigned int i = 0; i < bits.count(); i++) {
+      int iharmonic = harmonicsmap[i];
+      if (!std::isinf(vector->Qx(iharmonic)) && !std::isinf(vector->Qy(iharmonic)) &&
+          !std::isnan(vector->Qx(iharmonic)) && !std::isnan(vector->Qy(iharmonic)))
+        q_[i] = QVec(vector->Qx(iharmonic), vector->Qy(iharmonic));
     }
+    delete[] harmonicsmap;
   } else {
     n_ = 0;
     sum_weights_ = 0;
   }
 }
-
 /**
  * Adds two Q vectors taking into account for the normalizations
  * @param a Q vector
@@ -76,7 +73,6 @@ QVector operator+(const QVector a, const QVector b) {
   c.bits_ = b.bits_;
   return c;
 }
-
 /**
  * Normalize the Q vector with a given normalization method.
  * @param norm normalization method
@@ -122,7 +118,6 @@ QVector QVector::Normal(const QVector::Normalization norm) const {
   c.norm_ = norm;
   return c;
 }
-
 /**
  * Remove normalization of Q vector
  * @return unnormalized Q vector

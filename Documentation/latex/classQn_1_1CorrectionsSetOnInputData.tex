@@ -1,0 +1,65 @@
+\hypertarget{classQn_1_1CorrectionsSetOnInputData}{}\section{Qn\+:\+:Corrections\+Set\+On\+Input\+Data Class Reference}
+\label{classQn_1_1CorrectionsSetOnInputData}\index{Qn\+::\+Corrections\+Set\+On\+Input\+Data@{Qn\+::\+Corrections\+Set\+On\+Input\+Data}}
+Inheritance diagram for Qn\+:\+:Corrections\+Set\+On\+Input\+Data\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classQn_1_1CorrectionsSetOnInputData}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionsSetOnInputData_a38a9a90d6071c5af09a4ed6a30c0bb0f}\label{classQn_1_1CorrectionsSetOnInputData_a38a9a90d6071c5af09a4ed6a30c0bb0f}} 
+\mbox{\hyperlink{classQn_1_1CorrectionsSetOnInputData_a38a9a90d6071c5af09a4ed6a30c0bb0f}{Corrections\+Set\+On\+Input\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionsSetOnInputData_a29c9c3d13112653a7e163d3aa7615c6c}\label{classQn_1_1CorrectionsSetOnInputData_a29c9c3d13112653a7e163d3aa7615c6c}} 
+virtual \mbox{\hyperlink{classQn_1_1CorrectionsSetOnInputData_a29c9c3d13112653a7e163d3aa7615c6c}{$\sim$\+Corrections\+Set\+On\+Input\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classQn_1_1CorrectionOnInputData}{Correction\+On\+Input\+Data}} $\ast$ \mbox{\hyperlink{classQn_1_1CorrectionsSetOnInputData_a7d23f9a8c9f61fbe94b2b2257b599c06}{At}} (Int\+\_\+t i) const
+\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionsSetOnInputData_ae7bc47aa87b78daca76889e45952766a}{Add\+Correction}} (\mbox{\hyperlink{classQn_1_1CorrectionOnInputData}{Correction\+On\+Input\+Data}} $\ast$correction)
+\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionsSetOnInputData_af1489e16bd450a64cbb33654e7559568}{Fill\+Overall\+Corrections\+List}} (T\+List $\ast$correctionlist) const
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQn_1_1CorrectionsSetOnInputData_ae7bc47aa87b78daca76889e45952766a}\label{classQn_1_1CorrectionsSetOnInputData_ae7bc47aa87b78daca76889e45952766a}} 
+\index{Qn\+::\+Corrections\+Set\+On\+Input\+Data@{Qn\+::\+Corrections\+Set\+On\+Input\+Data}!Add\+Correction@{Add\+Correction}}
+\index{Add\+Correction@{Add\+Correction}!Qn\+::\+Corrections\+Set\+On\+Input\+Data@{Qn\+::\+Corrections\+Set\+On\+Input\+Data}}
+\subsubsection{\texorpdfstring{Add\+Correction()}{AddCorrection()}}
+{\footnotesize\ttfamily void Qn\+::\+Corrections\+Set\+On\+Input\+Data\+::\+Add\+Correction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQn_1_1CorrectionOnInputData}{Correction\+On\+Input\+Data}} $\ast$}]{correction }\end{DoxyParamCaption})}
+
+Adds a new correction to the set.
+
+The correction is incorporated in its proper place according to its key \mbox{\Hypertarget{classQn_1_1CorrectionsSetOnInputData_a7d23f9a8c9f61fbe94b2b2257b599c06}\label{classQn_1_1CorrectionsSetOnInputData_a7d23f9a8c9f61fbe94b2b2257b599c06}} 
+\index{Qn\+::\+Corrections\+Set\+On\+Input\+Data@{Qn\+::\+Corrections\+Set\+On\+Input\+Data}!At@{At}}
+\index{At@{At}!Qn\+::\+Corrections\+Set\+On\+Input\+Data@{Qn\+::\+Corrections\+Set\+On\+Input\+Data}}
+\subsubsection{\texorpdfstring{At()}{At()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classQn_1_1CorrectionOnInputData}{Correction\+On\+Input\+Data}}$\ast$ Qn\+::\+Corrections\+Set\+On\+Input\+Data\+::\+At (\begin{DoxyParamCaption}\item[{Int\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Access the correction step at the passed position 
+\begin{DoxyParams}{Parameters}
+{\em i} & position in the list (starting at zero) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the correction step object a position i 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionsSetOnInputData_af1489e16bd450a64cbb33654e7559568}\label{classQn_1_1CorrectionsSetOnInputData_af1489e16bd450a64cbb33654e7559568}} 
+\index{Qn\+::\+Corrections\+Set\+On\+Input\+Data@{Qn\+::\+Corrections\+Set\+On\+Input\+Data}!Fill\+Overall\+Corrections\+List@{Fill\+Overall\+Corrections\+List}}
+\index{Fill\+Overall\+Corrections\+List@{Fill\+Overall\+Corrections\+List}!Qn\+::\+Corrections\+Set\+On\+Input\+Data@{Qn\+::\+Corrections\+Set\+On\+Input\+Data}}
+\subsubsection{\texorpdfstring{Fill\+Overall\+Corrections\+List()}{FillOverallCorrectionsList()}}
+{\footnotesize\ttfamily void Qn\+::\+Corrections\+Set\+On\+Input\+Data\+::\+Fill\+Overall\+Corrections\+List (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{correctionlist }\end{DoxyParamCaption}) const}
+
+Fill the global list of correction steps 
+\begin{DoxyParams}{Parameters}
+{\em correctionlist} & (partial) global list of corrections ordered by correction key \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/include/Corrections\+Set\+On\+Input\+Data.\+h\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/Corrections\+Set\+On\+Input\+Data.\+cpp\end{DoxyCompactItemize}

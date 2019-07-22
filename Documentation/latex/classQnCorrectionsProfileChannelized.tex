@@ -1,0 +1,43 @@
+\hypertarget{classQnCorrectionsProfileChannelized}{}\section{Qn\+Corrections\+Profile\+Channelized Class Reference}
+\label{classQnCorrectionsProfileChannelized}\index{Qn\+Corrections\+Profile\+Channelized@{Qn\+Corrections\+Profile\+Channelized}}
+
+
+Channelized profile class for the Q vector correction histograms.  
+
+
+
+
+{\ttfamily \#include $<$Correction\+Profile\+Channelized.\+h$>$}
+
+
+
+\subsection{Detailed Description}
+Channelized profile class for the Q vector correction histograms. 
+
+Encapsulates a multidimensional profile. Each dimension corresponds to one of the event classes variables so, the number of dimensions matches the number of variables within the set passed in the constructor. Additionally incorporates an extra dimension to consider the channel number
+
+The involved histograms can be created on the fly when needed, and included in a provided list. They cannot be attached to existing ones. In any case they are not destroyed because they are not own by the class but by the involved list.
+
+Storage efficiency reasons dictate that channels were stored in consecutive order although externally to the class everything is handled with the actual external channel number. But if the histograms stored in a file are draw the channels will appear as enumerated form 0 to the number of active channels handled by the detector configuration that is associated to the histogram and as such by the own histogram.
+
+Get\+Bin\+Content (once the intended bin is obtained by mean of Get\+Bin) returns in the profile way \[ \frac{\Sigma \mbox{fValues(bin)}}{\mbox{fEntries(bin)}} \] while depending on the option passed at construction Get\+Bin\+Error returns
+\begin{DoxyItemize}
+\item \char`\"{}\char`\"{} the standard error on the mean of the values in the interested bin \[ \frac{\sqrt{\frac{\Sigma \mbox{fValues}^2\mbox{(bin)}}{\mbox{fEntries(bin)}} - \left(\frac{\Sigma \mbox{fValues(bin)}}{\mbox{fEntries(bin)}}\right)^2}} {\sqrt{\mbox{fEntries(bin)}}} \]
+\item \char`\"{}s\char`\"{} the standard deviation of the values in the interested bin \[ \sqrt{\frac{\Sigma \mbox{fValues}^2\mbox{(bin)}}{\mbox{fEntries(bin)}} - \left(\frac{\Sigma \mbox{fValues(bin)}}{\mbox{fEntries(bin)}}\right)^2} \]
+\end{DoxyItemize}
+
+\begin{DoxyAuthor}{Author}
+Jaap Onderwaater \href{mailto:jacobus.onderwaater@cern.ch}{\tt jacobus.\+onderwaater@cern.\+ch}, G\+SI 
+
+Ilya Selyuzhenkov \href{mailto:ilya.selyuzhenkov@gmail.com}{\tt ilya.\+selyuzhenkov@gmail.\+com}, G\+SI 
+
+Víctor González \href{mailto:victor.gonzalez@cern.ch}{\tt victor.\+gonzalez@cern.\+ch}, U\+CM 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Feb 11, 2016 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/include/Correction\+Profile\+Channelized.\+h\end{DoxyCompactItemize}

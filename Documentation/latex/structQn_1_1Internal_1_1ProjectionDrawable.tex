@@ -1,0 +1,53 @@
+\hypertarget{structQn_1_1Internal_1_1ProjectionDrawable}{}\section{Qn\+:\+:Internal\+:\+:Projection\+Drawable$<$ T $>$ Struct Template Reference}
+\label{structQn_1_1Internal_1_1ProjectionDrawable}\index{Qn\+::\+Internal\+::\+Projection\+Drawable$<$ T $>$@{Qn\+::\+Internal\+::\+Projection\+Drawable$<$ T $>$}}
+
+
+Template class to facilitate the drawing of Projections of \mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container}}.  
+
+
+
+
+{\ttfamily \#include $<$Data\+Container\+Helper.\+h$>$}
+
+Inheritance diagram for Qn\+:\+:Internal\+:\+:Projection\+Drawable$<$ T $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{structQn_1_1Internal_1_1ProjectionDrawable}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structQn_1_1Internal_1_1ProjectionDrawable_a692fe39c9a74d689cc4679a190559805}\label{structQn_1_1Internal_1_1ProjectionDrawable_a692fe39c9a74d689cc4679a190559805}} 
+{\bfseries Projection\+Drawable} (T projection)
+\item 
+\mbox{\Hypertarget{structQn_1_1Internal_1_1ProjectionDrawable_adb1b914219cad6cd49e8a35e8781be4a}\label{structQn_1_1Internal_1_1ProjectionDrawable_adb1b914219cad6cd49e8a35e8781be4a}} 
+void {\bfseries Browse} (T\+Browser $\ast$b) override
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structQn_1_1Internal_1_1ProjectionDrawable_aef9fa3539e77e695d40c658048e1faf4}\label{structQn_1_1Internal_1_1ProjectionDrawable_aef9fa3539e77e695d40c658048e1faf4}} 
+T {\bfseries graph} = nullptr
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+struct Qn\+::\+Internal\+::\+Projection\+Drawable$<$ T $>$}
+
+Template class to facilitate the drawing of Projections of \mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container}}. 
+
+\begin{DoxyAttention}{Attention}
+Takes ownership of graph and will delete it at the end of the lifetime. 
+\end{DoxyAttention}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of Graph to draw. \\
+\hline
+\end{DoxyTemplParams}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Base/include/Data\+Container\+Helper.\+h\end{DoxyCompactItemize}

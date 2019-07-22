@@ -1,0 +1,58 @@
+\hypertarget{classQn_1_1DetectorBase}{}\section{Qn\+:\+:Detector\+Base Class Reference}
+\label{classQn_1_1DetectorBase}\index{Qn\+::\+Detector\+Base@{Qn\+::\+Detector\+Base}}
+Inheritance diagram for Qn\+:\+:Detector\+Base\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classQn_1_1DetectorBase}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1DetectorBase_a5123507d64cd89af08f8f5ed56dffc22}\label{classQn_1_1DetectorBase_a5123507d64cd89af08f8f5ed56dffc22}} 
+virtual std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container\+Data\+Vector}} $>$ \& {\bfseries Get\+Data\+Container} ()=0
+\item 
+\mbox{\Hypertarget{classQn_1_1DetectorBase_a92928192623525ba5b74b1082c9b482c}\label{classQn_1_1DetectorBase_a92928192623525ba5b74b1082c9b482c}} 
+virtual std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container\+Q\+Vector}} $>$ \& {\bfseries Get\+Qn\+Data\+Container} ()=0
+\item 
+\mbox{\Hypertarget{classQn_1_1DetectorBase_acfc970cde94b5d09a3d1316fb3d6e36f}\label{classQn_1_1DetectorBase_acfc970cde94b5d09a3d1316fb3d6e36f}} 
+virtual \mbox{\hyperlink{classQn_1_1CorrectionDetector}{Correction\+Detector}} $\ast$ {\bfseries Generate\+Detector} (int globalid, int binid, \mbox{\hyperlink{classQn_1_1EventClassVariablesSet}{Event\+Class\+Variables\+Set}} $\ast$set)=0
+\item 
+\mbox{\Hypertarget{classQn_1_1DetectorBase_a720efe2f7086b4c7f68edf95d214a93a}\label{classQn_1_1DetectorBase_a720efe2f7086b4c7f68edf95d214a93a}} 
+virtual \mbox{\hyperlink{classQn_1_1DetectorConfiguration}{Detector\+Configuration}} $\ast$ {\bfseries Create\+Detector\+Configuration} (const std\+::string \&name, \mbox{\hyperlink{classQn_1_1EventClassVariablesSet}{Event\+Class\+Variables\+Set}} $\ast$set)=0
+\item 
+\mbox{\Hypertarget{classQn_1_1DetectorBase_a83e9646091bccacffa297f0b23f5cb09}\label{classQn_1_1DetectorBase_a83e9646091bccacffa297f0b23f5cb09}} 
+virtual void {\bfseries Set\+Config} (std\+::function$<$ void(\mbox{\hyperlink{classQn_1_1DetectorConfiguration}{Detector\+Configuration}} $\ast$config)$>$ conf)=0
+\item 
+\mbox{\Hypertarget{classQn_1_1DetectorBase_a95630775362a14958ef270dc115c5679}\label{classQn_1_1DetectorBase_a95630775362a14958ef270dc115c5679}} 
+virtual void {\bfseries Add\+Cut} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structQn_1_1VariableCutBase}{Variable\+Cut\+Base}} $>$ cut)=0
+\item 
+\mbox{\Hypertarget{classQn_1_1DetectorBase_a1d85af0a10390f65223cae91b7ef2883}\label{classQn_1_1DetectorBase_a1d85af0a10390f65223cae91b7ef2883}} 
+virtual void {\bfseries Add\+Histogram} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structQn_1_1QAHistoBase}{Q\+A\+Histo\+Base}} $>$ base)=0
+\item 
+\mbox{\Hypertarget{classQn_1_1DetectorBase_a777b04c1abfff3d28caecf0cb86fb3e7}\label{classQn_1_1DetectorBase_a777b04c1abfff3d28caecf0cb86fb3e7}} 
+virtual void {\bfseries Initialize\+Cut\+Reports} ()=0
+\item 
+\mbox{\Hypertarget{classQn_1_1DetectorBase_aad5889793f34ee5c80a4fc7471cd8b96}\label{classQn_1_1DetectorBase_aad5889793f34ee5c80a4fc7471cd8b96}} 
+virtual void {\bfseries Fill\+Report} ()=0
+\item 
+\mbox{\Hypertarget{classQn_1_1DetectorBase_ad18b602694b1cd392c63d2f456e02377}\label{classQn_1_1DetectorBase_ad18b602694b1cd392c63d2f456e02377}} 
+virtual void {\bfseries Fill\+Data} ()=0
+\item 
+\mbox{\Hypertarget{classQn_1_1DetectorBase_a8833f5bd09a569bf3795058c3e4da528}\label{classQn_1_1DetectorBase_a8833f5bd09a569bf3795058c3e4da528}} 
+virtual void {\bfseries Clear\+Data} ()=0
+\item 
+\mbox{\Hypertarget{classQn_1_1DetectorBase_a1399c579dcc65d191bd92a3edeb9d6fe}\label{classQn_1_1DetectorBase_a1399c579dcc65d191bd92a3edeb9d6fe}} 
+virtual T\+List $\ast$ {\bfseries Get\+Report\+List} ()=0
+\item 
+\mbox{\Hypertarget{classQn_1_1DetectorBase_aa9d6c4d75884271c2af8fff506f84207}\label{classQn_1_1DetectorBase_aa9d6c4d75884271c2af8fff506f84207}} 
+virtual void {\bfseries Set\+Up\+Correction\+Vector\+Ptrs} (const \mbox{\hyperlink{classQn_1_1CorrectionCalculator}{Qn\+::\+Correction\+Calculator}} \&calc, std\+::string step)=0
+\item 
+\mbox{\Hypertarget{classQn_1_1DetectorBase_aedb870c235ad5f03630b6670ebd2b151}\label{classQn_1_1DetectorBase_aedb870c235ad5f03630b6670ebd2b151}} 
+virtual void {\bfseries Get\+Corrected\+Q\+Vectors} ()=0
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Correction/include/Detector.\+h\end{DoxyCompactItemize}

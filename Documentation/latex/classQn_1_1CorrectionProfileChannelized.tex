@@ -1,0 +1,211 @@
+\hypertarget{classQn_1_1CorrectionProfileChannelized}{}\section{Qn\+:\+:Correction\+Profile\+Channelized Class Reference}
+\label{classQn_1_1CorrectionProfileChannelized}\index{Qn\+::\+Correction\+Profile\+Channelized@{Qn\+::\+Correction\+Profile\+Channelized}}
+Inheritance diagram for Qn\+:\+:Correction\+Profile\+Channelized\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classQn_1_1CorrectionProfileChannelized}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionProfileChannelized_a82745b91a442b1999b166dadf312b47d}\label{classQn_1_1CorrectionProfileChannelized_a82745b91a442b1999b166dadf312b47d}} 
+\mbox{\hyperlink{classQn_1_1CorrectionProfileChannelized_a82745b91a442b1999b166dadf312b47d}{Correction\+Profile\+Channelized}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQn_1_1CorrectionProfileChannelized_ad3860853ae13c35e17017767005cda92}{Correction\+Profile\+Channelized}} (const char $\ast$name, const char $\ast$title, \mbox{\hyperlink{classQn_1_1EventClassVariablesSet}{Event\+Class\+Variables\+Set}} \&ecvs, Int\+\_\+t n\+No\+Of\+Channels, Option\+\_\+t $\ast$option=\char`\"{}\char`\"{})
+\item 
+virtual \mbox{\hyperlink{classQn_1_1CorrectionProfileChannelized_a5389dfe26fc02d4efd276ae5b9dcd7b8}{$\sim$\+Correction\+Profile\+Channelized}} ()
+\item 
+Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionProfileChannelized_ad98e4ab64dbbc306de3b67eee35a1425}{Create\+Profile\+Histograms}} (T\+List $\ast$histogram\+List, const Bool\+\_\+t $\ast$b\+Used\+Channel, const Int\+\_\+t $\ast$n\+Channel\+Group)
+\item 
+virtual Long64\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionProfileChannelized_a10eb9b98a847afecf08e01e4e82bd4c5}{Get\+Bin}} (const double $\ast$variable\+Container, Int\+\_\+t n\+Channel)
+\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionProfileChannelized_aa495dacf1deb21e799a08afbefd323a3}\label{classQn_1_1CorrectionProfileChannelized_aa495dacf1deb21e799a08afbefd323a3}} 
+virtual Long64\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionProfileChannelized_aa495dacf1deb21e799a08afbefd323a3}{Get\+Bin}} (const double $\ast$variable\+Container)
+\begin{DoxyCompactList}\small\item\em wrong call for this class invoke base class behavior \end{DoxyCompactList}\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionProfileChannelized_a1a7640ed888a3357d28f3f0f8e8b4bec}{Bin\+Content\+Validated}} (Long64\+\_\+t bin)
+\item 
+virtual Float\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionProfileChannelized_a45d475d580d3c5dfe9d139552eab766b}{Get\+Bin\+Content}} (Long64\+\_\+t bin)
+\item 
+virtual Float\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionProfileChannelized_a68b390bb4d744453239bca73a1c3ca84}{Get\+Bin\+Error}} (Long64\+\_\+t bin)
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1CorrectionProfileChannelized_a154acd464664786fc84177964072f55b}{Fill}} (const double $\ast$variable\+Container, Int\+\_\+t n\+Channel, Float\+\_\+t weight)
+\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionProfileChannelized_ad063c82996e749fdf54526d3c627249b}\label{classQn_1_1CorrectionProfileChannelized_ad063c82996e749fdf54526d3c627249b}} 
+virtual void \mbox{\hyperlink{classQn_1_1CorrectionProfileChannelized_ad063c82996e749fdf54526d3c627249b}{Fill}} (const double $\ast$variable\+Container, Float\+\_\+t weight)
+\begin{DoxyCompactList}\small\item\em wrong call for this class invoke base class behavior \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classQn_1_1CorrectionProfileChannelized_ad3860853ae13c35e17017767005cda92}\label{classQn_1_1CorrectionProfileChannelized_ad3860853ae13c35e17017767005cda92}} 
+\index{Qn\+::\+Correction\+Profile\+Channelized@{Qn\+::\+Correction\+Profile\+Channelized}!Correction\+Profile\+Channelized@{Correction\+Profile\+Channelized}}
+\index{Correction\+Profile\+Channelized@{Correction\+Profile\+Channelized}!Qn\+::\+Correction\+Profile\+Channelized@{Qn\+::\+Correction\+Profile\+Channelized}}
+\subsubsection{\texorpdfstring{Correction\+Profile\+Channelized()}{CorrectionProfileChannelized()}}
+{\footnotesize\ttfamily Qn\+::\+Correction\+Profile\+Channelized\+::\+Correction\+Profile\+Channelized (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{const char $\ast$}]{title,  }\item[{\mbox{\hyperlink{classQn_1_1EventClassVariablesSet}{Event\+Class\+Variables\+Set}} \&}]{ecvs,  }\item[{Int\+\_\+t}]{n\+No\+Of\+Channels,  }\item[{Option\+\_\+t $\ast$}]{option = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+Normal constructor
+
+Stores the set of variables that identify the different event classes passing them to its parent and prepares the object for actual histogram creation or attachment
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & base for the name of the histograms \\
+\hline
+{\em title} & base for the title of the histograms \\
+\hline
+{\em ecvs} & the event classes variables set \\
+\hline
+{\em n\+No\+Of\+Channels} & the number of channels associated \\
+\hline
+{\em option} & option for errors computation \textquotesingle{} \textquotesingle{} (Default) the bin errors are the standard error on the mean of the bin values\\
+\hline
+\end{DoxyParams}
+\textquotesingle{}s\textquotesingle{} the bin are the standard deviation of of the bin values \mbox{\Hypertarget{classQn_1_1CorrectionProfileChannelized_a5389dfe26fc02d4efd276ae5b9dcd7b8}\label{classQn_1_1CorrectionProfileChannelized_a5389dfe26fc02d4efd276ae5b9dcd7b8}} 
+\index{Qn\+::\+Correction\+Profile\+Channelized@{Qn\+::\+Correction\+Profile\+Channelized}!````~Correction\+Profile\+Channelized@{$\sim$\+Correction\+Profile\+Channelized}}
+\index{````~Correction\+Profile\+Channelized@{$\sim$\+Correction\+Profile\+Channelized}!Qn\+::\+Correction\+Profile\+Channelized@{Qn\+::\+Correction\+Profile\+Channelized}}
+\subsubsection{\texorpdfstring{$\sim$\+Correction\+Profile\+Channelized()}{~CorrectionProfileChannelized()}}
+{\footnotesize\ttfamily Qn\+::\+Correction\+Profile\+Channelized\+::$\sim$\+Correction\+Profile\+Channelized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Default destructor Releases the memory taken 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQn_1_1CorrectionProfileChannelized_a1a7640ed888a3357d28f3f0f8e8b4bec}\label{classQn_1_1CorrectionProfileChannelized_a1a7640ed888a3357d28f3f0f8e8b4bec}} 
+\index{Qn\+::\+Correction\+Profile\+Channelized@{Qn\+::\+Correction\+Profile\+Channelized}!Bin\+Content\+Validated@{Bin\+Content\+Validated}}
+\index{Bin\+Content\+Validated@{Bin\+Content\+Validated}!Qn\+::\+Correction\+Profile\+Channelized@{Qn\+::\+Correction\+Profile\+Channelized}}
+\subsubsection{\texorpdfstring{Bin\+Content\+Validated()}{BinContentValidated()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Correction\+Profile\+Channelized\+::\+Bin\+Content\+Validated (\begin{DoxyParamCaption}\item[{Long64\+\_\+t}]{bin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Check the validity of the content of the passed bin If the number of entries is lower than the minimum number of entries to validate it the bin content is not considered valid and k\+F\+A\+L\+SE is returned, otherwise k\+T\+R\+UE is returned 
+\begin{DoxyParams}{Parameters}
+{\em bin} & the bin to check its content validity \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if the content is valid k\+F\+A\+L\+SE otherwise 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionHistogramBase_a4db2c92ceaffefaa91475a721612d80d}{Qn\+::\+Correction\+Histogram\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionProfileChannelized_ad98e4ab64dbbc306de3b67eee35a1425}\label{classQn_1_1CorrectionProfileChannelized_ad98e4ab64dbbc306de3b67eee35a1425}} 
+\index{Qn\+::\+Correction\+Profile\+Channelized@{Qn\+::\+Correction\+Profile\+Channelized}!Create\+Profile\+Histograms@{Create\+Profile\+Histograms}}
+\index{Create\+Profile\+Histograms@{Create\+Profile\+Histograms}!Qn\+::\+Correction\+Profile\+Channelized@{Qn\+::\+Correction\+Profile\+Channelized}}
+\subsubsection{\texorpdfstring{Create\+Profile\+Histograms()}{CreateProfileHistograms()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Correction\+Profile\+Channelized\+::\+Create\+Profile\+Histograms (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{histogram\+List,  }\item[{const Bool\+\_\+t $\ast$}]{b\+Used\+Channel,  }\item[{const Int\+\_\+t $\ast$}]{n\+Channel\+Group }\end{DoxyParamCaption})}
+
+Creates the support histograms for the profile function
+
+Based in the event classes variables set in the parent class and the channel information passed as parameters the values and entries multidimensional histograms are created.
+
+Both histograms are added to the passed histogram list
+
+The actual number of channels is stored and a mask from external channel number to histogram channel number. If b\+Used\+Channel is N\+U\+LL all channels within f\+No\+Of\+Channels are assigned to this profile. If n\+Channel\+Group is N\+U\+LL all channels assigned to this profile are allocated to the same group. 
+\begin{DoxyParams}{Parameters}
+{\em histogram\+List} & list where the histograms have to be added \\
+\hline
+{\em b\+Used\+Channel} & array of booleans one per each channel \\
+\hline
+{\em n\+Channel\+Group} & array of group number for each channel \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if properly created 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionProfileChannelized_a154acd464664786fc84177964072f55b}\label{classQn_1_1CorrectionProfileChannelized_a154acd464664786fc84177964072f55b}} 
+\index{Qn\+::\+Correction\+Profile\+Channelized@{Qn\+::\+Correction\+Profile\+Channelized}!Fill@{Fill}}
+\index{Fill@{Fill}!Qn\+::\+Correction\+Profile\+Channelized@{Qn\+::\+Correction\+Profile\+Channelized}}
+\subsubsection{\texorpdfstring{Fill()}{Fill()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Profile\+Channelized\+::\+Fill (\begin{DoxyParamCaption}\item[{const double $\ast$}]{variable\+Container,  }\item[{Int\+\_\+t}]{n\+Channel,  }\item[{Float\+\_\+t}]{weight }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Fills the histogram
+
+The involved bin is computed according to the current variables content and the passed external channel number. The bin is then increased by the given weight and the entries also increased properly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em variable\+Container} & the current variables content addressed by var Id \\
+\hline
+{\em n\+Channel} & the interested external channel number \\
+\hline
+{\em weight} & the increment in the bin content \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classQn_1_1CorrectionHistogramBase_ae94b20c7d396f5b179fb11d84d764c09}{Qn\+::\+Correction\+Histogram\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionProfileChannelized_a10eb9b98a847afecf08e01e4e82bd4c5}\label{classQn_1_1CorrectionProfileChannelized_a10eb9b98a847afecf08e01e4e82bd4c5}} 
+\index{Qn\+::\+Correction\+Profile\+Channelized@{Qn\+::\+Correction\+Profile\+Channelized}!Get\+Bin@{Get\+Bin}}
+\index{Get\+Bin@{Get\+Bin}!Qn\+::\+Correction\+Profile\+Channelized@{Qn\+::\+Correction\+Profile\+Channelized}}
+\subsubsection{\texorpdfstring{Get\+Bin()}{GetBin()}}
+{\footnotesize\ttfamily Long64\+\_\+t Qn\+::\+Correction\+Profile\+Channelized\+::\+Get\+Bin (\begin{DoxyParamCaption}\item[{const double $\ast$}]{variable\+Container,  }\item[{Int\+\_\+t}]{n\+Channel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get the bin number for the current variable content and passed channel
+
+The bin number identifies the event class the current variable content points to under the passed channel.
+
+
+\begin{DoxyParams}{Parameters}
+{\em variable\+Container} & the current variables content addressed by var Id \\
+\hline
+{\em n\+Channel} & the interested external channel number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the associated bin to the current variables content 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classQn_1_1CorrectionHistogramBase_acfde166908e4da950470841f21f87fb9}{Qn\+::\+Correction\+Histogram\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionProfileChannelized_a45d475d580d3c5dfe9d139552eab766b}\label{classQn_1_1CorrectionProfileChannelized_a45d475d580d3c5dfe9d139552eab766b}} 
+\index{Qn\+::\+Correction\+Profile\+Channelized@{Qn\+::\+Correction\+Profile\+Channelized}!Get\+Bin\+Content@{Get\+Bin\+Content}}
+\index{Get\+Bin\+Content@{Get\+Bin\+Content}!Qn\+::\+Correction\+Profile\+Channelized@{Qn\+::\+Correction\+Profile\+Channelized}}
+\subsubsection{\texorpdfstring{Get\+Bin\+Content()}{GetBinContent()}}
+{\footnotesize\ttfamily Float\+\_\+t Qn\+::\+Correction\+Profile\+Channelized\+::\+Get\+Bin\+Content (\begin{DoxyParamCaption}\item[{Long64\+\_\+t}]{bin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get the bin content for the passed bin number
+
+The bin number identifies a desired event class whose content is requested. If the bin content is not validated zero is returned.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bin} & the interested bin number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the bin number content 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classQn_1_1CorrectionHistogramBase_a9e4e745a6f4cbebf5b9277d6d63bc9c7}{Qn\+::\+Correction\+Histogram\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionProfileChannelized_a68b390bb4d744453239bca73a1c3ca84}\label{classQn_1_1CorrectionProfileChannelized_a68b390bb4d744453239bca73a1c3ca84}} 
+\index{Qn\+::\+Correction\+Profile\+Channelized@{Qn\+::\+Correction\+Profile\+Channelized}!Get\+Bin\+Error@{Get\+Bin\+Error}}
+\index{Get\+Bin\+Error@{Get\+Bin\+Error}!Qn\+::\+Correction\+Profile\+Channelized@{Qn\+::\+Correction\+Profile\+Channelized}}
+\subsubsection{\texorpdfstring{Get\+Bin\+Error()}{GetBinError()}}
+{\footnotesize\ttfamily Float\+\_\+t Qn\+::\+Correction\+Profile\+Channelized\+::\+Get\+Bin\+Error (\begin{DoxyParamCaption}\item[{Long64\+\_\+t}]{bin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get the bin content error for the passed bin number
+
+The bin number identifies a desired event class whose content error is requested. If the bin content is not validated zero is returned.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bin} & the interested bin number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the bin number content error 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classQn_1_1CorrectionHistogramBase_a50a7dd4c5bbe5e4d0e405365c2a9104d}{Qn\+::\+Correction\+Histogram\+Base}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/include/Correction\+Profile\+Channelized.\+h\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/Correction\+Profile\+Channelized.\+cpp\end{DoxyCompactItemize}

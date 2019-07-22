@@ -1,0 +1,74 @@
+\hypertarget{classQn_1_1VariableCutNDim}{}\section{Qn\+:\+:Variable\+Cut\+N\+Dim$<$ T $>$ Class Template Reference}
+\label{classQn_1_1VariableCutNDim}\index{Qn\+::\+Variable\+Cut\+N\+Dim$<$ T $>$@{Qn\+::\+Variable\+Cut\+N\+Dim$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Variable\+Cut\+Base.\+h$>$}
+
+Inheritance diagram for Qn\+:\+:Variable\+Cut\+N\+Dim$<$ T $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classQn_1_1VariableCutNDim}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1VariableCutNDim_ae6f4f4bad96a292c2e83e97751e5e64d}\label{classQn_1_1VariableCutNDim_ae6f4f4bad96a292c2e83e97751e5e64d}} 
+{\bfseries Variable\+Cut\+N\+Dim} (\mbox{\hyperlink{classQn_1_1Variable}{Variable}} const (\&arr)\mbox{[}sizeof...(T)\mbox{]}, std\+::function$<$ bool(T...)$>$ lambda)
+\item 
+bool \mbox{\hyperlink{classQn_1_1VariableCutNDim_a572a7d7e846d4b16a4dcacf138056347}{Check}} (int i) override
+\item 
+int \mbox{\hyperlink{classQn_1_1VariableCutNDim_a623c598922f52c0b459f43981a9d2636}{Get\+Variable\+Length}} () const override
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename... T$>$\newline
+class Qn\+::\+Variable\+Cut\+N\+Dim$<$ T $>$}
+
+Template class of a cut applied in the correction step. Number of dimensions is determined by the signature of the cut function and by the size of the variables array passed to the constructor. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of variable \\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQn_1_1VariableCutNDim_a572a7d7e846d4b16a4dcacf138056347}\label{classQn_1_1VariableCutNDim_a572a7d7e846d4b16a4dcacf138056347}} 
+\index{Qn\+::\+Variable\+Cut\+N\+Dim@{Qn\+::\+Variable\+Cut\+N\+Dim}!Check@{Check}}
+\index{Check@{Check}!Qn\+::\+Variable\+Cut\+N\+Dim@{Qn\+::\+Variable\+Cut\+N\+Dim}}
+\subsubsection{\texorpdfstring{Check()}{Check()}}
+{\footnotesize\ttfamily template$<$typename... T$>$ \\
+bool \mbox{\hyperlink{classQn_1_1VariableCutNDim}{Qn\+::\+Variable\+Cut\+N\+Dim}}$<$ T $>$\+::Check (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Check if the cut is passed for variables at variable id + i 
+\begin{DoxyParams}{Parameters}
+{\em i} & offset from the variable id. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the cut is passed. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{structQn_1_1VariableCutBase}{Qn\+::\+Variable\+Cut\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1VariableCutNDim_a623c598922f52c0b459f43981a9d2636}\label{classQn_1_1VariableCutNDim_a623c598922f52c0b459f43981a9d2636}} 
+\index{Qn\+::\+Variable\+Cut\+N\+Dim@{Qn\+::\+Variable\+Cut\+N\+Dim}!Get\+Variable\+Length@{Get\+Variable\+Length}}
+\index{Get\+Variable\+Length@{Get\+Variable\+Length}!Qn\+::\+Variable\+Cut\+N\+Dim@{Qn\+::\+Variable\+Cut\+N\+Dim}}
+\subsubsection{\texorpdfstring{Get\+Variable\+Length()}{GetVariableLength()}}
+{\footnotesize\ttfamily template$<$typename... T$>$ \\
+int \mbox{\hyperlink{classQn_1_1VariableCutNDim}{Qn\+::\+Variable\+Cut\+N\+Dim}}$<$ T $>$\+::Get\+Variable\+Length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Get the length of the variable at position 0. \begin{DoxyReturn}{Returns}
+length of the variables. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{structQn_1_1VariableCutBase}{Qn\+::\+Variable\+Cut\+Base}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Correction/include/Variable\+Cut\+Base.\+h\end{DoxyCompactItemize}

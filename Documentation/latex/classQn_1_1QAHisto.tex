@@ -1,0 +1,97 @@
+\hypertarget{classQn_1_1QAHisto}{}\section{Qn\+:\+:Q\+A\+Histo$<$ H\+I\+S\+TO, N, V\+AR $>$ Class Template Reference}
+\label{classQn_1_1QAHisto}\index{Qn\+::\+Q\+A\+Histo$<$ H\+I\+S\+T\+O, N, V\+A\+R $>$@{Qn\+::\+Q\+A\+Histo$<$ H\+I\+S\+T\+O, N, V\+A\+R $>$}}
+
+
+{\ttfamily \#include $<$Q\+A\+Histogram.\+h$>$}
+
+Inheritance diagram for Qn\+:\+:Q\+A\+Histo$<$ H\+I\+S\+TO, N, V\+AR $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classQn_1_1QAHisto}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1QAHisto_a3bec5933f9d3ecc7f30d508d236ffd30}\label{classQn_1_1QAHisto_a3bec5933f9d3ecc7f30d508d236ffd30}} 
+{\bfseries Q\+A\+Histo} (std\+::array$<$ V\+AR, N $>$ vec, H\+I\+S\+TO histo, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classQn_1_1Axis}{Qn\+::\+Axis}} $>$ axis, \mbox{\hyperlink{classQn_1_1Variable}{Qn\+::\+Variable}} axisvar)
+\item 
+\mbox{\Hypertarget{classQn_1_1QAHisto_ac6e9d11cf5550b8915419f8821616078}\label{classQn_1_1QAHisto_ac6e9d11cf5550b8915419f8821616078}} 
+{\bfseries Q\+A\+Histo} (std\+::array$<$ V\+AR, N $>$ vec, H\+I\+S\+TO histo)
+\item 
+{\footnotesize template$<$typename array , std\+::size\+\_\+t... I$>$ }\\void \mbox{\hyperlink{classQn_1_1QAHisto_a2cf01f7749c505bdbc14a0895c06d41a}{Fill\+Impl}} (const array a, std\+::index\+\_\+sequence$<$ I... $>$)
+\item 
+void \mbox{\hyperlink{classQn_1_1QAHisto_a0841ac824d99d03b4f2646b62bf9c93e}{Fill}} () override
+\item 
+void \mbox{\hyperlink{classQn_1_1QAHisto_a3d5c6dde0416609c37bfc847955e0b8d}{Add\+To\+List}} (T\+List $\ast$list) override
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename H\+I\+S\+TO, int N, typename V\+AR$>$\newline
+class Qn\+::\+Q\+A\+Histo$<$ H\+I\+S\+T\+O, N, V\+A\+R $>$}
+
+Wrapper for a R\+O\+OT histogram, which allows it to be filled by the correction manager. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em H\+I\+S\+TO} & type of histogram. \\
+\hline
+{\em N} & number of dimensions \\
+\hline
+{\em V\+AR} & Type of the variable \\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQn_1_1QAHisto_a3d5c6dde0416609c37bfc847955e0b8d}\label{classQn_1_1QAHisto_a3d5c6dde0416609c37bfc847955e0b8d}} 
+\index{Qn\+::\+Q\+A\+Histo@{Qn\+::\+Q\+A\+Histo}!Add\+To\+List@{Add\+To\+List}}
+\index{Add\+To\+List@{Add\+To\+List}!Qn\+::\+Q\+A\+Histo@{Qn\+::\+Q\+A\+Histo}}
+\subsubsection{\texorpdfstring{Add\+To\+List()}{AddToList()}}
+{\footnotesize\ttfamily template$<$typename H\+I\+S\+TO , int N, typename V\+AR $>$ \\
+void \mbox{\hyperlink{classQn_1_1QAHisto}{Qn\+::\+Q\+A\+Histo}}$<$ H\+I\+S\+TO, N, V\+AR $>$\+::Add\+To\+List (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Add the histogram to the list. 
+\begin{DoxyParams}{Parameters}
+{\em list} & pointer to the list. Lifetime of the histogram hast to be managed by the list. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{structQn_1_1QAHistoBase}{Qn\+::\+Q\+A\+Histo\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1QAHisto_a0841ac824d99d03b4f2646b62bf9c93e}\label{classQn_1_1QAHisto_a0841ac824d99d03b4f2646b62bf9c93e}} 
+\index{Qn\+::\+Q\+A\+Histo@{Qn\+::\+Q\+A\+Histo}!Fill@{Fill}}
+\index{Fill@{Fill}!Qn\+::\+Q\+A\+Histo@{Qn\+::\+Q\+A\+Histo}}
+\subsubsection{\texorpdfstring{Fill()}{Fill()}}
+{\footnotesize\ttfamily template$<$typename H\+I\+S\+TO , int N, typename V\+AR $>$ \\
+void \mbox{\hyperlink{classQn_1_1QAHisto}{Qn\+::\+Q\+A\+Histo}}$<$ H\+I\+S\+TO, N, V\+AR $>$\+::Fill (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Fill function. 
+
+Implements \mbox{\hyperlink{structQn_1_1QAHistoBase}{Qn\+::\+Q\+A\+Histo\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1QAHisto_a2cf01f7749c505bdbc14a0895c06d41a}\label{classQn_1_1QAHisto_a2cf01f7749c505bdbc14a0895c06d41a}} 
+\index{Qn\+::\+Q\+A\+Histo@{Qn\+::\+Q\+A\+Histo}!Fill\+Impl@{Fill\+Impl}}
+\index{Fill\+Impl@{Fill\+Impl}!Qn\+::\+Q\+A\+Histo@{Qn\+::\+Q\+A\+Histo}}
+\subsubsection{\texorpdfstring{Fill\+Impl()}{FillImpl()}}
+{\footnotesize\ttfamily template$<$typename H\+I\+S\+TO , int N, typename V\+AR $>$ \\
+template$<$typename array , std\+::size\+\_\+t... I$>$ \\
+void \mbox{\hyperlink{classQn_1_1QAHisto}{Qn\+::\+Q\+A\+Histo}}$<$ H\+I\+S\+TO, N, V\+AR $>$\+::Fill\+Impl (\begin{DoxyParamCaption}\item[{const array}]{a,  }\item[{std\+::index\+\_\+sequence$<$ I... $>$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Implementation of the fill function 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em array} & type of array \\
+\hline
+{\em I} & index sequence \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Array of variables used for filling the histogram \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Correction/include/Q\+A\+Histogram.\+h\end{DoxyCompactItemize}

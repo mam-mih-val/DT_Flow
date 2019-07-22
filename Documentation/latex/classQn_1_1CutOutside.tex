@@ -1,0 +1,82 @@
+\hypertarget{classQn_1_1CutOutside}{}\section{Qn\+:\+:Cut\+Outside Class Reference}
+\label{classQn_1_1CutOutside}\index{Qn\+::\+Cut\+Outside@{Qn\+::\+Cut\+Outside}}
+Inheritance diagram for Qn\+:\+:Cut\+Outside\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classQn_1_1CutOutside}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1CutOutside_a6667534ec2b340af943b150a642325c4}\label{classQn_1_1CutOutside_a6667534ec2b340af943b150a642325c4}} 
+\mbox{\hyperlink{classQn_1_1CutOutside_a6667534ec2b340af943b150a642325c4}{Cut\+Outside}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQn_1_1CutOutside_a58878430ec8e3cdf04bbf01551915c34}{Cut\+Outside}} (const \mbox{\hyperlink{classQn_1_1CutOutside}{Cut\+Outside}} \&cut)
+\item 
+\mbox{\hyperlink{classQn_1_1CutOutside_a1e47a825aaff83255e48dd4ee159ab54}{Cut\+Outside}} (Int\+\_\+t var\+Id, Float\+\_\+t min, Float\+\_\+t max)
+\item 
+\mbox{\Hypertarget{classQn_1_1CutOutside_a0feafa5d0b1a6ecd09629a53aef56c52}\label{classQn_1_1CutOutside_a0feafa5d0b1a6ecd09629a53aef56c52}} 
+virtual \mbox{\hyperlink{classQn_1_1CutOutside_a0feafa5d0b1a6ecd09629a53aef56c52}{$\sim$\+Cut\+Outside}} ()
+\begin{DoxyCompactList}\small\item\em Default destructor. Does nothing. \end{DoxyCompactList}\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CutOutside_ad368fe06c6b6228edbef319e73f63e24}{Is\+Selected}} (const double $\ast$variable\+Container)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classQn_1_1CutOutside_a58878430ec8e3cdf04bbf01551915c34}\label{classQn_1_1CutOutside_a58878430ec8e3cdf04bbf01551915c34}} 
+\index{Qn\+::\+Cut\+Outside@{Qn\+::\+Cut\+Outside}!Cut\+Outside@{Cut\+Outside}}
+\index{Cut\+Outside@{Cut\+Outside}!Qn\+::\+Cut\+Outside@{Qn\+::\+Cut\+Outside}}
+\subsubsection{\texorpdfstring{Cut\+Outside()}{CutOutside()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Qn\+::\+Cut\+Outside\+::\+Cut\+Outside (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQn_1_1CutOutside}{Cut\+Outside}} \&}]{cut }\end{DoxyParamCaption})}
+
+Copy constructor 
+\begin{DoxyParams}{Parameters}
+{\em cut} & the cut object to be cloned \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CutOutside_a1e47a825aaff83255e48dd4ee159ab54}\label{classQn_1_1CutOutside_a1e47a825aaff83255e48dd4ee159ab54}} 
+\index{Qn\+::\+Cut\+Outside@{Qn\+::\+Cut\+Outside}!Cut\+Outside@{Cut\+Outside}}
+\index{Cut\+Outside@{Cut\+Outside}!Qn\+::\+Cut\+Outside@{Qn\+::\+Cut\+Outside}}
+\subsubsection{\texorpdfstring{Cut\+Outside()}{CutOutside()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Qn\+::\+Cut\+Outside\+::\+Cut\+Outside (\begin{DoxyParamCaption}\item[{Int\+\_\+t}]{var\+Id,  }\item[{Float\+\_\+t}]{min,  }\item[{Float\+\_\+t}]{max }\end{DoxyParamCaption})}
+
+Normal constructor 
+\begin{DoxyParams}{Parameters}
+{\em var\+Id} & external Id for the affected variable \\
+\hline
+{\em min} & the value the variable content should be below \\
+\hline
+{\em max} & the value the variable content should be above \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQn_1_1CutOutside_ad368fe06c6b6228edbef319e73f63e24}\label{classQn_1_1CutOutside_ad368fe06c6b6228edbef319e73f63e24}} 
+\index{Qn\+::\+Cut\+Outside@{Qn\+::\+Cut\+Outside}!Is\+Selected@{Is\+Selected}}
+\index{Is\+Selected@{Is\+Selected}!Qn\+::\+Cut\+Outside@{Qn\+::\+Cut\+Outside}}
+\subsubsection{\texorpdfstring{Is\+Selected()}{IsSelected()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Cut\+Outside\+::\+Is\+Selected (\begin{DoxyParamCaption}\item[{const double $\ast$}]{variable\+Container }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Check if the actual variable value passes the cut
+
+
+\begin{DoxyParams}{Parameters}
+{\em variable\+Container} & the current variables content addressed by var Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if the actual value is below the threshold else k\+F\+A\+L\+SE 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CutsBase_aab081fa4220144505ca838539d83aa8d}{Qn\+::\+Cuts\+Base}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/include/Cut\+Outside.\+h\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/Cut\+Outside.\+cpp\end{DoxyCompactItemize}

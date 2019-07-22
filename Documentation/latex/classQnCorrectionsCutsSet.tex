@@ -1,0 +1,39 @@
+\hypertarget{classQnCorrectionsCutsSet}{}\section{Qn\+Corrections\+Cuts\+Set Class Reference}
+\label{classQnCorrectionsCutsSet}\index{Qn\+Corrections\+Cuts\+Set@{Qn\+Corrections\+Cuts\+Set}}
+
+
+Set of cuts to assign to a detector.  
+
+
+
+
+{\ttfamily \#include $<$Cuts\+Set.\+h$>$}
+
+
+
+\subsection{Detailed Description}
+Set of cuts to assign to a detector. 
+
+Array of cuts that contains the whole set of cuts to assign to a concrete detector or detector configuration to filter the desired events (in the broad sense) it will have to handle.
+
+Inherits all the methods of T\+Obj\+Array specially the subscript \mbox{[}\mbox{]} operator and Add method that allows the array to expand.
+
+Provides Is\+Selected that goes through the whole set of cuts to check whether the current variables values pass the them.
+
+The cuts objects are not own by the array so, they are not destroyed when the the set is destroyed. This allows to create several sets with the same cuts. Pay attention to this when you create your cuts, they should live at least the same time you expect the sets to live.
+
+\begin{DoxyAuthor}{Author}
+Jaap Onderwaater \href{mailto:jacobus.onderwaater@cern.ch}{\tt jacobus.\+onderwaater@cern.\+ch}, G\+SI 
+
+Ilya Selyuzhenkov \href{mailto:ilya.selyuzhenkov@gmail.com}{\tt ilya.\+selyuzhenkov@gmail.\+com}, G\+SI 
+
+Víctor González \href{mailto:victor.gonzalez@cern.ch}{\tt victor.\+gonzalez@cern.\+ch}, U\+CM 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Jan 4, 2016 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/include/Cuts\+Set.\+h\end{DoxyCompactItemize}

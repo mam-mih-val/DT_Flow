@@ -1,0 +1,383 @@
+\hypertarget{classQn_1_1CorrectionManager}{}\section{Qn\+:\+:Correction\+Manager Class Reference}
+\label{classQn_1_1CorrectionManager}\index{Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionManager_ae3efe5c5668bf7050b909a49ced526d5}\label{classQn_1_1CorrectionManager_ae3efe5c5668bf7050b909a49ced526d5}} 
+using {\bfseries Map\+Detectors} = std\+::map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classQn_1_1DetectorBase}{Detector\+Base}} $>$ $>$
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionManager_a3b2edd13dc55101b174f14a5239633ef}{Add\+Variable}} (const std\+::string \&name, const int id, const int length)
+\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionManager_a70e2e9393902f02ca5d218425f5f6201}{Add\+Correction\+Axis}} (const \mbox{\hyperlink{classQn_1_1Axis}{Qn\+::\+Axis}} \&axis)
+\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionManager_a90640b93699ad1550136bd53a5ef39f9}{Add\+Event\+Variable}} (const std\+::string \&name)
+\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionManager_a858b828ce9b1db78c9429dfc89a3c2d6}{Add\+Run\+Event\+Id}} (const std\+::string \&run, const std\+::string \&event)
+\item 
+{\footnotesize template$<$std\+::size\+\_\+t N$>$ }\\void \mbox{\hyperlink{classQn_1_1CorrectionManager_a7b9b32033074f6bd3eacd3e51702dc7e}{Add\+Detector}} (std\+::string name, \mbox{\hyperlink{namespaceQn_adba56b19bd9207127cdc7227d9e03a05}{Qn\+::\+Detector\+Type}} type, const std\+::string \&phi\+\_\+name, const std\+::string \&weight\+\_\+name, const std\+::vector$<$ \mbox{\hyperlink{classQn_1_1Axis}{Qn\+::\+Axis}} $>$ \&axes, int const(\&harmo)\mbox{[}N\mbox{]})
+\item 
+{\footnotesize template$<$std\+::size\+\_\+t N, typename F\+U\+N\+C\+T\+I\+ON $>$ }\\void \mbox{\hyperlink{classQn_1_1CorrectionManager_a74b1dfe42a8480d852b0d76085c3cc1d}{Add\+Cut}} (const std\+::string \&name, const char $\ast$const (\&names)\mbox{[}N\mbox{]}, F\+U\+N\+C\+T\+I\+ON lambda)
+\begin{DoxyCompactList}\small\item\em Adds a cut to a detector. Template parameters are automatically deduced. \end{DoxyCompactList}\item 
+{\footnotesize template$<$std\+::size\+\_\+t N, typename F\+U\+N\+C\+T\+I\+ON $>$ }\\void \mbox{\hyperlink{classQn_1_1CorrectionManager_ad043483660dfc3b533f9bf9ca8272229}{Add\+Event\+Cut}} (const char $\ast$const (\&name\+\_\+arr)\mbox{[}N\mbox{]}, F\+U\+N\+C\+T\+I\+ON \&\&func)
+\begin{DoxyCompactList}\small\item\em Adds a cut based on event variables. Only events which pass the cuts are used for the corrections. Template parameters are automatically deduced. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionManager_af88739b02d1092c71474b790751ab6a6}{Add\+Event\+Histo1D}} (const \mbox{\hyperlink{classQn_1_1Axis}{Qn\+::\+Axis}} \&axes, const std\+::string \&weightname=\char`\"{}Ones\char`\"{})
+\begin{DoxyCompactList}\small\item\em Adds a one dimensional event histogram. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionManager_a85fdc9a031c498ba8385329aab2833bc}{Add\+Event\+Histo2D}} (const std\+::vector$<$ \mbox{\hyperlink{classQn_1_1Axis}{Qn\+::\+Axis}} $>$ \&axes, const std\+::string \&weightname=\char`\"{}Ones\char`\"{})
+\begin{DoxyCompactList}\small\item\em Adds a two n event histogram. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionManager_abc317807236f7ce344cadfd36aa05e67}\label{classQn_1_1CorrectionManager_abc317807236f7ce344cadfd36aa05e67}} 
+void {\bfseries Add\+Event\+Histo2D} (const std\+::vector$<$ \mbox{\hyperlink{classQn_1_1Axis}{Qn\+::\+Axis}} $>$ \&axes, const \mbox{\hyperlink{classQn_1_1Axis}{Qn\+::\+Axis}} \&axis, const std\+::string \&weightname=\char`\"{}Ones\char`\"{})
+\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionManager_a3ccccfe6ba70283c9ce9a045bd2c6440}{Add\+Histo1D}} (const std\+::string \&name, const \mbox{\hyperlink{classQn_1_1Axis}{Qn\+::\+Axis}} \&axis, const std\+::string \&weightname=\char`\"{}Ones\char`\"{})
+\begin{DoxyCompactList}\small\item\em Adds a one dimensional histogram to a detector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionManager_ac00029f45e1bd68a608a148c1eb8fb7e}{Add\+Histo2D}} (const std\+::string \&name, const std\+::vector$<$ \mbox{\hyperlink{classQn_1_1Axis}{Qn\+::\+Axis}} $>$ \&axes, const std\+::string \&weightname=\char`\"{}Ones\char`\"{})
+\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionManager_afd73a6b73c0fae1da79c394328c86882}{Set\+Correction\+Steps}} (const std\+::string \&name, std\+::function$<$ void(\mbox{\hyperlink{classQn_1_1DetectorConfiguration}{Detector\+Configuration}} $\ast$config)$>$ config)
+\begin{DoxyCompactList}\small\item\em Adds correction steps to a detector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionManager_adeb5d64691b7e5a05cdc2f4cdae71880}{Set\+Tree}} (T\+Tree $\ast$tree)
+\begin{DoxyCompactList}\small\item\em Set output tree. Lifetime of the tree is managed by the user. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionManager_a1514c4ed8e0dac7ab67fe07ca092a263}{Initialize}} (T\+File $\ast$in\+\_\+calibration\+\_\+file\+\_\+)
+\begin{DoxyCompactList}\small\item\em Initializes the correction framework. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionManager_abc6554146be3c4120ad089bb73ebf6f6}\label{classQn_1_1CorrectionManager_abc6554146be3c4120ad089bb73ebf6f6}} 
+void \mbox{\hyperlink{classQn_1_1CorrectionManager_abc6554146be3c4120ad089bb73ebf6f6}{Process\+Event}} ()
+\begin{DoxyCompactList}\small\item\em Process the event variables. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionManager_a90d4fb7a9d681cbef7d81547acb021f2}\label{classQn_1_1CorrectionManager_a90d4fb7a9d681cbef7d81547acb021f2}} 
+void \mbox{\hyperlink{classQn_1_1CorrectionManager_a90d4fb7a9d681cbef7d81547acb021f2}{Process\+Qn\+Vectors}} ()
+\begin{DoxyCompactList}\small\item\em Process the \mbox{\hyperlink{namespaceQn}{Qn}} vector corrections. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionManager_a9e1585bf2d191879219e02d55f65f622}\label{classQn_1_1CorrectionManager_a9e1585bf2d191879219e02d55f65f622}} 
+void \mbox{\hyperlink{classQn_1_1CorrectionManager_a9e1585bf2d191879219e02d55f65f622}{Finalize}} ()
+\begin{DoxyCompactList}\small\item\em Finalizes the correction framework. To be called after all events are processed. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionManager_a9a13f010c2377943876201ef32bc8406}\label{classQn_1_1CorrectionManager_a9a13f010c2377943876201ef32bc8406}} 
+void \mbox{\hyperlink{classQn_1_1CorrectionManager_a9a13f010c2377943876201ef32bc8406}{Reset}} ()
+\begin{DoxyCompactList}\small\item\em Resets the correction framework. To be called before a new event is processed. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionManager_a6db0318314c251388c4c3d8c8dadd30d}\label{classQn_1_1CorrectionManager_a6db0318314c251388c4c3d8c8dadd30d}} 
+void \mbox{\hyperlink{classQn_1_1CorrectionManager_a6db0318314c251388c4c3d8c8dadd30d}{Fill\+Channel\+Detectors}} ()
+\begin{DoxyCompactList}\small\item\em Fill all channel detectors. To be called the channel variables have been filled to the variable container. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionManager_ad29bc0eec2178d75d13beeb464599141}\label{classQn_1_1CorrectionManager_ad29bc0eec2178d75d13beeb464599141}} 
+void \mbox{\hyperlink{classQn_1_1CorrectionManager_ad29bc0eec2178d75d13beeb464599141}{Fill\+Tracking\+Detectors}} ()
+\begin{DoxyCompactList}\small\item\em Fill all tracking detectors. To be called after the track variables of one particle track have been filled to the detector. \end{DoxyCompactList}\item 
+double $\ast$ \mbox{\hyperlink{classQn_1_1CorrectionManager_a2883b579d2c4afbccee27add9101e84a}{Get\+Variable\+Container}} ()
+\begin{DoxyCompactList}\small\item\em Get the variable container to be able to fill the variables to the framework. \end{DoxyCompactList}\item 
+T\+List $\ast$ \mbox{\hyperlink{classQn_1_1CorrectionManager_a923dd141e464cefb213bc7983db7ee3f}{Get\+Calibration\+List}} ()
+\begin{DoxyCompactList}\small\item\em Get the list containing the calibration histograms. \end{DoxyCompactList}\item 
+T\+List $\ast$ \mbox{\hyperlink{classQn_1_1CorrectionManager_a3823cab9639fe52cfcb5195284ca4bc9}{Get\+Calibration\+Q\+A\+List}} ()
+\begin{DoxyCompactList}\small\item\em Get the list containing the calibration QA histograms. \end{DoxyCompactList}\item 
+T\+List $\ast$ \mbox{\hyperlink{classQn_1_1CorrectionManager_a2a1f13026f434d2280bee0f191172a09}{Get\+Event\+And\+Detector\+Q\+A\+List}} ()
+\begin{DoxyCompactList}\small\item\em Get the list containing the event and detector QA histograms. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionManager_a7f23710ef8fc0babde47c95a0286e883}{Set\+Process\+Name}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Sets the name of the current correction period (e.\+g. run number). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQn_1_1CorrectionManager_a70e2e9393902f02ca5d218425f5f6201}\label{classQn_1_1CorrectionManager_a70e2e9393902f02ca5d218425f5f6201}} 
+\index{Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}!Add\+Correction\+Axis@{Add\+Correction\+Axis}}
+\index{Add\+Correction\+Axis@{Add\+Correction\+Axis}!Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}}
+\subsubsection{\texorpdfstring{Add\+Correction\+Axis()}{AddCorrectionAxis()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Manager\+::\+Add\+Correction\+Axis (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQn_1_1Axis}{Qn\+::\+Axis}} \&}]{axis }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds a axis used for correction. 
+\begin{DoxyParams}{Parameters}
+{\em axis} & \mbox{\hyperlink{classQn_1_1Axis}{Axis}} used for correction. The name of the axis corresponds to the name of a variable. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionManager_a74b1dfe42a8480d852b0d76085c3cc1d}\label{classQn_1_1CorrectionManager_a74b1dfe42a8480d852b0d76085c3cc1d}} 
+\index{Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}!Add\+Cut@{Add\+Cut}}
+\index{Add\+Cut@{Add\+Cut}!Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}}
+\subsubsection{\texorpdfstring{Add\+Cut()}{AddCut()}}
+{\footnotesize\ttfamily template$<$std\+::size\+\_\+t N, typename F\+U\+N\+C\+T\+I\+ON $>$ \\
+void Qn\+::\+Correction\+Manager\+::\+Add\+Cut (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const char $\ast$const (\&)}]{names\mbox{[}\+N\mbox{]},  }\item[{F\+U\+N\+C\+T\+I\+ON}]{lambda }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a cut to a detector. Template parameters are automatically deduced. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em N} & number of variables used in the cut \\
+\hline
+{\em F\+U\+N\+C\+T\+I\+ON} & type of function \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the detector \\
+\hline
+{\em names} & array of names of the cut variables \\
+\hline
+{\em lambda} & function used to evaluate the cut condition \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionManager_a7b9b32033074f6bd3eacd3e51702dc7e}\label{classQn_1_1CorrectionManager_a7b9b32033074f6bd3eacd3e51702dc7e}} 
+\index{Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}!Add\+Detector@{Add\+Detector}}
+\index{Add\+Detector@{Add\+Detector}!Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}}
+\subsubsection{\texorpdfstring{Add\+Detector()}{AddDetector()}}
+{\footnotesize\ttfamily template$<$std\+::size\+\_\+t N$>$ \\
+void Qn\+::\+Correction\+Manager\+::\+Add\+Detector (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{\mbox{\hyperlink{namespaceQn_adba56b19bd9207127cdc7227d9e03a05}{Qn\+::\+Detector\+Type}}}]{type,  }\item[{const std\+::string \&}]{phi\+\_\+name,  }\item[{const std\+::string \&}]{weight\+\_\+name,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{classQn_1_1Axis}{Qn\+::\+Axis}} $>$ \&}]{axes,  }\item[{int const(\&)}]{harmo\mbox{[}\+N\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds a detector to the correction framework. 
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the detector \\
+\hline
+{\em type} & Type of the detector\+: Channel or Track \\
+\hline
+{\em phi\+\_\+name} & Name of the variable which saves the angular information e.\+g. phi angle of a channel or particle \\
+\hline
+{\em weight\+\_\+name} & Name of the variable which saves a weight. \char`\"{}\+Ones\char`\"{} is used for a weight of 1. \\
+\hline
+{\em axes} & Axes used for differential corrections. Names correspond to the name of variables. \\
+\hline
+{\em harmo} & activated harmonics in a ordered initializer list e.\+g. {\ttfamily \{1, 2, 4\}}. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionManager_ad043483660dfc3b533f9bf9ca8272229}\label{classQn_1_1CorrectionManager_ad043483660dfc3b533f9bf9ca8272229}} 
+\index{Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}!Add\+Event\+Cut@{Add\+Event\+Cut}}
+\index{Add\+Event\+Cut@{Add\+Event\+Cut}!Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}}
+\subsubsection{\texorpdfstring{Add\+Event\+Cut()}{AddEventCut()}}
+{\footnotesize\ttfamily template$<$std\+::size\+\_\+t N, typename F\+U\+N\+C\+T\+I\+ON $>$ \\
+void Qn\+::\+Correction\+Manager\+::\+Add\+Event\+Cut (\begin{DoxyParamCaption}\item[{const char $\ast$const (\&)}]{name\+\_\+arr\mbox{[}\+N\mbox{]},  }\item[{F\+U\+N\+C\+T\+I\+ON \&\&}]{func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a cut based on event variables. Only events which pass the cuts are used for the corrections. Template parameters are automatically deduced. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em N} & number of variables used in the cut. \\
+\hline
+{\em F\+U\+N\+C\+T\+I\+ON} & type of function \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em name\+\_\+arr} & Array of variable names used for the cuts. \\
+\hline
+{\em func} & C-\/callable describing the cut of signature bool(double \&...). The number of double\& corresponds to the number of variables \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionManager_af88739b02d1092c71474b790751ab6a6}\label{classQn_1_1CorrectionManager_af88739b02d1092c71474b790751ab6a6}} 
+\index{Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}!Add\+Event\+Histo1D@{Add\+Event\+Histo1D}}
+\index{Add\+Event\+Histo1D@{Add\+Event\+Histo1D}!Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}}
+\subsubsection{\texorpdfstring{Add\+Event\+Histo1\+D()}{AddEventHisto1D()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Manager\+::\+Add\+Event\+Histo1D (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQn_1_1Axis}{Qn\+::\+Axis}} \&}]{axes,  }\item[{const std\+::string \&}]{weightname = {\ttfamily \char`\"{}Ones\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Adds a one dimensional event histogram. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em axes} & axis of the histogram. Name corresponds to the axis. \\
+\hline
+{\em weightname} & Name of the weights used when filling. Standard is \char`\"{}\+Ones\char`\"{} (1). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionManager_a85fdc9a031c498ba8385329aab2833bc}\label{classQn_1_1CorrectionManager_a85fdc9a031c498ba8385329aab2833bc}} 
+\index{Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}!Add\+Event\+Histo2D@{Add\+Event\+Histo2D}}
+\index{Add\+Event\+Histo2D@{Add\+Event\+Histo2D}!Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}}
+\subsubsection{\texorpdfstring{Add\+Event\+Histo2\+D()}{AddEventHisto2D()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Manager\+::\+Add\+Event\+Histo2D (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{classQn_1_1Axis}{Qn\+::\+Axis}} $>$ \&}]{axes,  }\item[{const std\+::string \&}]{weightname = {\ttfamily \char`\"{}Ones\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Adds a two n event histogram. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em axes} & axes of the histogram. Name corresponds to the axes. \\
+\hline
+{\em weightname} & Name of the weights used when filling. Standard is \char`\"{}\+Ones\char`\"{} (1). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionManager_a90640b93699ad1550136bd53a5ef39f9}\label{classQn_1_1CorrectionManager_a90640b93699ad1550136bd53a5ef39f9}} 
+\index{Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}!Add\+Event\+Variable@{Add\+Event\+Variable}}
+\index{Add\+Event\+Variable@{Add\+Event\+Variable}!Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}}
+\subsubsection{\texorpdfstring{Add\+Event\+Variable()}{AddEventVariable()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Manager\+::\+Add\+Event\+Variable (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds a event variable, which will be saved to the output tree. 
+\begin{DoxyParams}{Parameters}
+{\em name} & Name corresponds to a variable defined in the variable manager. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionManager_a3ccccfe6ba70283c9ce9a045bd2c6440}\label{classQn_1_1CorrectionManager_a3ccccfe6ba70283c9ce9a045bd2c6440}} 
+\index{Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}!Add\+Histo1D@{Add\+Histo1D}}
+\index{Add\+Histo1D@{Add\+Histo1D}!Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}}
+\subsubsection{\texorpdfstring{Add\+Histo1\+D()}{AddHisto1D()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Manager\+::\+Add\+Histo1D (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const \mbox{\hyperlink{classQn_1_1Axis}{Qn\+::\+Axis}} \&}]{axis,  }\item[{const std\+::string \&}]{weightname = {\ttfamily \char`\"{}Ones\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Adds a one dimensional histogram to a detector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Name} & name of the detector \\
+\hline
+{\em axes} & axis of the histogram. Name corresponds to the axis. \\
+\hline
+{\em weightname} & Name of the weights used when filling. Standard is \char`\"{}\+Ones\char`\"{} (1). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionManager_ac00029f45e1bd68a608a148c1eb8fb7e}\label{classQn_1_1CorrectionManager_ac00029f45e1bd68a608a148c1eb8fb7e}} 
+\index{Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}!Add\+Histo2D@{Add\+Histo2D}}
+\index{Add\+Histo2D@{Add\+Histo2D}!Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}}
+\subsubsection{\texorpdfstring{Add\+Histo2\+D()}{AddHisto2D()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Manager\+::\+Add\+Histo2D (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{classQn_1_1Axis}{Qn\+::\+Axis}} $>$ \&}]{axes,  }\item[{const std\+::string \&}]{weightname = {\ttfamily \char`\"{}Ones\char`\"{}} }\end{DoxyParamCaption})}
+
+Adds a two dimensional histogram to a detector. 
+\begin{DoxyParams}{Parameters}
+{\em Name} & name of the detector \\
+\hline
+{\em axes} & axis of the histogram. Name corresponds to the axis. \\
+\hline
+{\em weightname} & Name of the weights used when filling. Standard is \char`\"{}\+Ones\char`\"{} (1). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionManager_a858b828ce9b1db78c9429dfc89a3c2d6}\label{classQn_1_1CorrectionManager_a858b828ce9b1db78c9429dfc89a3c2d6}} 
+\index{Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}!Add\+Run\+Event\+Id@{Add\+Run\+Event\+Id}}
+\index{Add\+Run\+Event\+Id@{Add\+Run\+Event\+Id}!Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}}
+\subsubsection{\texorpdfstring{Add\+Run\+Event\+Id()}{AddRunEventId()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Manager\+::\+Add\+Run\+Event\+Id (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{run,  }\item[{const std\+::string \&}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds a event variable, which will be saved to the output tree. Remember to add them as a variable first. 
+\begin{DoxyParams}{Parameters}
+{\em name} & Name corresponds to a variable defined in the variable manager. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionManager_a3b2edd13dc55101b174f14a5239633ef}\label{classQn_1_1CorrectionManager_a3b2edd13dc55101b174f14a5239633ef}} 
+\index{Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}!Add\+Variable@{Add\+Variable}}
+\index{Add\+Variable@{Add\+Variable}!Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}}
+\subsubsection{\texorpdfstring{Add\+Variable()}{AddVariable()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Manager\+::\+Add\+Variable (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const int}]{id,  }\item[{const int}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Add a variable to the variable manager 
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the variable \\
+\hline
+{\em id} & Id of the variable inside the array used to pass the data into the framework. \\
+\hline
+{\em length} & Lenght of the variable inside the array e.\+g. number of channels. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionManager_a923dd141e464cefb213bc7983db7ee3f}\label{classQn_1_1CorrectionManager_a923dd141e464cefb213bc7983db7ee3f}} 
+\index{Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}!Get\+Calibration\+List@{Get\+Calibration\+List}}
+\index{Get\+Calibration\+List@{Get\+Calibration\+List}!Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}}
+\subsubsection{\texorpdfstring{Get\+Calibration\+List()}{GetCalibrationList()}}
+{\footnotesize\ttfamily T\+List$\ast$ Qn\+::\+Correction\+Manager\+::\+Get\+Calibration\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the list containing the calibration histograms. 
+
+\begin{DoxyReturn}{Returns}
+A pointer of the list to which the calibration histograms will be saved. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionManager_a3823cab9639fe52cfcb5195284ca4bc9}\label{classQn_1_1CorrectionManager_a3823cab9639fe52cfcb5195284ca4bc9}} 
+\index{Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}!Get\+Calibration\+Q\+A\+List@{Get\+Calibration\+Q\+A\+List}}
+\index{Get\+Calibration\+Q\+A\+List@{Get\+Calibration\+Q\+A\+List}!Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}}
+\subsubsection{\texorpdfstring{Get\+Calibration\+Q\+A\+List()}{GetCalibrationQAList()}}
+{\footnotesize\ttfamily T\+List$\ast$ Qn\+::\+Correction\+Manager\+::\+Get\+Calibration\+Q\+A\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the list containing the calibration QA histograms. 
+
+\begin{DoxyReturn}{Returns}
+A pointer of the list to which the calibration QA histograms will be saved. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionManager_a2a1f13026f434d2280bee0f191172a09}\label{classQn_1_1CorrectionManager_a2a1f13026f434d2280bee0f191172a09}} 
+\index{Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}!Get\+Event\+And\+Detector\+Q\+A\+List@{Get\+Event\+And\+Detector\+Q\+A\+List}}
+\index{Get\+Event\+And\+Detector\+Q\+A\+List@{Get\+Event\+And\+Detector\+Q\+A\+List}!Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}}
+\subsubsection{\texorpdfstring{Get\+Event\+And\+Detector\+Q\+A\+List()}{GetEventAndDetectorQAList()}}
+{\footnotesize\ttfamily T\+List $\ast$ Qn\+::\+Correction\+Manager\+::\+Get\+Event\+And\+Detector\+Q\+A\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the list containing the event and detector QA histograms. 
+
+\begin{DoxyReturn}{Returns}
+A pointer of the list to which the event and detector QA histograms will be saved. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionManager_a2883b579d2c4afbccee27add9101e84a}\label{classQn_1_1CorrectionManager_a2883b579d2c4afbccee27add9101e84a}} 
+\index{Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}!Get\+Variable\+Container@{Get\+Variable\+Container}}
+\index{Get\+Variable\+Container@{Get\+Variable\+Container}!Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}}
+\subsubsection{\texorpdfstring{Get\+Variable\+Container()}{GetVariableContainer()}}
+{\footnotesize\ttfamily double$\ast$ Qn\+::\+Correction\+Manager\+::\+Get\+Variable\+Container (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the variable container to be able to fill the variables to the framework. 
+
+\begin{DoxyReturn}{Returns}
+pointer to the variable container 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionManager_a1514c4ed8e0dac7ab67fe07ca092a263}\label{classQn_1_1CorrectionManager_a1514c4ed8e0dac7ab67fe07ca092a263}} 
+\index{Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}}
+\subsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Manager\+::\+Initialize (\begin{DoxyParamCaption}\item[{T\+File $\ast$}]{in\+\_\+calibration\+\_\+file\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Initializes the correction framework. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+\_\+calibration\+\_\+file\+\_\+} & non-\/owning pointer to the calibration file. Lifetime of the file has to be managed by the user. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionManager_afd73a6b73c0fae1da79c394328c86882}\label{classQn_1_1CorrectionManager_afd73a6b73c0fae1da79c394328c86882}} 
+\index{Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}!Set\+Correction\+Steps@{Set\+Correction\+Steps}}
+\index{Set\+Correction\+Steps@{Set\+Correction\+Steps}!Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}}
+\subsubsection{\texorpdfstring{Set\+Correction\+Steps()}{SetCorrectionSteps()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Manager\+::\+Set\+Correction\+Steps (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{std\+::function$<$ void(\mbox{\hyperlink{classQn_1_1DetectorConfiguration}{Detector\+Configuration}} $\ast$config)$>$}]{config }\end{DoxyParamCaption})}
+
+
+
+Adds correction steps to a detector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the detector. \\
+\hline
+{\em config} & function configuring the correction framework. C-\/callable of signature void(\+Detector\+Configuration $\ast$config) config. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionManager_a7f23710ef8fc0babde47c95a0286e883}\label{classQn_1_1CorrectionManager_a7f23710ef8fc0babde47c95a0286e883}} 
+\index{Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}!Set\+Process\+Name@{Set\+Process\+Name}}
+\index{Set\+Process\+Name@{Set\+Process\+Name}!Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}}
+\subsubsection{\texorpdfstring{Set\+Process\+Name()}{SetProcessName()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Manager\+::\+Set\+Process\+Name (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the name of the current correction period (e.\+g. run number). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the current correction period \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionManager_adeb5d64691b7e5a05cdc2f4cdae71880}\label{classQn_1_1CorrectionManager_adeb5d64691b7e5a05cdc2f4cdae71880}} 
+\index{Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}!Set\+Tree@{Set\+Tree}}
+\index{Set\+Tree@{Set\+Tree}!Qn\+::\+Correction\+Manager@{Qn\+::\+Correction\+Manager}}
+\subsubsection{\texorpdfstring{Set\+Tree()}{SetTree()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Manager\+::\+Set\+Tree (\begin{DoxyParamCaption}\item[{T\+Tree $\ast$}]{tree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set output tree. Lifetime of the tree is managed by the user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tree} & non-\/owning pointer to the tree. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Correction/include/Correction\+Manager.\+h\item 
+D\+T\+\_\+\+Flow/\+Correction/Correction\+Manager.\+cpp\end{DoxyCompactItemize}

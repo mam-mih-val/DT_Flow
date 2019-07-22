@@ -1,0 +1,199 @@
+\hypertarget{classQn_1_1CorrectionHistogramSparse}{}\section{Qn\+:\+:Correction\+Histogram\+Sparse Class Reference}
+\label{classQn_1_1CorrectionHistogramSparse}\index{Qn\+::\+Correction\+Histogram\+Sparse@{Qn\+::\+Correction\+Histogram\+Sparse}}
+Inheritance diagram for Qn\+:\+:Correction\+Histogram\+Sparse\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classQn_1_1CorrectionHistogramSparse}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionHistogramSparse_ac3030ab0d31967648b7d1ad11423c931}\label{classQn_1_1CorrectionHistogramSparse_ac3030ab0d31967648b7d1ad11423c931}} 
+\mbox{\hyperlink{classQn_1_1CorrectionHistogramSparse_ac3030ab0d31967648b7d1ad11423c931}{Correction\+Histogram\+Sparse}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQn_1_1CorrectionHistogramSparse_a0399954f4572a32e62d70a7ea0fc7e17}{Correction\+Histogram\+Sparse}} (const char $\ast$name, const char $\ast$title, \mbox{\hyperlink{classQn_1_1EventClassVariablesSet}{Event\+Class\+Variables\+Set}} \&ecvs)
+\item 
+virtual \mbox{\hyperlink{classQn_1_1CorrectionHistogramSparse_aa8f2252efa1bdf5a4fd166aaf0f4c6ea}{$\sim$\+Correction\+Histogram\+Sparse}} ()
+\item 
+Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionHistogramSparse_a53ee93b38933721305a26860324a03ea}{Create\+Histogram}} (T\+List $\ast$histogram\+List)
+\item 
+virtual Long64\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionHistogramSparse_aea9b7cdd8ad93d5fb14c00b20848dcdc}{Get\+Bin}} (const double $\ast$variable\+Container)
+\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionHistogramSparse_a1b0edb414fa4594421f44a793b0fc87a}\label{classQn_1_1CorrectionHistogramSparse_a1b0edb414fa4594421f44a793b0fc87a}} 
+virtual Long64\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionHistogramSparse_a1b0edb414fa4594421f44a793b0fc87a}{Get\+Bin}} (const double $\ast$variable\+Container, Int\+\_\+t n\+Channel)
+\begin{DoxyCompactList}\small\item\em wrong call for this class invoke base class behaviour \end{DoxyCompactList}\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionHistogramSparse_a0af98e0b06c550ed265494e1f3089779}{Bin\+Content\+Validated}} (Long64\+\_\+t bin)
+\item 
+virtual Float\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionHistogramSparse_a43954a12a3f97e20a1934f18ec4edecd}{Get\+Bin\+Content}} (Long64\+\_\+t bin)
+\item 
+virtual Float\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionHistogramSparse_a9b678b088ca0b21e6deb18d66ac44c2d}{Get\+Bin\+Error}} (Long64\+\_\+t bin)
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1CorrectionHistogramSparse_a0bb5a6f7772532ed7a174cc688cf5b92}{Fill}} (const double $\ast$variable\+Container, Float\+\_\+t weight)
+\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionHistogramSparse_ac6669127f178e1a7c7cbf149576371bd}\label{classQn_1_1CorrectionHistogramSparse_ac6669127f178e1a7c7cbf149576371bd}} 
+virtual void \mbox{\hyperlink{classQn_1_1CorrectionHistogramSparse_ac6669127f178e1a7c7cbf149576371bd}{Fill}} (const double $\ast$variable\+Container, Int\+\_\+t n\+Channel, Float\+\_\+t weight)
+\begin{DoxyCompactList}\small\item\em wrong call for this class invoke base class behavior \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classQn_1_1CorrectionHistogramSparse_a0399954f4572a32e62d70a7ea0fc7e17}\label{classQn_1_1CorrectionHistogramSparse_a0399954f4572a32e62d70a7ea0fc7e17}} 
+\index{Qn\+::\+Correction\+Histogram\+Sparse@{Qn\+::\+Correction\+Histogram\+Sparse}!Correction\+Histogram\+Sparse@{Correction\+Histogram\+Sparse}}
+\index{Correction\+Histogram\+Sparse@{Correction\+Histogram\+Sparse}!Qn\+::\+Correction\+Histogram\+Sparse@{Qn\+::\+Correction\+Histogram\+Sparse}}
+\subsubsection{\texorpdfstring{Correction\+Histogram\+Sparse()}{CorrectionHistogramSparse()}}
+{\footnotesize\ttfamily Qn\+::\+Correction\+Histogram\+Sparse\+::\+Correction\+Histogram\+Sparse (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{const char $\ast$}]{title,  }\item[{\mbox{\hyperlink{classQn_1_1EventClassVariablesSet}{Event\+Class\+Variables\+Set}} \&}]{ecvs }\end{DoxyParamCaption})}
+
+Normal constructor
+
+Stores the set of variables that identify the different event classes passing them to its parent and prepares the object for actual histogram creation or attachment
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & base for the name of the histograms \\
+\hline
+{\em title} & base for the title of the histograms \\
+\hline
+{\em ecvs} & the event classes variables set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionHistogramSparse_aa8f2252efa1bdf5a4fd166aaf0f4c6ea}\label{classQn_1_1CorrectionHistogramSparse_aa8f2252efa1bdf5a4fd166aaf0f4c6ea}} 
+\index{Qn\+::\+Correction\+Histogram\+Sparse@{Qn\+::\+Correction\+Histogram\+Sparse}!````~Correction\+Histogram\+Sparse@{$\sim$\+Correction\+Histogram\+Sparse}}
+\index{````~Correction\+Histogram\+Sparse@{$\sim$\+Correction\+Histogram\+Sparse}!Qn\+::\+Correction\+Histogram\+Sparse@{Qn\+::\+Correction\+Histogram\+Sparse}}
+\subsubsection{\texorpdfstring{$\sim$\+Correction\+Histogram\+Sparse()}{~CorrectionHistogramSparse()}}
+{\footnotesize\ttfamily Qn\+::\+Correction\+Histogram\+Sparse\+::$\sim$\+Correction\+Histogram\+Sparse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Default destructor Releases the memory taken 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQn_1_1CorrectionHistogramSparse_a0af98e0b06c550ed265494e1f3089779}\label{classQn_1_1CorrectionHistogramSparse_a0af98e0b06c550ed265494e1f3089779}} 
+\index{Qn\+::\+Correction\+Histogram\+Sparse@{Qn\+::\+Correction\+Histogram\+Sparse}!Bin\+Content\+Validated@{Bin\+Content\+Validated}}
+\index{Bin\+Content\+Validated@{Bin\+Content\+Validated}!Qn\+::\+Correction\+Histogram\+Sparse@{Qn\+::\+Correction\+Histogram\+Sparse}}
+\subsubsection{\texorpdfstring{Bin\+Content\+Validated()}{BinContentValidated()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Correction\+Histogram\+Sparse\+::\+Bin\+Content\+Validated (\begin{DoxyParamCaption}\item[{Long64\+\_\+t}]{bin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Check the validity of the content of the passed bin This kind of histograms cannot validate the bin content so, it is always valid. 
+\begin{DoxyParams}{Parameters}
+{\em bin} & the bin to check its content validity \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if the content is valid k\+F\+A\+L\+SE otherwise 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionHistogramBase_a4db2c92ceaffefaa91475a721612d80d}{Qn\+::\+Correction\+Histogram\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionHistogramSparse_a53ee93b38933721305a26860324a03ea}\label{classQn_1_1CorrectionHistogramSparse_a53ee93b38933721305a26860324a03ea}} 
+\index{Qn\+::\+Correction\+Histogram\+Sparse@{Qn\+::\+Correction\+Histogram\+Sparse}!Create\+Histogram@{Create\+Histogram}}
+\index{Create\+Histogram@{Create\+Histogram}!Qn\+::\+Correction\+Histogram\+Sparse@{Qn\+::\+Correction\+Histogram\+Sparse}}
+\subsubsection{\texorpdfstring{Create\+Histogram()}{CreateHistogram()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Correction\+Histogram\+Sparse\+::\+Create\+Histogram (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{histogram\+List }\end{DoxyParamCaption})}
+
+Creates the support histogram for the histogram function
+
+Based in the event classes variables set in the parent class the values multidimensional histogram is created.
+
+The histogram is added to the passed histogram list
+
+
+\begin{DoxyParams}{Parameters}
+{\em histogram\+List} & list where the histograms have to be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if properly created 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionHistogramSparse_a0bb5a6f7772532ed7a174cc688cf5b92}\label{classQn_1_1CorrectionHistogramSparse_a0bb5a6f7772532ed7a174cc688cf5b92}} 
+\index{Qn\+::\+Correction\+Histogram\+Sparse@{Qn\+::\+Correction\+Histogram\+Sparse}!Fill@{Fill}}
+\index{Fill@{Fill}!Qn\+::\+Correction\+Histogram\+Sparse@{Qn\+::\+Correction\+Histogram\+Sparse}}
+\subsubsection{\texorpdfstring{Fill()}{Fill()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Histogram\+Sparse\+::\+Fill (\begin{DoxyParamCaption}\item[{const double $\ast$}]{variable\+Container,  }\item[{Float\+\_\+t}]{weight }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Fills the histogram
+
+The involved bin is computed according to the current variables content and the passed external channel number. The bin is then increased by the given weight.
+
+
+\begin{DoxyParams}{Parameters}
+{\em variable\+Container} & the current variables content addressed by var Id \\
+\hline
+{\em weight} & the increment in the bin content \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classQn_1_1CorrectionHistogramBase_a16b7518942714780ec9ceb56bb517f0f}{Qn\+::\+Correction\+Histogram\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionHistogramSparse_aea9b7cdd8ad93d5fb14c00b20848dcdc}\label{classQn_1_1CorrectionHistogramSparse_aea9b7cdd8ad93d5fb14c00b20848dcdc}} 
+\index{Qn\+::\+Correction\+Histogram\+Sparse@{Qn\+::\+Correction\+Histogram\+Sparse}!Get\+Bin@{Get\+Bin}}
+\index{Get\+Bin@{Get\+Bin}!Qn\+::\+Correction\+Histogram\+Sparse@{Qn\+::\+Correction\+Histogram\+Sparse}}
+\subsubsection{\texorpdfstring{Get\+Bin()}{GetBin()}}
+{\footnotesize\ttfamily Long64\+\_\+t Qn\+::\+Correction\+Histogram\+Sparse\+::\+Get\+Bin (\begin{DoxyParamCaption}\item[{const double $\ast$}]{variable\+Container }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get the bin number for the current variable content
+
+The bin number identifies the event class the current variable content points to under the passed channel.
+
+
+\begin{DoxyParams}{Parameters}
+{\em variable\+Container} & the current variables content addressed by var Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the associated bin to the current variables content 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classQn_1_1CorrectionHistogramBase_ab1f64550f4e1812864da6f9f6ea565e6}{Qn\+::\+Correction\+Histogram\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionHistogramSparse_a43954a12a3f97e20a1934f18ec4edecd}\label{classQn_1_1CorrectionHistogramSparse_a43954a12a3f97e20a1934f18ec4edecd}} 
+\index{Qn\+::\+Correction\+Histogram\+Sparse@{Qn\+::\+Correction\+Histogram\+Sparse}!Get\+Bin\+Content@{Get\+Bin\+Content}}
+\index{Get\+Bin\+Content@{Get\+Bin\+Content}!Qn\+::\+Correction\+Histogram\+Sparse@{Qn\+::\+Correction\+Histogram\+Sparse}}
+\subsubsection{\texorpdfstring{Get\+Bin\+Content()}{GetBinContent()}}
+{\footnotesize\ttfamily Float\+\_\+t Qn\+::\+Correction\+Histogram\+Sparse\+::\+Get\+Bin\+Content (\begin{DoxyParamCaption}\item[{Long64\+\_\+t}]{bin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get the bin content for the passed bin number
+
+The bin number identifies a desired event class whose content is requested.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bin} & the interested bin number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the bin number content 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classQn_1_1CorrectionHistogramBase_a9e4e745a6f4cbebf5b9277d6d63bc9c7}{Qn\+::\+Correction\+Histogram\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionHistogramSparse_a9b678b088ca0b21e6deb18d66ac44c2d}\label{classQn_1_1CorrectionHistogramSparse_a9b678b088ca0b21e6deb18d66ac44c2d}} 
+\index{Qn\+::\+Correction\+Histogram\+Sparse@{Qn\+::\+Correction\+Histogram\+Sparse}!Get\+Bin\+Error@{Get\+Bin\+Error}}
+\index{Get\+Bin\+Error@{Get\+Bin\+Error}!Qn\+::\+Correction\+Histogram\+Sparse@{Qn\+::\+Correction\+Histogram\+Sparse}}
+\subsubsection{\texorpdfstring{Get\+Bin\+Error()}{GetBinError()}}
+{\footnotesize\ttfamily Float\+\_\+t Qn\+::\+Correction\+Histogram\+Sparse\+::\+Get\+Bin\+Error (\begin{DoxyParamCaption}\item[{Long64\+\_\+t}]{bin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get the bin content error for the passed bin number
+
+The bin number identifies a desired event class whose content error is requested.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bin} & the interested bin number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the bin number content error 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classQn_1_1CorrectionHistogramBase_a50a7dd4c5bbe5e4d0e405365c2a9104d}{Qn\+::\+Correction\+Histogram\+Base}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/include/Correction\+Histogram\+Sparse.\+h\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/Correction\+Histogram\+Sparse.\+cpp\end{DoxyCompactItemize}

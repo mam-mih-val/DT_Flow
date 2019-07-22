@@ -1,0 +1,545 @@
+\hypertarget{classQn_1_1DetectorConfigurationChannels}{}\section{Qn\+:\+:Detector\+Configuration\+Channels Class Reference}
+\label{classQn_1_1DetectorConfigurationChannels}\index{Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}}
+Inheritance diagram for Qn\+:\+:Detector\+Configuration\+Channels\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classQn_1_1DetectorConfigurationChannels}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_a4db2660fe522de2dc67222f7c3900662}\label{classQn_1_1DetectorConfigurationChannels_a4db2660fe522de2dc67222f7c3900662}} 
+\mbox{\hyperlink{classQn_1_1DetectorConfigurationChannels_a4db2660fe522de2dc67222f7c3900662}{Detector\+Configuration\+Channels}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQn_1_1DetectorConfigurationChannels_a317ef35a90228d567c1ba612476e6730}{Detector\+Configuration\+Channels}} (const char $\ast$name, \mbox{\hyperlink{classQn_1_1EventClassVariablesSet}{Event\+Class\+Variables\+Set}} $\ast$event\+Classes\+Variables, Int\+\_\+t n\+No\+Of\+Channels, Int\+\_\+t n\+No\+Of\+Harmonics, Int\+\_\+t $\ast$harmonic\+Map=N\+U\+LL)
+\item 
+virtual \mbox{\hyperlink{classQn_1_1DetectorConfigurationChannels_aeb451a1ee7e9444dde635d2bb11dafd3}{$\sim$\+Detector\+Configuration\+Channels}} ()
+\item 
+Int\+\_\+t \mbox{\hyperlink{classQn_1_1DetectorConfigurationChannels_a7d31f3204016bbb12099911649c29840}{Get\+No\+Of\+Channels}} ()
+\item 
+const Bool\+\_\+t $\ast$ \mbox{\hyperlink{classQn_1_1DetectorConfigurationChannels_a541ac77e7e2e15690eed089a66d0c5a1}{Get\+Used\+Channels\+Mask}} () const
+\item 
+const Int\+\_\+t $\ast$ \mbox{\hyperlink{classQn_1_1DetectorConfigurationChannels_a393356a54937b18706b49b3e6748674f}{Get\+Channels\+Groups}} () const
+\item 
+const Float\+\_\+t $\ast$ \mbox{\hyperlink{classQn_1_1DetectorConfigurationChannels_a7de674ab1e919b85391215c18db325ca}{Get\+Hard\+Coded\+Group\+Weights}} () const
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1DetectorConfigurationChannels_a24728cc5b3b9f80f9965268d1153f06c}{Get\+Is\+Tracking\+Detector}} () const
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1DetectorConfigurationChannels_a920171069e4f5e36e0849cc5ac3c9a3d}{Set\+Channels\+Scheme}} (Bool\+\_\+t $\ast$b\+Used\+Channel, Int\+\_\+t $\ast$n\+Channel\+Group=nullptr, Float\+\_\+t $\ast$hard\+Coded\+Group\+Weights=nullptr)
+\item 
+void \mbox{\hyperlink{classQn_1_1DetectorConfigurationChannels_ad7d7c25a2940f842783863ebf9a59fad}{Set\+Q\+A\+Centrality\+Var}} (Int\+\_\+t id)
+\item 
+void \mbox{\hyperlink{classQn_1_1DetectorConfigurationChannels_aaddda392786336026b2e91fb9d26a733}{Set\+Q\+A\+Multiplicity\+Axis}} (Int\+\_\+t nbins, Float\+\_\+t min, Float\+\_\+t max)
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1DetectorConfigurationChannels_a074acfba4bc0d41df71d53b98d682f57}{Attach\+Corrections\+Manager}} (\mbox{\hyperlink{classQn_1_1CorrectionCalculator}{Correction\+Calculator}} $\ast$manager)
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1DetectorConfigurationChannels_ab19e6fe4c194060859eef7941b1c716c}{Create\+Support\+Data\+Structures}} ()
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1DetectorConfigurationChannels_a68e68df13b56e3e9f55adc8cae0a505d}{Create\+Support\+Histograms}} (T\+List $\ast$list)
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1DetectorConfigurationChannels_a0e3a0e4775decda04c3bad48534c297a}{Create\+Q\+A\+Histograms}} (T\+List $\ast$list)
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1DetectorConfigurationChannels_a62452177f5059e64977c5c1fc079de0b}{Create\+Nve\+Q\+A\+Histograms}} (T\+List $\ast$list)
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1DetectorConfigurationChannels_a6e0cb5f19763dd57e017325d456adb39}{Activate\+Harmonic}} (Int\+\_\+t harmonic)
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1DetectorConfigurationChannels_ac02f3bf7815650e06a3b85f3c0bcd0e0}{Attach\+Correction\+Inputs}} (T\+List $\ast$list)
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1DetectorConfigurationChannels_aee41ab7c778ea075aa7e4f414c8817e0}{After\+Inputs\+Attach\+Actions}} ()
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1DetectorConfigurationChannels_a327a2d868d9cc1596e83f54354c3df44}{Process\+Corrections}} (const double $\ast$variable\+Container)
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1DetectorConfigurationChannels_a972f2cc50810d2a9651f2920de5a03ec}{Process\+Data\+Collection}} (const double $\ast$variable\+Container)
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1DetectorConfigurationChannels_ab5c641503809ce981651bb08ffc50f0e}{Add\+Correction\+On\+Input\+Data}} (\mbox{\hyperlink{classQn_1_1CorrectionOnInputData}{Correction\+On\+Input\+Data}} $\ast$correction\+On\+Input\+Data)
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1DetectorConfigurationChannels_a1f22484e703888f5ff9548d9a8421d3b}{Add\+Data\+Vector}} (const double $\ast$variable\+Container, Double\+\_\+t phi, Double\+\_\+t weight, Int\+\_\+t channel\+Id)
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1DetectorConfigurationChannels_aa68804ba67cf6fdee8891e6aed0e14f7}{Build\+Qn\+Vector}} ()
+\item 
+void \mbox{\hyperlink{classQn_1_1DetectorConfigurationChannels_a6770ab3360c5e688c30bbea0522f3856}{Build\+Raw\+Qn\+Vector}} ()
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1DetectorConfigurationChannels_a6756b2b2bed25bee5659953ae82ce5b7}{Include\+Qn\+Vectors}} (T\+List $\ast$list)
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1DetectorConfigurationChannels_aa9e99a908719d0de616cebf9329fe83f}{Fill\+Overall\+Input\+Correction\+Step\+List}} (T\+List $\ast$list) const
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1DetectorConfigurationChannels_a002931544421b46c9402aa7bdefcff51}{Fill\+Overall\+Qn\+Vector\+Correction\+Step\+List}} (T\+List $\ast$list) const
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1DetectorConfigurationChannels_a753f23bd918444d853d1deebeefa4727}{Report\+On\+Corrections}} (T\+List $\ast$steps, T\+List $\ast$calib, T\+List $\ast$apply) const
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1DetectorConfigurationChannels_a45d03a27b4825709c2440a905ca8959a}{Is\+Selected}} (const double $\ast$variable\+Container, Int\+\_\+t n\+Channel)
+\item 
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_afa63699a8f8dad1d2506b607f1ed8e83}\label{classQn_1_1DetectorConfigurationChannels_afa63699a8f8dad1d2506b607f1ed8e83}} 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1DetectorConfigurationChannels_afa63699a8f8dad1d2506b607f1ed8e83}{Is\+Selected}} (const double $\ast$variable\+Container)
+\begin{DoxyCompactList}\small\item\em wrong call for this class invoke base class behavior \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classQn_1_1DetectorConfigurationChannels_a692b4880a3a694cf9a3ad860cb3f7b52}{Clear\+Configuration}} ()
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_afbb351f0a159c2e61159977b03f4b3c1}\label{classQn_1_1DetectorConfigurationChannels_afbb351f0a159c2e61159977b03f4b3c1}} 
+class {\bfseries Correction\+Step\+Base}
+\item 
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_aaaec1af05216df7a0fa18215ef18023b}\label{classQn_1_1DetectorConfigurationChannels_aaaec1af05216df7a0fa18215ef18023b}} 
+class {\bfseries Correction\+Detector}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_a317ef35a90228d567c1ba612476e6730}\label{classQn_1_1DetectorConfigurationChannels_a317ef35a90228d567c1ba612476e6730}} 
+\index{Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}!Detector\+Configuration\+Channels@{Detector\+Configuration\+Channels}}
+\index{Detector\+Configuration\+Channels@{Detector\+Configuration\+Channels}!Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}}
+\subsubsection{\texorpdfstring{Detector\+Configuration\+Channels()}{DetectorConfigurationChannels()}}
+{\footnotesize\ttfamily Qn\+::\+Detector\+Configuration\+Channels\+::\+Detector\+Configuration\+Channels (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{\mbox{\hyperlink{classQn_1_1EventClassVariablesSet}{Event\+Class\+Variables\+Set}} $\ast$}]{event\+Classes\+Variables,  }\item[{Int\+\_\+t}]{n\+No\+Of\+Channels,  }\item[{Int\+\_\+t}]{n\+No\+Of\+Harmonics,  }\item[{Int\+\_\+t $\ast$}]{harmonic\+Map = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+Normal constructor Allocates the data vector bank. 
+\begin{DoxyParams}{Parameters}
+{\em name} & the name of the detector configuration \\
+\hline
+{\em event\+Classes\+Variables} & the set of event classes variables \\
+\hline
+{\em n\+No\+Of\+Channels} & the number of channels of the associated detector \\
+\hline
+{\em n\+No\+Of\+Harmonics} & the number of harmonics that must be handled \\
+\hline
+{\em harmonic\+Map} & an optional ordered array with the harmonic numbers \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_aeb451a1ee7e9444dde635d2bb11dafd3}\label{classQn_1_1DetectorConfigurationChannels_aeb451a1ee7e9444dde635d2bb11dafd3}} 
+\index{Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}!````~Detector\+Configuration\+Channels@{$\sim$\+Detector\+Configuration\+Channels}}
+\index{````~Detector\+Configuration\+Channels@{$\sim$\+Detector\+Configuration\+Channels}!Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}}
+\subsubsection{\texorpdfstring{$\sim$\+Detector\+Configuration\+Channels()}{~DetectorConfigurationChannels()}}
+{\footnotesize\ttfamily Qn\+::\+Detector\+Configuration\+Channels\+::$\sim$\+Detector\+Configuration\+Channels (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Default destructor Releases the memory taken 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_a6e0cb5f19763dd57e017325d456adb39}\label{classQn_1_1DetectorConfigurationChannels_a6e0cb5f19763dd57e017325d456adb39}} 
+\index{Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}!Activate\+Harmonic@{Activate\+Harmonic}}
+\index{Activate\+Harmonic@{Activate\+Harmonic}!Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}}
+\subsubsection{\texorpdfstring{Activate\+Harmonic()}{ActivateHarmonic()}}
+{\footnotesize\ttfamily virtual void Qn\+::\+Detector\+Configuration\+Channels\+::\+Activate\+Harmonic (\begin{DoxyParamCaption}\item[{Int\+\_\+t}]{harmonic }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Activate the processing for the passed harmonic 
+\begin{DoxyParams}{Parameters}
+{\em harmonic} & the desired harmonic number to activate \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classQn_1_1DetectorConfiguration_a5bb71f7e186c058cad8c6bba4f2596cd}{Qn\+::\+Detector\+Configuration}}.
+
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_ab5c641503809ce981651bb08ffc50f0e}\label{classQn_1_1DetectorConfigurationChannels_ab5c641503809ce981651bb08ffc50f0e}} 
+\index{Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}!Add\+Correction\+On\+Input\+Data@{Add\+Correction\+On\+Input\+Data}}
+\index{Add\+Correction\+On\+Input\+Data@{Add\+Correction\+On\+Input\+Data}!Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}}
+\subsubsection{\texorpdfstring{Add\+Correction\+On\+Input\+Data()}{AddCorrectionOnInputData()}}
+{\footnotesize\ttfamily void Qn\+::\+Detector\+Configuration\+Channels\+::\+Add\+Correction\+On\+Input\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQn_1_1CorrectionOnInputData}{Correction\+On\+Input\+Data}} $\ast$}]{correction\+On\+Input\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Incorporates the passed correction to the set of input data corrections 
+\begin{DoxyParams}{Parameters}
+{\em correction\+On\+Input\+Data} & the correction to add \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classQn_1_1DetectorConfiguration_ab65571f46d348c2b07d3b03fc1e6cf11}{Qn\+::\+Detector\+Configuration}}.
+
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_a1f22484e703888f5ff9548d9a8421d3b}\label{classQn_1_1DetectorConfigurationChannels_a1f22484e703888f5ff9548d9a8421d3b}} 
+\index{Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}!Add\+Data\+Vector@{Add\+Data\+Vector}}
+\index{Add\+Data\+Vector@{Add\+Data\+Vector}!Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}}
+\subsubsection{\texorpdfstring{Add\+Data\+Vector()}{AddDataVector()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Detector\+Configuration\+Channels\+::\+Add\+Data\+Vector (\begin{DoxyParamCaption}\item[{const double $\ast$}]{variable\+Container,  }\item[{Double\+\_\+t}]{phi,  }\item[{Double\+\_\+t}]{weight,  }\item[{Int\+\_\+t}]{channel\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+New data vector for the detector configuration. A check is made to match the channel Id with the ones assigned to the detector configuration and then an additional one to see if the current variable bank content passes the associated cuts. If so, the data vector is stored. 
+\begin{DoxyParams}{Parameters}
+{\em variable\+Container} & pointer to the variable content bank \\
+\hline
+{\em phi} & azimuthal angle \\
+\hline
+{\em weight} & the weight of the data vector. Ignored for track detector configurations. \\
+\hline
+{\em channel\+Id} & the channel Id that originates the data vector. Ignored for track detector configurations. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if the data vector was accepted and stored 
+\end{DoxyReturn}
+add the data vector to the bank 
+
+Implements \mbox{\hyperlink{classQn_1_1DetectorConfiguration_ab406e0d2a85e7f5a7c74d0bd0252375d}{Qn\+::\+Detector\+Configuration}}.
+
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_aee41ab7c778ea075aa7e4f414c8817e0}\label{classQn_1_1DetectorConfigurationChannels_aee41ab7c778ea075aa7e4f414c8817e0}} 
+\index{Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}!After\+Inputs\+Attach\+Actions@{After\+Inputs\+Attach\+Actions}}
+\index{After\+Inputs\+Attach\+Actions@{After\+Inputs\+Attach\+Actions}!Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}}
+\subsubsection{\texorpdfstring{After\+Inputs\+Attach\+Actions()}{AfterInputsAttachActions()}}
+{\footnotesize\ttfamily void Qn\+::\+Detector\+Configuration\+Channels\+::\+After\+Inputs\+Attach\+Actions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Perform after calibration histograms attach actions It is used to inform the different correction step that all conditions for running the network are in place so it is time to check if their requirements are satisfied
+
+The request is transmitted to the input data corrections and then propagated to the Q vector corrections 
+
+Implements \mbox{\hyperlink{classQn_1_1DetectorConfiguration_ab6766905dffe5811aefa59dd1e1117d8}{Qn\+::\+Detector\+Configuration}}.
+
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_ac02f3bf7815650e06a3b85f3c0bcd0e0}\label{classQn_1_1DetectorConfigurationChannels_ac02f3bf7815650e06a3b85f3c0bcd0e0}} 
+\index{Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}!Attach\+Correction\+Inputs@{Attach\+Correction\+Inputs}}
+\index{Attach\+Correction\+Inputs@{Attach\+Correction\+Inputs}!Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}}
+\subsubsection{\texorpdfstring{Attach\+Correction\+Inputs()}{AttachCorrectionInputs()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Detector\+Configuration\+Channels\+::\+Attach\+Correction\+Inputs (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Asks for attaching the needed input information to the correction steps
+
+The detector list is extracted from the passed list and then the request is transmitted to the input data corrections and then propagated to the Q vector corrections 
+\begin{DoxyParams}{Parameters}
+{\em list} & list where the input information should be found \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if everything went OK 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1DetectorConfiguration_a4ae0eb587070e68a11fbb438d96fca15}{Qn\+::\+Detector\+Configuration}}.
+
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_a074acfba4bc0d41df71d53b98d682f57}\label{classQn_1_1DetectorConfigurationChannels_a074acfba4bc0d41df71d53b98d682f57}} 
+\index{Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}!Attach\+Corrections\+Manager@{Attach\+Corrections\+Manager}}
+\index{Attach\+Corrections\+Manager@{Attach\+Corrections\+Manager}!Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}}
+\subsubsection{\texorpdfstring{Attach\+Corrections\+Manager()}{AttachCorrectionsManager()}}
+{\footnotesize\ttfamily void Qn\+::\+Detector\+Configuration\+Channels\+::\+Attach\+Corrections\+Manager (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQn_1_1CorrectionCalculator}{Correction\+Calculator}} $\ast$}]{manager }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Stores the framework manager pointer Orders the base class to store the correction manager and informs the input data corrections and the \mbox{\hyperlink{namespaceQn}{Qn}} vector corrections they are now attached to the framework 
+\begin{DoxyParams}{Parameters}
+{\em manager} & the framework manager \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classQn_1_1DetectorConfiguration_a512c77d73e0e6453607f7ae7e2e8f72b}{Qn\+::\+Detector\+Configuration}}.
+
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_aa68804ba67cf6fdee8891e6aed0e14f7}\label{classQn_1_1DetectorConfigurationChannels_aa68804ba67cf6fdee8891e6aed0e14f7}} 
+\index{Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}!Build\+Qn\+Vector@{Build\+Qn\+Vector}}
+\index{Build\+Qn\+Vector@{Build\+Qn\+Vector}!Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}}
+\subsubsection{\texorpdfstring{Build\+Qn\+Vector()}{BuildQnVector()}}
+{\footnotesize\ttfamily void Qn\+::\+Detector\+Configuration\+Channels\+::\+Build\+Qn\+Vector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Builds \mbox{\hyperlink{namespaceQn}{Qn}} vector before Q vector corrections and after input corrections and considering the chosen calibration method. The built Q vector is the one to be used for subsequent Q vector corrections. 
+
+Implements \mbox{\hyperlink{classQn_1_1DetectorConfiguration_a7aaf10f6e30151dd142d59d5dff72e2d}{Qn\+::\+Detector\+Configuration}}.
+
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_a6770ab3360c5e688c30bbea0522f3856}\label{classQn_1_1DetectorConfigurationChannels_a6770ab3360c5e688c30bbea0522f3856}} 
+\index{Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}!Build\+Raw\+Qn\+Vector@{Build\+Raw\+Qn\+Vector}}
+\index{Build\+Raw\+Qn\+Vector@{Build\+Raw\+Qn\+Vector}!Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}}
+\subsubsection{\texorpdfstring{Build\+Raw\+Qn\+Vector()}{BuildRawQnVector()}}
+{\footnotesize\ttfamily void Qn\+::\+Detector\+Configuration\+Channels\+::\+Build\+Raw\+Qn\+Vector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Builds raw \mbox{\hyperlink{namespaceQn}{Qn}} vector before Q vector corrections and before input data corrections but considering the chosen calibration method. This is a channelized configuration so this Q vector will N\+OT be the one to be used for subsequent Q vector corrections. \mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_a692b4880a3a694cf9a3ad860cb3f7b52}\label{classQn_1_1DetectorConfigurationChannels_a692b4880a3a694cf9a3ad860cb3f7b52}} 
+\index{Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}!Clear\+Configuration@{Clear\+Configuration}}
+\index{Clear\+Configuration@{Clear\+Configuration}!Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}}
+\subsubsection{\texorpdfstring{Clear\+Configuration()}{ClearConfiguration()}}
+{\footnotesize\ttfamily void Qn\+::\+Detector\+Configuration\+Channels\+::\+Clear\+Configuration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Clean the configuration to accept a new event
+
+Transfers the order to the Q vector correction steps then to the input data correction steps and finally cleans the own Q vector and the input data vector bank for accepting the next event. 
+
+Implements \mbox{\hyperlink{classQn_1_1DetectorConfiguration_a94c21b39a4a3680675319aacf4a517f4}{Qn\+::\+Detector\+Configuration}}.
+
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_a62452177f5059e64977c5c1fc079de0b}\label{classQn_1_1DetectorConfigurationChannels_a62452177f5059e64977c5c1fc079de0b}} 
+\index{Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}!Create\+Nve\+Q\+A\+Histograms@{Create\+Nve\+Q\+A\+Histograms}}
+\index{Create\+Nve\+Q\+A\+Histograms@{Create\+Nve\+Q\+A\+Histograms}!Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}}
+\subsubsection{\texorpdfstring{Create\+Nve\+Q\+A\+Histograms()}{CreateNveQAHistograms()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Detector\+Configuration\+Channels\+::\+Create\+Nve\+Q\+A\+Histograms (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Asks for non validated entries QA histograms creation
+
+A new histograms list is created for the detector and incorporated to the passed list. Then the new list is passed first to the input data corrections and then to the Q vector corrections. 
+\begin{DoxyParams}{Parameters}
+{\em list} & list where the histograms should be incorporated for its persistence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if everything went OK 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1DetectorConfiguration_ade61875d8e7a05dd413c94d6887ae4ac}{Qn\+::\+Detector\+Configuration}}.
+
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_a0e3a0e4775decda04c3bad48534c297a}\label{classQn_1_1DetectorConfigurationChannels_a0e3a0e4775decda04c3bad48534c297a}} 
+\index{Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}!Create\+Q\+A\+Histograms@{Create\+Q\+A\+Histograms}}
+\index{Create\+Q\+A\+Histograms@{Create\+Q\+A\+Histograms}!Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}}
+\subsubsection{\texorpdfstring{Create\+Q\+A\+Histograms()}{CreateQAHistograms()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Detector\+Configuration\+Channels\+::\+Create\+Q\+A\+Histograms (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Asks for QA histograms creation
+
+A new histograms list is created for the detector and incorporated to the passed list. The own QA histograms are then created and incorporated to the new list. Then the new list is passed first to the input data corrections and then to the Q vector corrections. 
+\begin{DoxyParams}{Parameters}
+{\em list} & list where the histograms should be incorporated for its persistence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if everything went OK 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1DetectorConfiguration_a9f527d4c584e6bd79b6b8eb0b7f5413a}{Qn\+::\+Detector\+Configuration}}.
+
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_ab19e6fe4c194060859eef7941b1c716c}\label{classQn_1_1DetectorConfigurationChannels_ab19e6fe4c194060859eef7941b1c716c}} 
+\index{Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}!Create\+Support\+Data\+Structures@{Create\+Support\+Data\+Structures}}
+\index{Create\+Support\+Data\+Structures@{Create\+Support\+Data\+Structures}!Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}}
+\subsubsection{\texorpdfstring{Create\+Support\+Data\+Structures()}{CreateSupportDataStructures()}}
+{\footnotesize\ttfamily void Qn\+::\+Detector\+Configuration\+Channels\+::\+Create\+Support\+Data\+Structures (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Asks for support data structures creation
+
+The input data vector bank is allocated and the request is transmitted to the input data corrections and then to the Q vector corrections. 
+
+Implements \mbox{\hyperlink{classQn_1_1DetectorConfiguration_a664f65925f22f8f02c1a216f77b533ce}{Qn\+::\+Detector\+Configuration}}.
+
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_a68e68df13b56e3e9f55adc8cae0a505d}\label{classQn_1_1DetectorConfigurationChannels_a68e68df13b56e3e9f55adc8cae0a505d}} 
+\index{Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}!Create\+Support\+Histograms@{Create\+Support\+Histograms}}
+\index{Create\+Support\+Histograms@{Create\+Support\+Histograms}!Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}}
+\subsubsection{\texorpdfstring{Create\+Support\+Histograms()}{CreateSupportHistograms()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Detector\+Configuration\+Channels\+::\+Create\+Support\+Histograms (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Asks for support histograms creation
+
+A new histograms list is created for the detector and incorporated to the passed list. Then the new list is passed first to the input data corrections and then to the Q vector corrections. 
+\begin{DoxyParams}{Parameters}
+{\em list} & list where the histograms should be incorporated for its persistence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if everything went OK 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1DetectorConfiguration_a8e5e2eef94bca58a3dcf34fe5fbd1429}{Qn\+::\+Detector\+Configuration}}.
+
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_aa9e99a908719d0de616cebf9329fe83f}\label{classQn_1_1DetectorConfigurationChannels_aa9e99a908719d0de616cebf9329fe83f}} 
+\index{Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}!Fill\+Overall\+Input\+Correction\+Step\+List@{Fill\+Overall\+Input\+Correction\+Step\+List}}
+\index{Fill\+Overall\+Input\+Correction\+Step\+List@{Fill\+Overall\+Input\+Correction\+Step\+List}!Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}}
+\subsubsection{\texorpdfstring{Fill\+Overall\+Input\+Correction\+Step\+List()}{FillOverallInputCorrectionStepList()}}
+{\footnotesize\ttfamily void Qn\+::\+Detector\+Configuration\+Channels\+::\+Fill\+Overall\+Input\+Correction\+Step\+List (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{list }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Include only one instance of each input correction step in execution order
+
+The request is transmitted to the set of \mbox{\hyperlink{namespaceQn}{Qn}} vector corrections 
+\begin{DoxyParams}{Parameters}
+{\em list} & list where the correction steps should be incorporated \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classQn_1_1DetectorConfiguration_a76e173f938b886b5575597d9464698b4}{Qn\+::\+Detector\+Configuration}}.
+
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_a002931544421b46c9402aa7bdefcff51}\label{classQn_1_1DetectorConfigurationChannels_a002931544421b46c9402aa7bdefcff51}} 
+\index{Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}!Fill\+Overall\+Qn\+Vector\+Correction\+Step\+List@{Fill\+Overall\+Qn\+Vector\+Correction\+Step\+List}}
+\index{Fill\+Overall\+Qn\+Vector\+Correction\+Step\+List@{Fill\+Overall\+Qn\+Vector\+Correction\+Step\+List}!Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}}
+\subsubsection{\texorpdfstring{Fill\+Overall\+Qn\+Vector\+Correction\+Step\+List()}{FillOverallQnVectorCorrectionStepList()}}
+{\footnotesize\ttfamily void Qn\+::\+Detector\+Configuration\+Channels\+::\+Fill\+Overall\+Qn\+Vector\+Correction\+Step\+List (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{list }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Include only one instance of each \mbox{\hyperlink{namespaceQn}{Qn}} vector correction step in execution order
+
+The request is transmitted to the set of \mbox{\hyperlink{namespaceQn}{Qn}} vector corrections 
+\begin{DoxyParams}{Parameters}
+{\em list} & list where the correction steps should be incorporated \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classQn_1_1DetectorConfiguration_ad71d83a2b0a5cee45bde15e936843e49}{Qn\+::\+Detector\+Configuration}}.
+
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_a393356a54937b18706b49b3e6748674f}\label{classQn_1_1DetectorConfigurationChannels_a393356a54937b18706b49b3e6748674f}} 
+\index{Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}!Get\+Channels\+Groups@{Get\+Channels\+Groups}}
+\index{Get\+Channels\+Groups@{Get\+Channels\+Groups}!Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}}
+\subsubsection{\texorpdfstring{Get\+Channels\+Groups()}{GetChannelsGroups()}}
+{\footnotesize\ttfamily const Int\+\_\+t$\ast$ Qn\+::\+Detector\+Configuration\+Channels\+::\+Get\+Channels\+Groups (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets the channels groups \begin{DoxyReturn}{Returns}
+the group associated to each channel 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_a7de674ab1e919b85391215c18db325ca}\label{classQn_1_1DetectorConfigurationChannels_a7de674ab1e919b85391215c18db325ca}} 
+\index{Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}!Get\+Hard\+Coded\+Group\+Weights@{Get\+Hard\+Coded\+Group\+Weights}}
+\index{Get\+Hard\+Coded\+Group\+Weights@{Get\+Hard\+Coded\+Group\+Weights}!Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}}
+\subsubsection{\texorpdfstring{Get\+Hard\+Coded\+Group\+Weights()}{GetHardCodedGroupWeights()}}
+{\footnotesize\ttfamily const Float\+\_\+t$\ast$ Qn\+::\+Detector\+Configuration\+Channels\+::\+Get\+Hard\+Coded\+Group\+Weights (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets the hard coded group weights \begin{DoxyReturn}{Returns}
+the groups hard coded weights 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_a24728cc5b3b9f80f9965268d1153f06c}\label{classQn_1_1DetectorConfigurationChannels_a24728cc5b3b9f80f9965268d1153f06c}} 
+\index{Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}!Get\+Is\+Tracking\+Detector@{Get\+Is\+Tracking\+Detector}}
+\index{Get\+Is\+Tracking\+Detector@{Get\+Is\+Tracking\+Detector}!Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}}
+\subsubsection{\texorpdfstring{Get\+Is\+Tracking\+Detector()}{GetIsTrackingDetector()}}
+{\footnotesize\ttfamily virtual Bool\+\_\+t Qn\+::\+Detector\+Configuration\+Channels\+::\+Get\+Is\+Tracking\+Detector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Get if the detector configuration is own by a tracking detector \begin{DoxyReturn}{Returns}
+F\+A\+L\+SE, this is a hit / channel detector configuration 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1DetectorConfiguration_acdb57db96ed24524b5a3a28821727a3d}{Qn\+::\+Detector\+Configuration}}.
+
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_a7d31f3204016bbb12099911649c29840}\label{classQn_1_1DetectorConfigurationChannels_a7d31f3204016bbb12099911649c29840}} 
+\index{Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}!Get\+No\+Of\+Channels@{Get\+No\+Of\+Channels}}
+\index{Get\+No\+Of\+Channels@{Get\+No\+Of\+Channels}!Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}}
+\subsubsection{\texorpdfstring{Get\+No\+Of\+Channels()}{GetNoOfChannels()}}
+{\footnotesize\ttfamily Int\+\_\+t Qn\+::\+Detector\+Configuration\+Channels\+::\+Get\+No\+Of\+Channels (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets the number of channels \begin{DoxyReturn}{Returns}
+the number of channels of the associated detector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_a541ac77e7e2e15690eed089a66d0c5a1}\label{classQn_1_1DetectorConfigurationChannels_a541ac77e7e2e15690eed089a66d0c5a1}} 
+\index{Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}!Get\+Used\+Channels\+Mask@{Get\+Used\+Channels\+Mask}}
+\index{Get\+Used\+Channels\+Mask@{Get\+Used\+Channels\+Mask}!Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}}
+\subsubsection{\texorpdfstring{Get\+Used\+Channels\+Mask()}{GetUsedChannelsMask()}}
+{\footnotesize\ttfamily const Bool\+\_\+t$\ast$ Qn\+::\+Detector\+Configuration\+Channels\+::\+Get\+Used\+Channels\+Mask (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets the used channels mask \begin{DoxyReturn}{Returns}
+the used channels mask 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_a6756b2b2bed25bee5659953ae82ce5b7}\label{classQn_1_1DetectorConfigurationChannels_a6756b2b2bed25bee5659953ae82ce5b7}} 
+\index{Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}!Include\+Qn\+Vectors@{Include\+Qn\+Vectors}}
+\index{Include\+Qn\+Vectors@{Include\+Qn\+Vectors}!Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}}
+\subsubsection{\texorpdfstring{Include\+Qn\+Vectors()}{IncludeQnVectors()}}
+{\footnotesize\ttfamily void Qn\+::\+Detector\+Configuration\+Channels\+::\+Include\+Qn\+Vectors (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Include the the list of \mbox{\hyperlink{namespaceQn}{Qn}} vector associated to the detector configuration into the passed list
+
+A new list is created for the detector configuration and incorporated to the passed list.
+
+Always includes first the fully corrected \mbox{\hyperlink{namespaceQn}{Qn}} vector, and then includes the raw \mbox{\hyperlink{namespaceQn}{Qn}} vector and the plain \mbox{\hyperlink{namespaceQn}{Qn}} vector and then asks to the different correction steps to include their partially corrected \mbox{\hyperlink{namespaceQn}{Qn}} vectors.
+
+The check if we are already there is because it could be late information about the process name and then the correction histograms could still not be attached and the constructed list does not contain the final \mbox{\hyperlink{namespaceQn}{Qn}} vectors. 
+\begin{DoxyParams}{Parameters}
+{\em list} & list where the corrected \mbox{\hyperlink{namespaceQn}{Qn}} vector should be added \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classQn_1_1DetectorConfiguration_a4298530954cc8dabbd41b1fd83d6310f}{Qn\+::\+Detector\+Configuration}}.
+
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_a45d03a27b4825709c2440a905ca8959a}\label{classQn_1_1DetectorConfigurationChannels_a45d03a27b4825709c2440a905ca8959a}} 
+\index{Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}!Is\+Selected@{Is\+Selected}}
+\index{Is\+Selected@{Is\+Selected}!Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}}
+\subsubsection{\texorpdfstring{Is\+Selected()}{IsSelected()}}
+{\footnotesize\ttfamily virtual Bool\+\_\+t Qn\+::\+Detector\+Configuration\+Channels\+::\+Is\+Selected (\begin{DoxyParamCaption}\item[{const double $\ast$}]{variable\+Container,  }\item[{Int\+\_\+t}]{n\+Channel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Checks if the current content of the variable bank applies to the detector configuration for the passed channel. 
+\begin{DoxyParams}{Parameters}
+{\em variable\+Container} & pointer to the variable content bank \\
+\hline
+{\em n\+Channel} & the interested external channel number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if the current content applies to the configuration 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1DetectorConfiguration}{Qn\+::\+Detector\+Configuration}}.
+
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_a327a2d868d9cc1596e83f54354c3df44}\label{classQn_1_1DetectorConfigurationChannels_a327a2d868d9cc1596e83f54354c3df44}} 
+\index{Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}!Process\+Corrections@{Process\+Corrections}}
+\index{Process\+Corrections@{Process\+Corrections}!Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}}
+\subsubsection{\texorpdfstring{Process\+Corrections()}{ProcessCorrections()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Detector\+Configuration\+Channels\+::\+Process\+Corrections (\begin{DoxyParamCaption}\item[{const double $\ast$}]{variable\+Container }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Ask for processing corrections for the involved detector configuration
+
+The request is transmitted to the incoming data correction steps and then to Q vector correction steps. The first not applied correction step breaks the loop and k\+F\+A\+L\+SE is returned \begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if all correction steps were applied 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1DetectorConfiguration_aad0610bd5d168c29a32025ddf641e3fc}{Qn\+::\+Detector\+Configuration}}.
+
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_a972f2cc50810d2a9651f2920de5a03ec}\label{classQn_1_1DetectorConfigurationChannels_a972f2cc50810d2a9651f2920de5a03ec}} 
+\index{Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}!Process\+Data\+Collection@{Process\+Data\+Collection}}
+\index{Process\+Data\+Collection@{Process\+Data\+Collection}!Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}}
+\subsubsection{\texorpdfstring{Process\+Data\+Collection()}{ProcessDataCollection()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Detector\+Configuration\+Channels\+::\+Process\+Data\+Collection (\begin{DoxyParamCaption}\item[{const double $\ast$}]{variable\+Container }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Ask for processing corrections data collection for the involved detector configuration
+
+The request is transmitted to the incoming data correction steps and then to Q vector correction steps. The first not applied correction step should break the loop after collecting the data and k\+F\+A\+L\+SE is returned \begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if all correction steps were applied 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1DetectorConfiguration_ac78ed44b460217fda7d094cc102504c4}{Qn\+::\+Detector\+Configuration}}.
+
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_a753f23bd918444d853d1deebeefa4727}\label{classQn_1_1DetectorConfigurationChannels_a753f23bd918444d853d1deebeefa4727}} 
+\index{Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}!Report\+On\+Corrections@{Report\+On\+Corrections}}
+\index{Report\+On\+Corrections@{Report\+On\+Corrections}!Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}}
+\subsubsection{\texorpdfstring{Report\+On\+Corrections()}{ReportOnCorrections()}}
+{\footnotesize\ttfamily void Qn\+::\+Detector\+Configuration\+Channels\+::\+Report\+On\+Corrections (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{steps,  }\item[{T\+List $\ast$}]{calib,  }\item[{T\+List $\ast$}]{apply }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Provide information about assigned corrections
+
+We create three list which items they own, incorporate info from the correction steps and add them to the passed list 
+\begin{DoxyParams}{Parameters}
+{\em steps} & list for incorporating the list of assigned correction steps \\
+\hline
+{\em calib} & list for incorporating the list of steps in calibrating status \\
+\hline
+{\em apply} & list for incorporating the list of steps in applying status \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classQn_1_1DetectorConfiguration_ad33e54cbf374fa37d8edf9915719982f}{Qn\+::\+Detector\+Configuration}}.
+
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_a920171069e4f5e36e0849cc5ac3c9a3d}\label{classQn_1_1DetectorConfigurationChannels_a920171069e4f5e36e0849cc5ac3c9a3d}} 
+\index{Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}!Set\+Channels\+Scheme@{Set\+Channels\+Scheme}}
+\index{Set\+Channels\+Scheme@{Set\+Channels\+Scheme}!Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}}
+\subsubsection{\texorpdfstring{Set\+Channels\+Scheme()}{SetChannelsScheme()}}
+{\footnotesize\ttfamily void Qn\+::\+Detector\+Configuration\+Channels\+::\+Set\+Channels\+Scheme (\begin{DoxyParamCaption}\item[{Bool\+\_\+t $\ast$}]{b\+Used\+Channel,  }\item[{Int\+\_\+t $\ast$}]{n\+Channel\+Group = {\ttfamily nullptr},  }\item[{Float\+\_\+t $\ast$}]{hard\+Coded\+Group\+Weights = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Incorporates the channels scheme to the detector configuration 
+\begin{DoxyParams}{Parameters}
+{\em b\+Used\+Channel} & array of booleans one per each channel If N\+U\+LL all channels in f\+No\+Of\+Channels are allocated to the detector configuration \\
+\hline
+{\em n\+Channel\+Group} & array of group number for each channel If N\+U\+LL all channels in f\+No\+Of\+Channels are assigned to a unique group \\
+\hline
+{\em hard\+Coded\+Group\+Weights} & array with hard coded weight for each group If N\+U\+LL no hard coded weight is assigned (i.\+e. weight = 1) \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classQn_1_1DetectorConfiguration}{Qn\+::\+Detector\+Configuration}}.
+
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_ad7d7c25a2940f842783863ebf9a59fad}\label{classQn_1_1DetectorConfigurationChannels_ad7d7c25a2940f842783863ebf9a59fad}} 
+\index{Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}!Set\+Q\+A\+Centrality\+Var@{Set\+Q\+A\+Centrality\+Var}}
+\index{Set\+Q\+A\+Centrality\+Var@{Set\+Q\+A\+Centrality\+Var}!Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}}
+\subsubsection{\texorpdfstring{Set\+Q\+A\+Centrality\+Var()}{SetQACentralityVar()}}
+{\footnotesize\ttfamily void Qn\+::\+Detector\+Configuration\+Channels\+::\+Set\+Q\+A\+Centrality\+Var (\begin{DoxyParamCaption}\item[{Int\+\_\+t}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the variable id used for centrality in QA histograms. It must be one of the event class variables. 
+\begin{DoxyParams}{Parameters}
+{\em id} & id for the variable used for centrality \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1DetectorConfigurationChannels_aaddda392786336026b2e91fb9d26a733}\label{classQn_1_1DetectorConfigurationChannels_aaddda392786336026b2e91fb9d26a733}} 
+\index{Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}!Set\+Q\+A\+Multiplicity\+Axis@{Set\+Q\+A\+Multiplicity\+Axis}}
+\index{Set\+Q\+A\+Multiplicity\+Axis@{Set\+Q\+A\+Multiplicity\+Axis}!Qn\+::\+Detector\+Configuration\+Channels@{Qn\+::\+Detector\+Configuration\+Channels}}
+\subsubsection{\texorpdfstring{Set\+Q\+A\+Multiplicity\+Axis()}{SetQAMultiplicityAxis()}}
+{\footnotesize\ttfamily void Qn\+::\+Detector\+Configuration\+Channels\+::\+Set\+Q\+A\+Multiplicity\+Axis (\begin{DoxyParamCaption}\item[{Int\+\_\+t}]{nbins,  }\item[{Float\+\_\+t}]{min,  }\item[{Float\+\_\+t}]{max }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the characteristics of the multiplicity axis in QA histograms 
+\begin{DoxyParams}{Parameters}
+{\em nbins} & the number of bins \\
+\hline
+{\em min} & minimum multiplicity value \\
+\hline
+{\em max} & maximum multiplicity value \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/include/Detector\+Configuration\+Channels.\+h\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/Detector\+Configuration\+Channels.\+cpp\end{DoxyCompactItemize}

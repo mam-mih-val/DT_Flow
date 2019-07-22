@@ -1,0 +1,356 @@
+\hypertarget{classQn_1_1TwistAndRescale}{}\section{Qn\+:\+:Twist\+And\+Rescale Class Reference}
+\label{classQn_1_1TwistAndRescale}\index{Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}}
+Inheritance diagram for Qn\+:\+:Twist\+And\+Rescale\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classQn_1_1TwistAndRescale}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classQn_1_1TwistAndRescale_a04bae5b47174d3536e1f6ac8499b982f}{Qn\+Twist\+And\+Rescale\+Method}} \{ \mbox{\hyperlink{classQn_1_1TwistAndRescale_a04bae5b47174d3536e1f6ac8499b982fade06f7c20fc674951b236bbfb0012a6a}{T\+W\+R\+E\+S\+C\+A\+L\+E\+\_\+double\+Harmonic}}, 
+\mbox{\hyperlink{classQn_1_1TwistAndRescale_a04bae5b47174d3536e1f6ac8499b982fad0d9e217f4cd21ef50a93fa165d235d4}{T\+W\+R\+E\+S\+C\+A\+L\+E\+\_\+correlations}}
+ \}
+\begin{DoxyCompactList}\small\item\em The class of the id of the supported twist and rescale methods. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classQn_1_1TwistAndRescale_a4cf98e45c04dd1a2c31ba3e023a064e5}{Twist\+And\+Rescale}} ()
+\item 
+\mbox{\hyperlink{classQn_1_1TwistAndRescale_a93e2f5cdf87cfd5366e8b7acbc02623e}{$\sim$\+Twist\+And\+Rescale}} ()
+\item 
+void \mbox{\hyperlink{classQn_1_1TwistAndRescale_ab7a17c1330ba109472e4941ba44c3ad5}{Set\+Twist\+And\+Rescale\+Method}} (\mbox{\hyperlink{classQn_1_1TwistAndRescale_a04bae5b47174d3536e1f6ac8499b982f}{Qn\+Twist\+And\+Rescale\+Method}} method)
+\item 
+void \mbox{\hyperlink{classQn_1_1TwistAndRescale_a3b8c1bb7d3ef535904dc6705d6f152d9}{Set\+Apply\+Twist}} (Bool\+\_\+t apply)
+\item 
+void \mbox{\hyperlink{classQn_1_1TwistAndRescale_ace713dca5b5d051583aa6821d40a35b3}{Set\+Apply\+Rescale}} (Bool\+\_\+t apply)
+\item 
+void \mbox{\hyperlink{classQn_1_1TwistAndRescale_a63b6513ff899eb521921740dad3af9b2}{Set\+Reference\+Configurations\+For\+Twist\+And\+Rescale}} (const char $\ast$nameB, const char $\ast$nameC)
+\item 
+void \mbox{\hyperlink{classQn_1_1TwistAndRescale_a1180c7ea79d276d939ace45a61ebc76a}{Set\+No\+Of\+Entries\+Threshold}} (Int\+\_\+t n\+No\+Of\+Entries)
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1TwistAndRescale_a75b3e7001fabda74adcf1441ffab1435}{Attached\+To\+Framework\+Manager}} ()
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1TwistAndRescale_af6ca5526d392329f6f35adcc261de349}{Attach\+Input}} (T\+List $\ast$list)
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1TwistAndRescale_ab9f2ec874c828bc88d70232ae4ca8e63}{After\+Inputs\+Attach\+Actions}} ()
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1TwistAndRescale_af28bb42098c1b3138769d1747f06468f}{Create\+Support\+Data\+Structures}} ()
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1TwistAndRescale_a57826092f0c09750fe0f5919e2cdb617}{Create\+Support\+Histograms}} (T\+List $\ast$list)
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1TwistAndRescale_a048fe37fdbd61696d5b0ed7eadbde1d1}{Create\+Q\+A\+Histograms}} (T\+List $\ast$list)
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1TwistAndRescale_ae60ae563330df4beb9edd3fb99a9fc31}{Create\+Nve\+Q\+A\+Histograms}} (T\+List $\ast$list)
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1TwistAndRescale_a3bc16721deb0f73dbfcf0ae6cabe5b54}{Process\+Corrections}} (const double $\ast$variable\+Container)
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1TwistAndRescale_ac0392e263ff658b876821ac06d5b2eff}{Process\+Data\+Collection}} (const double $\ast$variable\+Container)
+\item 
+\mbox{\Hypertarget{classQn_1_1TwistAndRescale_a07d06e5a437221d08bdba6078af1c596}\label{classQn_1_1TwistAndRescale_a07d06e5a437221d08bdba6078af1c596}} 
+virtual void \mbox{\hyperlink{classQn_1_1TwistAndRescale_a07d06e5a437221d08bdba6078af1c596}{Clear\+Correction\+Step}} ()
+\begin{DoxyCompactList}\small\item\em Clean the correction to accept a new event. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classQn_1_1TwistAndRescale_aad00583024f1a71458d6c86ba1cc4d44}{Include\+Corrected\+Qn\+Vector}} (T\+List $\ast$list)
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1TwistAndRescale_a82b3138efce50ea788122dd26ca964d7}{Is\+Being\+Applied}} () const
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1TwistAndRescale_a2a6c985100656523b3d834a31d8f19a8}{Report\+Usage}} (T\+List $\ast$calibration\+List, T\+List $\ast$apply\+List)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classQn_1_1TwistAndRescale_a04bae5b47174d3536e1f6ac8499b982f}\label{classQn_1_1TwistAndRescale_a04bae5b47174d3536e1f6ac8499b982f}} 
+\index{Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}!Qn\+Twist\+And\+Rescale\+Method@{Qn\+Twist\+And\+Rescale\+Method}}
+\index{Qn\+Twist\+And\+Rescale\+Method@{Qn\+Twist\+And\+Rescale\+Method}!Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}}
+\subsubsection{\texorpdfstring{Qn\+Twist\+And\+Rescale\+Method}{QnTwistAndRescaleMethod}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classQn_1_1TwistAndRescale_a04bae5b47174d3536e1f6ac8499b982f}{Qn\+::\+Twist\+And\+Rescale\+::\+Qn\+Twist\+And\+Rescale\+Method}}}
+
+
+
+The class of the id of the supported twist and rescale methods. 
+
+Actually it is not a class because the C++ level of implementation. But full protection will be reached when were possible declaring it as a class. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\+W\+R\+E\+S\+C\+A\+L\+E\+\_\+double\+Harmonic@{T\+W\+R\+E\+S\+C\+A\+L\+E\+\_\+double\+Harmonic}!Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}}\index{Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}!T\+W\+R\+E\+S\+C\+A\+L\+E\+\_\+double\+Harmonic@{T\+W\+R\+E\+S\+C\+A\+L\+E\+\_\+double\+Harmonic}}}\mbox{\Hypertarget{classQn_1_1TwistAndRescale_a04bae5b47174d3536e1f6ac8499b982fade06f7c20fc674951b236bbfb0012a6a}\label{classQn_1_1TwistAndRescale_a04bae5b47174d3536e1f6ac8499b982fade06f7c20fc674951b236bbfb0012a6a}} 
+T\+W\+R\+E\+S\+C\+A\+L\+E\+\_\+double\+Harmonic&$ A^{\pm}_{2n} = 1 \pm \langle X_{2n} \rangle, \qquad \Lambda ^{\pm}_{2n} = \frac{\langle Y_{2n} \rangle}{A^{\pm}_{2n}} $ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\+W\+R\+E\+S\+C\+A\+L\+E\+\_\+correlations@{T\+W\+R\+E\+S\+C\+A\+L\+E\+\_\+correlations}!Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}}\index{Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}!T\+W\+R\+E\+S\+C\+A\+L\+E\+\_\+correlations@{T\+W\+R\+E\+S\+C\+A\+L\+E\+\_\+correlations}}}\mbox{\Hypertarget{classQn_1_1TwistAndRescale_a04bae5b47174d3536e1f6ac8499b982fad0d9e217f4cd21ef50a93fa165d235d4}\label{classQn_1_1TwistAndRescale_a04bae5b47174d3536e1f6ac8499b982fad0d9e217f4cd21ef50a93fa165d235d4}} 
+T\+W\+R\+E\+S\+C\+A\+L\+E\+\_\+correlations&$ A^{A+}_{2n} = \frac{\sqrt{2 \langle X^{A}_{n} X^{C}_{n} \rangle}\langle X^{A}_{n} X^{B}_{n} \rangle} {\sqrt{\langle X^{A}_{n} X^{B}_{n} \rangle \langle X^{B}_{n} X^{C}_{n} \rangle + \langle X^{A}_{n} Y^{B}_{n} \rangle \langle X^{B}_{n} Y^{C}_{n} \rangle}}, \\ \, A^{A-}_{2n} = \frac{\sqrt{2 \langle X^{A}_{n} X^{C}_{n} \rangle}\langle Y^{A}_{n} Y^{B}_{n} \rangle} {\sqrt{\langle X^{A}_{n} X^{B}_{n} \rangle \langle X^{B}_{n} X^{C}_{n} \rangle + \langle X^{A}_{n} Y^{B}_{n} \rangle \langle X^{B}_{n} Y^{C}_{n} \rangle}}, \\ \, \Lambda^{A,+}_{2n} = \frac{\langle X^{A}_{n} Y^{B}_{n} \rangle}{\langle X^{A}_{n} X^{B}_{n} \rangle}, \quad \Lambda^{A,-}_{2n} = \frac{\langle X^{A}_{n} Y^{B}_{n} \rangle}{\langle Y^{A}_{n} Y^{B}_{n} \rangle} $ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classQn_1_1TwistAndRescale_a4cf98e45c04dd1a2c31ba3e023a064e5}\label{classQn_1_1TwistAndRescale_a4cf98e45c04dd1a2c31ba3e023a064e5}} 
+\index{Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}!Twist\+And\+Rescale@{Twist\+And\+Rescale}}
+\index{Twist\+And\+Rescale@{Twist\+And\+Rescale}!Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}}
+\subsubsection{\texorpdfstring{Twist\+And\+Rescale()}{TwistAndRescale()}}
+{\footnotesize\ttfamily Qn\+::\+Twist\+And\+Rescale\+::\+Twist\+And\+Rescale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default constructor Passes to the base class the identity data for the recentering and width equalization correction step \mbox{\Hypertarget{classQn_1_1TwistAndRescale_a93e2f5cdf87cfd5366e8b7acbc02623e}\label{classQn_1_1TwistAndRescale_a93e2f5cdf87cfd5366e8b7acbc02623e}} 
+\index{Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}!````~Twist\+And\+Rescale@{$\sim$\+Twist\+And\+Rescale}}
+\index{````~Twist\+And\+Rescale@{$\sim$\+Twist\+And\+Rescale}!Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}}
+\subsubsection{\texorpdfstring{$\sim$\+Twist\+And\+Rescale()}{~TwistAndRescale()}}
+{\footnotesize\ttfamily Qn\+::\+Twist\+And\+Rescale\+::$\sim$\+Twist\+And\+Rescale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default destructor Releases the memory taken 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQn_1_1TwistAndRescale_ab9f2ec874c828bc88d70232ae4ca8e63}\label{classQn_1_1TwistAndRescale_ab9f2ec874c828bc88d70232ae4ca8e63}} 
+\index{Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}!After\+Inputs\+Attach\+Actions@{After\+Inputs\+Attach\+Actions}}
+\index{After\+Inputs\+Attach\+Actions@{After\+Inputs\+Attach\+Actions}!Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}}
+\subsubsection{\texorpdfstring{After\+Inputs\+Attach\+Actions()}{AfterInputsAttachActions()}}
+{\footnotesize\ttfamily void Qn\+::\+Twist\+And\+Rescale\+::\+After\+Inputs\+Attach\+Actions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Perform after calibration histograms attach actions It is used to inform the different correction step that all conditions for running the network are in place so it is time to check if their requirements are satisfied
+
+A check is done to confirm that $ B $ is applying twist to correct its \mbox{\hyperlink{namespaceQn}{Qn}} vectors. If not the correction step is set to passive 
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionOnQvector_afa95ec7804ade8097d92002e0ea05e44}{Qn\+::\+Correction\+On\+Qvector}}.
+
+\mbox{\Hypertarget{classQn_1_1TwistAndRescale_a75b3e7001fabda74adcf1441ffab1435}\label{classQn_1_1TwistAndRescale_a75b3e7001fabda74adcf1441ffab1435}} 
+\index{Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}!Attached\+To\+Framework\+Manager@{Attached\+To\+Framework\+Manager}}
+\index{Attached\+To\+Framework\+Manager@{Attached\+To\+Framework\+Manager}!Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}}
+\subsubsection{\texorpdfstring{Attached\+To\+Framework\+Manager()}{AttachedToFrameworkManager()}}
+{\footnotesize\ttfamily void Qn\+::\+Twist\+And\+Rescale\+::\+Attached\+To\+Framework\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Informs when the detector configuration has been attached to the framework manager Basically this allows interaction between the different framework sections at configuration time 
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionOnQvector_ad2d37eb35973c854c7ffa3560a97d510}{Qn\+::\+Correction\+On\+Qvector}}.
+
+\mbox{\Hypertarget{classQn_1_1TwistAndRescale_af6ca5526d392329f6f35adcc261de349}\label{classQn_1_1TwistAndRescale_af6ca5526d392329f6f35adcc261de349}} 
+\index{Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}!Attach\+Input@{Attach\+Input}}
+\index{Attach\+Input@{Attach\+Input}!Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}}
+\subsubsection{\texorpdfstring{Attach\+Input()}{AttachInput()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Twist\+And\+Rescale\+::\+Attach\+Input (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Attaches the needed input information to the correction step 
+\begin{DoxyParams}{Parameters}
+{\em list} & list where the inputs should be found \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if everything went OK 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionOnQvector_acb7165c2eb071517fa977484bee7e445}{Qn\+::\+Correction\+On\+Qvector}}.
+
+\mbox{\Hypertarget{classQn_1_1TwistAndRescale_ae60ae563330df4beb9edd3fb99a9fc31}\label{classQn_1_1TwistAndRescale_ae60ae563330df4beb9edd3fb99a9fc31}} 
+\index{Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}!Create\+Nve\+Q\+A\+Histograms@{Create\+Nve\+Q\+A\+Histograms}}
+\index{Create\+Nve\+Q\+A\+Histograms@{Create\+Nve\+Q\+A\+Histograms}!Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}}
+\subsubsection{\texorpdfstring{Create\+Nve\+Q\+A\+Histograms()}{CreateNveQAHistograms()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Twist\+And\+Rescale\+::\+Create\+Nve\+Q\+A\+Histograms (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Asks for non validated entries QA histograms creation
+
+Allocates the histogram objects and creates the non validated entries QA histograms. 
+\begin{DoxyParams}{Parameters}
+{\em list} & list where the histograms should be incorporated for its persistence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if everything went OK 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionStepBase_acb488e715005f027e39c21ae5f4684da}{Qn\+::\+Correction\+Step\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1TwistAndRescale_a048fe37fdbd61696d5b0ed7eadbde1d1}\label{classQn_1_1TwistAndRescale_a048fe37fdbd61696d5b0ed7eadbde1d1}} 
+\index{Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}!Create\+Q\+A\+Histograms@{Create\+Q\+A\+Histograms}}
+\index{Create\+Q\+A\+Histograms@{Create\+Q\+A\+Histograms}!Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}}
+\subsubsection{\texorpdfstring{Create\+Q\+A\+Histograms()}{CreateQAHistograms()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Twist\+And\+Rescale\+::\+Create\+Q\+A\+Histograms (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Asks for QA histograms creation
+
+Allocates the histogram objects and creates the QA histograms. 
+\begin{DoxyParams}{Parameters}
+{\em list} & list where the histograms should be incorporated for its persistence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if everything went OK 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionStepBase_a21f58f5d91209c1c74d0928cf0b3e26d}{Qn\+::\+Correction\+Step\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1TwistAndRescale_af28bb42098c1b3138769d1747f06468f}\label{classQn_1_1TwistAndRescale_af28bb42098c1b3138769d1747f06468f}} 
+\index{Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}!Create\+Support\+Data\+Structures@{Create\+Support\+Data\+Structures}}
+\index{Create\+Support\+Data\+Structures@{Create\+Support\+Data\+Structures}!Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}}
+\subsubsection{\texorpdfstring{Create\+Support\+Data\+Structures()}{CreateSupportDataStructures()}}
+{\footnotesize\ttfamily void Qn\+::\+Twist\+And\+Rescale\+::\+Create\+Support\+Data\+Structures (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Asks for support data structures creation Creates the corrected \mbox{\hyperlink{namespaceQn}{Qn}} vectors Locates the reference detector configurations for twist and rescaling if their names have been previously stored 
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionOnQvector_ac7c019bc36ac90618ed6e5fc768ca593}{Qn\+::\+Correction\+On\+Qvector}}.
+
+\mbox{\Hypertarget{classQn_1_1TwistAndRescale_a57826092f0c09750fe0f5919e2cdb617}\label{classQn_1_1TwistAndRescale_a57826092f0c09750fe0f5919e2cdb617}} 
+\index{Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}!Create\+Support\+Histograms@{Create\+Support\+Histograms}}
+\index{Create\+Support\+Histograms@{Create\+Support\+Histograms}!Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}}
+\subsubsection{\texorpdfstring{Create\+Support\+Histograms()}{CreateSupportHistograms()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Twist\+And\+Rescale\+::\+Create\+Support\+Histograms (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Asks for support histograms creation
+
+Allocates the histogram objects and creates the calibration histograms.
+
+Process concurrency requires Calibration Histograms creation for all concurrent processes but not for Input Histograms so, we delete previously allocated ones. 
+\begin{DoxyParams}{Parameters}
+{\em list} & list where the histograms should be incorporated for its persistence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if everything went OK 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionOnQvector_addcdd98787c99ea34a2511be2cdc8de4}{Qn\+::\+Correction\+On\+Qvector}}.
+
+\mbox{\Hypertarget{classQn_1_1TwistAndRescale_aad00583024f1a71458d6c86ba1cc4d44}\label{classQn_1_1TwistAndRescale_aad00583024f1a71458d6c86ba1cc4d44}} 
+\index{Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}!Include\+Corrected\+Qn\+Vector@{Include\+Corrected\+Qn\+Vector}}
+\index{Include\+Corrected\+Qn\+Vector@{Include\+Corrected\+Qn\+Vector}!Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}}
+\subsubsection{\texorpdfstring{Include\+Corrected\+Qn\+Vector()}{IncludeCorrectedQnVector()}}
+{\footnotesize\ttfamily void Qn\+::\+Twist\+And\+Rescale\+::\+Include\+Corrected\+Qn\+Vector (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Include the corrected \mbox{\hyperlink{namespaceQn}{Qn}} vectors into the passed list
+
+Adds the \mbox{\hyperlink{namespaceQn}{Qn}} vector to the passed list if the correction step is in correction states. 
+\begin{DoxyParams}{Parameters}
+{\em list} & list where the corrected \mbox{\hyperlink{namespaceQn}{Qn}} vector should be added \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classQn_1_1CorrectionOnQvector_a42d85f899f00a6e816969d5784c50765}{Qn\+::\+Correction\+On\+Qvector}}.
+
+\mbox{\Hypertarget{classQn_1_1TwistAndRescale_a82b3138efce50ea788122dd26ca964d7}\label{classQn_1_1TwistAndRescale_a82b3138efce50ea788122dd26ca964d7}} 
+\index{Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}!Is\+Being\+Applied@{Is\+Being\+Applied}}
+\index{Is\+Being\+Applied@{Is\+Being\+Applied}!Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}}
+\subsubsection{\texorpdfstring{Is\+Being\+Applied()}{IsBeingApplied()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Twist\+And\+Rescale\+::\+Is\+Being\+Applied (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Reports if the correction step is being applied Returns T\+R\+UE if in the proper state for applying the correction step \begin{DoxyReturn}{Returns}
+T\+R\+UE if the correction step is being applied 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionOnQvector_a4d47a1c241b4bfd5ac98d6fdbc90eb79}{Qn\+::\+Correction\+On\+Qvector}}.
+
+\mbox{\Hypertarget{classQn_1_1TwistAndRescale_a3bc16721deb0f73dbfcf0ae6cabe5b54}\label{classQn_1_1TwistAndRescale_a3bc16721deb0f73dbfcf0ae6cabe5b54}} 
+\index{Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}!Process\+Corrections@{Process\+Corrections}}
+\index{Process\+Corrections@{Process\+Corrections}!Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}}
+\subsubsection{\texorpdfstring{Process\+Corrections()}{ProcessCorrections()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Twist\+And\+Rescale\+::\+Process\+Corrections (\begin{DoxyParamCaption}\item[{const double $\ast$}]{variable\+Container }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Processes the correction step
+
+Apply the correction step \begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if the correction step was applied 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionOnQvector_a2c2d7f0e48471fb9269f0b5f9aa3e836}{Qn\+::\+Correction\+On\+Qvector}}.
+
+\mbox{\Hypertarget{classQn_1_1TwistAndRescale_ac0392e263ff658b876821ac06d5b2eff}\label{classQn_1_1TwistAndRescale_ac0392e263ff658b876821ac06d5b2eff}} 
+\index{Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}!Process\+Data\+Collection@{Process\+Data\+Collection}}
+\index{Process\+Data\+Collection@{Process\+Data\+Collection}!Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}}
+\subsubsection{\texorpdfstring{Process\+Data\+Collection()}{ProcessDataCollection()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Twist\+And\+Rescale\+::\+Process\+Data\+Collection (\begin{DoxyParamCaption}\item[{const double $\ast$}]{variable\+Container }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Processes the correction step data collection
+
+Collect data for the correction step. \begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if the correction step was applied 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionOnQvector_a2c0a668d885b5a42503869303c859a0b}{Qn\+::\+Correction\+On\+Qvector}}.
+
+\mbox{\Hypertarget{classQn_1_1TwistAndRescale_a2a6c985100656523b3d834a31d8f19a8}\label{classQn_1_1TwistAndRescale_a2a6c985100656523b3d834a31d8f19a8}} 
+\index{Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}!Report\+Usage@{Report\+Usage}}
+\index{Report\+Usage@{Report\+Usage}!Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}}
+\subsubsection{\texorpdfstring{Report\+Usage()}{ReportUsage()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Twist\+And\+Rescale\+::\+Report\+Usage (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{calibration\+List,  }\item[{T\+List $\ast$}]{apply\+List }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Report on correction usage Correction step should incorporate its name in calibration list if it is producing information calibration in the ongoing step and in the apply list if it is applying correction in the ongoing step. 
+\begin{DoxyParams}{Parameters}
+{\em calibration\+List} & list containing the correction steps producing calibration information \\
+\hline
+{\em apply\+List} & list containing the correction steps applying corrections \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if the correction step is being applied 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionOnQvector_a322860c299f0ca1db46ddd57c0828ba1}{Qn\+::\+Correction\+On\+Qvector}}.
+
+\mbox{\Hypertarget{classQn_1_1TwistAndRescale_ace713dca5b5d051583aa6821d40a35b3}\label{classQn_1_1TwistAndRescale_ace713dca5b5d051583aa6821d40a35b3}} 
+\index{Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}!Set\+Apply\+Rescale@{Set\+Apply\+Rescale}}
+\index{Set\+Apply\+Rescale@{Set\+Apply\+Rescale}!Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}}
+\subsubsection{\texorpdfstring{Set\+Apply\+Rescale()}{SetApplyRescale()}}
+{\footnotesize\ttfamily void Qn\+::\+Twist\+And\+Rescale\+::\+Set\+Apply\+Rescale (\begin{DoxyParamCaption}\item[{Bool\+\_\+t}]{apply }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Controls if rescale step shall be applied 
+\begin{DoxyParams}{Parameters}
+{\em apply} & k\+T\+R\+UE for applying the rescale step \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1TwistAndRescale_a3b8c1bb7d3ef535904dc6705d6f152d9}\label{classQn_1_1TwistAndRescale_a3b8c1bb7d3ef535904dc6705d6f152d9}} 
+\index{Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}!Set\+Apply\+Twist@{Set\+Apply\+Twist}}
+\index{Set\+Apply\+Twist@{Set\+Apply\+Twist}!Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}}
+\subsubsection{\texorpdfstring{Set\+Apply\+Twist()}{SetApplyTwist()}}
+{\footnotesize\ttfamily void Qn\+::\+Twist\+And\+Rescale\+::\+Set\+Apply\+Twist (\begin{DoxyParamCaption}\item[{Bool\+\_\+t}]{apply }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Controls if twist step shall be applied 
+\begin{DoxyParams}{Parameters}
+{\em apply} & k\+T\+R\+UE for applying the twist step \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1TwistAndRescale_a1180c7ea79d276d939ace45a61ebc76a}\label{classQn_1_1TwistAndRescale_a1180c7ea79d276d939ace45a61ebc76a}} 
+\index{Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}!Set\+No\+Of\+Entries\+Threshold@{Set\+No\+Of\+Entries\+Threshold}}
+\index{Set\+No\+Of\+Entries\+Threshold@{Set\+No\+Of\+Entries\+Threshold}!Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}}
+\subsubsection{\texorpdfstring{Set\+No\+Of\+Entries\+Threshold()}{SetNoOfEntriesThreshold()}}
+{\footnotesize\ttfamily void Qn\+::\+Twist\+And\+Rescale\+::\+Set\+No\+Of\+Entries\+Threshold (\begin{DoxyParamCaption}\item[{Int\+\_\+t}]{n\+No\+Of\+Entries }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set the minimum number of entries for calibration histogram bin content validation 
+\begin{DoxyParams}{Parameters}
+{\em n\+No\+Of\+Entries} & the number of entries threshold \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1TwistAndRescale_a63b6513ff899eb521921740dad3af9b2}\label{classQn_1_1TwistAndRescale_a63b6513ff899eb521921740dad3af9b2}} 
+\index{Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}!Set\+Reference\+Configurations\+For\+Twist\+And\+Rescale@{Set\+Reference\+Configurations\+For\+Twist\+And\+Rescale}}
+\index{Set\+Reference\+Configurations\+For\+Twist\+And\+Rescale@{Set\+Reference\+Configurations\+For\+Twist\+And\+Rescale}!Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}}
+\subsubsection{\texorpdfstring{Set\+Reference\+Configurations\+For\+Twist\+And\+Rescale()}{SetReferenceConfigurationsForTwistAndRescale()}}
+{\footnotesize\ttfamily void Qn\+::\+Twist\+And\+Rescale\+::\+Set\+Reference\+Configurations\+For\+Twist\+And\+Rescale (\begin{DoxyParamCaption}\item[{const char $\ast$}]{nameB,  }\item[{const char $\ast$}]{nameC }\end{DoxyParamCaption})}
+
+Set the detector configurations used as reference for twist and rescaling The detector configurations names are stored for further use. 
+\begin{DoxyParams}{Parameters}
+{\em nameB} & the name of the B detector configuration \\
+\hline
+{\em nameC} & the name of the C detector configuration \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1TwistAndRescale_ab7a17c1330ba109472e4941ba44c3ad5}\label{classQn_1_1TwistAndRescale_ab7a17c1330ba109472e4941ba44c3ad5}} 
+\index{Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}!Set\+Twist\+And\+Rescale\+Method@{Set\+Twist\+And\+Rescale\+Method}}
+\index{Set\+Twist\+And\+Rescale\+Method@{Set\+Twist\+And\+Rescale\+Method}!Qn\+::\+Twist\+And\+Rescale@{Qn\+::\+Twist\+And\+Rescale}}
+\subsubsection{\texorpdfstring{Set\+Twist\+And\+Rescale\+Method()}{SetTwistAndRescaleMethod()}}
+{\footnotesize\ttfamily void Qn\+::\+Twist\+And\+Rescale\+::\+Set\+Twist\+And\+Rescale\+Method (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQn_1_1TwistAndRescale_a04bae5b47174d3536e1f6ac8499b982f}{Qn\+Twist\+And\+Rescale\+Method}}}]{method }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the method for extracting twist and rescale correction parameters 
+\begin{DoxyParams}{Parameters}
+{\em method} & the chosen method \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/include/Twist\+And\+Rescale.\+h\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/Twist\+And\+Rescale.\+cpp\end{DoxyCompactItemize}

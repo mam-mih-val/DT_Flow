@@ -1,0 +1,37 @@
+\hypertarget{classQnCorrectionsQnVectorAlignment}{}\section{Qn\+Corrections\+Qn\+Vector\+Alignment Class Reference}
+\label{classQnCorrectionsQnVectorAlignment}\index{Qn\+Corrections\+Qn\+Vector\+Alignment@{Qn\+Corrections\+Qn\+Vector\+Alignment}}
+
+
+Encapsulates \mbox{\hyperlink{namespaceQn}{Qn}} vector rotation for alignment correction.  
+
+
+
+
+{\ttfamily \#include $<$Alignment.\+h$>$}
+
+
+
+\subsection{Detailed Description}
+Encapsulates \mbox{\hyperlink{namespaceQn}{Qn}} vector rotation for alignment correction. 
+
+\begin{DoxyAuthor}{Author}
+Jaap Onderwaater \href{mailto:jacobus.onderwaater@cern.ch}{\tt jacobus.\+onderwaater@cern.\+ch}, G\+SI 
+
+Ilya Selyuzhenkov \href{mailto:ilya.selyuzhenkov@gmail.com}{\tt ilya.\+selyuzhenkov@gmail.\+com}, G\+SI 
+
+Víctor González \href{mailto:victor.gonzalez@cern.ch}{\tt victor.\+gonzalez@cern.\+ch}, U\+CM 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Apr 27, 2016
+\end{DoxyDate}
+Alignment is applied on ongoing \mbox{\hyperlink{namespaceQn}{Qn}} vector from the involved detector configuration.
+
+The alignment is applied according to\+: \[ Q' = \mathcal{R}(\Delta \phi) Q \] where the rotation angle $ \Delta \phi $ is given by \[ \Delta \phi_n = - \frac{1}{m} \tan^{-1} \left(\frac{\langle{Q_n}_X{Q^A_m}_Y\rangle - \langle{Q_n}_Y{Q^A_m}_X\rangle} {\langle{Q_n}_X{Q^A_m}_X\rangle + \langle{Q_n}_Y{Q^A_m}_Y\rangle}\right) \] with $ \langle \cdots \rangle $ as an average over events in a given event class, $ A $ the detector configuration chosen as alignment reference and $ m $ the harmonic selected for alignment.
+
+Alignment is only applied if the class instance is in the correction status. In order to be in that status the instance should have been able to get the proper correction histograms that will provide the required averages per event class. If the class instance is not in the correction status then, it is in the calibration one, collecting data for producing, once merged in a further phase, the correction histograms.
+
+Correction and data collecting during calibration is performed for all harmonics defined within the involved detector configuration 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/include/Alignment.\+h\end{DoxyCompactItemize}

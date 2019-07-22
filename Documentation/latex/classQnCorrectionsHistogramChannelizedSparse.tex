@@ -1,0 +1,37 @@
+\hypertarget{classQnCorrectionsHistogramChannelizedSparse}{}\section{Qn\+Corrections\+Histogram\+Channelized\+Sparse Class Reference}
+\label{classQnCorrectionsHistogramChannelizedSparse}\index{Qn\+Corrections\+Histogram\+Channelized\+Sparse@{Qn\+Corrections\+Histogram\+Channelized\+Sparse}}
+
+
+Single histogram class for the Q vector correction histograms.  
+
+
+
+
+{\ttfamily \#include $<$Correction\+Histogram\+Channelized\+Sparse.\+h$>$}
+
+
+
+\subsection{Detailed Description}
+Single histogram class for the Q vector correction histograms. 
+
+Encapsulates a multi dimensional sparse histogram. Each dimension corresponds to one of the event classes variables so, the number of dimensions matches the number of variables within the set passed in the constructor. Additionally incorporates an extra dimension to consider the channel number
+
+The involved histograms can be created on the fly when needed, and included in a provided list. They are not destroyed because the are not own by the class but by the involved list.
+
+Storage efficiency reasons dictate that channels were stored in consecutive order although externally to the class everything is handled with the actual external channel number. But if the histograms stored in a file are drawn the channels will appear as enumerated form 0 to the number of active channels handled by the detector configuration that is associated to the histogram and as such by the own histogram (this is a R\+O\+OT bug).
+
+\begin{DoxyAuthor}{Author}
+Jaap Onderwaater \href{mailto:jacobus.onderwaater@cern.ch}{\tt jacobus.\+onderwaater@cern.\+ch}, G\+SI 
+
+Ilya Selyuzhenkov \href{mailto:ilya.selyuzhenkov@gmail.com}{\tt ilya.\+selyuzhenkov@gmail.\+com}, G\+SI 
+
+Víctor González \href{mailto:victor.gonzalez@cern.ch}{\tt victor.\+gonzalez@cern.\+ch}, U\+CM 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Jun 18, 2016 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/include/Correction\+Histogram\+Channelized\+Sparse.\+h\end{DoxyCompactItemize}

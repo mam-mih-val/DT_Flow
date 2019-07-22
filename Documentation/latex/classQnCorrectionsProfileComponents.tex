@@ -1,0 +1,39 @@
+\hypertarget{classQnCorrectionsProfileComponents}{}\section{Qn\+Corrections\+Profile\+Components Class Reference}
+\label{classQnCorrectionsProfileComponents}\index{Qn\+Corrections\+Profile\+Components@{Qn\+Corrections\+Profile\+Components}}
+
+
+\mbox{\hyperlink{classBase}{Base}} class for the components based set of profiles.  
+
+
+
+
+{\ttfamily \#include $<$Correction\+Profile\+Components.\+h$>$}
+
+
+
+\subsection{Detailed Description}
+\mbox{\hyperlink{classBase}{Base}} class for the components based set of profiles. 
+
+Provides profile histograms for storing component, X, Y, based information for a set of predefined harmonics defined at creation time. The user can select the harmonic addressing procedure so that it will possible to ask for just one harmonic support and assign to it any desired number.
+
+As any histogram derived from \mbox{\hyperlink{classQnCorrectionsHistogramBase}{Qn\+Corrections\+Histogram\+Base}} the set of variables that identify the different event classes has to be passed to the constructor. Of course, the base name and base title for the different histograms has to be also provided. At creation time the required number of harmonics and an optional expected harmonic numbering scheme has to be passed.
+
+The harmonic map passed should contain an ordered array with as many items as requested harmonics that provides the external number to be used for request the corresponding harmonic. Requesting five harmonics without maps is equivalent to pass \{1,2,3,4,5\} as map. Requesting just support for the harmonic four will require a map \{4\}.
+
+When you fill the histograms care is taken for not increasing the number of entries until all components for the whole set of harmonics have been filled. If you try to fill twice a harmonic component before the whole set is filled you will get an execution error because you are doing something that shall be corrected
+
+\begin{DoxyAuthor}{Author}
+Jaap Onderwaater \href{mailto:jacobus.onderwaater@cern.ch}{\tt jacobus.\+onderwaater@cern.\+ch}, G\+SI 
+
+Ilya Selyuzhenkov \href{mailto:ilya.selyuzhenkov@gmail.com}{\tt ilya.\+selyuzhenkov@gmail.\+com}, G\+SI 
+
+Víctor González \href{mailto:victor.gonzalez@cern.ch}{\tt victor.\+gonzalez@cern.\+ch}, U\+CM 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Jan 15, 2016 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/include/Correction\+Profile\+Components.\+h\end{DoxyCompactItemize}

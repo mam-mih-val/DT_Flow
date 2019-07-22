@@ -6,6 +6,7 @@ Selector::Selector(DataTreeEvent* _fEvent)
     fEvent = _fEvent;
     hIncorrectEvent = new TH1F("Amount of rejected events on this cut",";code of the cut;counts",cNumOfEventCuts,0,cNumOfEventCuts);
     hIncorrectTracks= new TH1F("Amount of rejected tracks on this cut",";code of the cut;counts",cNumOfTrackCuts,0,cNumOfTrackCuts);
+	cout << "Selector initialized successfully" << endl;
 }
 
 Selector::~Selector()
@@ -14,7 +15,7 @@ Selector::~Selector()
 	delete hIncorrectTracks;
 }
 
-Bool_t Selector::IsCorrectEvent(int iPT)
+bool Selector::IsCorrectEvent(int iPT)
 {
     this->CheckEventCuts();
 
@@ -80,7 +81,7 @@ Bool_t Selector::IsCorrectEvent(int iPT)
     return 1;
 }
 
-Bool_t Selector::IsCorrectTrack(Int_t idx)
+bool Selector::IsCorrectTrack(int idx)
 {
     DataTreeTrack* fTrack = fEvent->GetVertexTrack(idx);
     DataTreeTOFHit* fHit = fEvent->GetTOFHit(idx);
@@ -110,7 +111,7 @@ Bool_t Selector::IsCorrectTrack(Int_t idx)
     return 1;
 }
 
-Bool_t Selector::IsCorrectFwHit(Int_t idx, bool channelSelection, TString signal, float minSignal, float maxSignal)
+bool Selector::IsCorrectFwHit(int idx, bool channelSelection, std::string signal, float minSignal, float maxSignal)
 {
     if( !channelSelection )
     {
@@ -210,7 +211,7 @@ void Selector::CheckEventCuts()
     }
 }
 
-void Selector::CheckTrackCuts(Int_t idx)
+void Selector::CheckTrackCuts(int idx)
 {
     DataTreeTrack* fTrack = fEvent->GetVertexTrack(idx);
     DataTreeTOFHit* fHit = fEvent->GetTOFHit(idx);
@@ -274,10 +275,10 @@ void Selector::DrawStatistics()
     // canv1->SaveAs("../histograms/AmoutOfRejectedTracks.png");
 }
 
-void Selector::SaveStatistics(TString fileName) 
+void Selector::SaveStatistics(std::string fileName) 
 {
     this->DrawStatistics();
-    TFile* fFile = new TFile(fileName+"_selector.root","recreate");
+    TFile* fFile = new TFile( (fileName+"_selector.root").c_str(),"recreate");
     hIncorrectEvent->Write();
     hIncorrectTracks->Write();
     fFile->Close();

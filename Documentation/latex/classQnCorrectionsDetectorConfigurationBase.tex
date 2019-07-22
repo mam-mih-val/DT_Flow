@@ -1,0 +1,43 @@
+\hypertarget{classQnCorrectionsDetectorConfigurationBase}{}\section{Qn\+Corrections\+Detector\+Configuration\+Base Class Reference}
+\label{classQnCorrectionsDetectorConfigurationBase}\index{Qn\+Corrections\+Detector\+Configuration\+Base@{Qn\+Corrections\+Detector\+Configuration\+Base}}
+
+
+The base of a concrete detector configuration within Q vector correction framework.  
+
+
+
+
+{\ttfamily \#include $<$Detector\+Configuration.\+h$>$}
+
+
+
+\subsection{Detailed Description}
+The base of a concrete detector configuration within Q vector correction framework. 
+
+The detector configuration shapes a detector with a concrete set of cuts to make it the target of a Q vector correction process.
+
+It receives the data input stream and build the corresponding Q vector associated to it for each processing request.
+
+As such, it incorporates the set of corrections to carry on the input data and the set of corrections to perform on the produced \mbox{\hyperlink{namespaceQn}{Qn}} vector. It always stores the plain \mbox{\hyperlink{namespaceQn}{Qn}} vector produced after potential input data corrections and the \mbox{\hyperlink{namespaceQn}{Qn}} vector that incorporates the latest \mbox{\hyperlink{namespaceQn}{Qn}} vector correction step.
+
+It also incorporates the equivalent support for Q2n vectors which could be the seed for future Q(m,n) support.
+
+It receives at construction time the set of event classes variables and the detector reference. The reference of the detector should only be obtained at creation time and the detector configuration object, once created, does not allow its modification.
+
+The class is a base class for further refined detector configurations.
+
+\begin{DoxyAuthor}{Author}
+Jaap Onderwaater \href{mailto:jacobus.onderwaater@cern.ch}{\tt jacobus.\+onderwaater@cern.\+ch}, G\+SI 
+
+Ilya Selyuzhenkov \href{mailto:ilya.selyuzhenkov@gmail.com}{\tt ilya.\+selyuzhenkov@gmail.\+com}, G\+SI 
+
+Víctor González \href{mailto:victor.gonzalez@cern.ch}{\tt victor.\+gonzalez@cern.\+ch}, U\+CM 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Feb 08, 2016 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/include/Detector\+Configuration.\+h\end{DoxyCompactItemize}

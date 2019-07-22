@@ -9,14 +9,14 @@
 #include <array>
 #include <random>
 
+#include "CorrectionManager.h"
 #include "Selector.h"
 #include "TFile.h"
 #include "TTree.h"
+#include "TChain.h"
 #include "TTreeReader.h"
 
 #include "HADES_constants.h"
-
-#define VAR FemtoDstVarManager
 
 namespace Qn {
 /**
@@ -44,7 +44,7 @@ class CorrectionTask {
 	void Finalize();
 
 	protected:
-	
+
 	enum Vars{
 		kCentrality=0,
 		kFwModuleRing,

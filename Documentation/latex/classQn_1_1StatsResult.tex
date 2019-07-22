@@ -1,0 +1,93 @@
+\hypertarget{classQn_1_1StatsResult}{}\section{Qn\+:\+:Stats\+Result Class Reference}
+\label{classQn_1_1StatsResult}\index{Qn\+::\+Stats\+Result@{Qn\+::\+Stats\+Result}}
+
+
+\mbox{\hyperlink{classQn_1_1Correlation}{Correlation}} of several input Q-\/\+Vector Data\+Containers.  
+
+
+
+
+{\ttfamily \#include $<$Stats\+Result.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1StatsResult_ae30a0e160c790393d174a9e5765bf41e}\label{classQn_1_1StatsResult_ae30a0e160c790393d174a9e5765bf41e}} 
+using {\bfseries size\+\_\+type} = std\+::size\+\_\+t
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classQn_1_1StatsResult_a15b45cceda2db66fc99175257d676000}{Stats\+Result}} (Qn\+::\+Sampler\+::\+Resample use\+\_\+resample, \mbox{\hyperlink{classQn_1_1Correlation}{Qn\+::\+Correlation}} $\ast$ptr)
+\begin{DoxyCompactList}\small\item\em Constructs the \mbox{\hyperlink{classQn_1_1Correlation}{Correlation}} step before information of the Q-\/\+Vectors is read from the tree. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQn_1_1StatsResult_a52fc137eec83120936ba63384a7e8602}\label{classQn_1_1StatsResult_a52fc137eec83120936ba63384a7e8602}} 
+void {\bfseries Configure\+Stats} (\mbox{\hyperlink{classQn_1_1Sampler}{Qn\+::\+Sampler}} $\ast$sampler)
+\item 
+\mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container\+Stats}} \mbox{\hyperlink{classQn_1_1StatsResult_a6e47628edf1f85496c996cbd7ac884d5}{Get\+Result}} () const
+\begin{DoxyCompactList}\small\item\em Returns the result of the correlation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classQn_1_1StatsResult_aaa962e50dd135c16ae601f77f653db58}{Fill}} (size\+\_\+type event\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Fill \mbox{\hyperlink{classQn_1_1Correlation}{Correlation}} container with specified inputs. Recursive function called N times, where N is the number of correlated datacontainers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\mbox{\hyperlink{classQn_1_1Correlation}{Correlation}} of several input Q-\/\+Vector Data\+Containers. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classQn_1_1StatsResult_a15b45cceda2db66fc99175257d676000}\label{classQn_1_1StatsResult_a15b45cceda2db66fc99175257d676000}} 
+\index{Qn\+::\+Stats\+Result@{Qn\+::\+Stats\+Result}!Stats\+Result@{Stats\+Result}}
+\index{Stats\+Result@{Stats\+Result}!Qn\+::\+Stats\+Result@{Qn\+::\+Stats\+Result}}
+\subsubsection{\texorpdfstring{Stats\+Result()}{StatsResult()}}
+{\footnotesize\ttfamily Qn\+::\+Stats\+Result\+::\+Stats\+Result (\begin{DoxyParamCaption}\item[{Qn\+::\+Sampler\+::\+Resample}]{use\+\_\+resample,  }\item[{\mbox{\hyperlink{classQn_1_1Correlation}{Qn\+::\+Correlation}} $\ast$}]{ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs the \mbox{\hyperlink{classQn_1_1Correlation}{Correlation}} step before information of the Q-\/\+Vectors is read from the tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em names} & input Q-\/\+Vector names. \\
+\hline
+{\em lambda} & correlation function \\
+\hline
+{\em use\+\_\+resampling} & enable resampling (configured in the \mbox{\hyperlink{classQn_1_1CorrelationManager}{Correlation\+Manager}}). \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQn_1_1StatsResult_aaa962e50dd135c16ae601f77f653db58}\label{classQn_1_1StatsResult_aaa962e50dd135c16ae601f77f653db58}} 
+\index{Qn\+::\+Stats\+Result@{Qn\+::\+Stats\+Result}!Fill@{Fill}}
+\index{Fill@{Fill}!Qn\+::\+Stats\+Result@{Qn\+::\+Stats\+Result}}
+\subsubsection{\texorpdfstring{Fill()}{Fill()}}
+{\footnotesize\ttfamily void Qn\+::\+Stats\+Result\+::\+Fill (\begin{DoxyParamCaption}\item[{size\+\_\+type}]{event\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+Fill \mbox{\hyperlink{classQn_1_1Correlation}{Correlation}} container with specified inputs. Recursive function called N times, where N is the number of correlated datacontainers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em eventindices} & of the used for the event axes \\
+\hline
+{\em event\+\_\+id} & id of the current event used for resampling. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1StatsResult_a6e47628edf1f85496c996cbd7ac884d5}\label{classQn_1_1StatsResult_a6e47628edf1f85496c996cbd7ac884d5}} 
+\index{Qn\+::\+Stats\+Result@{Qn\+::\+Stats\+Result}!Get\+Result@{Get\+Result}}
+\index{Get\+Result@{Get\+Result}!Qn\+::\+Stats\+Result@{Qn\+::\+Stats\+Result}}
+\subsubsection{\texorpdfstring{Get\+Result()}{GetResult()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container\+Stats}} Qn\+::\+Stats\+Result\+::\+Get\+Result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the result of the correlation. 
+
+\begin{DoxyReturn}{Returns}
+Average over all events. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Correlation/include/Stats\+Result.\+h\item 
+D\+T\+\_\+\+Flow/\+Correlation/Stats\+Result.\+cpp\end{DoxyCompactItemize}

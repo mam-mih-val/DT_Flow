@@ -1,0 +1,303 @@
+\hypertarget{classQn_1_1CorrectionOnQvector}{}\section{Qn\+:\+:Correction\+On\+Qvector Class Reference}
+\label{classQn_1_1CorrectionOnQvector}\index{Qn\+::\+Correction\+On\+Qvector@{Qn\+::\+Correction\+On\+Qvector}}
+Inheritance diagram for Qn\+:\+:Correction\+On\+Qvector\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classQn_1_1CorrectionOnQvector}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionOnQvector_a2f3658dab429c296773103d9d6fbd0c6}\label{classQn_1_1CorrectionOnQvector_a2f3658dab429c296773103d9d6fbd0c6}} 
+\mbox{\hyperlink{classQn_1_1CorrectionOnQvector_a2f3658dab429c296773103d9d6fbd0c6}{Correction\+On\+Qvector}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQn_1_1CorrectionOnQvector_af5c630667adbbd37bc6ca51445a8d37f}{Correction\+On\+Qvector}} (const char $\ast$name, const char $\ast$key)
+\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionOnQvector_a2b0fdf26c68d941468873e4bcf311b30}\label{classQn_1_1CorrectionOnQvector_a2b0fdf26c68d941468873e4bcf311b30}} 
+virtual \mbox{\hyperlink{classQn_1_1CorrectionOnQvector_a2b0fdf26c68d941468873e4bcf311b30}{$\sim$\+Correction\+On\+Qvector}} ()
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classQn_1_1CorrectionOnQvector_ad2d37eb35973c854c7ffa3560a97d510}{Attached\+To\+Framework\+Manager}} ()=0
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionOnQvector_acb7165c2eb071517fa977484bee7e445}{Attach\+Input}} (T\+List $\ast$list)=0
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1CorrectionOnQvector_afa95ec7804ade8097d92002e0ea05e44}{After\+Inputs\+Attach\+Actions}} ()=0
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1CorrectionOnQvector_ac7c019bc36ac90618ed6e5fc768ca593}{Create\+Support\+Data\+Structures}} ()=0
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionOnQvector_addcdd98787c99ea34a2511be2cdc8de4}{Create\+Support\+Histograms}} (T\+List $\ast$list)=0
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionOnQvector_a2c2d7f0e48471fb9269f0b5f9aa3e836}{Process\+Corrections}} (const double $\ast$variable\+Container)=0
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionOnQvector_a2c0a668d885b5a42503869303c859a0b}{Process\+Data\+Collection}} (const double $\ast$variable\+Container)=0
+\item 
+const \mbox{\hyperlink{classQn_1_1CorrectionQnVector}{Correction\+Qn\+Vector}} $\ast$ \mbox{\hyperlink{classQn_1_1CorrectionOnQvector_a3d6ef2f88326076972684d1d4115f5ab}{Get\+Corrected\+Qn\+Vector}} () const
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1CorrectionOnQvector_a42d85f899f00a6e816969d5784c50765}{Include\+Corrected\+Qn\+Vector}} (T\+List $\ast$list)
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1CorrectionOnQvector_aeba6db851f1a9ac5c6fd7adbd81de140}{Clear\+Correction\+Step}} ()=0
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionOnQvector_a4d47a1c241b4bfd5ac98d6fdbc90eb79}{Is\+Being\+Applied}} () const =0
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionOnQvector_a322860c299f0ca1db46ddd57c0828ba1}{Report\+Usage}} (T\+List $\ast$calibration\+List, T\+List $\ast$apply\+List)=0
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionOnQvector_aa89ec5735e25de58957161ef4a909cfa}\label{classQn_1_1CorrectionOnQvector_aa89ec5735e25de58957161ef4a909cfa}} 
+\mbox{\hyperlink{classQn_1_1CorrectionQnVector}{Correction\+Qn\+Vector}} $\ast$ \mbox{\hyperlink{classQn_1_1CorrectionOnQvector_aa89ec5735e25de58957161ef4a909cfa}{f\+Corrected\+Qn\+Vector}}
+\begin{DoxyCompactList}\small\item\em ! the step corrected \mbox{\hyperlink{namespaceQn}{Qn}} vector \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classQn_1_1CorrectionQnVector}{Correction\+Qn\+Vector}} $\ast$ \mbox{\hyperlink{classQn_1_1CorrectionOnQvector_a6579bcaa376e434aa5399f8cdbbd60dd}{f\+Input\+Qn\+Vector}}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classQn_1_1CorrectionOnQvector_af5c630667adbbd37bc6ca51445a8d37f}\label{classQn_1_1CorrectionOnQvector_af5c630667adbbd37bc6ca51445a8d37f}} 
+\index{Qn\+::\+Correction\+On\+Qvector@{Qn\+::\+Correction\+On\+Qvector}!Correction\+On\+Qvector@{Correction\+On\+Qvector}}
+\index{Correction\+On\+Qvector@{Correction\+On\+Qvector}!Qn\+::\+Correction\+On\+Qvector@{Qn\+::\+Correction\+On\+Qvector}}
+\subsubsection{\texorpdfstring{Correction\+On\+Qvector()}{CorrectionOnQvector()}}
+{\footnotesize\ttfamily Qn\+::\+Correction\+On\+Qvector\+::\+Correction\+On\+Qvector (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{const char $\ast$}]{key }\end{DoxyParamCaption})}
+
+Normal constructor 
+\begin{DoxyParams}{Parameters}
+{\em name} & of the correction step \\
+\hline
+{\em key} & the associated ordering key \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQn_1_1CorrectionOnQvector_afa95ec7804ade8097d92002e0ea05e44}\label{classQn_1_1CorrectionOnQvector_afa95ec7804ade8097d92002e0ea05e44}} 
+\index{Qn\+::\+Correction\+On\+Qvector@{Qn\+::\+Correction\+On\+Qvector}!After\+Inputs\+Attach\+Actions@{After\+Inputs\+Attach\+Actions}}
+\index{After\+Inputs\+Attach\+Actions@{After\+Inputs\+Attach\+Actions}!Qn\+::\+Correction\+On\+Qvector@{Qn\+::\+Correction\+On\+Qvector}}
+\subsubsection{\texorpdfstring{After\+Inputs\+Attach\+Actions()}{AfterInputsAttachActions()}}
+{\footnotesize\ttfamily virtual void Qn\+::\+Correction\+On\+Qvector\+::\+After\+Inputs\+Attach\+Actions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Perform after calibration histograms attach actions It is used to inform the different correction step that all conditions for running the network are in place so it is time to check if their requirements are satisfied
+
+Pure virtual function 
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionStepBase_a0c32c1fceb1f1be225ef0407a806f9e2}{Qn\+::\+Correction\+Step\+Base}}.
+
+
+
+Implemented in \mbox{\hyperlink{classQn_1_1TwistAndRescale_ab9f2ec874c828bc88d70232ae4ca8e63}{Qn\+::\+Twist\+And\+Rescale}}, \mbox{\hyperlink{classQn_1_1Recentering_afce97632b1a2cc9ecf49a4f4768601dc}{Qn\+::\+Recentering}}, and \mbox{\hyperlink{classQn_1_1Alignment_a38007827bb028b2f2e0b4a3fb988d8ed}{Qn\+::\+Alignment}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionOnQvector_ad2d37eb35973c854c7ffa3560a97d510}\label{classQn_1_1CorrectionOnQvector_ad2d37eb35973c854c7ffa3560a97d510}} 
+\index{Qn\+::\+Correction\+On\+Qvector@{Qn\+::\+Correction\+On\+Qvector}!Attached\+To\+Framework\+Manager@{Attached\+To\+Framework\+Manager}}
+\index{Attached\+To\+Framework\+Manager@{Attached\+To\+Framework\+Manager}!Qn\+::\+Correction\+On\+Qvector@{Qn\+::\+Correction\+On\+Qvector}}
+\subsubsection{\texorpdfstring{Attached\+To\+Framework\+Manager()}{AttachedToFrameworkManager()}}
+{\footnotesize\ttfamily virtual void Qn\+::\+Correction\+On\+Qvector\+::\+Attached\+To\+Framework\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Informs when the detector configuration has been attached to the framework manager Basically this allows interaction between the different framework sections at configuration time Pure virtual function 
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionStepBase_a0c255ad7095cd2aa89fcf1f1db068949}{Qn\+::\+Correction\+Step\+Base}}.
+
+
+
+Implemented in \mbox{\hyperlink{classQn_1_1TwistAndRescale_a75b3e7001fabda74adcf1441ffab1435}{Qn\+::\+Twist\+And\+Rescale}}, \mbox{\hyperlink{classQn_1_1Recentering_aa51bf50f4a003ac79e7d8c669b1efdac}{Qn\+::\+Recentering}}, and \mbox{\hyperlink{classQn_1_1Alignment_ad9791cc06c9a7d8c407e1f783c7625f8}{Qn\+::\+Alignment}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionOnQvector_acb7165c2eb071517fa977484bee7e445}\label{classQn_1_1CorrectionOnQvector_acb7165c2eb071517fa977484bee7e445}} 
+\index{Qn\+::\+Correction\+On\+Qvector@{Qn\+::\+Correction\+On\+Qvector}!Attach\+Input@{Attach\+Input}}
+\index{Attach\+Input@{Attach\+Input}!Qn\+::\+Correction\+On\+Qvector@{Qn\+::\+Correction\+On\+Qvector}}
+\subsubsection{\texorpdfstring{Attach\+Input()}{AttachInput()}}
+{\footnotesize\ttfamily virtual Bool\+\_\+t Qn\+::\+Correction\+On\+Qvector\+::\+Attach\+Input (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Attaches the needed input information to the correction step
+
+Pure virtual function 
+\begin{DoxyParams}{Parameters}
+{\em list} & list where the inputs should be found \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if everything went OK 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionStepBase_aa778d3926bb1ee463753466f2216187d}{Qn\+::\+Correction\+Step\+Base}}.
+
+
+
+Implemented in \mbox{\hyperlink{classQn_1_1TwistAndRescale_af6ca5526d392329f6f35adcc261de349}{Qn\+::\+Twist\+And\+Rescale}}, \mbox{\hyperlink{classQn_1_1Recentering_ae931dc184caefa05392992a15ae5b53f}{Qn\+::\+Recentering}}, and \mbox{\hyperlink{classQn_1_1Alignment_a3ae85e6706fe2a04098d339fcfff9113}{Qn\+::\+Alignment}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionOnQvector_aeba6db851f1a9ac5c6fd7adbd81de140}\label{classQn_1_1CorrectionOnQvector_aeba6db851f1a9ac5c6fd7adbd81de140}} 
+\index{Qn\+::\+Correction\+On\+Qvector@{Qn\+::\+Correction\+On\+Qvector}!Clear\+Correction\+Step@{Clear\+Correction\+Step}}
+\index{Clear\+Correction\+Step@{Clear\+Correction\+Step}!Qn\+::\+Correction\+On\+Qvector@{Qn\+::\+Correction\+On\+Qvector}}
+\subsubsection{\texorpdfstring{Clear\+Correction\+Step()}{ClearCorrectionStep()}}
+{\footnotesize\ttfamily virtual void Qn\+::\+Correction\+On\+Qvector\+::\+Clear\+Correction\+Step (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Clean the correction to accept a new event Pure virtual function 
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionStepBase_a879c47010a868c19bd08042445662e2e}{Qn\+::\+Correction\+Step\+Base}}.
+
+
+
+Implemented in \mbox{\hyperlink{classQn_1_1TwistAndRescale_a07d06e5a437221d08bdba6078af1c596}{Qn\+::\+Twist\+And\+Rescale}}, \mbox{\hyperlink{classQn_1_1Recentering_a692ae2cc6740be54d0b1591a3db62d39}{Qn\+::\+Recentering}}, and \mbox{\hyperlink{classQn_1_1Alignment_aba2ba181fbf1572b646ed0d225cb773b}{Qn\+::\+Alignment}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionOnQvector_ac7c019bc36ac90618ed6e5fc768ca593}\label{classQn_1_1CorrectionOnQvector_ac7c019bc36ac90618ed6e5fc768ca593}} 
+\index{Qn\+::\+Correction\+On\+Qvector@{Qn\+::\+Correction\+On\+Qvector}!Create\+Support\+Data\+Structures@{Create\+Support\+Data\+Structures}}
+\index{Create\+Support\+Data\+Structures@{Create\+Support\+Data\+Structures}!Qn\+::\+Correction\+On\+Qvector@{Qn\+::\+Correction\+On\+Qvector}}
+\subsubsection{\texorpdfstring{Create\+Support\+Data\+Structures()}{CreateSupportDataStructures()}}
+{\footnotesize\ttfamily virtual void Qn\+::\+Correction\+On\+Qvector\+::\+Create\+Support\+Data\+Structures (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Asks for support data structures creation
+
+Pure virtual function 
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionStepBase_a800ac634950eb231d72033b03cc899cd}{Qn\+::\+Correction\+Step\+Base}}.
+
+
+
+Implemented in \mbox{\hyperlink{classQn_1_1TwistAndRescale_af28bb42098c1b3138769d1747f06468f}{Qn\+::\+Twist\+And\+Rescale}}, \mbox{\hyperlink{classQn_1_1Recentering_a6aa8507e24f482af1d7fdd55151b3d34}{Qn\+::\+Recentering}}, and \mbox{\hyperlink{classQn_1_1Alignment_afb0137bb2443eb44448bf15734096765}{Qn\+::\+Alignment}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionOnQvector_addcdd98787c99ea34a2511be2cdc8de4}\label{classQn_1_1CorrectionOnQvector_addcdd98787c99ea34a2511be2cdc8de4}} 
+\index{Qn\+::\+Correction\+On\+Qvector@{Qn\+::\+Correction\+On\+Qvector}!Create\+Support\+Histograms@{Create\+Support\+Histograms}}
+\index{Create\+Support\+Histograms@{Create\+Support\+Histograms}!Qn\+::\+Correction\+On\+Qvector@{Qn\+::\+Correction\+On\+Qvector}}
+\subsubsection{\texorpdfstring{Create\+Support\+Histograms()}{CreateSupportHistograms()}}
+{\footnotesize\ttfamily virtual Bool\+\_\+t Qn\+::\+Correction\+On\+Qvector\+::\+Create\+Support\+Histograms (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Asks for support histograms creation
+
+Pure virtual function 
+\begin{DoxyParams}{Parameters}
+{\em list} & list where the histograms should be incorporated for its persistence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if everything went OK 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionStepBase_a156c05dc7a6a8e149674ccfb11e596c9}{Qn\+::\+Correction\+Step\+Base}}.
+
+
+
+Implemented in \mbox{\hyperlink{classQn_1_1TwistAndRescale_a57826092f0c09750fe0f5919e2cdb617}{Qn\+::\+Twist\+And\+Rescale}}, \mbox{\hyperlink{classQn_1_1Recentering_accf0f1282e35bd0a94a2d93312ff6ad5}{Qn\+::\+Recentering}}, and \mbox{\hyperlink{classQn_1_1Alignment_ada53d00555fc8a59644b3db5a8584de3}{Qn\+::\+Alignment}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionOnQvector_a3d6ef2f88326076972684d1d4115f5ab}\label{classQn_1_1CorrectionOnQvector_a3d6ef2f88326076972684d1d4115f5ab}} 
+\index{Qn\+::\+Correction\+On\+Qvector@{Qn\+::\+Correction\+On\+Qvector}!Get\+Corrected\+Qn\+Vector@{Get\+Corrected\+Qn\+Vector}}
+\index{Get\+Corrected\+Qn\+Vector@{Get\+Corrected\+Qn\+Vector}!Qn\+::\+Correction\+On\+Qvector@{Qn\+::\+Correction\+On\+Qvector}}
+\subsubsection{\texorpdfstring{Get\+Corrected\+Qn\+Vector()}{GetCorrectedQnVector()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classQn_1_1CorrectionQnVector}{Correction\+Qn\+Vector}}$\ast$ Qn\+::\+Correction\+On\+Qvector\+::\+Get\+Corrected\+Qn\+Vector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets the corrected \mbox{\hyperlink{namespaceQn}{Qn}} vector \begin{DoxyReturn}{Returns}
+the corrected \mbox{\hyperlink{namespaceQn}{Qn}} vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionOnQvector_a42d85f899f00a6e816969d5784c50765}\label{classQn_1_1CorrectionOnQvector_a42d85f899f00a6e816969d5784c50765}} 
+\index{Qn\+::\+Correction\+On\+Qvector@{Qn\+::\+Correction\+On\+Qvector}!Include\+Corrected\+Qn\+Vector@{Include\+Corrected\+Qn\+Vector}}
+\index{Include\+Corrected\+Qn\+Vector@{Include\+Corrected\+Qn\+Vector}!Qn\+::\+Correction\+On\+Qvector@{Qn\+::\+Correction\+On\+Qvector}}
+\subsubsection{\texorpdfstring{Include\+Corrected\+Qn\+Vector()}{IncludeCorrectedQnVector()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+On\+Qvector\+::\+Include\+Corrected\+Qn\+Vector (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Include the new corrected \mbox{\hyperlink{namespaceQn}{Qn}} vector into the passed list
+
+Adds the \mbox{\hyperlink{namespaceQn}{Qn}} vector to the passed list if the correction step is in correction states. 
+\begin{DoxyParams}{Parameters}
+{\em list} & list where the corrected \mbox{\hyperlink{namespaceQn}{Qn}} vector should be added \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionStepBase_a5f8936b56bfe4e5a7bf1e79775241500}{Qn\+::\+Correction\+Step\+Base}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classQn_1_1TwistAndRescale_aad00583024f1a71458d6c86ba1cc4d44}{Qn\+::\+Twist\+And\+Rescale}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionOnQvector_a4d47a1c241b4bfd5ac98d6fdbc90eb79}\label{classQn_1_1CorrectionOnQvector_a4d47a1c241b4bfd5ac98d6fdbc90eb79}} 
+\index{Qn\+::\+Correction\+On\+Qvector@{Qn\+::\+Correction\+On\+Qvector}!Is\+Being\+Applied@{Is\+Being\+Applied}}
+\index{Is\+Being\+Applied@{Is\+Being\+Applied}!Qn\+::\+Correction\+On\+Qvector@{Qn\+::\+Correction\+On\+Qvector}}
+\subsubsection{\texorpdfstring{Is\+Being\+Applied()}{IsBeingApplied()}}
+{\footnotesize\ttfamily virtual Bool\+\_\+t Qn\+::\+Correction\+On\+Qvector\+::\+Is\+Being\+Applied (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Reports if the correction step is being applied Pure virutal function \begin{DoxyReturn}{Returns}
+T\+R\+UE if the correction step is being applied 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionStepBase_aa99ab21886c2b4d8c3c6e1f60b84acc9}{Qn\+::\+Correction\+Step\+Base}}.
+
+
+
+Implemented in \mbox{\hyperlink{classQn_1_1TwistAndRescale_a82b3138efce50ea788122dd26ca964d7}{Qn\+::\+Twist\+And\+Rescale}}, \mbox{\hyperlink{classQn_1_1Recentering_a3849efa27b2827a2f307a100bc046916}{Qn\+::\+Recentering}}, and \mbox{\hyperlink{classQn_1_1Alignment_aaa38151d72ebf1aa97247ba07c4d16e5}{Qn\+::\+Alignment}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionOnQvector_a2c2d7f0e48471fb9269f0b5f9aa3e836}\label{classQn_1_1CorrectionOnQvector_a2c2d7f0e48471fb9269f0b5f9aa3e836}} 
+\index{Qn\+::\+Correction\+On\+Qvector@{Qn\+::\+Correction\+On\+Qvector}!Process\+Corrections@{Process\+Corrections}}
+\index{Process\+Corrections@{Process\+Corrections}!Qn\+::\+Correction\+On\+Qvector@{Qn\+::\+Correction\+On\+Qvector}}
+\subsubsection{\texorpdfstring{Process\+Corrections()}{ProcessCorrections()}}
+{\footnotesize\ttfamily virtual Bool\+\_\+t Qn\+::\+Correction\+On\+Qvector\+::\+Process\+Corrections (\begin{DoxyParamCaption}\item[{const double $\ast$}]{variable\+Container }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Processes the correction step
+
+Pure virtual function \begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if everything went OK 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionStepBase_a773ff3bbe5e7c8bcfb11a4f4138af1e1}{Qn\+::\+Correction\+Step\+Base}}.
+
+
+
+Implemented in \mbox{\hyperlink{classQn_1_1TwistAndRescale_a3bc16721deb0f73dbfcf0ae6cabe5b54}{Qn\+::\+Twist\+And\+Rescale}}, \mbox{\hyperlink{classQn_1_1Recentering_a78bd432f4eb1f13cf846176426dbe579}{Qn\+::\+Recentering}}, and \mbox{\hyperlink{classQn_1_1Alignment_a57b815d9ce4d0ae4f94ff6cb46eb2514}{Qn\+::\+Alignment}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionOnQvector_a2c0a668d885b5a42503869303c859a0b}\label{classQn_1_1CorrectionOnQvector_a2c0a668d885b5a42503869303c859a0b}} 
+\index{Qn\+::\+Correction\+On\+Qvector@{Qn\+::\+Correction\+On\+Qvector}!Process\+Data\+Collection@{Process\+Data\+Collection}}
+\index{Process\+Data\+Collection@{Process\+Data\+Collection}!Qn\+::\+Correction\+On\+Qvector@{Qn\+::\+Correction\+On\+Qvector}}
+\subsubsection{\texorpdfstring{Process\+Data\+Collection()}{ProcessDataCollection()}}
+{\footnotesize\ttfamily virtual Bool\+\_\+t Qn\+::\+Correction\+On\+Qvector\+::\+Process\+Data\+Collection (\begin{DoxyParamCaption}\item[{const double $\ast$}]{variable\+Container }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Processes the correction step data collection
+
+Pure virtual function \begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if everything went OK 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionStepBase_a77005ff85ae351cb290fee4adb41c029}{Qn\+::\+Correction\+Step\+Base}}.
+
+
+
+Implemented in \mbox{\hyperlink{classQn_1_1TwistAndRescale_ac0392e263ff658b876821ac06d5b2eff}{Qn\+::\+Twist\+And\+Rescale}}, \mbox{\hyperlink{classQn_1_1Recentering_a1e3efc8b261021b21732474eb7afa3ca}{Qn\+::\+Recentering}}, and \mbox{\hyperlink{classQn_1_1Alignment_af071fa4f51958ecfec6e6c58a7d84c84}{Qn\+::\+Alignment}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionOnQvector_a322860c299f0ca1db46ddd57c0828ba1}\label{classQn_1_1CorrectionOnQvector_a322860c299f0ca1db46ddd57c0828ba1}} 
+\index{Qn\+::\+Correction\+On\+Qvector@{Qn\+::\+Correction\+On\+Qvector}!Report\+Usage@{Report\+Usage}}
+\index{Report\+Usage@{Report\+Usage}!Qn\+::\+Correction\+On\+Qvector@{Qn\+::\+Correction\+On\+Qvector}}
+\subsubsection{\texorpdfstring{Report\+Usage()}{ReportUsage()}}
+{\footnotesize\ttfamily virtual Bool\+\_\+t Qn\+::\+Correction\+On\+Qvector\+::\+Report\+Usage (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{calibration\+List,  }\item[{T\+List $\ast$}]{apply\+List }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Report on correction usage Pure virtual function Correction step should incorporate its name in calibration list if it is producing information calibration in the ongoing step and in the apply list if it is applying correction in the ongoing step. 
+\begin{DoxyParams}{Parameters}
+{\em calibration\+List} & list containing the correction steps producing calibration information \\
+\hline
+{\em apply\+List} & list containing the correction steps applying corrections \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if the correction step is being applied 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionStepBase_a235ae6623fbbe26601b95f7e76753bfd}{Qn\+::\+Correction\+Step\+Base}}.
+
+
+
+Implemented in \mbox{\hyperlink{classQn_1_1TwistAndRescale_a2a6c985100656523b3d834a31d8f19a8}{Qn\+::\+Twist\+And\+Rescale}}, \mbox{\hyperlink{classQn_1_1Recentering_a06240f91a7656df95ac5aa55773b056a}{Qn\+::\+Recentering}}, and \mbox{\hyperlink{classQn_1_1Alignment_af8ef33833778e9af4bdb7b82f679c941}{Qn\+::\+Alignment}}.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classQn_1_1CorrectionOnQvector_a6579bcaa376e434aa5399f8cdbbd60dd}\label{classQn_1_1CorrectionOnQvector_a6579bcaa376e434aa5399f8cdbbd60dd}} 
+\index{Qn\+::\+Correction\+On\+Qvector@{Qn\+::\+Correction\+On\+Qvector}!f\+Input\+Qn\+Vector@{f\+Input\+Qn\+Vector}}
+\index{f\+Input\+Qn\+Vector@{f\+Input\+Qn\+Vector}!Qn\+::\+Correction\+On\+Qvector@{Qn\+::\+Correction\+On\+Qvector}}
+\subsubsection{\texorpdfstring{f\+Input\+Qn\+Vector}{fInputQnVector}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classQn_1_1CorrectionQnVector}{Correction\+Qn\+Vector}}$\ast$ Qn\+::\+Correction\+On\+Qvector\+::f\+Input\+Qn\+Vector\hspace{0.3cm}{\ttfamily [protected]}}
+
+! the previous step corrected \mbox{\hyperlink{namespaceQn}{Qn}} vector 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/include/Correction\+On\+Qvector.\+h\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/Correction\+On\+Qvector.\+cpp\end{DoxyCompactItemize}

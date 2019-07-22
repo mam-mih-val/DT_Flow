@@ -1,0 +1,43 @@
+\hypertarget{classQnCorrectionsQnVectorTwistAndRescale}{}\section{Qn\+Corrections\+Qn\+Vector\+Twist\+And\+Rescale Class Reference}
+\label{classQnCorrectionsQnVectorTwistAndRescale}\index{Qn\+Corrections\+Qn\+Vector\+Twist\+And\+Rescale@{Qn\+Corrections\+Qn\+Vector\+Twist\+And\+Rescale}}
+
+
+Encapsulates twist and rescale on Q vector.  
+
+
+
+
+{\ttfamily \#include $<$Twist\+And\+Rescale.\+h$>$}
+
+
+
+\subsection{Detailed Description}
+Encapsulates twist and rescale on Q vector. 
+
+\begin{DoxyAuthor}{Author}
+Jaap Onderwaater \href{mailto:jacobus.onderwaater@cern.ch}{\tt jacobus.\+onderwaater@cern.\+ch}, G\+SI 
+
+Ilya Selyuzhenkov \href{mailto:ilya.selyuzhenkov@gmail.com}{\tt ilya.\+selyuzhenkov@gmail.\+com}, G\+SI 
+
+Víctor González \href{mailto:victor.gonzalez@cern.ch}{\tt victor.\+gonzalez@cern.\+ch}, U\+CM 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Jun 22, 2016
+\end{DoxyDate}
+Twist and rescale are applied on ongoing Q vector from the involved detector configuration.
+
+Twist correction is applied according to\+: \[ Q_{n,(x,y)}' = \frac{Q_{n,(x,y)} - \Lambda^{s(-,+)}_{2n} Q_{n,(y,x)}}{1 - \Lambda^{s-}_{2n}\Lambda^{s+}_{2n}} \]
+
+The rescaling correction is applied according to\+: \[ Q''_{n(x,y)} = \frac{Q'_{n(x,y)}}{A_{2n}^{(+,-)}} \] Parameters $ A_{2n}^{(+,-)} $ and $ \Lambda^{s(+,-)}_{2n} $ are extracted from data according to the method selected for the twist and rescale correction. Currently two methods are supported\+: the double harmonic method and the correlations method.
+
+Twist and rescale are only applied if the class instance is in the correction status. In order to be in that status the instance should have been able to get the proper correction histograms that will provide the required averages per event class. If the class instance is not in the correction status then, it is in the calibration one, collecting data for producing, once merged in a further phase, the correction histograms.
+
+Data collection for twist and rescale correction parameters building in the double harmonic method is performed on plain \mbox{\hyperlink{namespaceQn}{Qn}} vector and by using only the harmonics n such as its double 2n is within the range of the harmonics handled by the configuration.
+
+Data collection for twist and rescale correction parameters building in the correlations method is performed on the highest corrected \mbox{\hyperlink{namespaceQn}{Qn}} vector on the involved detectors.
+
+Correction are performed for the harmonics for which there are data collection support. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/include/Twist\+And\+Rescale.\+h\end{DoxyCompactItemize}

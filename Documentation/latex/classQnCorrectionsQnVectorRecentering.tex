@@ -1,0 +1,39 @@
+\hypertarget{classQnCorrectionsQnVectorRecentering}{}\section{Qn\+Corrections\+Qn\+Vector\+Recentering Class Reference}
+\label{classQnCorrectionsQnVectorRecentering}\index{Qn\+Corrections\+Qn\+Vector\+Recentering@{Qn\+Corrections\+Qn\+Vector\+Recentering}}
+
+
+Encapsulates recentering and width equalization on Q vector.  
+
+
+
+
+{\ttfamily \#include $<$Recentering.\+h$>$}
+
+
+
+\subsection{Detailed Description}
+Encapsulates recentering and width equalization on Q vector. 
+
+\begin{DoxyAuthor}{Author}
+Jaap Onderwaater \href{mailto:jacobus.onderwaater@cern.ch}{\tt jacobus.\+onderwaater@cern.\+ch}, G\+SI 
+
+Ilya Selyuzhenkov \href{mailto:ilya.selyuzhenkov@gmail.com}{\tt ilya.\+selyuzhenkov@gmail.\+com}, G\+SI 
+
+Víctor González \href{mailto:victor.gonzalez@cern.ch}{\tt victor.\+gonzalez@cern.\+ch}, U\+CM 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Apr 01, 2016
+\end{DoxyDate}
+Recentering and weight equalization is applied on ongoing Q vector from the involved detector configuration. The recentering correction is always applied while the with equalization is user configurable.
+
+The recentering is applied according to\+: \[ Q' = Q - {\langle Q \rangle} \] where $\langle Q \rangle$ is an average over events in a given event class \[ \langle Q \rangle = \frac{1}{\mbox{N}_{ev}} \sum_{i}^{\mbox{N}_{ev}} Q_i \]
+
+The recentering and width equalization is applied according to\+: \[ Q' = \frac{Q- \langle Q \rangle}{\sigma_Q} \] where $ \sigma_Q $ is the standard deviation of the $ Q $ values for the considered event class. \[ \sigma_Q = \sqrt{ \frac{1}{\mbox{N}_{ev}} \sum_{i}^{\mbox{N}_{ev}} Q^2_i - \frac{1}{\mbox{N}^2_{ev}} \left(\sum_{i}^{\mbox{N}_{ev}} Q_i \right)^2} \]
+
+Recentering (and width equalization) is only applied if the class instance is in the correction status. In order to be in that status the instance should have been able to get the proper correction histograms that will provide the required averages per event class. If the class instance is not in the correction status then, it is in the calibration one, collecting data for producing, once merged in a further phase, the correction histograms.
+
+Correction and data collecting during calibration is performed for all harmonics defined within the involved detector configuration 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/include/Recentering.\+h\end{DoxyCompactItemize}

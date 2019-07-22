@@ -1,0 +1,104 @@
+\hypertarget{classQn_1_1EventAxes}{}\section{Qn\+:\+:Event\+Axes Class Reference}
+\label{classQn_1_1EventAxes}\index{Qn\+::\+Event\+Axes@{Qn\+::\+Event\+Axes}}
+
+
+{\ttfamily \#include $<$Event\+Axes.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classQn_1_1EventAxes_a81ebc6649920a462e33c176287b8706c}{Type}} \{ {\bfseries Integer}, 
+{\bfseries Float}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1EventAxes_aaafb27e11f7e5feb8aebff6f18703f84}\label{classQn_1_1EventAxes_aaafb27e11f7e5feb8aebff6f18703f84}} 
+{\bfseries Event\+Axes} (\mbox{\hyperlink{classQn_1_1CorrelationManager}{Qn\+::\+Correlation\+Manager}} $\ast$manager)
+\item 
+void \mbox{\hyperlink{classQn_1_1EventAxes_a4ddaaed5f02c92e5fa6696be9bf397e9}{Register\+Event\+Axis}} (\mbox{\hyperlink{classQn_1_1Axis}{Axis}} axis, \mbox{\hyperlink{classQn_1_1EventAxes_a81ebc6649920a462e33c176287b8706c}{Type}} type)
+\begin{DoxyCompactList}\small\item\em Registers a new axes with a specific datatype to be read from the tree and used for binning. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classQn_1_1EventAxes_a979183927f0ded4af0b1b22385550c2a}{Check\+Event}} ()
+\begin{DoxyCompactList}\small\item\em Check if current event is inside the event axes. \end{DoxyCompactList}\item 
+const std\+::vector$<$ \mbox{\hyperlink{classQn_1_1Axis}{Qn\+::\+Axis}} $>$ \mbox{\hyperlink{classQn_1_1EventAxes_a784b89dd78c0fe3a0fe6c57ef0835c23}{Get\+Axes}} () const
+\begin{DoxyCompactList}\small\item\em Returns a vector of the event axes. \end{DoxyCompactList}\item 
+const std\+::vector$<$ unsigned long $>$ \& \mbox{\hyperlink{classQn_1_1EventAxes_a76d3881ef0c333be3044c6b0b706e7e7}{Get\+Bin}} () const
+\begin{DoxyCompactList}\small\item\em Returns the current event bin. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A collection of \mbox{\hyperlink{classQn_1_1EventAxis}{Event\+Axis}} with methods to facilitate the binning of event variables. 
+
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classQn_1_1EventAxes_a81ebc6649920a462e33c176287b8706c}\label{classQn_1_1EventAxes_a81ebc6649920a462e33c176287b8706c}} 
+\index{Qn\+::\+Event\+Axes@{Qn\+::\+Event\+Axes}!Type@{Type}}
+\index{Type@{Type}!Qn\+::\+Event\+Axes@{Qn\+::\+Event\+Axes}}
+\subsubsection{\texorpdfstring{Type}{Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classQn_1_1EventAxes_a81ebc6649920a462e33c176287b8706c}{Qn\+::\+Event\+Axes\+::\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+Enumerator to specify the underlying data type in the input tree. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQn_1_1EventAxes_a979183927f0ded4af0b1b22385550c2a}\label{classQn_1_1EventAxes_a979183927f0ded4af0b1b22385550c2a}} 
+\index{Qn\+::\+Event\+Axes@{Qn\+::\+Event\+Axes}!Check\+Event@{Check\+Event}}
+\index{Check\+Event@{Check\+Event}!Qn\+::\+Event\+Axes@{Qn\+::\+Event\+Axes}}
+\subsubsection{\texorpdfstring{Check\+Event()}{CheckEvent()}}
+{\footnotesize\ttfamily bool Qn\+::\+Event\+Axes\+::\+Check\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if current event is inside the event axes. 
+
+\begin{DoxyReturn}{Returns}
+Returns true if the event is inside the event axes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1EventAxes_a784b89dd78c0fe3a0fe6c57ef0835c23}\label{classQn_1_1EventAxes_a784b89dd78c0fe3a0fe6c57ef0835c23}} 
+\index{Qn\+::\+Event\+Axes@{Qn\+::\+Event\+Axes}!Get\+Axes@{Get\+Axes}}
+\index{Get\+Axes@{Get\+Axes}!Qn\+::\+Event\+Axes@{Qn\+::\+Event\+Axes}}
+\subsubsection{\texorpdfstring{Get\+Axes()}{GetAxes()}}
+{\footnotesize\ttfamily const std\+::vector$<$\mbox{\hyperlink{classQn_1_1Axis}{Qn\+::\+Axis}}$>$ Qn\+::\+Event\+Axes\+::\+Get\+Axes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns a vector of the event axes. 
+
+\begin{DoxyReturn}{Returns}
+vector of axes 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1EventAxes_a76d3881ef0c333be3044c6b0b706e7e7}\label{classQn_1_1EventAxes_a76d3881ef0c333be3044c6b0b706e7e7}} 
+\index{Qn\+::\+Event\+Axes@{Qn\+::\+Event\+Axes}!Get\+Bin@{Get\+Bin}}
+\index{Get\+Bin@{Get\+Bin}!Qn\+::\+Event\+Axes@{Qn\+::\+Event\+Axes}}
+\subsubsection{\texorpdfstring{Get\+Bin()}{GetBin()}}
+{\footnotesize\ttfamily const std\+::vector$<$unsigned long$>$\& Qn\+::\+Event\+Axes\+::\+Get\+Bin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the current event bin. 
+
+\begin{DoxyReturn}{Returns}
+multidimensional bin 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1EventAxes_a4ddaaed5f02c92e5fa6696be9bf397e9}\label{classQn_1_1EventAxes_a4ddaaed5f02c92e5fa6696be9bf397e9}} 
+\index{Qn\+::\+Event\+Axes@{Qn\+::\+Event\+Axes}!Register\+Event\+Axis@{Register\+Event\+Axis}}
+\index{Register\+Event\+Axis@{Register\+Event\+Axis}!Qn\+::\+Event\+Axes@{Qn\+::\+Event\+Axes}}
+\subsubsection{\texorpdfstring{Register\+Event\+Axis()}{RegisterEventAxis()}}
+{\footnotesize\ttfamily void Qn\+::\+Event\+Axes\+::\+Register\+Event\+Axis (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQn_1_1Axis}{Qn\+::\+Axis}}}]{axis,  }\item[{\mbox{\hyperlink{classQn_1_1EventAxes_a81ebc6649920a462e33c176287b8706c}{Type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Registers a new axes with a specific datatype to be read from the tree and used for binning. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em axis} & \mbox{\hyperlink{classQn_1_1Axis}{Axis}} specifing the name and the size of the binning for the correlations. \\
+\hline
+{\em type} & Data type in which the information was saved to the tree. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Correlation/include/Event\+Axes.\+h\item 
+D\+T\+\_\+\+Flow/\+Correlation/Event\+Axes.\+cpp\end{DoxyCompactItemize}

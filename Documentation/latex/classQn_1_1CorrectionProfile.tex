@@ -1,0 +1,230 @@
+\hypertarget{classQn_1_1CorrectionProfile}{}\section{Qn\+:\+:Correction\+Profile Class Reference}
+\label{classQn_1_1CorrectionProfile}\index{Qn\+::\+Correction\+Profile@{Qn\+::\+Correction\+Profile}}
+Inheritance diagram for Qn\+:\+:Correction\+Profile\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classQn_1_1CorrectionProfile}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionProfile_af90a6f73d757a582036d0fed7133b811}\label{classQn_1_1CorrectionProfile_af90a6f73d757a582036d0fed7133b811}} 
+\mbox{\hyperlink{classQn_1_1CorrectionProfile_af90a6f73d757a582036d0fed7133b811}{Correction\+Profile}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQn_1_1CorrectionProfile_a509dc83514bf4e9a0aedcd37d98de4ed}{Correction\+Profile}} (const char $\ast$name, const char $\ast$title, \mbox{\hyperlink{classQn_1_1EventClassVariablesSet}{Event\+Class\+Variables\+Set}} \&ecvs, Option\+\_\+t $\ast$option=\char`\"{}\char`\"{})
+\item 
+virtual \mbox{\hyperlink{classQn_1_1CorrectionProfile_a571f318db482c796b420baedc637e185}{$\sim$\+Correction\+Profile}} ()
+\item 
+Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionProfile_acdc3507cbdb49bef3fe821302635ca40}{Create\+Profile\+Histograms}} (T\+List $\ast$histogram\+List)
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionProfile_a679319b8518152cf5563a87d77d87f2e}{Attach\+Histograms}} (T\+List $\ast$histogram\+List)
+\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionProfile_a29060032cbf84f4f2891db40f466bf21}\label{classQn_1_1CorrectionProfile_a29060032cbf84f4f2891db40f466bf21}} 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionProfile_a29060032cbf84f4f2891db40f466bf21}{Attach\+Histograms}} (T\+List $\ast$histogram\+List, const Bool\+\_\+t $\ast$b\+Used\+Channel, const Int\+\_\+t $\ast$n\+Channel\+Group)
+\begin{DoxyCompactList}\small\item\em wrong call for this class invoke base class behavior \end{DoxyCompactList}\item 
+virtual Long64\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionProfile_a23eab8b418467aa8dc9ff6d590acd5c0}{Get\+Bin}} (const double $\ast$variable\+Container)
+\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionProfile_ae670aae7149b53f64bf8461d1423f28d}\label{classQn_1_1CorrectionProfile_ae670aae7149b53f64bf8461d1423f28d}} 
+virtual Long64\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionProfile_ae670aae7149b53f64bf8461d1423f28d}{Get\+Bin}} (const double $\ast$variable\+Container, Int\+\_\+t n\+Channel)
+\begin{DoxyCompactList}\small\item\em wrong call for this class invoke base class behavior \end{DoxyCompactList}\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionProfile_a299a9d176bfeeb1966bedad226c7c4b2}{Bin\+Content\+Validated}} (Long64\+\_\+t bin)
+\item 
+virtual Float\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionProfile_ad6a10a5dd59ba94e9853699e63d902d4}{Get\+Bin\+Content}} (Long64\+\_\+t bin)
+\item 
+virtual Float\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionProfile_a2253439bc16a7611449b07fcfced1b53}{Get\+Bin\+Error}} (Long64\+\_\+t bin)
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1CorrectionProfile_a93b95da0e85f546097075ac1958e84e6}{Fill}} (const double $\ast$variable\+Container, Float\+\_\+t weight)
+\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionProfile_affeee38c64b7cf980278209d6f50dca1}\label{classQn_1_1CorrectionProfile_affeee38c64b7cf980278209d6f50dca1}} 
+virtual void \mbox{\hyperlink{classQn_1_1CorrectionProfile_affeee38c64b7cf980278209d6f50dca1}{Fill}} (const double $\ast$variable\+Container, Int\+\_\+t n\+Channel, Float\+\_\+t weight)
+\begin{DoxyCompactList}\small\item\em wrong call for this class invoke base class behavior \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classQn_1_1CorrectionProfile_a509dc83514bf4e9a0aedcd37d98de4ed}\label{classQn_1_1CorrectionProfile_a509dc83514bf4e9a0aedcd37d98de4ed}} 
+\index{Qn\+::\+Correction\+Profile@{Qn\+::\+Correction\+Profile}!Correction\+Profile@{Correction\+Profile}}
+\index{Correction\+Profile@{Correction\+Profile}!Qn\+::\+Correction\+Profile@{Qn\+::\+Correction\+Profile}}
+\subsubsection{\texorpdfstring{Correction\+Profile()}{CorrectionProfile()}}
+{\footnotesize\ttfamily Qn\+::\+Correction\+Profile\+::\+Correction\+Profile (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{const char $\ast$}]{title,  }\item[{\mbox{\hyperlink{classQn_1_1EventClassVariablesSet}{Event\+Class\+Variables\+Set}} \&}]{ecvs,  }\item[{Option\+\_\+t $\ast$}]{option = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+Normal constructor
+
+Stores the set of variables that identify the different event classes passing them to its parent and prepares the object for actual histogram creation or attachment
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & base for the name of the histograms \\
+\hline
+{\em title} & base for the title of the histograms \\
+\hline
+{\em ecvs} & the event classes variables set \\
+\hline
+{\em option} & option for errors computation \textquotesingle{} \textquotesingle{} (Default) the bin errors are the standard error on the mean of the bin values\\
+\hline
+\end{DoxyParams}
+\textquotesingle{}s\textquotesingle{} the bin are the standard deviation of of the bin values \mbox{\Hypertarget{classQn_1_1CorrectionProfile_a571f318db482c796b420baedc637e185}\label{classQn_1_1CorrectionProfile_a571f318db482c796b420baedc637e185}} 
+\index{Qn\+::\+Correction\+Profile@{Qn\+::\+Correction\+Profile}!````~Correction\+Profile@{$\sim$\+Correction\+Profile}}
+\index{````~Correction\+Profile@{$\sim$\+Correction\+Profile}!Qn\+::\+Correction\+Profile@{Qn\+::\+Correction\+Profile}}
+\subsubsection{\texorpdfstring{$\sim$\+Correction\+Profile()}{~CorrectionProfile()}}
+{\footnotesize\ttfamily Qn\+::\+Correction\+Profile\+::$\sim$\+Correction\+Profile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Default destructor
+
+Does nothing because none of the members are own at destruction time 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQn_1_1CorrectionProfile_a679319b8518152cf5563a87d77d87f2e}\label{classQn_1_1CorrectionProfile_a679319b8518152cf5563a87d77d87f2e}} 
+\index{Qn\+::\+Correction\+Profile@{Qn\+::\+Correction\+Profile}!Attach\+Histograms@{Attach\+Histograms}}
+\index{Attach\+Histograms@{Attach\+Histograms}!Qn\+::\+Correction\+Profile@{Qn\+::\+Correction\+Profile}}
+\subsubsection{\texorpdfstring{Attach\+Histograms()}{AttachHistograms()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Correction\+Profile\+::\+Attach\+Histograms (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{histogram\+List }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Attaches existing histograms as the support histograms for the profile function
+
+The histograms are located in the passed list and if found and with the proper dimensions their references are stored in member variables.
+
+
+\begin{DoxyParams}{Parameters}
+{\em histogram\+List} & list where the histograms have to be located \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if properly attached else false 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classQn_1_1CorrectionHistogramBase_ad8bcd0079fe5db561780a522e46b7b16}{Qn\+::\+Correction\+Histogram\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionProfile_a299a9d176bfeeb1966bedad226c7c4b2}\label{classQn_1_1CorrectionProfile_a299a9d176bfeeb1966bedad226c7c4b2}} 
+\index{Qn\+::\+Correction\+Profile@{Qn\+::\+Correction\+Profile}!Bin\+Content\+Validated@{Bin\+Content\+Validated}}
+\index{Bin\+Content\+Validated@{Bin\+Content\+Validated}!Qn\+::\+Correction\+Profile@{Qn\+::\+Correction\+Profile}}
+\subsubsection{\texorpdfstring{Bin\+Content\+Validated()}{BinContentValidated()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Correction\+Profile\+::\+Bin\+Content\+Validated (\begin{DoxyParamCaption}\item[{Long64\+\_\+t}]{bin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Check the validity of the content of the passed bin If the number of entries is lower than the minimum number of entries to validate it the bin content is not considered valid and k\+F\+A\+L\+SE is returned, otherwise k\+T\+R\+UE is returned 
+\begin{DoxyParams}{Parameters}
+{\em bin} & the bin to check its content validity \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if the content is valid k\+F\+A\+L\+SE otherwise 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionHistogramBase_a4db2c92ceaffefaa91475a721612d80d}{Qn\+::\+Correction\+Histogram\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionProfile_acdc3507cbdb49bef3fe821302635ca40}\label{classQn_1_1CorrectionProfile_acdc3507cbdb49bef3fe821302635ca40}} 
+\index{Qn\+::\+Correction\+Profile@{Qn\+::\+Correction\+Profile}!Create\+Profile\+Histograms@{Create\+Profile\+Histograms}}
+\index{Create\+Profile\+Histograms@{Create\+Profile\+Histograms}!Qn\+::\+Correction\+Profile@{Qn\+::\+Correction\+Profile}}
+\subsubsection{\texorpdfstring{Create\+Profile\+Histograms()}{CreateProfileHistograms()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Correction\+Profile\+::\+Create\+Profile\+Histograms (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{histogram\+List }\end{DoxyParamCaption})}
+
+Creates the support histograms for the profile function
+
+Based in the event classes variables set in the parent class the values and entries multidimensional histograms are created.
+
+Both histograms are added to the passed histogram list
+
+
+\begin{DoxyParams}{Parameters}
+{\em histogram\+List} & list where the histograms have to be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if properly created 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionProfile_a93b95da0e85f546097075ac1958e84e6}\label{classQn_1_1CorrectionProfile_a93b95da0e85f546097075ac1958e84e6}} 
+\index{Qn\+::\+Correction\+Profile@{Qn\+::\+Correction\+Profile}!Fill@{Fill}}
+\index{Fill@{Fill}!Qn\+::\+Correction\+Profile@{Qn\+::\+Correction\+Profile}}
+\subsubsection{\texorpdfstring{Fill()}{Fill()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Profile\+::\+Fill (\begin{DoxyParamCaption}\item[{const double $\ast$}]{variable\+Container,  }\item[{Float\+\_\+t}]{weight }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Fills the histogram
+
+The involved bin is computed according to the current variables content. The bin is then increased by the given weight and the entries also increased properly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em variable\+Container} & the current variables conten addressed by var Id \\
+\hline
+{\em weight} & the increment in the bin content \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classQn_1_1CorrectionHistogramBase_a16b7518942714780ec9ceb56bb517f0f}{Qn\+::\+Correction\+Histogram\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionProfile_a23eab8b418467aa8dc9ff6d590acd5c0}\label{classQn_1_1CorrectionProfile_a23eab8b418467aa8dc9ff6d590acd5c0}} 
+\index{Qn\+::\+Correction\+Profile@{Qn\+::\+Correction\+Profile}!Get\+Bin@{Get\+Bin}}
+\index{Get\+Bin@{Get\+Bin}!Qn\+::\+Correction\+Profile@{Qn\+::\+Correction\+Profile}}
+\subsubsection{\texorpdfstring{Get\+Bin()}{GetBin()}}
+{\footnotesize\ttfamily Long64\+\_\+t Qn\+::\+Correction\+Profile\+::\+Get\+Bin (\begin{DoxyParamCaption}\item[{const double $\ast$}]{variable\+Container }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get the bin number for the current variable content
+
+The bin number identifies the event class the current variable content points to.
+
+
+\begin{DoxyParams}{Parameters}
+{\em variable\+Container} & the current variables content addressed by var Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the associated bin to the current variables content 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classQn_1_1CorrectionHistogramBase_ab1f64550f4e1812864da6f9f6ea565e6}{Qn\+::\+Correction\+Histogram\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionProfile_ad6a10a5dd59ba94e9853699e63d902d4}\label{classQn_1_1CorrectionProfile_ad6a10a5dd59ba94e9853699e63d902d4}} 
+\index{Qn\+::\+Correction\+Profile@{Qn\+::\+Correction\+Profile}!Get\+Bin\+Content@{Get\+Bin\+Content}}
+\index{Get\+Bin\+Content@{Get\+Bin\+Content}!Qn\+::\+Correction\+Profile@{Qn\+::\+Correction\+Profile}}
+\subsubsection{\texorpdfstring{Get\+Bin\+Content()}{GetBinContent()}}
+{\footnotesize\ttfamily Float\+\_\+t Qn\+::\+Correction\+Profile\+::\+Get\+Bin\+Content (\begin{DoxyParamCaption}\item[{Long64\+\_\+t}]{bin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get the bin content for the passed bin number
+
+The bin number identifies a desired event class whose content is requested. If the bin content is not validated zero is returned.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bin} & the interested bin number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the bin number content 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classQn_1_1CorrectionHistogramBase_a9e4e745a6f4cbebf5b9277d6d63bc9c7}{Qn\+::\+Correction\+Histogram\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionProfile_a2253439bc16a7611449b07fcfced1b53}\label{classQn_1_1CorrectionProfile_a2253439bc16a7611449b07fcfced1b53}} 
+\index{Qn\+::\+Correction\+Profile@{Qn\+::\+Correction\+Profile}!Get\+Bin\+Error@{Get\+Bin\+Error}}
+\index{Get\+Bin\+Error@{Get\+Bin\+Error}!Qn\+::\+Correction\+Profile@{Qn\+::\+Correction\+Profile}}
+\subsubsection{\texorpdfstring{Get\+Bin\+Error()}{GetBinError()}}
+{\footnotesize\ttfamily Float\+\_\+t Qn\+::\+Correction\+Profile\+::\+Get\+Bin\+Error (\begin{DoxyParamCaption}\item[{Long64\+\_\+t}]{bin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get the bin content error for the passed bin number
+
+The bin number identifies a desired event class whose content error is requested. If the bin content is not validated zero is returned.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bin} & the interested bin number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the bin number content error 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classQn_1_1CorrectionHistogramBase_a50a7dd4c5bbe5e4d0e405365c2a9104d}{Qn\+::\+Correction\+Histogram\+Base}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/include/Correction\+Profile.\+h\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/Correction\+Profile.\+cpp\end{DoxyCompactItemize}

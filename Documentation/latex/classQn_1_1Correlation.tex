@@ -1,0 +1,114 @@
+\hypertarget{classQn_1_1Correlation}{}\section{Qn\+:\+:Correlation Class Reference}
+\label{classQn_1_1Correlation}\index{Qn\+::\+Correlation@{Qn\+::\+Correlation}}
+
+
+abstract baseclass of the correlation Implements all the methods to calculate correlations of qvectors.  
+
+
+
+
+{\ttfamily \#include $<$Correlation.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1Correlation_ab66f963048071665e0a8f1b5de25b60f}\label{classQn_1_1Correlation_ab66f963048071665e0a8f1b5de25b60f}} 
+using {\bfseries function\+\_\+type} = std\+::function$<$ double(const std\+::vector$<$ \mbox{\hyperlink{classQn_1_1QVectorPtr}{Qn\+::\+Q\+Vector\+Ptr}} $>$ \&)$>$
+\item 
+\mbox{\Hypertarget{classQn_1_1Correlation_abec540e05e2d87080622a4cf53e73d2c}\label{classQn_1_1Correlation_abec540e05e2d87080622a4cf53e73d2c}} 
+using {\bfseries function\+\_\+t} = const function\+\_\+type \&
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1Correlation_af74345757ee9db8c537dbfe2339bfb3f}\label{classQn_1_1Correlation_af74345757ee9db8c537dbfe2339bfb3f}} 
+{\bfseries Correlation} (std\+::string name, std\+::vector$<$ std\+::string $>$ names, function\+\_\+type function, std\+::vector$<$ Qn\+::\+Weight $>$ use\+\_\+weights)
+\item 
+\mbox{\Hypertarget{classQn_1_1Correlation_a6bf01af42ef293b175d7587776d64685}\label{classQn_1_1Correlation_a6bf01af42ef293b175d7587776d64685}} 
+{\bfseries Correlation} (std\+::string name, std\+::vector$<$ std\+::string $>$ names, function\+\_\+type function)
+\item 
+const std\+::vector$<$ std\+::string $>$ \& \mbox{\hyperlink{classQn_1_1Correlation_a8cfb95a94185bf9d816b068973123bc8}{Get\+Input\+Names}} () const
+\item 
+const \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container\+Product}} \& \mbox{\hyperlink{classQn_1_1Correlation_a09105a0c076d62b3e3073bf43986da57}{Get\+Result}} () const
+\item 
+\mbox{\Hypertarget{classQn_1_1Correlation_a3c791b19b769388b8bd4719d0fb4095d}\label{classQn_1_1Correlation_a3c791b19b769388b8bd4719d0fb4095d}} 
+bool {\bfseries Using\+Weights} () const
+\item 
+void \mbox{\hyperlink{classQn_1_1Correlation_afc02d9cca889ff4ee3af7fa75131c6dd}{Fill}} (const std\+::vector$<$ unsigned long $>$ \&eventindices)
+\item 
+void \mbox{\hyperlink{classQn_1_1Correlation_af1c6d506b693424d56d0a796d4b50873}{Configure}} (std\+::map$<$ std\+::string, \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container\+Q\+Vector}} $\ast$$>$ $\ast$qvectors, const std\+::vector$<$ \mbox{\hyperlink{classQn_1_1Axis}{Qn\+::\+Axis}} $>$ \&eventaxes)
+\item 
+std\+::string \mbox{\hyperlink{classQn_1_1Correlation_a6b24af1a3d28b9f60ce03277192a3cc4}{Get\+Name}} () const
+\end{DoxyCompactItemize}
+\subsection*{Protected Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1Correlation_af5ff319de795c7a17a166310ac8462bc}\label{classQn_1_1Correlation_af5ff319de795c7a17a166310ac8462bc}} 
+using {\bfseries size\+\_\+type} = std\+::size\+\_\+t
+\item 
+\mbox{\Hypertarget{classQn_1_1Correlation_afeffd6309b7b18d7b48bafecea9099ea}\label{classQn_1_1Correlation_afeffd6309b7b18d7b48bafecea9099ea}} 
+using {\bfseries inputs\+\_\+type} = std\+::vector$<$ \mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container\+Q\+Vector}} $\ast$const $\ast$ $>$
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+abstract baseclass of the correlation Implements all the methods to calculate correlations of qvectors. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQn_1_1Correlation_af1c6d506b693424d56d0a796d4b50873}\label{classQn_1_1Correlation_af1c6d506b693424d56d0a796d4b50873}} 
+\index{Qn\+::\+Correlation@{Qn\+::\+Correlation}!Configure@{Configure}}
+\index{Configure@{Configure}!Qn\+::\+Correlation@{Qn\+::\+Correlation}}
+\subsubsection{\texorpdfstring{Configure()}{Configure()}}
+{\footnotesize\ttfamily void Qn\+::\+Correlation\+::\+Configure (\begin{DoxyParamCaption}\item[{std\+::map$<$ std\+::string, \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container\+Q\+Vector}} $\ast$$>$ $\ast$}]{qvectors,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{classQn_1_1Axis}{Qn\+::\+Axis}} $>$ \&}]{eventaxes }\end{DoxyParamCaption})}
+
+Configures the correlation with the currently read information. 
+\begin{DoxyParams}{Parameters}
+{\em qvectors} & map of qvector inputs \\
+\hline
+{\em eventaxes} & vector of event axes \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1Correlation_afc02d9cca889ff4ee3af7fa75131c6dd}\label{classQn_1_1Correlation_afc02d9cca889ff4ee3af7fa75131c6dd}} 
+\index{Qn\+::\+Correlation@{Qn\+::\+Correlation}!Fill@{Fill}}
+\index{Fill@{Fill}!Qn\+::\+Correlation@{Qn\+::\+Correlation}}
+\subsubsection{\texorpdfstring{Fill()}{Fill()}}
+{\footnotesize\ttfamily void Qn\+::\+Correlation\+::\+Fill (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ unsigned long $>$ \&}]{eventindices }\end{DoxyParamCaption})}
+
+Fills the current event to the correlation 
+\begin{DoxyParams}{Parameters}
+{\em eventindices} & indices determining the bin indices of the event axes. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1Correlation_a8cfb95a94185bf9d816b068973123bc8}\label{classQn_1_1Correlation_a8cfb95a94185bf9d816b068973123bc8}} 
+\index{Qn\+::\+Correlation@{Qn\+::\+Correlation}!Get\+Input\+Names@{Get\+Input\+Names}}
+\index{Get\+Input\+Names@{Get\+Input\+Names}!Qn\+::\+Correlation@{Qn\+::\+Correlation}}
+\subsubsection{\texorpdfstring{Get\+Input\+Names()}{GetInputNames()}}
+{\footnotesize\ttfamily const std\+::vector$<$std\+::string$>$\& Qn\+::\+Correlation\+::\+Get\+Input\+Names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the Input Q vector names. \begin{DoxyReturn}{Returns}
+Input names 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1Correlation_a6b24af1a3d28b9f60ce03277192a3cc4}\label{classQn_1_1Correlation_a6b24af1a3d28b9f60ce03277192a3cc4}} 
+\index{Qn\+::\+Correlation@{Qn\+::\+Correlation}!Get\+Name@{Get\+Name}}
+\index{Get\+Name@{Get\+Name}!Qn\+::\+Correlation@{Qn\+::\+Correlation}}
+\subsubsection{\texorpdfstring{Get\+Name()}{GetName()}}
+{\footnotesize\ttfamily std\+::string Qn\+::\+Correlation\+::\+Get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the name of the correlation. \begin{DoxyReturn}{Returns}
+Name of the correlation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1Correlation_a09105a0c076d62b3e3073bf43986da57}\label{classQn_1_1Correlation_a09105a0c076d62b3e3073bf43986da57}} 
+\index{Qn\+::\+Correlation@{Qn\+::\+Correlation}!Get\+Result@{Get\+Result}}
+\index{Get\+Result@{Get\+Result}!Qn\+::\+Correlation@{Qn\+::\+Correlation}}
+\subsubsection{\texorpdfstring{Get\+Result()}{GetResult()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container\+Product}}\& Qn\+::\+Correlation\+::\+Get\+Result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the result of the correlation per event. \begin{DoxyReturn}{Returns}
+Result of one event. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Correlation/include/Correlation.\+h\item 
+D\+T\+\_\+\+Flow/\+Correlation/Correlation.\+cpp\end{DoxyCompactItemize}

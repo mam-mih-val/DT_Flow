@@ -1,0 +1,194 @@
+\hypertarget{classQn_1_1VariableManager}{}\section{Qn\+:\+:Variable\+Manager Class Reference}
+\label{classQn_1_1VariableManager}\index{Qn\+::\+Variable\+Manager@{Qn\+::\+Variable\+Manager}}
+
+
+Manages the input variables for the correction step. A variable consist of a name and a unsigned integer position in the value array and an unsigned integer length. Different variables all access the same variable container.  
+
+
+
+
+{\ttfamily \#include $<$Variable\+Manager.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classQn_1_1VariableManager_a16091c43e9057525c4aee479f41fec43}{Create\+Variable}} (std\+::string name, const int id, const int length)
+\begin{DoxyCompactList}\small\item\em Creates a new variable in the variable manager. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQn_1_1VariableManager_a251e6b1f5cbc8946c2d9a48fe1b2dd72}\label{classQn_1_1VariableManager_a251e6b1f5cbc8946c2d9a48fe1b2dd72}} 
+void \mbox{\hyperlink{classQn_1_1VariableManager_a251e6b1f5cbc8946c2d9a48fe1b2dd72}{Create\+Variable\+Ones}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the variable container for ones. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classQn_1_1VariableManager_a61883778476184c84fa02a6f3b55cea0}{Create\+Channel\+Variable}} (std\+::string name, const int size)
+\begin{DoxyCompactList}\small\item\em Creates a channel variable (variables which counts from 0 to the size-\/1). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQn_1_1Variable}{Variable}} \mbox{\hyperlink{classQn_1_1VariableManager_a7fa013595b7bad28ff827565095b0e53}{Find\+Variable}} (const std\+::string \&name) const
+\begin{DoxyCompactList}\small\item\em Finds the variable in the variable manager. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classQn_1_1VariableManager_a96354f765ae5a827aa9218cc8b2b0270}{Find\+Num}} (const std\+::string \&name) const
+\begin{DoxyCompactList}\small\item\em Find the position in the values container of a variable with a given name. \end{DoxyCompactList}\item 
+double $\ast$ \mbox{\hyperlink{classQn_1_1VariableManager_a92e8ecd78b48bf6a719f3cacb11d1d8c}{Get\+Variable\+Container}} ()
+\begin{DoxyCompactList}\small\item\em Get the values container. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classQn_1_1VariableManager_a27dbc1f8e5e99fe8044fb2f5efaa2d2b}{Fill\+To\+Qn\+Corrections}} (double $\ast$$\ast$var)
+\begin{DoxyCompactList}\small\item\em Sets the given pointer to the pointer to the values container. It is used to forward the data to the correction step. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classQn_1_1VariableManager_a818bd066ddc4cff8372311714a6a7bc5}{Register\+OutputF}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Register the variable to be saved in the output tree as float. Beware of conversion from double. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classQn_1_1VariableManager_a27695a4281a76e566ef0d0203520980e}{Register\+OutputL}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Register the variable to be saved in the output tree as long. Beware of conversion from double. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classQn_1_1VariableManager_aff3e15625af5e34078a21ab3b6e834e7}{Set\+Output\+To\+Tree}} (T\+Tree $\ast$tree)
+\begin{DoxyCompactList}\small\item\em Creates Branches in tree for saving the event information. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQn_1_1VariableManager_a52f61cd63fc4f0ffa4952df2f8180525}\label{classQn_1_1VariableManager_a52f61cd63fc4f0ffa4952df2f8180525}} 
+void \mbox{\hyperlink{classQn_1_1VariableManager_a52f61cd63fc4f0ffa4952df2f8180525}{Update\+Out\+Variables}} ()
+\begin{DoxyCompactList}\small\item\em Updates the output variables. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Manages the input variables for the correction step. A variable consist of a name and a unsigned integer position in the value array and an unsigned integer length. Different variables all access the same variable container. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQn_1_1VariableManager_a61883778476184c84fa02a6f3b55cea0}\label{classQn_1_1VariableManager_a61883778476184c84fa02a6f3b55cea0}} 
+\index{Qn\+::\+Variable\+Manager@{Qn\+::\+Variable\+Manager}!Create\+Channel\+Variable@{Create\+Channel\+Variable}}
+\index{Create\+Channel\+Variable@{Create\+Channel\+Variable}!Qn\+::\+Variable\+Manager@{Qn\+::\+Variable\+Manager}}
+\subsubsection{\texorpdfstring{Create\+Channel\+Variable()}{CreateChannelVariable()}}
+{\footnotesize\ttfamily void Qn\+::\+Variable\+Manager\+::\+Create\+Channel\+Variable (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{const int}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a channel variable (variables which counts from 0 to the size-\/1). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the variable \\
+\hline
+{\em size} & number of channels \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1VariableManager_a16091c43e9057525c4aee479f41fec43}\label{classQn_1_1VariableManager_a16091c43e9057525c4aee479f41fec43}} 
+\index{Qn\+::\+Variable\+Manager@{Qn\+::\+Variable\+Manager}!Create\+Variable@{Create\+Variable}}
+\index{Create\+Variable@{Create\+Variable}!Qn\+::\+Variable\+Manager@{Qn\+::\+Variable\+Manager}}
+\subsubsection{\texorpdfstring{Create\+Variable()}{CreateVariable()}}
+{\footnotesize\ttfamily void Qn\+::\+Variable\+Manager\+::\+Create\+Variable (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{const int}]{id,  }\item[{const int}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a new variable in the variable manager. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the new variable. \\
+\hline
+{\em id} & position of the variable in the values container. \\
+\hline
+{\em length} & length of the variable in the values container. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1VariableManager_a27dbc1f8e5e99fe8044fb2f5efaa2d2b}\label{classQn_1_1VariableManager_a27dbc1f8e5e99fe8044fb2f5efaa2d2b}} 
+\index{Qn\+::\+Variable\+Manager@{Qn\+::\+Variable\+Manager}!Fill\+To\+Qn\+Corrections@{Fill\+To\+Qn\+Corrections}}
+\index{Fill\+To\+Qn\+Corrections@{Fill\+To\+Qn\+Corrections}!Qn\+::\+Variable\+Manager@{Qn\+::\+Variable\+Manager}}
+\subsubsection{\texorpdfstring{Fill\+To\+Qn\+Corrections()}{FillToQnCorrections()}}
+{\footnotesize\ttfamily void Qn\+::\+Variable\+Manager\+::\+Fill\+To\+Qn\+Corrections (\begin{DoxyParamCaption}\item[{double $\ast$$\ast$}]{var }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the given pointer to the pointer to the values container. It is used to forward the data to the correction step. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em var} & values container pointer pointer. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1VariableManager_a96354f765ae5a827aa9218cc8b2b0270}\label{classQn_1_1VariableManager_a96354f765ae5a827aa9218cc8b2b0270}} 
+\index{Qn\+::\+Variable\+Manager@{Qn\+::\+Variable\+Manager}!Find\+Num@{Find\+Num}}
+\index{Find\+Num@{Find\+Num}!Qn\+::\+Variable\+Manager@{Qn\+::\+Variable\+Manager}}
+\subsubsection{\texorpdfstring{Find\+Num()}{FindNum()}}
+{\footnotesize\ttfamily int Qn\+::\+Variable\+Manager\+::\+Find\+Num (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Find the position in the values container of a variable with a given name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the variable. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+position in the values container. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1VariableManager_a7fa013595b7bad28ff827565095b0e53}\label{classQn_1_1VariableManager_a7fa013595b7bad28ff827565095b0e53}} 
+\index{Qn\+::\+Variable\+Manager@{Qn\+::\+Variable\+Manager}!Find\+Variable@{Find\+Variable}}
+\index{Find\+Variable@{Find\+Variable}!Qn\+::\+Variable\+Manager@{Qn\+::\+Variable\+Manager}}
+\subsubsection{\texorpdfstring{Find\+Variable()}{FindVariable()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQn_1_1Variable}{Variable}} Qn\+::\+Variable\+Manager\+::\+Find\+Variable (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Finds the variable in the variable manager. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the variable. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classQn_1_1Variable}{Variable}} of the given name. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1VariableManager_a92e8ecd78b48bf6a719f3cacb11d1d8c}\label{classQn_1_1VariableManager_a92e8ecd78b48bf6a719f3cacb11d1d8c}} 
+\index{Qn\+::\+Variable\+Manager@{Qn\+::\+Variable\+Manager}!Get\+Variable\+Container@{Get\+Variable\+Container}}
+\index{Get\+Variable\+Container@{Get\+Variable\+Container}!Qn\+::\+Variable\+Manager@{Qn\+::\+Variable\+Manager}}
+\subsubsection{\texorpdfstring{Get\+Variable\+Container()}{GetVariableContainer()}}
+{\footnotesize\ttfamily double$\ast$ Qn\+::\+Variable\+Manager\+::\+Get\+Variable\+Container (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the values container. 
+
+\begin{DoxyReturn}{Returns}
+a pointer to the values container. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1VariableManager_a818bd066ddc4cff8372311714a6a7bc5}\label{classQn_1_1VariableManager_a818bd066ddc4cff8372311714a6a7bc5}} 
+\index{Qn\+::\+Variable\+Manager@{Qn\+::\+Variable\+Manager}!Register\+OutputF@{Register\+OutputF}}
+\index{Register\+OutputF@{Register\+OutputF}!Qn\+::\+Variable\+Manager@{Qn\+::\+Variable\+Manager}}
+\subsubsection{\texorpdfstring{Register\+Output\+F()}{RegisterOutputF()}}
+{\footnotesize\ttfamily void Qn\+::\+Variable\+Manager\+::\+Register\+OutputF (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Register the variable to be saved in the output tree as float. Beware of conversion from double. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the variable. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1VariableManager_a27695a4281a76e566ef0d0203520980e}\label{classQn_1_1VariableManager_a27695a4281a76e566ef0d0203520980e}} 
+\index{Qn\+::\+Variable\+Manager@{Qn\+::\+Variable\+Manager}!Register\+OutputL@{Register\+OutputL}}
+\index{Register\+OutputL@{Register\+OutputL}!Qn\+::\+Variable\+Manager@{Qn\+::\+Variable\+Manager}}
+\subsubsection{\texorpdfstring{Register\+Output\+L()}{RegisterOutputL()}}
+{\footnotesize\ttfamily void Qn\+::\+Variable\+Manager\+::\+Register\+OutputL (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Register the variable to be saved in the output tree as long. Beware of conversion from double. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the variable. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1VariableManager_aff3e15625af5e34078a21ab3b6e834e7}\label{classQn_1_1VariableManager_aff3e15625af5e34078a21ab3b6e834e7}} 
+\index{Qn\+::\+Variable\+Manager@{Qn\+::\+Variable\+Manager}!Set\+Output\+To\+Tree@{Set\+Output\+To\+Tree}}
+\index{Set\+Output\+To\+Tree@{Set\+Output\+To\+Tree}!Qn\+::\+Variable\+Manager@{Qn\+::\+Variable\+Manager}}
+\subsubsection{\texorpdfstring{Set\+Output\+To\+Tree()}{SetOutputToTree()}}
+{\footnotesize\ttfamily void Qn\+::\+Variable\+Manager\+::\+Set\+Output\+To\+Tree (\begin{DoxyParamCaption}\item[{T\+Tree $\ast$}]{tree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates Branches in tree for saving the event information. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tree} & output tree to contain the event information \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Correction/include/Variable\+Manager.\+h\end{DoxyCompactItemize}

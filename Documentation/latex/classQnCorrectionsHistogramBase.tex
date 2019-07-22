@@ -1,0 +1,44 @@
+\hypertarget{classQnCorrectionsHistogramBase}{}\section{Qn\+Corrections\+Histogram\+Base Class Reference}
+\label{classQnCorrectionsHistogramBase}\index{Qn\+Corrections\+Histogram\+Base@{Qn\+Corrections\+Histogram\+Base}}
+
+
+\mbox{\hyperlink{classBase}{Base}} class for the Q vector correction histograms.  
+
+
+
+
+{\ttfamily \#include $<$Correction\+Histogram\+Base.\+h$>$}
+
+
+
+\subsection{Detailed Description}
+\mbox{\hyperlink{classBase}{Base}} class for the Q vector correction histograms. 
+
+Basically stores the set of variables that identify the different event classes the involved histograms are storing information about. It also stores (in its parent) the base name and base title for the different histograms it will encapsulate.
+
+The passed at construction option parameter is the option for the the computation of the errors in the descendant profiles. Possible values for the options are\+: \begin{DoxyVerb}' '  (Default) the bin errors are the standard error on the mean of the
+     bin values
+
+'s'            the bin are the standard deviation of of the bin values
+\end{DoxyVerb}
+
+
+The encapsulated bin axes values provide an efficient runtime storage for computing bin numbers.
+
+Provides the interface for the whole set of histogram classes providing error information that helps debugging.
+
+\begin{DoxyAuthor}{Author}
+Jaap Onderwaater \href{mailto:jacobus.onderwaater@cern.ch}{\tt jacobus.\+onderwaater@cern.\+ch}, G\+SI 
+
+Ilya Selyuzhenkov \href{mailto:ilya.selyuzhenkov@gmail.com}{\tt ilya.\+selyuzhenkov@gmail.\+com}, G\+SI 
+
+Víctor González \href{mailto:victor.gonzalez@cern.ch}{\tt victor.\+gonzalez@cern.\+ch}, U\+CM 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Jan 11, 2016 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/include/Correction\+Histogram\+Base.\+h\end{DoxyCompactItemize}

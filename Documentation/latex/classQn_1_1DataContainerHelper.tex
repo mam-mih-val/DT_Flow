@@ -1,0 +1,53 @@
+\hypertarget{classQn_1_1DataContainerHelper}{}\section{Qn\+:\+:Data\+Container\+Helper Class Reference}
+\label{classQn_1_1DataContainerHelper}\index{Qn\+::\+Data\+Container\+Helper@{Qn\+::\+Data\+Container\+Helper}}
+
+
+{\ttfamily \#include $<$Data\+Container\+Helper.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1DataContainerHelper_a3fef7832b12b7f7ae4295b3db3e3d53c}\label{classQn_1_1DataContainerHelper_a3fef7832b12b7f7ae4295b3db3e3d53c}} 
+enum {\bfseries Errors} \{ {\bfseries Yonly}, 
+{\bfseries XandY}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1DataContainerHelper_a24720e049678f8813ea4fbadf3cef5c7}\label{classQn_1_1DataContainerHelper_a24720e049678f8813ea4fbadf3cef5c7}} 
+static T\+Graph\+Asymm\+Errors $\ast$ {\bfseries To\+T\+Graph} (const \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ \mbox{\hyperlink{classQn_1_1Stats}{Qn\+::\+Stats}} $>$ \&data, Errors x=Errors\+::\+Yonly)
+\item 
+\mbox{\Hypertarget{classQn_1_1DataContainerHelper_a11eeefed32d44278be93399d3ae18d09}\label{classQn_1_1DataContainerHelper_a11eeefed32d44278be93399d3ae18d09}} 
+static T\+Graph\+Asymm\+Errors $\ast$ {\bfseries To\+T\+Graph\+Shifted} (const \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ \mbox{\hyperlink{classQn_1_1Stats}{Qn\+::\+Stats}} $>$ \&data, int i, int max, Errors x=Errors\+::\+Yonly)
+\item 
+static T\+Multi\+Graph $\ast$ \mbox{\hyperlink{classQn_1_1DataContainerHelper_ab13b4b0c36c9bfe85dc0041f1f99271f}{To\+T\+Multi\+Graph}} (const \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ \mbox{\hyperlink{classQn_1_1Stats}{Qn\+::\+Stats}} $>$ \&data, const std\+::string \&axisname, Errors x=Errors\+::\+Yonly)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Helper class for \mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container}} used for visualization. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQn_1_1DataContainerHelper_ab13b4b0c36c9bfe85dc0041f1f99271f}\label{classQn_1_1DataContainerHelper_ab13b4b0c36c9bfe85dc0041f1f99271f}} 
+\index{Qn\+::\+Data\+Container\+Helper@{Qn\+::\+Data\+Container\+Helper}!To\+T\+Multi\+Graph@{To\+T\+Multi\+Graph}}
+\index{To\+T\+Multi\+Graph@{To\+T\+Multi\+Graph}!Qn\+::\+Data\+Container\+Helper@{Qn\+::\+Data\+Container\+Helper}}
+\subsubsection{\texorpdfstring{To\+T\+Multi\+Graph()}{ToTMultiGraph()}}
+{\footnotesize\ttfamily T\+Multi\+Graph $\ast$ Qn\+::\+Data\+Container\+Helper\+::\+To\+T\+Multi\+Graph (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ \mbox{\hyperlink{classQn_1_1Stats}{Qn\+::\+Stats}} $>$ \&}]{data,  }\item[{const std\+::string \&}]{axisname,  }\item[{Errors}]{drawerrors = {\ttfamily Errors\+:\+:Yonly} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Create a T\+Multi\+Graph containing profile graphs for each bin of the specified axis. 
+\begin{DoxyParams}{Parameters}
+{\em data} & datacontainer to be graphed. \\
+\hline
+{\em axisname} & name of the axis which is used for the multigraph. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+graph containing a profile graph for each bin. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Base/include/Data\+Container\+Helper.\+h\item 
+D\+T\+\_\+\+Flow/\+Base/Data\+Container\+Helper.\+cpp\end{DoxyCompactItemize}

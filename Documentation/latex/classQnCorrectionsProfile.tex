@@ -1,0 +1,37 @@
+\hypertarget{classQnCorrectionsProfile}{}\section{Qn\+Corrections\+Profile Class Reference}
+\label{classQnCorrectionsProfile}\index{Qn\+Corrections\+Profile@{Qn\+Corrections\+Profile}}
+
+
+Single profile class for the Q vector correction histograms.  
+
+
+
+
+{\ttfamily \#include $<$Correction\+Profile.\+h$>$}
+
+
+
+\subsection{Detailed Description}
+Single profile class for the Q vector correction histograms. 
+
+Encapsulates a multi dimensional profile. Each dimension corresponds to one of the event classes variables so, the number of dimensions matches the number of variables within the set passed in the constructor.
+
+The involved histograms can be created on the fly when needed, and included in a provided list, or attached to existing ones from a given list. In any case they are not destroyed because the are not own by the class but by the involved list.
+
+Get\+Bin\+Content (once the intended bin is obtained by mean of Get\+Bin) returns in the profile way \[ \frac{\Sigma \mbox{fValues(bin)}}{\mbox{fEntries(bin)}} \] while Get\+Bin\+Error returns the standard deviation of the values in the interested bin \[ \sqrt{\frac{\Sigma \mbox{fValues}^2\mbox{(bin)}}{\mbox{fEntries(bin)}} - \left(\frac{\Sigma \mbox{fValues(bin)}}{\mbox{fEntries(bin)}}\right)^2} \]
+
+\begin{DoxyAuthor}{Author}
+Jaap Onderwaater \href{mailto:jacobus.onderwaater@cern.ch}{\tt jacobus.\+onderwaater@cern.\+ch}, G\+SI 
+
+Ilya Selyuzhenkov \href{mailto:ilya.selyuzhenkov@gmail.com}{\tt ilya.\+selyuzhenkov@gmail.\+com}, G\+SI 
+
+Víctor González \href{mailto:victor.gonzalez@cern.ch}{\tt victor.\+gonzalez@cern.\+ch}, U\+CM 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Jan 11, 2016 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/include/Correction\+Profile.\+h\end{DoxyCompactItemize}

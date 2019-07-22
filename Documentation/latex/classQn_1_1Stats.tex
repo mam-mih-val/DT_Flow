@@ -1,0 +1,122 @@
+\hypertarget{classQn_1_1Stats}{}\section{Qn\+:\+:Stats Class Reference}
+\label{classQn_1_1Stats}\index{Qn\+::\+Stats@{Qn\+::\+Stats}}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_a7df7df8145535a8cfe715912d0e98052}\label{classQn_1_1Stats_a7df7df8145535a8cfe715912d0e98052}} 
+enum {\bfseries Settings} \{ {\bfseries C\+O\+R\+R\+E\+L\+A\+T\+E\+D\+E\+R\+R\+O\+RS} = B\+IT(16), 
+{\bfseries M\+E\+R\+G\+E\+S\+U\+B\+S\+A\+M\+P\+L\+ES} = B\+IT(17), 
+{\bfseries A\+S\+Y\+M\+M\+E\+R\+R\+O\+RS} = B\+IT(18)
+ \}
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_a86fbbe052e799190c92154b48664185e}\label{classQn_1_1Stats_a86fbbe052e799190c92154b48664185e}} 
+enum {\bfseries Status} \{ {\bfseries R\+E\+F\+E\+R\+E\+N\+CE}, 
+{\bfseries O\+B\+S\+E\+R\+V\+A\+B\+LE}, 
+{\bfseries P\+O\+I\+N\+T\+A\+V\+E\+R\+A\+GE}
+ \}
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_a4b08e9313f81ca0d62ff95229dcca741}\label{classQn_1_1Stats_a4b08e9313f81ca0d62ff95229dcca741}} 
+using {\bfseries size\+\_\+type} = std\+::size\+\_\+t
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_aec0c9649237a42e5a2e8aad0c3013a53}\label{classQn_1_1Stats_aec0c9649237a42e5a2e8aad0c3013a53}} 
+{\bfseries Stats} (const \mbox{\hyperlink{classQn_1_1Stats}{Stats}} \&stats)
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_a341d9eefae6c8d6aff2e4cd0545c4e7d}\label{classQn_1_1Stats_a341d9eefae6c8d6aff2e4cd0545c4e7d}} 
+double {\bfseries Mean} () const
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_a7216669667eb98c18d39ee8a585c1b08}\label{classQn_1_1Stats_a7216669667eb98c18d39ee8a585c1b08}} 
+double {\bfseries Entries} () const
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_affd9c5ce5394c67f2956357fa1f32c4b}\label{classQn_1_1Stats_affd9c5ce5394c67f2956357fa1f32c4b}} 
+double {\bfseries Sum\+Of\+Weights} () const
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_a25945cf2ade228692de2ad77ad9e9b4f}\label{classQn_1_1Stats_a25945cf2ade228692de2ad77ad9e9b4f}} 
+double {\bfseries Bootstrap\+Mean} () const
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_a81b53377f3c3e552a61ce68066d9df62}\label{classQn_1_1Stats_a81b53377f3c3e552a61ce68066d9df62}} 
+double {\bfseries Error} () const
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_a203d781c5dcf2c71830bf27552641109}\label{classQn_1_1Stats_a203d781c5dcf2c71830bf27552641109}} 
+double {\bfseries Error\+Lo} () const
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_a9edeb4ae851cb65b88edf86fdb44a7ee}\label{classQn_1_1Stats_a9edeb4ae851cb65b88edf86fdb44a7ee}} 
+double {\bfseries Error\+Hi} () const
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_a93e827d04d9346eb47e88fbefdf402b5}\label{classQn_1_1Stats_a93e827d04d9346eb47e88fbefdf402b5}} 
+void {\bfseries Fill} (const \mbox{\hyperlink{structQn_1_1Product}{Product}} \&product, const std\+::vector$<$ size\+\_\+type $>$ \&samples)
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_a6da09fa10e3e884d5633248b42c3a0fc}\label{classQn_1_1Stats_a6da09fa10e3e884d5633248b42c3a0fc}} 
+void {\bfseries Fill} (const \mbox{\hyperlink{structQn_1_1Product}{Product}} \&product)
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_a8c4b01401992ea4e125fe3f7ca80ca58}\label{classQn_1_1Stats_a8c4b01401992ea4e125fe3f7ca80ca58}} 
+void {\bfseries Fill} (const double result, const double weight, const std\+::vector$<$ size\+\_\+type $>$ \&samples)
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_a8b4081b5f3578c854f7c01a6a2670cc6}\label{classQn_1_1Stats_a8b4081b5f3578c854f7c01a6a2670cc6}} 
+void {\bfseries Set\+Number\+Of\+Sub\+Samples} (size\+\_\+type nsamples)
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_a3d250c345e2c505b57b4cdd3598809b1}\label{classQn_1_1Stats_a3d250c345e2c505b57b4cdd3598809b1}} 
+T\+H1F {\bfseries Sample\+Mean\+Histo} (const std\+::string \&name)
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_ad6b583c555e645f1962dda2fcc7f1458}\label{classQn_1_1Stats_ad6b583c555e645f1962dda2fcc7f1458}} 
+void {\bfseries Set\+Status} (Stats\+::\+Status status)
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_acfa3056990eda806e7a74abc24161731}\label{classQn_1_1Stats_acfa3056990eda806e7a74abc24161731}} 
+Status {\bfseries Get\+Status} () const
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_ad8079a5b6ebd39c6034f3743b7218e9e}\label{classQn_1_1Stats_ad8079a5b6ebd39c6034f3743b7218e9e}} 
+bool {\bfseries Test\+Bit} (unsigned int bit) const
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_a91c93cfaa0e045698d48bf53a5b516ff}\label{classQn_1_1Stats_a91c93cfaa0e045698d48bf53a5b516ff}} 
+void {\bfseries Set\+Bits} (unsigned int bits)
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_a5b8eb6a24b45b2da1ac89df4586b357d}\label{classQn_1_1Stats_a5b8eb6a24b45b2da1ac89df4586b357d}} 
+void {\bfseries Reset\+Bits} (unsigned int bits)
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_a164cf64ed15f9b6f33662d7b8a778e2b}\label{classQn_1_1Stats_a164cf64ed15f9b6f33662d7b8a778e2b}} 
+void {\bfseries Print} ()
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_ad36872ae4461b311a93cd40b41db1e26}\label{classQn_1_1Stats_ad36872ae4461b311a93cd40b41db1e26}} 
+size\+\_\+type {\bfseries Get\+N\+Samples} () const
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_aedc4755917b1f200830e97777696685c}\label{classQn_1_1Stats_aedc4755917b1f200830e97777696685c}} 
+\mbox{\hyperlink{classQn_1_1SubSamples}{Sub\+Samples}} {\bfseries Get\+Sub\+Samples} () const
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_ac882b20d845c1e423593b29bf2801d6c}\label{classQn_1_1Stats_ac882b20d845c1e423593b29bf2801d6c}} 
+\mbox{\hyperlink{classQn_1_1Stats}{Stats}} {\bfseries Merge} (const \mbox{\hyperlink{classQn_1_1Stats}{Stats}} \&, const \mbox{\hyperlink{classQn_1_1Stats}{Stats}} \&)
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_acd3fc8b91617e1bd62306093c3ff8b19}\label{classQn_1_1Stats_acd3fc8b91617e1bd62306093c3ff8b19}} 
+\mbox{\hyperlink{classQn_1_1Stats}{Stats}} {\bfseries Merge\+Bins} (const \mbox{\hyperlink{classQn_1_1Stats}{Stats}} \&, const \mbox{\hyperlink{classQn_1_1Stats}{Stats}} \&)
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_ae1f33012632b4b6427c202907c540f0e}\label{classQn_1_1Stats_ae1f33012632b4b6427c202907c540f0e}} 
+\mbox{\hyperlink{classQn_1_1Stats}{Stats}} {\bfseries operator+} (const \mbox{\hyperlink{classQn_1_1Stats}{Stats}} \&, const \mbox{\hyperlink{classQn_1_1Stats}{Stats}} \&)
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_ab5e257902664ed1f0245a717e2653953}\label{classQn_1_1Stats_ab5e257902664ed1f0245a717e2653953}} 
+\mbox{\hyperlink{classQn_1_1Stats}{Stats}} {\bfseries operator-\/} (const \mbox{\hyperlink{classQn_1_1Stats}{Stats}} \&, const \mbox{\hyperlink{classQn_1_1Stats}{Stats}} \&)
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_a3a857057e42b085519366ee5703cfaa6}\label{classQn_1_1Stats_a3a857057e42b085519366ee5703cfaa6}} 
+\mbox{\hyperlink{classQn_1_1Stats}{Stats}} {\bfseries operator$\ast$} (const \mbox{\hyperlink{classQn_1_1Stats}{Stats}} \&, const \mbox{\hyperlink{classQn_1_1Stats}{Stats}} \&)
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_ae4d3dcf74b30f075b195ae27e1d6573a}\label{classQn_1_1Stats_ae4d3dcf74b30f075b195ae27e1d6573a}} 
+\mbox{\hyperlink{classQn_1_1Stats}{Stats}} {\bfseries operator$\ast$} (const \mbox{\hyperlink{classQn_1_1Stats}{Stats}} \&, double)
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_a84d3a4d0c9df9d3d88ca64de948b12da}\label{classQn_1_1Stats_a84d3a4d0c9df9d3d88ca64de948b12da}} 
+\mbox{\hyperlink{classQn_1_1Stats}{Stats}} {\bfseries operator$\ast$} (double, const \mbox{\hyperlink{classQn_1_1Stats}{Stats}} \&)
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_a0f7384fd6e81433ccf3cc9efac521a79}\label{classQn_1_1Stats_a0f7384fd6e81433ccf3cc9efac521a79}} 
+\mbox{\hyperlink{classQn_1_1Stats}{Stats}} {\bfseries operator/} (const \mbox{\hyperlink{classQn_1_1Stats}{Stats}} \&, const \mbox{\hyperlink{classQn_1_1Stats}{Stats}} \&)
+\item 
+\mbox{\Hypertarget{classQn_1_1Stats_a225b92727c0354e74c74470c2de4e064}\label{classQn_1_1Stats_a225b92727c0354e74c74470c2de4e064}} 
+\mbox{\hyperlink{classQn_1_1Stats}{Stats}} {\bfseries Sqrt} (const \mbox{\hyperlink{classQn_1_1Stats}{Stats}} \&)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Base/include/Stats.\+h\item 
+D\+T\+\_\+\+Flow/\+Base/Stats.\+cpp\end{DoxyCompactItemize}

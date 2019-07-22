@@ -126,9 +126,6 @@ class CorrectionCalculator : public TObject {
   const CorrectionQnVector *GetDetectorQnVector(const char *subdetector,
                                                    const char *expectedstep = "latest",
                                                    const char *altstep = "latest") const;
-  const CorrectionQnVector *GetDetectorQnVectorPtr(const char *subdetector,
-                                                const char *expectedstep = "latest",
-                                                const char *altstep = "latest") const;
   /// Gets the name of the calibration histograms container
   /// \return the calibration histograms container name
   const char *GetCalibrationHistogramsContainerName() const { return szCalibrationHistogramsKeyName; }

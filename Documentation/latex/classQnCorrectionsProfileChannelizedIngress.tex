@@ -1,0 +1,41 @@
+\hypertarget{classQnCorrectionsProfileChannelizedIngress}{}\section{Qn\+Corrections\+Profile\+Channelized\+Ingress Class Reference}
+\label{classQnCorrectionsProfileChannelizedIngress}\index{Qn\+Corrections\+Profile\+Channelized\+Ingress@{Qn\+Corrections\+Profile\+Channelized\+Ingress}}
+
+
+Ingress channelized profile class for the Q vector correction histograms.  
+
+
+
+
+{\ttfamily \#include $<$Correction\+Profile\+Channelized\+Ingress.\+h$>$}
+
+
+
+\subsection{Detailed Description}
+Ingress channelized profile class for the Q vector correction histograms. 
+
+Encapsulates a multidimensional profile. Each dimension corresponds to one of the event classes variables so, the number of dimensions matches the number of variables within the set passed in the constructor. Additionally incorporates an extra dimension to consider the channel number
+
+The involved histograms can only be attached to existing ones from a given list. The histograms to attach are the ones created from \mbox{\hyperlink{classQnCorrectionsProfileChannelized}{Qn\+Corrections\+Profile\+Channelized}} class. The difference with that class is that now, the histograms are the source for applying corrections and as such should be stored in a more efficient way and the implicit group information be recovered.
+
+Now the class will own histograms that must be deleted when the class gets destroyed. The behavior regarding the channel handling matches the one from \mbox{\hyperlink{classQnCorrectionsProfileChannelized}{Qn\+Corrections\+Profile\+Channelized}} class.
+
+The entries histogram disappears and so, Get\+Bin\+Content and Get\+Bin\+Error return in the standard way. Additionally, if applicable, the group histogram is created and Get\+Grp\+Bin\+Content and Get\+Grp\+Bin\+Error are functional.
+
+The profile as such cannot be filled. It should be considered as a read only profile.
+
+\begin{DoxyAuthor}{Author}
+Jaap Onderwaater \href{mailto:jacobus.onderwaater@cern.ch}{\tt jacobus.\+onderwaater@cern.\+ch}, G\+SI 
+
+Ilya Selyuzhenkov \href{mailto:ilya.selyuzhenkov@gmail.com}{\tt ilya.\+selyuzhenkov@gmail.\+com}, G\+SI 
+
+Víctor González \href{mailto:victor.gonzalez@cern.ch}{\tt victor.\+gonzalez@cern.\+ch}, U\+CM 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Feb 23, 2016 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/include/Correction\+Profile\+Channelized\+Ingress.\+h\end{DoxyCompactItemize}

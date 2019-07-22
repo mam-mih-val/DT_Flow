@@ -1,0 +1,37 @@
+\hypertarget{classQnCorrectionsEventClassVariablesSet}{}\section{Qn\+Corrections\+Event\+Class\+Variables\+Set Class Reference}
+\label{classQnCorrectionsEventClassVariablesSet}\index{Qn\+Corrections\+Event\+Class\+Variables\+Set@{Qn\+Corrections\+Event\+Class\+Variables\+Set}}
+
+
+The set of variables which define an event class.  
+
+
+
+
+{\ttfamily \#include $<$Event\+Class\+Variables\+Set.\+h$>$}
+
+
+
+\subsection{Detailed Description}
+The set of variables which define an event class. 
+
+Array of Event\+Class\+Variables that fully define the different event classes considered within the Q vector correction framework. The objects of this class are associated to concrete detectors or detector configurations in such a way that all Q vector corrections are performed according to the event class the involved event is allocated.
+
+Inherits all the methods of T\+Obj\+Array specially the subscript \mbox{[}\mbox{]} operator and Add method that allows the array to expand.
+
+The event class variables objects are not own by the array so, they are not destroyed when the the set is destroyed. This allows to create several sets with the same event class variables. Pay attention to this when you create your event class variables, they should live at least the same time you expect the sets to live.
+
+\begin{DoxyAuthor}{Author}
+Jaap Onderwaater \href{mailto:jacobus.onderwaater@cern.ch}{\tt jacobus.\+onderwaater@cern.\+ch}, G\+SI 
+
+Ilya Selyuzhenkov \href{mailto:ilya.selyuzhenkov@gmail.com}{\tt ilya.\+selyuzhenkov@gmail.\+com}, G\+SI 
+
+Víctor González \href{mailto:victor.gonzalez@cern.ch}{\tt victor.\+gonzalez@cern.\+ch}, U\+CM 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Jan 4, 2016 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/include/Event\+Class\+Variables\+Set.\+h\end{DoxyCompactItemize}

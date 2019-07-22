@@ -1,0 +1,320 @@
+\hypertarget{classQn_1_1GainEqualization}{}\section{Qn\+:\+:Gain\+Equalization Class Reference}
+\label{classQn_1_1GainEqualization}\index{Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}}
+Inheritance diagram for Qn\+:\+:Gain\+Equalization\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classQn_1_1GainEqualization}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classQn_1_1GainEqualization_ab49157ee7419c78638467d5a070c2c23}{Method}} \{ \mbox{\hyperlink{classQn_1_1GainEqualization_ab49157ee7419c78638467d5a070c2c23ab50339a10e1de285ac99d4c3990b8693}{Method\+::\+N\+O\+NE}}, 
+\mbox{\hyperlink{classQn_1_1GainEqualization_ab49157ee7419c78638467d5a070c2c23a16de38737a9f8366e9b2042b4e9b6290}{Method\+::\+A\+V\+E\+R\+A\+GE}}, 
+\mbox{\hyperlink{classQn_1_1GainEqualization_ab49157ee7419c78638467d5a070c2c23a49da85b69bc6285eeee286ca49fa7195}{Method\+::\+W\+I\+D\+TH}}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classQn_1_1GainEqualization_a5fc21a456890d31c36c405ed05c2e886}{Gain\+Equalization}} ()
+\item 
+\mbox{\hyperlink{classQn_1_1GainEqualization_a29526efb0749db5c5436edae080aea93}{$\sim$\+Gain\+Equalization}} ()
+\item 
+void \mbox{\hyperlink{classQn_1_1GainEqualization_a9e255e692f67af4a534017bc9d0ae630}{Set\+Equalization\+Method}} (\mbox{\hyperlink{classQn_1_1GainEqualization_ab49157ee7419c78638467d5a070c2c23}{Method}} method)
+\item 
+void \mbox{\hyperlink{classQn_1_1GainEqualization_acb1f9095161f3beb43d9011bc7805303}{Set\+Shift}} (Float\+\_\+t shift)
+\item 
+void \mbox{\hyperlink{classQn_1_1GainEqualization_a597dc9f7f5a6f7e1ec01eb907253f572}{Set\+Scale}} (Float\+\_\+t scale)
+\item 
+void \mbox{\hyperlink{classQn_1_1GainEqualization_af136135624a62a1372fcf31548b358d7}{Set\+Use\+Channel\+Groups\+Weights}} (Bool\+\_\+t enable)
+\item 
+void \mbox{\hyperlink{classQn_1_1GainEqualization_aa21fb2cf56b3fc4b7fc8d7c0c2a99da3}{Set\+No\+Of\+Entries\+Threshold}} (Int\+\_\+t n\+No\+Of\+Entries)
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1GainEqualization_a487cc533ff299196a16d0ee4688d1039}{Attached\+To\+Framework\+Manager}} ()
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1GainEqualization_a167a6348fcdf8c0f48cb16a3dd9d1c29}{Attach\+Input}} (T\+List $\ast$list)
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1GainEqualization_a3b1da6e8711ef1e7dea394d3612ee8f9}{Create\+Support\+Data\+Structures}} ()
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1GainEqualization_a3f34cc42fe078c556d9acf98525490ce}{Create\+Support\+Histograms}} (T\+List $\ast$list)
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1GainEqualization_a52c68c9bb9632a1e56341dff9e360362}{Create\+Q\+A\+Histograms}} (T\+List $\ast$list)
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1GainEqualization_aede344344f1f7009f10fc798cfa3241b}{Create\+Nve\+Q\+A\+Histograms}} (T\+List $\ast$list)
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1GainEqualization_ade22bc9b3aee596b6594d8a8d6fdc1f1}{Process\+Corrections}} (const double $\ast$variable\+Container)
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1GainEqualization_a9984ec9a1056bc3e336ff9ac50888641}{Process\+Data\+Collection}} (const double $\ast$variable\+Container)
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1GainEqualization_a8ee1f2ecf6929de35d455515a067ac9c}{Clear\+Correction\+Step}} ()
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1GainEqualization_af444038af10eb53d8bd6c8703d4e5629}{Report\+Usage}} (T\+List $\ast$calibration\+List, T\+List $\ast$apply\+List)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classQn_1_1GainEqualization_ab49157ee7419c78638467d5a070c2c23}\label{classQn_1_1GainEqualization_ab49157ee7419c78638467d5a070c2c23}} 
+\index{Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}!Method@{Method}}
+\index{Method@{Method}!Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}}
+\subsubsection{\texorpdfstring{Method}{Method}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classQn_1_1GainEqualization_ab49157ee7419c78638467d5a070c2c23}{Qn\+::\+Gain\+Equalization\+::\+Method}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{N\+O\+NE@{N\+O\+NE}!Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}}\index{Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}!N\+O\+NE@{N\+O\+NE}}}\mbox{\Hypertarget{classQn_1_1GainEqualization_ab49157ee7419c78638467d5a070c2c23ab50339a10e1de285ac99d4c3990b8693}\label{classQn_1_1GainEqualization_ab49157ee7419c78638467d5a070c2c23ab50339a10e1de285ac99d4c3990b8693}} 
+N\+O\+NE&$ \mbox{M'} = \mbox{M}$ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{A\+V\+E\+R\+A\+GE@{A\+V\+E\+R\+A\+GE}!Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}}\index{Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}!A\+V\+E\+R\+A\+GE@{A\+V\+E\+R\+A\+GE}}}\mbox{\Hypertarget{classQn_1_1GainEqualization_ab49157ee7419c78638467d5a070c2c23a16de38737a9f8366e9b2042b4e9b6290}\label{classQn_1_1GainEqualization_ab49157ee7419c78638467d5a070c2c23a16de38737a9f8366e9b2042b4e9b6290}} 
+A\+V\+E\+R\+A\+GE&$ \mbox{M}' = \frac{\mbox{M}}{\langle\mbox{M}\rangle} $ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{W\+I\+D\+TH@{W\+I\+D\+TH}!Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}}\index{Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}!W\+I\+D\+TH@{W\+I\+D\+TH}}}\mbox{\Hypertarget{classQn_1_1GainEqualization_ab49157ee7419c78638467d5a070c2c23a49da85b69bc6285eeee286ca49fa7195}\label{classQn_1_1GainEqualization_ab49157ee7419c78638467d5a070c2c23a49da85b69bc6285eeee286ca49fa7195}} 
+W\+I\+D\+TH&$ \mbox{M}' = \mbox{A} + \mbox{B} \frac{\mbox{M} - \langle\mbox{M} \rangle}{\sigma_{{M}}} $ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classQn_1_1GainEqualization_a5fc21a456890d31c36c405ed05c2e886}\label{classQn_1_1GainEqualization_a5fc21a456890d31c36c405ed05c2e886}} 
+\index{Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}!Gain\+Equalization@{Gain\+Equalization}}
+\index{Gain\+Equalization@{Gain\+Equalization}!Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}}
+\subsubsection{\texorpdfstring{Gain\+Equalization()}{GainEqualization()}}
+{\footnotesize\ttfamily Qn\+::\+Gain\+Equalization\+::\+Gain\+Equalization (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default constructor Passes to the base class the identity data for the Gain equalization correction step \mbox{\Hypertarget{classQn_1_1GainEqualization_a29526efb0749db5c5436edae080aea93}\label{classQn_1_1GainEqualization_a29526efb0749db5c5436edae080aea93}} 
+\index{Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}!````~Gain\+Equalization@{$\sim$\+Gain\+Equalization}}
+\index{````~Gain\+Equalization@{$\sim$\+Gain\+Equalization}!Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}}
+\subsubsection{\texorpdfstring{$\sim$\+Gain\+Equalization()}{~GainEqualization()}}
+{\footnotesize\ttfamily Qn\+::\+Gain\+Equalization\+::$\sim$\+Gain\+Equalization (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default destructor Releases the memory taken 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQn_1_1GainEqualization_a487cc533ff299196a16d0ee4688d1039}\label{classQn_1_1GainEqualization_a487cc533ff299196a16d0ee4688d1039}} 
+\index{Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}!Attached\+To\+Framework\+Manager@{Attached\+To\+Framework\+Manager}}
+\index{Attached\+To\+Framework\+Manager@{Attached\+To\+Framework\+Manager}!Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}}
+\subsubsection{\texorpdfstring{Attached\+To\+Framework\+Manager()}{AttachedToFrameworkManager()}}
+{\footnotesize\ttfamily virtual void Qn\+::\+Gain\+Equalization\+::\+Attached\+To\+Framework\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Informs when the detector configuration has been attached to the framework manager Basically this allows interaction between the different framework sections at configuration time No action for input gain equalization 
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionOnInputData_adab1d79e0c216c6c981cd8d7ed271490}{Qn\+::\+Correction\+On\+Input\+Data}}.
+
+\mbox{\Hypertarget{classQn_1_1GainEqualization_a167a6348fcdf8c0f48cb16a3dd9d1c29}\label{classQn_1_1GainEqualization_a167a6348fcdf8c0f48cb16a3dd9d1c29}} 
+\index{Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}!Attach\+Input@{Attach\+Input}}
+\index{Attach\+Input@{Attach\+Input}!Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}}
+\subsubsection{\texorpdfstring{Attach\+Input()}{AttachInput()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Gain\+Equalization\+::\+Attach\+Input (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Attaches the needed input information to the correction step
+
+If the attachment succeeded asks for hard coded group weights to the detector configuration 
+\begin{DoxyParams}{Parameters}
+{\em list} & list where the inputs should be found \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if everything went OK 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionOnInputData_a37c53966c0121ed0f7d764a9769690be}{Qn\+::\+Correction\+On\+Input\+Data}}.
+
+\mbox{\Hypertarget{classQn_1_1GainEqualization_a8ee1f2ecf6929de35d455515a067ac9c}\label{classQn_1_1GainEqualization_a8ee1f2ecf6929de35d455515a067ac9c}} 
+\index{Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}!Clear\+Correction\+Step@{Clear\+Correction\+Step}}
+\index{Clear\+Correction\+Step@{Clear\+Correction\+Step}!Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}}
+\subsubsection{\texorpdfstring{Clear\+Correction\+Step()}{ClearCorrectionStep()}}
+{\footnotesize\ttfamily virtual void Qn\+::\+Gain\+Equalization\+::\+Clear\+Correction\+Step (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Clean the correction to accept a new event Does nothing for the time being 
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionOnInputData_a8da92a3389c8654961199f123d5e6a6d}{Qn\+::\+Correction\+On\+Input\+Data}}.
+
+\mbox{\Hypertarget{classQn_1_1GainEqualization_aede344344f1f7009f10fc798cfa3241b}\label{classQn_1_1GainEqualization_aede344344f1f7009f10fc798cfa3241b}} 
+\index{Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}!Create\+Nve\+Q\+A\+Histograms@{Create\+Nve\+Q\+A\+Histograms}}
+\index{Create\+Nve\+Q\+A\+Histograms@{Create\+Nve\+Q\+A\+Histograms}!Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}}
+\subsubsection{\texorpdfstring{Create\+Nve\+Q\+A\+Histograms()}{CreateNveQAHistograms()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Gain\+Equalization\+::\+Create\+Nve\+Q\+A\+Histograms (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Asks for non validated entries QA histograms creation
+
+Allocates the histogram objects and creates the non validated entries QA histograms. 
+\begin{DoxyParams}{Parameters}
+{\em list} & list where the histograms should be incorporated for its persistence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if everything went OK 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionStepBase_acb488e715005f027e39c21ae5f4684da}{Qn\+::\+Correction\+Step\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1GainEqualization_a52c68c9bb9632a1e56341dff9e360362}\label{classQn_1_1GainEqualization_a52c68c9bb9632a1e56341dff9e360362}} 
+\index{Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}!Create\+Q\+A\+Histograms@{Create\+Q\+A\+Histograms}}
+\index{Create\+Q\+A\+Histograms@{Create\+Q\+A\+Histograms}!Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}}
+\subsubsection{\texorpdfstring{Create\+Q\+A\+Histograms()}{CreateQAHistograms()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Gain\+Equalization\+::\+Create\+Q\+A\+Histograms (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Asks for QA histograms creation
+
+Allocates the histogram objects and creates the QA histograms. 
+\begin{DoxyParams}{Parameters}
+{\em list} & list where the histograms should be incorporated for its persistence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if everything went OK 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionStepBase_a21f58f5d91209c1c74d0928cf0b3e26d}{Qn\+::\+Correction\+Step\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1GainEqualization_a3b1da6e8711ef1e7dea394d3612ee8f9}\label{classQn_1_1GainEqualization_a3b1da6e8711ef1e7dea394d3612ee8f9}} 
+\index{Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}!Create\+Support\+Data\+Structures@{Create\+Support\+Data\+Structures}}
+\index{Create\+Support\+Data\+Structures@{Create\+Support\+Data\+Structures}!Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}}
+\subsubsection{\texorpdfstring{Create\+Support\+Data\+Structures()}{CreateSupportDataStructures()}}
+{\footnotesize\ttfamily void Qn\+::\+Gain\+Equalization\+::\+Create\+Support\+Data\+Structures (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Asks for support data structures creation
+
+Does nothing for the time being 
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionOnInputData_a7da5cb5e6c82e28e2dd63d82ac82bc8a}{Qn\+::\+Correction\+On\+Input\+Data}}.
+
+\mbox{\Hypertarget{classQn_1_1GainEqualization_a3f34cc42fe078c556d9acf98525490ce}\label{classQn_1_1GainEqualization_a3f34cc42fe078c556d9acf98525490ce}} 
+\index{Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}!Create\+Support\+Histograms@{Create\+Support\+Histograms}}
+\index{Create\+Support\+Histograms@{Create\+Support\+Histograms}!Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}}
+\subsubsection{\texorpdfstring{Create\+Support\+Histograms()}{CreateSupportHistograms()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Gain\+Equalization\+::\+Create\+Support\+Histograms (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Asks for support histograms creation
+
+Allocates the histogram objects and creates the calibration histograms. The histograms are constructed with standard deviation error calculation for the proper behavior of the gain equalization.
+
+Process concurrency requires Calibration Histograms creation for all c concurrent processes but not for Input Histograms so, we delete previously allocated ones. 
+\begin{DoxyParams}{Parameters}
+{\em list} & list where the histograms should be incorporated for its persistence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if everything went OK 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionOnInputData_a1556dd574545ef77d6b462020101bf39}{Qn\+::\+Correction\+On\+Input\+Data}}.
+
+\mbox{\Hypertarget{classQn_1_1GainEqualization_ade22bc9b3aee596b6594d8a8d6fdc1f1}\label{classQn_1_1GainEqualization_ade22bc9b3aee596b6594d8a8d6fdc1f1}} 
+\index{Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}!Process\+Corrections@{Process\+Corrections}}
+\index{Process\+Corrections@{Process\+Corrections}!Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}}
+\subsubsection{\texorpdfstring{Process\+Corrections()}{ProcessCorrections()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Gain\+Equalization\+::\+Process\+Corrections (\begin{DoxyParamCaption}\item[{const double $\ast$}]{variable\+Container }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Processes the correction step
+
+Data are always taken from the data bank from the equalized weights allowing chaining of input data corrections so, caution must be taken to be sure that, on initialising, weight and equalized weight match Due to this structure as today it is not possible to split data collection from correction processing. If so is required probably multiple equalization structures should be included. \begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if the correction step was applied 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionOnInputData_a42390a6c47f558faeb1e14d245dcbc4a}{Qn\+::\+Correction\+On\+Input\+Data}}.
+
+\mbox{\Hypertarget{classQn_1_1GainEqualization_a9984ec9a1056bc3e336ff9ac50888641}\label{classQn_1_1GainEqualization_a9984ec9a1056bc3e336ff9ac50888641}} 
+\index{Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}!Process\+Data\+Collection@{Process\+Data\+Collection}}
+\index{Process\+Data\+Collection@{Process\+Data\+Collection}!Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}}
+\subsubsection{\texorpdfstring{Process\+Data\+Collection()}{ProcessDataCollection()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Gain\+Equalization\+::\+Process\+Data\+Collection (\begin{DoxyParamCaption}\item[{const double $\ast$}]{variable\+Container }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Processes the correction data collection step
+
+Data are always taken from the data bank from the equalized weights allowing chaining of input data corrections so, caution must be taken to be sure that, on initialising, weight and equalized weight match Due to this structure as today it is not possible to split data collection from correction processing. If so is required probably multiple equalization structures should be included. So this function only retures the proper value according to the status. \begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if the correction step was applied 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionOnInputData_aff000eb0dbd571ac42eb0c4d3771ba69}{Qn\+::\+Correction\+On\+Input\+Data}}.
+
+\mbox{\Hypertarget{classQn_1_1GainEqualization_af444038af10eb53d8bd6c8703d4e5629}\label{classQn_1_1GainEqualization_af444038af10eb53d8bd6c8703d4e5629}} 
+\index{Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}!Report\+Usage@{Report\+Usage}}
+\index{Report\+Usage@{Report\+Usage}!Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}}
+\subsubsection{\texorpdfstring{Report\+Usage()}{ReportUsage()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Gain\+Equalization\+::\+Report\+Usage (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{calibration\+List,  }\item[{T\+List $\ast$}]{apply\+List }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Report on correction usage Correction step should incorporate its name in calibration list if it is producing information calibration in the ongoing step and in the apply list if it is applying correction in the ongoing step. 
+\begin{DoxyParams}{Parameters}
+{\em calibration\+List} & list containing the correction steps producing calibration information \\
+\hline
+{\em apply\+List} & list containing the correction steps applying corrections \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if the correction step is being applied 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionOnInputData_a40b05b6db47e8dd52e1f6a616b9b9d3a}{Qn\+::\+Correction\+On\+Input\+Data}}.
+
+\mbox{\Hypertarget{classQn_1_1GainEqualization_a9e255e692f67af4a534017bc9d0ae630}\label{classQn_1_1GainEqualization_a9e255e692f67af4a534017bc9d0ae630}} 
+\index{Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}!Set\+Equalization\+Method@{Set\+Equalization\+Method}}
+\index{Set\+Equalization\+Method@{Set\+Equalization\+Method}!Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}}
+\subsubsection{\texorpdfstring{Set\+Equalization\+Method()}{SetEqualizationMethod()}}
+{\footnotesize\ttfamily void Qn\+::\+Gain\+Equalization\+::\+Set\+Equalization\+Method (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQn_1_1GainEqualization_ab49157ee7419c78638467d5a070c2c23}{Method}}}]{method }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Stores the passed equalization method 
+\begin{DoxyParams}{Parameters}
+{\em method} & the desired equalization method \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1GainEqualization_aa21fb2cf56b3fc4b7fc8d7c0c2a99da3}\label{classQn_1_1GainEqualization_aa21fb2cf56b3fc4b7fc8d7c0c2a99da3}} 
+\index{Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}!Set\+No\+Of\+Entries\+Threshold@{Set\+No\+Of\+Entries\+Threshold}}
+\index{Set\+No\+Of\+Entries\+Threshold@{Set\+No\+Of\+Entries\+Threshold}!Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}}
+\subsubsection{\texorpdfstring{Set\+No\+Of\+Entries\+Threshold()}{SetNoOfEntriesThreshold()}}
+{\footnotesize\ttfamily void Qn\+::\+Gain\+Equalization\+::\+Set\+No\+Of\+Entries\+Threshold (\begin{DoxyParamCaption}\item[{Int\+\_\+t}]{n\+No\+Of\+Entries }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set the minimum number of entries for calibration histogram bin content validation 
+\begin{DoxyParams}{Parameters}
+{\em n\+No\+Of\+Entries} & the number of entries threshold \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1GainEqualization_a597dc9f7f5a6f7e1ec01eb907253f572}\label{classQn_1_1GainEqualization_a597dc9f7f5a6f7e1ec01eb907253f572}} 
+\index{Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}!Set\+Scale@{Set\+Scale}}
+\index{Set\+Scale@{Set\+Scale}!Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}}
+\subsubsection{\texorpdfstring{Set\+Scale()}{SetScale()}}
+{\footnotesize\ttfamily void Qn\+::\+Gain\+Equalization\+::\+Set\+Scale (\begin{DoxyParamCaption}\item[{Float\+\_\+t}]{scale }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set the scale (B) equalization parameter 
+\begin{DoxyParams}{Parameters}
+{\em scale} & the scale parameter value \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1GainEqualization_acb1f9095161f3beb43d9011bc7805303}\label{classQn_1_1GainEqualization_acb1f9095161f3beb43d9011bc7805303}} 
+\index{Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}!Set\+Shift@{Set\+Shift}}
+\index{Set\+Shift@{Set\+Shift}!Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}}
+\subsubsection{\texorpdfstring{Set\+Shift()}{SetShift()}}
+{\footnotesize\ttfamily void Qn\+::\+Gain\+Equalization\+::\+Set\+Shift (\begin{DoxyParamCaption}\item[{Float\+\_\+t}]{shift }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set the shift (A) width equalization parameter 
+\begin{DoxyParams}{Parameters}
+{\em shift} & the shift parameter value \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1GainEqualization_af136135624a62a1372fcf31548b358d7}\label{classQn_1_1GainEqualization_af136135624a62a1372fcf31548b358d7}} 
+\index{Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}!Set\+Use\+Channel\+Groups\+Weights@{Set\+Use\+Channel\+Groups\+Weights}}
+\index{Set\+Use\+Channel\+Groups\+Weights@{Set\+Use\+Channel\+Groups\+Weights}!Qn\+::\+Gain\+Equalization@{Qn\+::\+Gain\+Equalization}}
+\subsubsection{\texorpdfstring{Set\+Use\+Channel\+Groups\+Weights()}{SetUseChannelGroupsWeights()}}
+{\footnotesize\ttfamily void Qn\+::\+Gain\+Equalization\+::\+Set\+Use\+Channel\+Groups\+Weights (\begin{DoxyParamCaption}\item[{Bool\+\_\+t}]{enable }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Enable or disable the group weights extracted from channel multiplicity 
+\begin{DoxyParams}{Parameters}
+{\em enable} & k\+T\+R\+UE / k\+F\+A\+L\+SE for enable / disable it \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/include/Gain\+Equalization.\+h\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/Gain\+Equalization.\+cpp\end{DoxyCompactItemize}

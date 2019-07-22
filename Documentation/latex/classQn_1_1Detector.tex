@@ -1,0 +1,275 @@
+\hypertarget{classQn_1_1Detector}{}\section{Qn\+:\+:Detector$<$ N $>$ Class Template Reference}
+\label{classQn_1_1Detector}\index{Qn\+::\+Detector$<$ N $>$@{Qn\+::\+Detector$<$ N $>$}}
+
+
+{\ttfamily \#include $<$Detector.\+h$>$}
+
+Inheritance diagram for Qn\+:\+:Detector$<$ N $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classQn_1_1Detector}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1Detector_ab47355f8ca0c2e5ed0efdca409db1e3f}\label{classQn_1_1Detector_ab47355f8ca0c2e5ed0efdca409db1e3f}} 
+{\bfseries Detector} (std\+::string name, const \mbox{\hyperlink{namespaceQn_adba56b19bd9207127cdc7227d9e03a05}{Detector\+Type}} type, std\+::vector$<$ \mbox{\hyperlink{classQn_1_1Axis}{Qn\+::\+Axis}} $>$ axes, const \mbox{\hyperlink{classQn_1_1Variable}{Variable}} phi, const \mbox{\hyperlink{classQn_1_1Variable}{Variable}} weight, const std\+::vector$<$ \mbox{\hyperlink{classQn_1_1Variable}{Variable}} $>$ \&vars, int const(\&harmo)\mbox{[}N\mbox{]})
+\item 
+\mbox{\Hypertarget{classQn_1_1Detector_ab2e924f436158be1e6f7c1930117e82c}\label{classQn_1_1Detector_ab2e924f436158be1e6f7c1930117e82c}} 
+void \mbox{\hyperlink{classQn_1_1Detector_ab2e924f436158be1e6f7c1930117e82c}{Clear\+Data}} () override
+\begin{DoxyCompactList}\small\item\em Clears data before filling new event. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQn_1_1CorrectionDetector}{Correction\+Detector}} $\ast$ \mbox{\hyperlink{classQn_1_1Detector_a577f9c03f000ddab3fd0a2d69e02fc68}{Generate\+Detector}} (int globalid, int binid, \mbox{\hyperlink{classQn_1_1EventClassVariablesSet}{Event\+Class\+Variables\+Set}} $\ast$set) override
+\item 
+\mbox{\hyperlink{classQn_1_1DetectorConfiguration}{Detector\+Configuration}} $\ast$ \mbox{\hyperlink{classQn_1_1Detector_abf5ba68165d2e037b7c21911230ed288}{Create\+Detector\+Configuration}} (const std\+::string \&name, \mbox{\hyperlink{classQn_1_1EventClassVariablesSet}{Event\+Class\+Variables\+Set}} $\ast$set) override
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container\+Data\+Vector}} $>$ \& \mbox{\hyperlink{classQn_1_1Detector_a3f08381bad2b1452a0209e420b99e989}{Get\+Data\+Container}} () override
+\begin{DoxyCompactList}\small\item\em Get the datacontainer associated to the detector. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container\+Q\+Vector}} $>$ \& \mbox{\hyperlink{classQn_1_1Detector_a9312033ff207a2caa762e895382f8456}{Get\+Qn\+Data\+Container}} () override
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{namespaceQn}{Qn}} vector data container associated to the detector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classQn_1_1Detector_ac339acf64a05ab762a33137e2f00f84e}{Set\+Config}} (std\+::function$<$ void(\mbox{\hyperlink{classQn_1_1DetectorConfiguration}{Detector\+Configuration}} $\ast$config)$>$ conf) override
+\begin{DoxyCompactList}\small\item\em Add the configuration function to the detector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classQn_1_1Detector_a22b9795f3ae87d0b8ca483509907cbd1}{Add\+Cut}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structQn_1_1VariableCutBase}{Variable\+Cut\+Base}} $>$ cut) override
+\begin{DoxyCompactList}\small\item\em Adds a cut to the detector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQn_1_1Detector_a977d0c05f4b3a3e7b117b28b3eca25b7}\label{classQn_1_1Detector_a977d0c05f4b3a3e7b117b28b3eca25b7}} 
+void \mbox{\hyperlink{classQn_1_1Detector_a977d0c05f4b3a3e7b117b28b3eca25b7}{Fill\+Data}} () override
+\begin{DoxyCompactList}\small\item\em Fills the data into the data vectors, histograms and cut reports after the cuts have been checked. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classQn_1_1Detector_a0dba51a9ca021046bdfa9c7af262b3f7}{Initialize\+Cut\+Reports}} () override
+\item 
+T\+List $\ast$ \mbox{\hyperlink{classQn_1_1Detector_a88a7d5c31a81624f9918c75220ffdd8a}{Get\+Report\+List}} () override
+\begin{DoxyCompactList}\small\item\em Returns T\+List of QA and cut report histograms. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classQn_1_1Detector_a383267252d65877fa80fa7a0416e95bf}{Fill\+Report}} () override
+\item 
+void \mbox{\hyperlink{classQn_1_1Detector_a56d2dffc1f50b597edb95830f408b758}{Add\+Histogram}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structQn_1_1QAHistoBase}{Q\+A\+Histo\+Base}} $>$ histo) override
+\begin{DoxyCompactList}\small\item\em Adds a QA histogram to the detector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classQn_1_1Detector_aaaf2475cd8fa805dbca1fe22b72acdf5}{Set\+Up\+Correction\+Vector\+Ptrs}} (const \mbox{\hyperlink{classQn_1_1CorrectionCalculator}{Qn\+::\+Correction\+Calculator}} \&calc, std\+::string step) override
+\begin{DoxyCompactList}\small\item\em Saves the pointers to the corrected Q vectors. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQn_1_1Detector_a2d4f2a8e934ee6b89ac22f00adfca53d}\label{classQn_1_1Detector_a2d4f2a8e934ee6b89ac22f00adfca53d}} 
+void \mbox{\hyperlink{classQn_1_1Detector_a2d4f2a8e934ee6b89ac22f00adfca53d}{Get\+Corrected\+Q\+Vectors}} () override
+\begin{DoxyCompactList}\small\item\em Updates the Qvectors to the values retrieved from the correction calculator. This function is called every event before the output tree is filled. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$std\+::size\+\_\+t N$>$\newline
+class Qn\+::\+Detector$<$ N $>$}
+
+\mbox{\hyperlink{classQn_1_1Detector}{Detector}} class Template parameter automatically deduced. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em N} & number of harmonics activated. Harmonic max is 8. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQn_1_1Detector_a22b9795f3ae87d0b8ca483509907cbd1}\label{classQn_1_1Detector_a22b9795f3ae87d0b8ca483509907cbd1}} 
+\index{Qn\+::\+Detector@{Qn\+::\+Detector}!Add\+Cut@{Add\+Cut}}
+\index{Add\+Cut@{Add\+Cut}!Qn\+::\+Detector@{Qn\+::\+Detector}}
+\subsubsection{\texorpdfstring{Add\+Cut()}{AddCut()}}
+{\footnotesize\ttfamily template$<$std\+::size\+\_\+t N$>$ \\
+void \mbox{\hyperlink{classQn_1_1Detector}{Qn\+::\+Detector}}$<$ N $>$\+::Add\+Cut (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structQn_1_1VariableCutBase}{Variable\+Cut\+Base}} $>$}]{cut }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Adds a cut to the detector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cut} & unique pointer to the cut. It is moved into the function and cannot be reused! \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classQn_1_1DetectorBase}{Qn\+::\+Detector\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1Detector_a56d2dffc1f50b597edb95830f408b758}\label{classQn_1_1Detector_a56d2dffc1f50b597edb95830f408b758}} 
+\index{Qn\+::\+Detector@{Qn\+::\+Detector}!Add\+Histogram@{Add\+Histogram}}
+\index{Add\+Histogram@{Add\+Histogram}!Qn\+::\+Detector@{Qn\+::\+Detector}}
+\subsubsection{\texorpdfstring{Add\+Histogram()}{AddHistogram()}}
+{\footnotesize\ttfamily template$<$std\+::size\+\_\+t N$>$ \\
+void \mbox{\hyperlink{classQn_1_1Detector}{Qn\+::\+Detector}}$<$ N $>$\+::Add\+Histogram (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structQn_1_1QAHistoBase}{Q\+A\+Histo\+Base}} $>$}]{histo }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Adds a QA histogram to the detector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em histo} & pointer to the histogram. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classQn_1_1DetectorBase}{Qn\+::\+Detector\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1Detector_abf5ba68165d2e037b7c21911230ed288}\label{classQn_1_1Detector_abf5ba68165d2e037b7c21911230ed288}} 
+\index{Qn\+::\+Detector@{Qn\+::\+Detector}!Create\+Detector\+Configuration@{Create\+Detector\+Configuration}}
+\index{Create\+Detector\+Configuration@{Create\+Detector\+Configuration}!Qn\+::\+Detector@{Qn\+::\+Detector}}
+\subsubsection{\texorpdfstring{Create\+Detector\+Configuration()}{CreateDetectorConfiguration()}}
+{\footnotesize\ttfamily template$<$std\+::size\+\_\+t N$>$ \\
+\mbox{\hyperlink{classQn_1_1DetectorConfiguration}{Detector\+Configuration}}$\ast$ \mbox{\hyperlink{classQn_1_1Detector}{Qn\+::\+Detector}}$<$ N $>$\+::Create\+Detector\+Configuration (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{\mbox{\hyperlink{classQn_1_1EventClassVariablesSet}{Event\+Class\+Variables\+Set}} $\ast$}]{set }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Generate the detector configuration. 
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the detector \\
+\hline
+{\em set} & The set of event variables used for the configuration. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The detector configuration. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1DetectorBase}{Qn\+::\+Detector\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1Detector_a383267252d65877fa80fa7a0416e95bf}\label{classQn_1_1Detector_a383267252d65877fa80fa7a0416e95bf}} 
+\index{Qn\+::\+Detector@{Qn\+::\+Detector}!Fill\+Report@{Fill\+Report}}
+\index{Fill\+Report@{Fill\+Report}!Qn\+::\+Detector@{Qn\+::\+Detector}}
+\subsubsection{\texorpdfstring{Fill\+Report()}{FillReport()}}
+{\footnotesize\ttfamily template$<$std\+::size\+\_\+t N$>$ \\
+void \mbox{\hyperlink{classQn_1_1Detector}{Qn\+::\+Detector}}$<$ N $>$\+::Fill\+Report (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Fill the cuts reports to the 
+
+Implements \mbox{\hyperlink{classQn_1_1DetectorBase}{Qn\+::\+Detector\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1Detector_a577f9c03f000ddab3fd0a2d69e02fc68}\label{classQn_1_1Detector_a577f9c03f000ddab3fd0a2d69e02fc68}} 
+\index{Qn\+::\+Detector@{Qn\+::\+Detector}!Generate\+Detector@{Generate\+Detector}}
+\index{Generate\+Detector@{Generate\+Detector}!Qn\+::\+Detector@{Qn\+::\+Detector}}
+\subsubsection{\texorpdfstring{Generate\+Detector()}{GenerateDetector()}}
+{\footnotesize\ttfamily template$<$std\+::size\+\_\+t N$>$ \\
+\mbox{\hyperlink{classQn_1_1CorrectionDetector}{Correction\+Detector}}$\ast$ \mbox{\hyperlink{classQn_1_1Detector}{Qn\+::\+Detector}}$<$ N $>$\+::Generate\+Detector (\begin{DoxyParamCaption}\item[{int}]{globalid,  }\item[{int}]{binid,  }\item[{\mbox{\hyperlink{classQn_1_1EventClassVariablesSet}{Event\+Class\+Variables\+Set}} $\ast$}]{set }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Generate the detector and configure the calibration procedure based on the preset configuration 
+\begin{DoxyParams}{Parameters}
+{\em globalid} & global ID used in the correction calculator. It is unique. \\
+\hline
+{\em binid} & local bin ID \\
+\hline
+{\em set} & the set of event variables used for correction. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+configured detector. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1DetectorBase}{Qn\+::\+Detector\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1Detector_a3f08381bad2b1452a0209e420b99e989}\label{classQn_1_1Detector_a3f08381bad2b1452a0209e420b99e989}} 
+\index{Qn\+::\+Detector@{Qn\+::\+Detector}!Get\+Data\+Container@{Get\+Data\+Container}}
+\index{Get\+Data\+Container@{Get\+Data\+Container}!Qn\+::\+Detector@{Qn\+::\+Detector}}
+\subsubsection{\texorpdfstring{Get\+Data\+Container()}{GetDataContainer()}}
+{\footnotesize\ttfamily template$<$std\+::size\+\_\+t N$>$ \\
+std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container\+Data\+Vector}}$>$\& \mbox{\hyperlink{classQn_1_1Detector}{Qn\+::\+Detector}}$<$ N $>$\+::Get\+Data\+Container (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the datacontainer associated to the detector. 
+
+\begin{DoxyReturn}{Returns}
+A reference to the Datacontainer. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1DetectorBase}{Qn\+::\+Detector\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1Detector_a9312033ff207a2caa762e895382f8456}\label{classQn_1_1Detector_a9312033ff207a2caa762e895382f8456}} 
+\index{Qn\+::\+Detector@{Qn\+::\+Detector}!Get\+Qn\+Data\+Container@{Get\+Qn\+Data\+Container}}
+\index{Get\+Qn\+Data\+Container@{Get\+Qn\+Data\+Container}!Qn\+::\+Detector@{Qn\+::\+Detector}}
+\subsubsection{\texorpdfstring{Get\+Qn\+Data\+Container()}{GetQnDataContainer()}}
+{\footnotesize\ttfamily template$<$std\+::size\+\_\+t N$>$ \\
+std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container\+Q\+Vector}}$>$\& \mbox{\hyperlink{classQn_1_1Detector}{Qn\+::\+Detector}}$<$ N $>$\+::Get\+Qn\+Data\+Container (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the \mbox{\hyperlink{namespaceQn}{Qn}} vector data container associated to the detector. 
+
+\begin{DoxyReturn}{Returns}
+A reference to the Datacontainer. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1DetectorBase}{Qn\+::\+Detector\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1Detector_a88a7d5c31a81624f9918c75220ffdd8a}\label{classQn_1_1Detector_a88a7d5c31a81624f9918c75220ffdd8a}} 
+\index{Qn\+::\+Detector@{Qn\+::\+Detector}!Get\+Report\+List@{Get\+Report\+List}}
+\index{Get\+Report\+List@{Get\+Report\+List}!Qn\+::\+Detector@{Qn\+::\+Detector}}
+\subsubsection{\texorpdfstring{Get\+Report\+List()}{GetReportList()}}
+{\footnotesize\ttfamily template$<$std\+::size\+\_\+t N$>$ \\
+T\+List$\ast$ \mbox{\hyperlink{classQn_1_1Detector}{Qn\+::\+Detector}}$<$ N $>$\+::Get\+Report\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns T\+List of QA and cut report histograms. 
+
+\begin{DoxyReturn}{Returns}
+list of histograms. Lifetime managed by the user. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1DetectorBase}{Qn\+::\+Detector\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1Detector_a0dba51a9ca021046bdfa9c7af262b3f7}\label{classQn_1_1Detector_a0dba51a9ca021046bdfa9c7af262b3f7}} 
+\index{Qn\+::\+Detector@{Qn\+::\+Detector}!Initialize\+Cut\+Reports@{Initialize\+Cut\+Reports}}
+\index{Initialize\+Cut\+Reports@{Initialize\+Cut\+Reports}!Qn\+::\+Detector@{Qn\+::\+Detector}}
+\subsubsection{\texorpdfstring{Initialize\+Cut\+Reports()}{InitializeCutReports()}}
+{\footnotesize\ttfamily template$<$std\+::size\+\_\+t N$>$ \\
+void \mbox{\hyperlink{classQn_1_1Detector}{Qn\+::\+Detector}}$<$ N $>$\+::Initialize\+Cut\+Reports (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Initializes the histograms used for the cut report. 
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the detector. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classQn_1_1DetectorBase}{Qn\+::\+Detector\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1Detector_ac339acf64a05ab762a33137e2f00f84e}\label{classQn_1_1Detector_ac339acf64a05ab762a33137e2f00f84e}} 
+\index{Qn\+::\+Detector@{Qn\+::\+Detector}!Set\+Config@{Set\+Config}}
+\index{Set\+Config@{Set\+Config}!Qn\+::\+Detector@{Qn\+::\+Detector}}
+\subsubsection{\texorpdfstring{Set\+Config()}{SetConfig()}}
+{\footnotesize\ttfamily template$<$std\+::size\+\_\+t N$>$ \\
+void \mbox{\hyperlink{classQn_1_1Detector}{Qn\+::\+Detector}}$<$ N $>$\+::Set\+Config (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(\mbox{\hyperlink{classQn_1_1DetectorConfiguration}{Detector\+Configuration}} $\ast$config)$>$}]{conf }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Add the configuration function to the detector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em conf} & function which configures the detector. needs to have the specified form. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classQn_1_1DetectorBase}{Qn\+::\+Detector\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1Detector_aaaf2475cd8fa805dbca1fe22b72acdf5}\label{classQn_1_1Detector_aaaf2475cd8fa805dbca1fe22b72acdf5}} 
+\index{Qn\+::\+Detector@{Qn\+::\+Detector}!Set\+Up\+Correction\+Vector\+Ptrs@{Set\+Up\+Correction\+Vector\+Ptrs}}
+\index{Set\+Up\+Correction\+Vector\+Ptrs@{Set\+Up\+Correction\+Vector\+Ptrs}!Qn\+::\+Detector@{Qn\+::\+Detector}}
+\subsubsection{\texorpdfstring{Set\+Up\+Correction\+Vector\+Ptrs()}{SetUpCorrectionVectorPtrs()}}
+{\footnotesize\ttfamily template$<$std\+::size\+\_\+t N$>$ \\
+void \mbox{\hyperlink{classQn_1_1Detector}{Qn\+::\+Detector}}$<$ N $>$\+::Set\+Up\+Correction\+Vector\+Ptrs (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQn_1_1CorrectionCalculator}{Qn\+::\+Correction\+Calculator}} \&}]{calc,  }\item[{std\+::string}]{step }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Saves the pointers to the corrected Q vectors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em calc} & reference to the correction calculator. \\
+\hline
+{\em step} & specification which correction step is supposed to be retrieved. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classQn_1_1DetectorBase}{Qn\+::\+Detector\+Base}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Correction/include/Detector.\+h\end{DoxyCompactItemize}

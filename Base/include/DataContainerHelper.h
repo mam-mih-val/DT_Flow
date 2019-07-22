@@ -59,6 +59,9 @@ struct ProjectionDrawable : public TNamed {
   }
   T graph = nullptr;
 };
+
+//template<>
+//void SetBits(Qn::Stats bin) { std::cout << "setting " << std::endl; }
 }
 
 /**
@@ -90,7 +93,6 @@ using Errors = DataContainerHelper::Errors;
 constexpr auto ToTGraph = &DataContainerHelper::ToTGraph;
 constexpr auto ToTMultiGraph = &DataContainerHelper::ToTMultiGraph;
 
-inline float MergeBins(const float &a, const float &b) {return a + b;}
 }
 
 #endif //FLOW_DATACONTAINERHELPER_H

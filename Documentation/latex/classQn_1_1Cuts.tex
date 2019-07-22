@@ -1,0 +1,92 @@
+\hypertarget{classQn_1_1Cuts}{}\section{Qn\+:\+:Cuts Class Reference}
+\label{classQn_1_1Cuts}\index{Qn\+::\+Cuts@{Qn\+::\+Cuts}}
+
+
+{\ttfamily \#include $<$Variable\+Cut\+Base.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classQn_1_1Cuts_aae5bfa081e4d3eec94422b3a8ae4213b}{Add\+Cut}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structQn_1_1VariableCutBase}{Variable\+Cut\+Base}} $>$ cut)
+\begin{DoxyCompactList}\small\item\em Adds a cut to the manager. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classQn_1_1Cuts_a9b010978523b569af5c1a40a6a03d898}{Check\+Cuts}} (int i)
+\item 
+\mbox{\Hypertarget{classQn_1_1Cuts_a63d2b62a2a41013d6611f71a4294b914}\label{classQn_1_1Cuts_a63d2b62a2a41013d6611f71a4294b914}} 
+void \mbox{\hyperlink{classQn_1_1Cuts_a63d2b62a2a41013d6611f71a4294b914}{Fill\+Report}} ()
+\begin{DoxyCompactList}\small\item\em Fills the cut report. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classQn_1_1Cuts_a4d53915785801bca58a9290149dca028}{Create\+Cut\+Report}} (std\+::string detname, std\+::size\+\_\+t nchannels=1)
+\begin{DoxyCompactList}\small\item\em Initializes the cut report histogram. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classQn_1_1Cuts_ade6fa16364755bd88ed127ea8ef4cdb4}{Add\+To\+List}} (T\+List $\ast$list)
+\begin{DoxyCompactList}\small\item\em Adds the cut report to the list. Lifetime of the list and the histogram has to be managed by the user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Manages cuts class and allows checking if the current variables passes the cut 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQn_1_1Cuts_aae5bfa081e4d3eec94422b3a8ae4213b}\label{classQn_1_1Cuts_aae5bfa081e4d3eec94422b3a8ae4213b}} 
+\index{Qn\+::\+Cuts@{Qn\+::\+Cuts}!Add\+Cut@{Add\+Cut}}
+\index{Add\+Cut@{Add\+Cut}!Qn\+::\+Cuts@{Qn\+::\+Cuts}}
+\subsubsection{\texorpdfstring{Add\+Cut()}{AddCut()}}
+{\footnotesize\ttfamily void Qn\+::\+Cuts\+::\+Add\+Cut (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structQn_1_1VariableCutBase}{Variable\+Cut\+Base}} $>$}]{cut }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a cut to the manager. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cut} & pointer to the cut. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1Cuts_ade6fa16364755bd88ed127ea8ef4cdb4}\label{classQn_1_1Cuts_ade6fa16364755bd88ed127ea8ef4cdb4}} 
+\index{Qn\+::\+Cuts@{Qn\+::\+Cuts}!Add\+To\+List@{Add\+To\+List}}
+\index{Add\+To\+List@{Add\+To\+List}!Qn\+::\+Cuts@{Qn\+::\+Cuts}}
+\subsubsection{\texorpdfstring{Add\+To\+List()}{AddToList()}}
+{\footnotesize\ttfamily void Qn\+::\+Cuts\+::\+Add\+To\+List (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds the cut report to the list. Lifetime of the list and the histogram has to be managed by the user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & list containing output histograms. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1Cuts_a9b010978523b569af5c1a40a6a03d898}\label{classQn_1_1Cuts_a9b010978523b569af5c1a40a6a03d898}} 
+\index{Qn\+::\+Cuts@{Qn\+::\+Cuts}!Check\+Cuts@{Check\+Cuts}}
+\index{Check\+Cuts@{Check\+Cuts}!Qn\+::\+Cuts@{Qn\+::\+Cuts}}
+\subsubsection{\texorpdfstring{Check\+Cuts()}{CheckCuts()}}
+{\footnotesize\ttfamily bool Qn\+::\+Cuts\+::\+Check\+Cuts (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Checks if the current variables pass the cuts Creates entries in the cut report 
+\begin{DoxyParams}{Parameters}
+{\em i} & offset of the variable in case it has a length longer than 1 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if the cut was passed. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1Cuts_a4d53915785801bca58a9290149dca028}\label{classQn_1_1Cuts_a4d53915785801bca58a9290149dca028}} 
+\index{Qn\+::\+Cuts@{Qn\+::\+Cuts}!Create\+Cut\+Report@{Create\+Cut\+Report}}
+\index{Create\+Cut\+Report@{Create\+Cut\+Report}!Qn\+::\+Cuts@{Qn\+::\+Cuts}}
+\subsubsection{\texorpdfstring{Create\+Cut\+Report()}{CreateCutReport()}}
+{\footnotesize\ttfamily void Qn\+::\+Cuts\+::\+Create\+Cut\+Report (\begin{DoxyParamCaption}\item[{std\+::string}]{detname,  }\item[{std\+::size\+\_\+t}]{nchannels = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes the cut report histogram. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em detname} & name of the histogram. \\
+\hline
+{\em nchannels} & number of channels. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Correction/include/Variable\+Cut\+Base.\+h\end{DoxyCompactItemize}

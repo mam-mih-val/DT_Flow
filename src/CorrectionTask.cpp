@@ -10,19 +10,22 @@ namespace Qn {
 
 CorrectionTask::CorrectionTask(std::string inFile, std::string incalib) :
 	out_file_(new TFile("output.root", "RECREATE")),
-	in_calibration_file_(new TFile(incalib.data(), "READ")),
+	in_calibration_file_(new TFile(incalib.c_str(), "READ")),
 	out_calibration_file_(new TFile("qn.root", "RECREATE")),
 	out_tree_(nullptr),
 	fManager(),
-	write_tree_(true) 
+	write_tree_(true) ,
+	fEvent{nullptr}
 {
 	fChain = new TChain("DataTree");
-    fChain->Add(inFile.data());
-    cout << fChain->GetEntries() << " events found" << endl;
+    fChain->Add(inFile.c_str());
+	std::cout << "File read. " << fChain->GetEntries() << " events found." << endl;
     fChain->SetBranchAddress("DTEvent", &fEvent);
+	std::cout << "Branch read successfully" << std::endl;
 	fSelector = new Selector(fEvent);
 	out_file_->cd();
 	out_tree_ = new TTree("tree", "tree");
+	std::cout << "Construction of Qn::CorrectionTask ended successfully" << endl;
 }
 
 void CorrectionTask::Run() 
@@ -39,24 +42,24 @@ void CorrectionTask::Run()
 			continue;
 		Process();
 	}
-	std::cout << "Analyzed " << events2read << " events." << std::endl;
 	Finalize();
 }
 
 void CorrectionTask::Initialize() {
+	cout << "Initialization began" << endl;
 	// Add Variables to variable manager needed for filling
 	fManager.AddVariable("Centrality", kCentrality, 1);
 	fManager.AddVariable("FwRing", kFwModuleRing, 1);
 	fManager.AddVariable("FwModuleId", kFwModuleId, 1);
 	fManager.AddVariable("FwAdc", kFwModuleAdc, 1);
 	fManager.AddVariable("FwPhi", kFwModulePhi, 1);
-
+	std::cout << "Variables added" << std::endl;
 	//Correction eventvariables
 	fManager.SetEventVariable("Centrality");
 	fManager.AddCorrectionAxis({"Centrality", 9, 0, 45});
 
 	//Configuration of FW. Preparing for add axis to qa histograms
-	Axis Centrality("Centrality", {0.0,, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0});
+	Axis Centrality("Centrality", {0.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0});
   
 	//Producing the function which will configurate the correction Manager
 	auto FwConfiguration = [](DetectorConfiguration *config) 
@@ -70,9 +73,9 @@ void CorrectionTask::Initialize() {
 		rescale->SetTwistAndRescaleMethod(TwistAndRescale::TWRESCALE_doubleHarmonic);
 		config->AddCorrectionOnQnVector(rescale);
 	};
-	auto Is1se = [](double ring){ return ring>0 && ring <=4; }
-	auto Is2se = [](double ring){ return ring==5 || ring ==6; }
-	auto Is3se = [](double ring){ return ring>=7 && ring <=9; }
+	auto Is1se = [](double ring){ return ring>0 && ring <=4; };
+	auto Is2se = [](double ring){ return ring==5 || ring ==6; };
+	auto Is3se = [](double ring){ return ring>=7 && ring <=9; };
 	// 3 sub-events method.
 	// Each detector builds own Q-vector, which means, you need to add required count of detectors and then configurate their cuts.  
 	fManager.AddDetector("Fw1", DetectorType::CHANNEL, "FwPhi", "FwAdc", {Centrality}, {1});
@@ -88,7 +91,10 @@ void CorrectionTask::Initialize() {
 	fManager.SetCorrectionSteps("Fw3", FwConfiguration);
   
 	fManager.SetTree(out_tree_);
-	fManager.Initialize(in_calibration_file_);
+	cout << "93 line" << endl;
+	// fManager.Initialize(in_calibration_file_);
+	cout << "95 line" << endl;
+
 }
 
 void CorrectionTask::Process() {
@@ -111,7 +117,7 @@ void CorrectionTask::Process() {
 }
 
 void CorrectionTask::Finalize() {
-  fManager.Finalize();
-  fManager.SaveOutput(out_calibration_file_, out_file_);
+	// fManager.Finalize();
+	// fManager.SaveOutput(out_calibration_file_, out_file_);
 }
 }

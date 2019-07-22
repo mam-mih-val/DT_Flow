@@ -1,0 +1,522 @@
+\hypertarget{classQn_1_1CorrectionQnVector}{}\section{Qn\+:\+:Correction\+Qn\+Vector Class Reference}
+\label{classQn_1_1CorrectionQnVector}\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}
+Inheritance diagram for Qn\+:\+:Correction\+Qn\+Vector\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classQn_1_1CorrectionQnVector}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classQn_1_1CorrectionQnVector_a2998fe4babb716c57848c8c73b24a398}{Normalization}} \{ \mbox{\hyperlink{classQn_1_1CorrectionQnVector_a2998fe4babb716c57848c8c73b24a398ab50339a10e1de285ac99d4c3990b8693}{Normalization\+::\+N\+O\+NE}}, 
+\mbox{\hyperlink{classQn_1_1CorrectionQnVector_a2998fe4babb716c57848c8c73b24a398a465f35d0481ebf03b978c3bd9eb1e5b6}{Normalization\+::\+S\+Q\+R\+T\+\_\+M}}, 
+\mbox{\hyperlink{classQn_1_1CorrectionQnVector_a2998fe4babb716c57848c8c73b24a398a69691c7bdcc3ce6d5d8a1361f22d04ac}{Normalization\+::M}}, 
+\mbox{\hyperlink{classQn_1_1CorrectionQnVector_a2998fe4babb716c57848c8c73b24a398aba1a4ef58204f0da36291466025d7533}{Normalization\+::\+M\+A\+G\+N\+I\+T\+U\+DE}}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_a28007d64a859512c43ac7e7f1a477d9e}\label{classQn_1_1CorrectionQnVector_a28007d64a859512c43ac7e7f1a477d9e}} 
+\mbox{\hyperlink{classQn_1_1CorrectionQnVector_a28007d64a859512c43ac7e7f1a477d9e}{Correction\+Qn\+Vector}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQn_1_1CorrectionQnVector_a4cb37d125c255b433565248dd0054f27}{Correction\+Qn\+Vector}} (const char $\ast$name, Int\+\_\+t n\+No\+Of\+Harmonics, Int\+\_\+t $\ast$harmonic\+Map=N\+U\+LL)
+\item 
+\mbox{\hyperlink{classQn_1_1CorrectionQnVector_a9463528777b5ad1dbe0f68f4d575d7fa}{Correction\+Qn\+Vector}} (const char $\ast$name, Int\+\_\+t n\+Extract\+Multiple\+Of, Int\+\_\+t n\+No\+Of\+Harmonics, Int\+\_\+t $\ast$harmonic\+Map)
+\item 
+\mbox{\hyperlink{classQn_1_1CorrectionQnVector_a667da9b9391dc7b3aeb45dfbdbf35c31}{Correction\+Qn\+Vector}} (const \mbox{\hyperlink{classQn_1_1CorrectionQnVector}{Correction\+Qn\+Vector}} \&Q)
+\item 
+\mbox{\hyperlink{classQn_1_1CorrectionQnVector_af1d34ffbe05b79eb8125bcf44033b790}{Correction\+Qn\+Vector}} (Int\+\_\+t n\+Divisor, const \mbox{\hyperlink{classQn_1_1CorrectionQnVector}{Correction\+Qn\+Vector}} \&Q)
+\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_a51d5ab05176552adff4e7bce1612864a}\label{classQn_1_1CorrectionQnVector_a51d5ab05176552adff4e7bce1612864a}} 
+virtual \mbox{\hyperlink{classQn_1_1CorrectionQnVector_a51d5ab05176552adff4e7bce1612864a}{$\sim$\+Correction\+Qn\+Vector}} ()
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionQnVector_a6fcf855ca57bab1752ebb8098aa8da8d}{Activate\+Harmonic}} (Int\+\_\+t harmonic)
+\item 
+Int\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionQnVector_a4da8a1b6a2f12c2393ae86b5fa19b0ae}{Get\+No\+Of\+Harmonics}} () const
+\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionQnVector_af41ace21d8328373d0496ea68e5a468c}{Get\+Harmonics\+Map}} (Int\+\_\+t $\ast$harmonic\+Map) const
+\item 
+Int\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionQnVector_ac5110bb9d339c2387e0cfd411c534997}{Get\+First\+Harmonic}} () const
+\item 
+Int\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionQnVector_a9b0c28b62017cc7a369b39bbbbc2301a}{Get\+Next\+Harmonic}} (Int\+\_\+t harmonic) const
+\item 
+Int\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionQnVector_a083f96d5886c8ea53681a125043e8150}{Get\+Harmonic\+Multiplier}} () const
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1CorrectionQnVector_a6de477e3cecce7c5f5b9212ecbafea59}{Set\+Qx}} (Int\+\_\+t harmonic, Float\+\_\+t qx)
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1CorrectionQnVector_af0ac581e943fe88b0a94838c670f2c4d}{Set\+Qy}} (Int\+\_\+t harmonic, Float\+\_\+t qy)
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1CorrectionQnVector_a71b91d6c9ed672d997f91421192974f6}{Set\+Good}} (Bool\+\_\+t good)
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1CorrectionQnVector_acc6c39c8247f6f43c13c1886c3a5bcd4}{Set\+Harmonic\+Multiplier}} (Int\+\_\+t m)
+\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionQnVector_acd45aaacfb58f260eb8b0102cc46ef05}{Set}} (\mbox{\hyperlink{classQn_1_1CorrectionQnVector}{Correction\+Qn\+Vector}} $\ast$Qn, Bool\+\_\+t changename)
+\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionQnVector_a8e2e40587de98b65ec6b89ce82fb63a7}{Normalize}} ()
+\item 
+Float\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionQnVector_ad8b5dd08034a692eee13f2baa4d42269}{Length}} (Int\+\_\+t harmonic) const
+\item 
+Float\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionQnVector_abf503da4fb27fc1e046fbd195a841926}{Qx\+Norm}} (Int\+\_\+t harmonic) const
+\item 
+Float\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionQnVector_af8c17655a61268b003515554cc146814}{Qy\+Norm}} (Int\+\_\+t harmonic) const
+\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_ab157bf86ea39a70bba7f3fd1534d0166}\label{classQn_1_1CorrectionQnVector_ab157bf86ea39a70bba7f3fd1534d0166}} 
+virtual void \mbox{\hyperlink{classQn_1_1CorrectionQnVector_ab157bf86ea39a70bba7f3fd1534d0166}{Reset}} ()
+\begin{DoxyCompactList}\small\item\em Resets the Q vector values without touching the structure. \end{DoxyCompactList}\item 
+Float\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionQnVector_a7a72044374f9040ebfdc364e574f0cca}{Qx}} (Int\+\_\+t harmonic) const
+\item 
+Float\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionQnVector_adf6c66295489c2638e9f692a77f6ca9b}{Qy}} (Int\+\_\+t harmonic) const
+\item 
+Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionQnVector_a314e710f1e4f6d09ab19907c5ecd48dc}{Is\+Good\+Quality}} () const
+\item 
+Int\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionQnVector_ab182d3ac68a795f5732daa83ae2f7417}{GetN}} () const
+\item 
+Float\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionQnVector_a77ec3056318b215938cac926cd9cb3c2}{Get\+Sum\+Of\+Weights}} () const
+\item 
+Double\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionQnVector_afa869b89c2b19a6f473572e45e6c33ec}{Event\+Plane}} (Int\+\_\+t harmonic) const
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1CorrectionQnVector_a859e8ffe20c7a607f67bb95f8c85b9e9}{Print}} (Option\+\_\+t $\ast$) const
+\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_a70ce863e91181bcd6a259453aebb12d9}\label{classQn_1_1CorrectionQnVector_a70ce863e91181bcd6a259453aebb12d9}} 
+\mbox{\hyperlink{classQn_1_1CorrectionQnVector}{Correction\+Qn\+Vector}} \& \mbox{\hyperlink{classQn_1_1CorrectionQnVector_a70ce863e91181bcd6a259453aebb12d9}{operator=}} (const \mbox{\hyperlink{classQn_1_1CorrectionQnVector}{Correction\+Qn\+Vector}} \&Qn)
+\begin{DoxyCompactList}\small\item\em Assignment operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_a2ae659e3a1bb05acdc53befd228f8e21}\label{classQn_1_1CorrectionQnVector_a2ae659e3a1bb05acdc53befd228f8e21}} 
+Float\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionQnVector_a2ae659e3a1bb05acdc53befd228f8e21}{f\+QnX}} \mbox{[}M\+A\+X\+H\+A\+R\+M\+O\+N\+I\+C\+N\+U\+M\+B\+E\+R\+S\+U\+P\+P\+O\+R\+T\+ED+1\mbox{]}
+\begin{DoxyCompactList}\small\item\em the Q vector X component for each harmonic \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_a633fc0ceee269c905d852d12adb8f767}\label{classQn_1_1CorrectionQnVector_a633fc0ceee269c905d852d12adb8f767}} 
+Float\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionQnVector_a633fc0ceee269c905d852d12adb8f767}{f\+QnY}} \mbox{[}M\+A\+X\+H\+A\+R\+M\+O\+N\+I\+C\+N\+U\+M\+B\+E\+R\+S\+U\+P\+P\+O\+R\+T\+ED+1\mbox{]}
+\begin{DoxyCompactList}\small\item\em the Q vector Y component for each harmonic \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_ad37b7d348ec4ba631a3829fe1dde8709}\label{classQn_1_1CorrectionQnVector_ad37b7d348ec4ba631a3829fe1dde8709}} 
+Int\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionQnVector_ad37b7d348ec4ba631a3829fe1dde8709}{f\+Highest\+Harmonic}}
+\begin{DoxyCompactList}\small\item\em the highest harmonic number handled \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_a11c90eb2e5d463bbb6669bf1cd845b71}\label{classQn_1_1CorrectionQnVector_a11c90eb2e5d463bbb6669bf1cd845b71}} 
+U\+Int\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionQnVector_a11c90eb2e5d463bbb6669bf1cd845b71}{f\+Harmonic\+Mask}}
+\begin{DoxyCompactList}\small\item\em the mask for the supported harmonics \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_a368a0eb951505630ae8ba7d85e46671c}\label{classQn_1_1CorrectionQnVector_a368a0eb951505630ae8ba7d85e46671c}} 
+Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionQnVector_a368a0eb951505630ae8ba7d85e46671c}{f\+Good\+Quality}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{namespaceQn}{Qn}} vector good quality flag. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_a66810d5fcac23b630b40c673a6804b26}\label{classQn_1_1CorrectionQnVector_a66810d5fcac23b630b40c673a6804b26}} 
+Int\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionQnVector_a66810d5fcac23b630b40c673a6804b26}{fN}}
+\begin{DoxyCompactList}\small\item\em number of elements used for \mbox{\hyperlink{namespaceQn}{Qn}} vector building \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_ac85bb3bbe9a52f15ad330fe59724f0f8}\label{classQn_1_1CorrectionQnVector_ac85bb3bbe9a52f15ad330fe59724f0f8}} 
+Float\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionQnVector_ac85bb3bbe9a52f15ad330fe59724f0f8}{f\+SumW}}
+\begin{DoxyCompactList}\small\item\em the sum of weights \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_afeff0835afa33a26d719f1af506ea4b1}\label{classQn_1_1CorrectionQnVector_afeff0835afa33a26d719f1af506ea4b1}} 
+Int\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionQnVector_afeff0835afa33a26d719f1af506ea4b1}{f\+Harmonic\+Multiplier}}
+\begin{DoxyCompactList}\small\item\em the multiplier of the different harmonics \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_ae6b54b512ea4942bbed53cb012980035}\label{classQn_1_1CorrectionQnVector_ae6b54b512ea4942bbed53cb012980035}} 
+static const Float\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionQnVector_ae6b54b512ea4942bbed53cb012980035}{f\+Minimum\+Significant\+Value}} = 1e-\/6
+\begin{DoxyCompactList}\small\item\em the minimum value that will be considered as meaningful for processing \end{DoxyCompactList}\item 
+static const U\+Int\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionQnVector_a4dd6b60f412516d586b204f63350ab5d}{harmonic\+Number\+Mask}} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Mask for each external harmonic number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_a2998fe4babb716c57848c8c73b24a398}\label{classQn_1_1CorrectionQnVector_a2998fe4babb716c57848c8c73b24a398}} 
+\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}!Normalization@{Normalization}}
+\index{Normalization@{Normalization}!Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}
+\subsubsection{\texorpdfstring{Normalization}{Normalization}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classQn_1_1CorrectionQnVector_a2998fe4babb716c57848c8c73b24a398}{Qn\+::\+Correction\+Qn\+Vector\+::\+Normalization}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{N\+O\+NE@{N\+O\+NE}!Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}!N\+O\+NE@{N\+O\+NE}}}\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_a2998fe4babb716c57848c8c73b24a398ab50339a10e1de285ac99d4c3990b8693}\label{classQn_1_1CorrectionQnVector_a2998fe4babb716c57848c8c73b24a398ab50339a10e1de285ac99d4c3990b8693}} 
+N\+O\+NE&$ \mbox{Q'} = \mbox{Q}$ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+Q\+R\+T\+\_\+M@{S\+Q\+R\+T\+\_\+M}!Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}!S\+Q\+R\+T\+\_\+M@{S\+Q\+R\+T\+\_\+M}}}\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_a2998fe4babb716c57848c8c73b24a398a465f35d0481ebf03b978c3bd9eb1e5b6}\label{classQn_1_1CorrectionQnVector_a2998fe4babb716c57848c8c73b24a398a465f35d0481ebf03b978c3bd9eb1e5b6}} 
+S\+Q\+R\+T\+\_\+M&$ \mbox{Q'} = \frac{\mbox{Q}}{\sqrt{\mbox{M}}} $ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{M@{M}!Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}!M@{M}}}\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_a2998fe4babb716c57848c8c73b24a398a69691c7bdcc3ce6d5d8a1361f22d04ac}\label{classQn_1_1CorrectionQnVector_a2998fe4babb716c57848c8c73b24a398a69691c7bdcc3ce6d5d8a1361f22d04ac}} 
+M&$ \mbox{Q'} = \frac{\mbox{Q}}{\mbox{M}} $ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{M\+A\+G\+N\+I\+T\+U\+DE@{M\+A\+G\+N\+I\+T\+U\+DE}!Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}!M\+A\+G\+N\+I\+T\+U\+DE@{M\+A\+G\+N\+I\+T\+U\+DE}}}\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_a2998fe4babb716c57848c8c73b24a398aba1a4ef58204f0da36291466025d7533}\label{classQn_1_1CorrectionQnVector_a2998fe4babb716c57848c8c73b24a398aba1a4ef58204f0da36291466025d7533}} 
+M\+A\+G\+N\+I\+T\+U\+DE&$ \mbox{Q'} = \frac{\mbox{Q}}{|\mbox{Q}|} $ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_a4cb37d125c255b433565248dd0054f27}\label{classQn_1_1CorrectionQnVector_a4cb37d125c255b433565248dd0054f27}} 
+\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}!Correction\+Qn\+Vector@{Correction\+Qn\+Vector}}
+\index{Correction\+Qn\+Vector@{Correction\+Qn\+Vector}!Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}
+\subsubsection{\texorpdfstring{Correction\+Qn\+Vector()}{CorrectionQnVector()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily Qn\+::\+Correction\+Qn\+Vector\+::\+Correction\+Qn\+Vector (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{Int\+\_\+t}]{n\+No\+Of\+Harmonics,  }\item[{Int\+\_\+t $\ast$}]{harmonic\+Map = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+Normal constructor
+
+For each harmonic number the Q vector is initialized The Q vectors are organized to support external harmonic number. By default the external harmonic number is always considered to start by one. If no map is passed as parameter the external harmonic numbers are considered as\+: 1, 2, ..., n\+No\+Of\+Harmonic. If the user wants a different assignment he has to provide an ordered map, for instance\+: four harmonics with external harmonic numbers 2, 4, 6 and 8 will require n\+No\+Of\+Harmonics = 4 and harmonic\+Map = \mbox{[}2, 4, 6, 8\mbox{]}.
+
+A check on the asked number of harmonics is made for having it within current implementation limits.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & the name of the \mbox{\hyperlink{namespaceQn}{Qn}} vector. Identifies its origin \\
+\hline
+{\em n\+No\+Of\+Harmonics} & the desired number of harmonics \\
+\hline
+{\em harmonic\+Map} & ordered array with the external number of the harmonics \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_a9463528777b5ad1dbe0f68f4d575d7fa}\label{classQn_1_1CorrectionQnVector_a9463528777b5ad1dbe0f68f4d575d7fa}} 
+\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}!Correction\+Qn\+Vector@{Correction\+Qn\+Vector}}
+\index{Correction\+Qn\+Vector@{Correction\+Qn\+Vector}!Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}
+\subsubsection{\texorpdfstring{Correction\+Qn\+Vector()}{CorrectionQnVector()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily Qn\+::\+Correction\+Qn\+Vector\+::\+Correction\+Qn\+Vector (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{Int\+\_\+t}]{n\+Divisor,  }\item[{Int\+\_\+t}]{n\+No\+Of\+Harmonics,  }\item[{Int\+\_\+t $\ast$}]{harmonic\+Map }\end{DoxyParamCaption})}
+
+Normal constructor for supporting a subset of the harmonics passed
+
+For each integer harmonic number after dividing by the divisor the Q vector is initialized The Q vectors are organized to support external harmonic number. Only support for the desired harmonic multiples is build. If harmonic\+Map = \mbox{[}1, 2, 3, 4, 6, 8\mbox{]} is passed and the divisor is two then the created \mbox{\hyperlink{namespaceQn}{Qn}} vector has support for the harmonics numbers 1, 2, 3 and 4.
+
+A check on the asked number of harmonics is made for having it within current implementation limits.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & the name of the \mbox{\hyperlink{namespaceQn}{Qn}} vector. Identifies its origin \\
+\hline
+{\em n\+Divisor} & the divisor of the harmonic number for getting the harmonic we want to create support for \\
+\hline
+{\em n\+No\+Of\+Harmonics} & the number of harmonics passed within the map \\
+\hline
+{\em harmonic\+Map} & ordered array with the external number of the harmonics \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_a667da9b9391dc7b3aeb45dfbdbf35c31}\label{classQn_1_1CorrectionQnVector_a667da9b9391dc7b3aeb45dfbdbf35c31}} 
+\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}!Correction\+Qn\+Vector@{Correction\+Qn\+Vector}}
+\index{Correction\+Qn\+Vector@{Correction\+Qn\+Vector}!Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}
+\subsubsection{\texorpdfstring{Correction\+Qn\+Vector()}{CorrectionQnVector()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily Qn\+::\+Correction\+Qn\+Vector\+::\+Correction\+Qn\+Vector (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQn_1_1CorrectionQnVector}{Correction\+Qn\+Vector}} \&}]{Qn }\end{DoxyParamCaption})}
+
+Copy constructor 
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{namespaceQn}{Qn}}} & the Q vector object to copy after construction \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_af1d34ffbe05b79eb8125bcf44033b790}\label{classQn_1_1CorrectionQnVector_af1d34ffbe05b79eb8125bcf44033b790}} 
+\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}!Correction\+Qn\+Vector@{Correction\+Qn\+Vector}}
+\index{Correction\+Qn\+Vector@{Correction\+Qn\+Vector}!Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}
+\subsubsection{\texorpdfstring{Correction\+Qn\+Vector()}{CorrectionQnVector()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily Qn\+::\+Correction\+Qn\+Vector\+::\+Correction\+Qn\+Vector (\begin{DoxyParamCaption}\item[{Int\+\_\+t}]{n\+Divisor,  }\item[{const \mbox{\hyperlink{classQn_1_1CorrectionQnVector}{Correction\+Qn\+Vector}} \&}]{Q }\end{DoxyParamCaption})}
+
+Copy constructor for supporting a subset of the harmonics passed
+
+For each integer harmonic number after dividing by the divisor the Q vector is copied
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+Divisor} & the divisor of the harmonic number for getting the harmonic we want to create support for \\
+\hline
+{\em Q} & the Q vector object to copy after construction \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_a6fcf855ca57bab1752ebb8098aa8da8d}\label{classQn_1_1CorrectionQnVector_a6fcf855ca57bab1752ebb8098aa8da8d}} 
+\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}!Activate\+Harmonic@{Activate\+Harmonic}}
+\index{Activate\+Harmonic@{Activate\+Harmonic}!Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}
+\subsubsection{\texorpdfstring{Activate\+Harmonic()}{ActivateHarmonic()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Qn\+Vector\+::\+Activate\+Harmonic (\begin{DoxyParamCaption}\item[{Int\+\_\+t}]{harmonic }\end{DoxyParamCaption})}
+
+Activates the desired harmonic for processing
+
+A check on the asked harmonic is made for having it within current implementation limits.
+
+If the harmonic was not active its Q vector is initialized.
+
+
+\begin{DoxyParams}{Parameters}
+{\em harmonic} & the intended harmonic \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_afa869b89c2b19a6f473572e45e6c33ec}\label{classQn_1_1CorrectionQnVector_afa869b89c2b19a6f473572e45e6c33ec}} 
+\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}!Event\+Plane@{Event\+Plane}}
+\index{Event\+Plane@{Event\+Plane}!Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}
+\subsubsection{\texorpdfstring{Event\+Plane()}{EventPlane()}}
+{\footnotesize\ttfamily Double\+\_\+t Qn\+::\+Correction\+Qn\+Vector\+::\+Event\+Plane (\begin{DoxyParamCaption}\item[{Int\+\_\+t}]{harmonic }\end{DoxyParamCaption}) const}
+
+Gets the event plane for the asked harmonic
+
+A check for significant values is made. Not passing them returns 0.\+0. 
+\begin{DoxyParams}{Parameters}
+{\em harmonic} & the intended harmonic number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The event plane according to $\frac{1}{h}\tan^{-1}{\frac{Qh_X}{Qh_Y}}$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_ac5110bb9d339c2387e0cfd411c534997}\label{classQn_1_1CorrectionQnVector_ac5110bb9d339c2387e0cfd411c534997}} 
+\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}!Get\+First\+Harmonic@{Get\+First\+Harmonic}}
+\index{Get\+First\+Harmonic@{Get\+First\+Harmonic}!Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}
+\subsubsection{\texorpdfstring{Get\+First\+Harmonic()}{GetFirstHarmonic()}}
+{\footnotesize\ttfamily Int\+\_\+t Qn\+::\+Correction\+Qn\+Vector\+::\+Get\+First\+Harmonic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the number of the first harmonic used \begin{DoxyReturn}{Returns}
+the number of the first harmonic handled by the Q vector, -\/1 if none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_a083f96d5886c8ea53681a125043e8150}\label{classQn_1_1CorrectionQnVector_a083f96d5886c8ea53681a125043e8150}} 
+\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}!Get\+Harmonic\+Multiplier@{Get\+Harmonic\+Multiplier}}
+\index{Get\+Harmonic\+Multiplier@{Get\+Harmonic\+Multiplier}!Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}
+\subsubsection{\texorpdfstring{Get\+Harmonic\+Multiplier()}{GetHarmonicMultiplier()}}
+{\footnotesize\ttfamily Int\+\_\+t Qn\+::\+Correction\+Qn\+Vector\+::\+Get\+Harmonic\+Multiplier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the harmonic multiplier \begin{DoxyReturn}{Returns}
+the harmonic multiplier 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_af41ace21d8328373d0496ea68e5a468c}\label{classQn_1_1CorrectionQnVector_af41ace21d8328373d0496ea68e5a468c}} 
+\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}!Get\+Harmonics\+Map@{Get\+Harmonics\+Map}}
+\index{Get\+Harmonics\+Map@{Get\+Harmonics\+Map}!Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}
+\subsubsection{\texorpdfstring{Get\+Harmonics\+Map()}{GetHarmonicsMap()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Qn\+Vector\+::\+Get\+Harmonics\+Map (\begin{DoxyParamCaption}\item[{Int\+\_\+t $\ast$}]{harmonic\+Map\+Store }\end{DoxyParamCaption}) const}
+
+Get the harmonic map handled by the Q vector The pointer passed should allow writing in at least the number of harmonics used so, use first \mbox{\hyperlink{classQn_1_1CorrectionQnVector_a4da8a1b6a2f12c2393ae86b5fa19b0ae}{Get\+No\+Of\+Harmonics()}} to get that
+
+
+\begin{DoxyParams}{Parameters}
+{\em harmonic\+Map\+Store} & pointer to where to store the harmonic map \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_ab182d3ac68a795f5732daa83ae2f7417}\label{classQn_1_1CorrectionQnVector_ab182d3ac68a795f5732daa83ae2f7417}} 
+\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}!GetN@{GetN}}
+\index{GetN@{GetN}!Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}
+\subsubsection{\texorpdfstring{Get\+N()}{GetN()}}
+{\footnotesize\ttfamily Int\+\_\+t Qn\+::\+Correction\+Qn\+Vector\+::\+GetN (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets the number of elements that were used for Q vector building \begin{DoxyReturn}{Returns}
+number of elements 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_a9b0c28b62017cc7a369b39bbbbc2301a}\label{classQn_1_1CorrectionQnVector_a9b0c28b62017cc7a369b39bbbbc2301a}} 
+\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}!Get\+Next\+Harmonic@{Get\+Next\+Harmonic}}
+\index{Get\+Next\+Harmonic@{Get\+Next\+Harmonic}!Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}
+\subsubsection{\texorpdfstring{Get\+Next\+Harmonic()}{GetNextHarmonic()}}
+{\footnotesize\ttfamily Int\+\_\+t Qn\+::\+Correction\+Qn\+Vector\+::\+Get\+Next\+Harmonic (\begin{DoxyParamCaption}\item[{Int\+\_\+t}]{harmonic }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the next harmonic to the one passed as parameter 
+\begin{DoxyParams}{Parameters}
+{\em harmonic} & number to find the next one \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of the next to the passed harmonic, -\/1 if none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_a4da8a1b6a2f12c2393ae86b5fa19b0ae}\label{classQn_1_1CorrectionQnVector_a4da8a1b6a2f12c2393ae86b5fa19b0ae}} 
+\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}!Get\+No\+Of\+Harmonics@{Get\+No\+Of\+Harmonics}}
+\index{Get\+No\+Of\+Harmonics@{Get\+No\+Of\+Harmonics}!Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}
+\subsubsection{\texorpdfstring{Get\+No\+Of\+Harmonics()}{GetNoOfHarmonics()}}
+{\footnotesize\ttfamily Int\+\_\+t Qn\+::\+Correction\+Qn\+Vector\+::\+Get\+No\+Of\+Harmonics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get the number of harmonics currently handled by the Q vector
+
+\begin{DoxyReturn}{Returns}
+the number of harmonics handled 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_a77ec3056318b215938cac926cd9cb3c2}\label{classQn_1_1CorrectionQnVector_a77ec3056318b215938cac926cd9cb3c2}} 
+\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}!Get\+Sum\+Of\+Weights@{Get\+Sum\+Of\+Weights}}
+\index{Get\+Sum\+Of\+Weights@{Get\+Sum\+Of\+Weights}!Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}
+\subsubsection{\texorpdfstring{Get\+Sum\+Of\+Weights()}{GetSumOfWeights()}}
+{\footnotesize\ttfamily Float\+\_\+t Qn\+::\+Correction\+Qn\+Vector\+::\+Get\+Sum\+Of\+Weights (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets the sum of weights of the elements that were used for Q vector building \begin{DoxyReturn}{Returns}
+sum of weights 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_a314e710f1e4f6d09ab19907c5ecd48dc}\label{classQn_1_1CorrectionQnVector_a314e710f1e4f6d09ab19907c5ecd48dc}} 
+\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}!Is\+Good\+Quality@{Is\+Good\+Quality}}
+\index{Is\+Good\+Quality@{Is\+Good\+Quality}!Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}
+\subsubsection{\texorpdfstring{Is\+Good\+Quality()}{IsGoodQuality()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Correction\+Qn\+Vector\+::\+Is\+Good\+Quality (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the \mbox{\hyperlink{namespaceQn}{Qn}} vector quality flag \begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{namespaceQn}{Qn}} vector quality flag 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_ad8b5dd08034a692eee13f2baa4d42269}\label{classQn_1_1CorrectionQnVector_ad8b5dd08034a692eee13f2baa4d42269}} 
+\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}!Length@{Length}}
+\index{Length@{Length}!Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}
+\subsubsection{\texorpdfstring{Length()}{Length()}}
+{\footnotesize\ttfamily Float\+\_\+t Qn\+::\+Correction\+Qn\+Vector\+::\+Length (\begin{DoxyParamCaption}\item[{Int\+\_\+t}]{harmonic }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Provides the length of the Q vector for the considered harmonic 
+\begin{DoxyParams}{Parameters}
+{\em harmonic} & the intended harmonic \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the square root of components square sum 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_a8e2e40587de98b65ec6b89ce82fb63a7}\label{classQn_1_1CorrectionQnVector_a8e2e40587de98b65ec6b89ce82fb63a7}} 
+\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}!Normalize@{Normalize}}
+\index{Normalize@{Normalize}!Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}
+\subsubsection{\texorpdfstring{Normalize()}{Normalize()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Qn\+Vector\+::\+Normalize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Normalize the Q vector to unit length \mbox{\Hypertarget{classQn_1_1CorrectionQnVector_a859e8ffe20c7a607f67bb95f8c85b9e9}\label{classQn_1_1CorrectionQnVector_a859e8ffe20c7a607f67bb95f8c85b9e9}} 
+\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}!Print@{Print}}
+\index{Print@{Print}!Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}
+\subsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Qn\+Vector\+::\+Print (\begin{DoxyParamCaption}\item[{Option\+\_\+t $\ast$}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Print the \mbox{\hyperlink{namespaceQn}{Qn}} vector in a readable shape 
+
+Reimplemented in \mbox{\hyperlink{classQn_1_1CorrectionQnVectorBuild_a8b767040ac4ae2472e8ce8f091b5ce88}{Qn\+::\+Correction\+Qn\+Vector\+Build}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_a7a72044374f9040ebfdc364e574f0cca}\label{classQn_1_1CorrectionQnVector_a7a72044374f9040ebfdc364e574f0cca}} 
+\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}!Qx@{Qx}}
+\index{Qx@{Qx}!Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}
+\subsubsection{\texorpdfstring{Qx()}{Qx()}}
+{\footnotesize\ttfamily Float\+\_\+t Qn\+::\+Correction\+Qn\+Vector\+::\+Qx (\begin{DoxyParamCaption}\item[{Int\+\_\+t}]{harmonic }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets the Q vector X component for the considered harmonic 
+\begin{DoxyParams}{Parameters}
+{\em harmonic} & the intended harmonic \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the Q vector X component 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_abf503da4fb27fc1e046fbd195a841926}\label{classQn_1_1CorrectionQnVector_abf503da4fb27fc1e046fbd195a841926}} 
+\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}!Qx\+Norm@{Qx\+Norm}}
+\index{Qx\+Norm@{Qx\+Norm}!Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}
+\subsubsection{\texorpdfstring{Qx\+Norm()}{QxNorm()}}
+{\footnotesize\ttfamily Float\+\_\+t Qn\+::\+Correction\+Qn\+Vector\+::\+Qx\+Norm (\begin{DoxyParamCaption}\item[{Int\+\_\+t}]{harmonic }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Provides the X component normalized to one of the Q vector for the considered harmonic A check for Q vector length significant value is made. Not passing it returns a zero value. 
+\begin{DoxyParams}{Parameters}
+{\em harmonic} & the intended harmonic \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+X component of the normalized Q vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_adf6c66295489c2638e9f692a77f6ca9b}\label{classQn_1_1CorrectionQnVector_adf6c66295489c2638e9f692a77f6ca9b}} 
+\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}!Qy@{Qy}}
+\index{Qy@{Qy}!Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}
+\subsubsection{\texorpdfstring{Qy()}{Qy()}}
+{\footnotesize\ttfamily Float\+\_\+t Qn\+::\+Correction\+Qn\+Vector\+::\+Qy (\begin{DoxyParamCaption}\item[{Int\+\_\+t}]{harmonic }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets the Q vector Y component for the considered harmonic 
+\begin{DoxyParams}{Parameters}
+{\em harmonic} & the intended harmonic \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the Q vector Y component 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_af8c17655a61268b003515554cc146814}\label{classQn_1_1CorrectionQnVector_af8c17655a61268b003515554cc146814}} 
+\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}!Qy\+Norm@{Qy\+Norm}}
+\index{Qy\+Norm@{Qy\+Norm}!Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}
+\subsubsection{\texorpdfstring{Qy\+Norm()}{QyNorm()}}
+{\footnotesize\ttfamily Float\+\_\+t Qn\+::\+Correction\+Qn\+Vector\+::\+Qy\+Norm (\begin{DoxyParamCaption}\item[{Int\+\_\+t}]{harmonic }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Provides the Y component normalized to one of the Q vector for the considered harmonic A check for Q vector length significant value is made. Not passing it returns a zero value. 
+\begin{DoxyParams}{Parameters}
+{\em harmonic} & the intended harmonic \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Y component of the normalized Q vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_acd45aaacfb58f260eb8b0102cc46ef05}\label{classQn_1_1CorrectionQnVector_acd45aaacfb58f260eb8b0102cc46ef05}} 
+\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}!Set@{Set}}
+\index{Set@{Set}!Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}
+\subsubsection{\texorpdfstring{Set()}{Set()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Qn\+Vector\+::\+Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQn_1_1CorrectionQnVector}{Correction\+Qn\+Vector}} $\ast$}]{Qn,  }\item[{Bool\+\_\+t}]{changename }\end{DoxyParamCaption})}
+
+Copy member function
+
+The passed Q vector is copied within the current object. The harmonic structures are compared. A run time error is raised if they do not match. 
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{namespaceQn}{Qn}}} & pointer to the Q vector to be copied \\
+\hline
+{\em changename} & k\+T\+R\+UE if the name of the \mbox{\hyperlink{namespaceQn}{Qn}} vector must also be changed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_a71b91d6c9ed672d997f91421192974f6}\label{classQn_1_1CorrectionQnVector_a71b91d6c9ed672d997f91421192974f6}} 
+\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}!Set\+Good@{Set\+Good}}
+\index{Set\+Good@{Set\+Good}!Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}
+\subsubsection{\texorpdfstring{Set\+Good()}{SetGood()}}
+{\footnotesize\ttfamily virtual void Qn\+::\+Correction\+Qn\+Vector\+::\+Set\+Good (\begin{DoxyParamCaption}\item[{Bool\+\_\+t}]{good }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Set the good quality flag 
+\begin{DoxyParams}{Parameters}
+{\em good} & k\+T\+R\+UE if the quality is good \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_acc6c39c8247f6f43c13c1886c3a5bcd4}\label{classQn_1_1CorrectionQnVector_acc6c39c8247f6f43c13c1886c3a5bcd4}} 
+\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}!Set\+Harmonic\+Multiplier@{Set\+Harmonic\+Multiplier}}
+\index{Set\+Harmonic\+Multiplier@{Set\+Harmonic\+Multiplier}!Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}
+\subsubsection{\texorpdfstring{Set\+Harmonic\+Multiplier()}{SetHarmonicMultiplier()}}
+{\footnotesize\ttfamily virtual void Qn\+::\+Correction\+Qn\+Vector\+::\+Set\+Harmonic\+Multiplier (\begin{DoxyParamCaption}\item[{Int\+\_\+t}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Set the harmonic multiplier With it different from one \mbox{\hyperlink{namespaceQn}{Qn}} behaves as Qmxn. 
+\begin{DoxyParams}{Parameters}
+{\em m} & the hamonic multiplier \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_a6de477e3cecce7c5f5b9212ecbafea59}\label{classQn_1_1CorrectionQnVector_a6de477e3cecce7c5f5b9212ecbafea59}} 
+\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}!Set\+Qx@{Set\+Qx}}
+\index{Set\+Qx@{Set\+Qx}!Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}
+\subsubsection{\texorpdfstring{Set\+Qx()}{SetQx()}}
+{\footnotesize\ttfamily virtual void Qn\+::\+Correction\+Qn\+Vector\+::\+Set\+Qx (\begin{DoxyParamCaption}\item[{Int\+\_\+t}]{harmonic,  }\item[{Float\+\_\+t}]{qx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Sets the X component for the considered harmonic 
+\begin{DoxyParams}{Parameters}
+{\em harmonic} & the intended harmonic \\
+\hline
+{\em qx} & the X component for the Q vector \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classQn_1_1CorrectionQnVectorBuild_af4db1f1b7fc5650c39d3a3f232c184cf}{Qn\+::\+Correction\+Qn\+Vector\+Build}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_af0ac581e943fe88b0a94838c670f2c4d}\label{classQn_1_1CorrectionQnVector_af0ac581e943fe88b0a94838c670f2c4d}} 
+\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}!Set\+Qy@{Set\+Qy}}
+\index{Set\+Qy@{Set\+Qy}!Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}
+\subsubsection{\texorpdfstring{Set\+Qy()}{SetQy()}}
+{\footnotesize\ttfamily virtual void Qn\+::\+Correction\+Qn\+Vector\+::\+Set\+Qy (\begin{DoxyParamCaption}\item[{Int\+\_\+t}]{harmonic,  }\item[{Float\+\_\+t}]{qy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Sets the Y component for the considered harmonic 
+\begin{DoxyParams}{Parameters}
+{\em harmonic} & the intended harmonic \\
+\hline
+{\em qy} & the Y component for the Q vector \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classQn_1_1CorrectionQnVectorBuild_a1b9a7e2b0eafc48de05a2f90fcc51fb6}{Qn\+::\+Correction\+Qn\+Vector\+Build}}.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classQn_1_1CorrectionQnVector_a4dd6b60f412516d586b204f63350ab5d}\label{classQn_1_1CorrectionQnVector_a4dd6b60f412516d586b204f63350ab5d}} 
+\index{Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}!harmonic\+Number\+Mask@{harmonic\+Number\+Mask}}
+\index{harmonic\+Number\+Mask@{harmonic\+Number\+Mask}!Qn\+::\+Correction\+Qn\+Vector@{Qn\+::\+Correction\+Qn\+Vector}}
+\subsubsection{\texorpdfstring{harmonic\+Number\+Mask}{harmonicNumberMask}}
+{\footnotesize\ttfamily const U\+Int\+\_\+t Qn\+::\+Correction\+Qn\+Vector\+::harmonic\+Number\+Mask\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+    \{0x0000, 0x0002, 0x0004, 0x0008, 0x0010, 0x0020, 0x0040, 0x0080,
+     0x0100, 0x0200, 0x0400, 0x0800, 0x1000, 0x2000, 0x4000, 0x8000\}
+\end{DoxyCode}
+
+
+Mask for each external harmonic number. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/include/Correction\+Qn\+Vector.\+h\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/Correction\+Qn\+Vector.\+cpp\end{DoxyCompactItemize}

@@ -48,12 +48,12 @@ class Selector
     public:
     Selector(DataTreeEvent* fEvent);
     ~Selector();
-    Bool_t IsCorrectEvent(int iPT = -1);
-    Bool_t IsCorrectTrack(Int_t idx);
-    Bool_t IsCorrectFwHit(Int_t idx, bool channelSelection=0, TString signal="adc", float minSignal=0.0, float maxSignal=9999.0);
+    bool	IsCorrectEvent(int iPT = -1);
+    bool	IsCorrectTrack(int idx);
+    bool	IsCorrectFwHit(int idx, bool channelSelection=0, std::string signal="adc", float minSignal=0.0, float maxSignal=9999.0);
 	void	SetStatOption(bool _bSaveStat = 1) { bSaveStat = _bSaveStat; }
     void    CheckEventCuts();
-    void    CheckTrackCuts(Int_t idx);
+    void    CheckTrackCuts(int idx);
     void    DrawStatistics();
-    void    SaveStatistics(TString fileName);
+    void    SaveStatistics(std::string fileName);
 };

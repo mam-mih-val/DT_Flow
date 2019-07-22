@@ -1,0 +1,39 @@
+\hypertarget{classQnCorrectionsProfile3DCorrelations}{}\section{Qn\+Corrections\+Profile3\+D\+Correlations Class Reference}
+\label{classQnCorrectionsProfile3DCorrelations}\index{Qn\+Corrections\+Profile3\+D\+Correlations@{Qn\+Corrections\+Profile3\+D\+Correlations}}
+
+
+\mbox{\hyperlink{classBase}{Base}} class for three detectors correlation components based set of profiles with harmonic support.  
+
+
+
+
+{\ttfamily \#include $<$Correction\+Profile3\+D\+Correlations.\+h$>$}
+
+
+
+\subsection{Detailed Description}
+\mbox{\hyperlink{classBase}{Base}} class for three detectors correlation components based set of profiles with harmonic support. 
+
+Provides profile histograms for storing component, XX, XY, YX, YY, based information for a set of predefined harmonics defined at creation time and for a set of three different subdetectors generically identified as A, B and C. The user can select the harmonic addressing procedure so that it will possible to ask for just one harmonic support and assign to it any desired number.
+
+As any histogram derived from \mbox{\hyperlink{classQnCorrectionsHistogramBase}{Qn\+Corrections\+Histogram\+Base}} the set of variables that identify the different event classes has to be passed to the constructor together with the required number of harmonics and an optional harmonic expected numbering scheme. Of course, the base name and base title for the different histograms has also to be provided.
+
+The harmonic map passed should contain an ordered array with as many items as requested harmonics that provides the external number to be used for request the corresponding harmonic. Requesting five harmonics without maps is equivalent to pass \{1,2,3,4,5\} as map. Requesting just support for the harmonic four will require a map \{4\}.
+
+Externally the harmonic number is addressed as usual. An additional harmonic multiplier field allows to handle mxn harmonics. n is always the external harmonic required internally it si handled as well as n but all the information manipulated is really associated to mxn. Only in the histograms name it appears the proper mxn harmonic to not confuse the external user which browse the histograms.
+
+\begin{DoxyAuthor}{Author}
+Jaap Onderwaater \href{mailto:jacobus.onderwaater@cern.ch}{\tt jacobus.\+onderwaater@cern.\+ch}, G\+SI 
+
+Ilya Selyuzhenkov \href{mailto:ilya.selyuzhenkov@gmail.com}{\tt ilya.\+selyuzhenkov@gmail.\+com}, G\+SI 
+
+Víctor González \href{mailto:victor.gonzalez@cern.ch}{\tt victor.\+gonzalez@cern.\+ch}, U\+CM 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Jan 19, 2016 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/include/Correction\+Profile3\+D\+Correlations.\+h\end{DoxyCompactItemize}

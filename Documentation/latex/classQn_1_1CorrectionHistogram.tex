@@ -1,0 +1,199 @@
+\hypertarget{classQn_1_1CorrectionHistogram}{}\section{Qn\+:\+:Correction\+Histogram Class Reference}
+\label{classQn_1_1CorrectionHistogram}\index{Qn\+::\+Correction\+Histogram@{Qn\+::\+Correction\+Histogram}}
+Inheritance diagram for Qn\+:\+:Correction\+Histogram\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classQn_1_1CorrectionHistogram}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionHistogram_afb136f75daee32c8969c1c53a4fb4802}\label{classQn_1_1CorrectionHistogram_afb136f75daee32c8969c1c53a4fb4802}} 
+\mbox{\hyperlink{classQn_1_1CorrectionHistogram_afb136f75daee32c8969c1c53a4fb4802}{Correction\+Histogram}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQn_1_1CorrectionHistogram_acefd77dc11928421955bd2c8550ff817}{Correction\+Histogram}} (const char $\ast$name, const char $\ast$title, \mbox{\hyperlink{classQn_1_1EventClassVariablesSet}{Event\+Class\+Variables\+Set}} \&ecvs)
+\item 
+virtual \mbox{\hyperlink{classQn_1_1CorrectionHistogram_a328b703cceadfac67d51947ce27992da}{$\sim$\+Correction\+Histogram}} ()
+\item 
+Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionHistogram_a5d7baa24476a584ad144923ec2bec7a5}{Create\+Histogram}} (T\+List $\ast$histogram\+List)
+\item 
+virtual Long64\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionHistogram_ac67e334f0d4bae4c45727e129c9bfba1}{Get\+Bin}} (const double $\ast$variable\+Container)
+\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionHistogram_a008557e4ab70595b83f60973acc37be2}\label{classQn_1_1CorrectionHistogram_a008557e4ab70595b83f60973acc37be2}} 
+virtual Long64\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionHistogram_a008557e4ab70595b83f60973acc37be2}{Get\+Bin}} (const double $\ast$variable\+Container, Int\+\_\+t n\+Channel)
+\begin{DoxyCompactList}\small\item\em wrong call for this class invoke base class behaviour \end{DoxyCompactList}\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionHistogram_a26d4a5cb3aebf1c447bba10359224a62}{Bin\+Content\+Validated}} (Long64\+\_\+t bin)
+\item 
+virtual Float\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionHistogram_a469c7ca13b740d1224dcaf5c9a41eb2b}{Get\+Bin\+Content}} (Long64\+\_\+t bin)
+\item 
+virtual Float\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionHistogram_ac9feeeb4721f0b199c5c96e41224836e}{Get\+Bin\+Error}} (Long64\+\_\+t bin)
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1CorrectionHistogram_a3704882797e987dc62c31d953f49ec7e}{Fill}} (const double $\ast$variable\+Container, Float\+\_\+t weight)
+\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionHistogram_a5686f074e8b72ce0faae1c266d1eee9f}\label{classQn_1_1CorrectionHistogram_a5686f074e8b72ce0faae1c266d1eee9f}} 
+virtual void \mbox{\hyperlink{classQn_1_1CorrectionHistogram_a5686f074e8b72ce0faae1c266d1eee9f}{Fill}} (const double $\ast$variable\+Container, Int\+\_\+t n\+Channel, Float\+\_\+t weight)
+\begin{DoxyCompactList}\small\item\em wrong call for this class invoke base class behavior \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classQn_1_1CorrectionHistogram_acefd77dc11928421955bd2c8550ff817}\label{classQn_1_1CorrectionHistogram_acefd77dc11928421955bd2c8550ff817}} 
+\index{Qn\+::\+Correction\+Histogram@{Qn\+::\+Correction\+Histogram}!Correction\+Histogram@{Correction\+Histogram}}
+\index{Correction\+Histogram@{Correction\+Histogram}!Qn\+::\+Correction\+Histogram@{Qn\+::\+Correction\+Histogram}}
+\subsubsection{\texorpdfstring{Correction\+Histogram()}{CorrectionHistogram()}}
+{\footnotesize\ttfamily Qn\+::\+Correction\+Histogram\+::\+Correction\+Histogram (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{const char $\ast$}]{title,  }\item[{\mbox{\hyperlink{classQn_1_1EventClassVariablesSet}{Event\+Class\+Variables\+Set}} \&}]{ecvs }\end{DoxyParamCaption})}
+
+Normal constructor
+
+Stores the set of variables that identify the different event classes passing them to its parent and prepares the object for actual histogram creation or attachment
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & base for the name of the histograms \\
+\hline
+{\em title} & base for the title of the histograms \\
+\hline
+{\em ecvs} & the event classes variables set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionHistogram_a328b703cceadfac67d51947ce27992da}\label{classQn_1_1CorrectionHistogram_a328b703cceadfac67d51947ce27992da}} 
+\index{Qn\+::\+Correction\+Histogram@{Qn\+::\+Correction\+Histogram}!````~Correction\+Histogram@{$\sim$\+Correction\+Histogram}}
+\index{````~Correction\+Histogram@{$\sim$\+Correction\+Histogram}!Qn\+::\+Correction\+Histogram@{Qn\+::\+Correction\+Histogram}}
+\subsubsection{\texorpdfstring{$\sim$\+Correction\+Histogram()}{~CorrectionHistogram()}}
+{\footnotesize\ttfamily Qn\+::\+Correction\+Histogram\+::$\sim$\+Correction\+Histogram (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Default destructor Releases the memory taken 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQn_1_1CorrectionHistogram_a26d4a5cb3aebf1c447bba10359224a62}\label{classQn_1_1CorrectionHistogram_a26d4a5cb3aebf1c447bba10359224a62}} 
+\index{Qn\+::\+Correction\+Histogram@{Qn\+::\+Correction\+Histogram}!Bin\+Content\+Validated@{Bin\+Content\+Validated}}
+\index{Bin\+Content\+Validated@{Bin\+Content\+Validated}!Qn\+::\+Correction\+Histogram@{Qn\+::\+Correction\+Histogram}}
+\subsubsection{\texorpdfstring{Bin\+Content\+Validated()}{BinContentValidated()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Correction\+Histogram\+::\+Bin\+Content\+Validated (\begin{DoxyParamCaption}\item[{Long64\+\_\+t}]{bin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Check the validity of the content of the passed bin This kind of histograms cannot validate the bin content so, it is always valid. 
+\begin{DoxyParams}{Parameters}
+{\em bin} & the bin to check its content validity \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if the content is valid k\+F\+A\+L\+SE otherwise 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionHistogramBase_a4db2c92ceaffefaa91475a721612d80d}{Qn\+::\+Correction\+Histogram\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionHistogram_a5d7baa24476a584ad144923ec2bec7a5}\label{classQn_1_1CorrectionHistogram_a5d7baa24476a584ad144923ec2bec7a5}} 
+\index{Qn\+::\+Correction\+Histogram@{Qn\+::\+Correction\+Histogram}!Create\+Histogram@{Create\+Histogram}}
+\index{Create\+Histogram@{Create\+Histogram}!Qn\+::\+Correction\+Histogram@{Qn\+::\+Correction\+Histogram}}
+\subsubsection{\texorpdfstring{Create\+Histogram()}{CreateHistogram()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Correction\+Histogram\+::\+Create\+Histogram (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{histogram\+List }\end{DoxyParamCaption})}
+
+Creates the support histogram for the histogram function
+
+Based in the event classes variables set in the parent class the values multidimensional histogram is created.
+
+The histogram is added to the passed histogram list
+
+
+\begin{DoxyParams}{Parameters}
+{\em histogram\+List} & list where the histograms have to be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if properly created 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionHistogram_a3704882797e987dc62c31d953f49ec7e}\label{classQn_1_1CorrectionHistogram_a3704882797e987dc62c31d953f49ec7e}} 
+\index{Qn\+::\+Correction\+Histogram@{Qn\+::\+Correction\+Histogram}!Fill@{Fill}}
+\index{Fill@{Fill}!Qn\+::\+Correction\+Histogram@{Qn\+::\+Correction\+Histogram}}
+\subsubsection{\texorpdfstring{Fill()}{Fill()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Histogram\+::\+Fill (\begin{DoxyParamCaption}\item[{const double $\ast$}]{variable\+Container,  }\item[{Float\+\_\+t}]{weight }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Fills the histogram
+
+The involved bin is computed according to the current variables content and the passed external channel number. The bin is then increased by the given weight.
+
+
+\begin{DoxyParams}{Parameters}
+{\em variable\+Container} & the current variables content addressed by var Id \\
+\hline
+{\em weight} & the increment in the bin content \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classQn_1_1CorrectionHistogramBase_a16b7518942714780ec9ceb56bb517f0f}{Qn\+::\+Correction\+Histogram\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionHistogram_ac67e334f0d4bae4c45727e129c9bfba1}\label{classQn_1_1CorrectionHistogram_ac67e334f0d4bae4c45727e129c9bfba1}} 
+\index{Qn\+::\+Correction\+Histogram@{Qn\+::\+Correction\+Histogram}!Get\+Bin@{Get\+Bin}}
+\index{Get\+Bin@{Get\+Bin}!Qn\+::\+Correction\+Histogram@{Qn\+::\+Correction\+Histogram}}
+\subsubsection{\texorpdfstring{Get\+Bin()}{GetBin()}}
+{\footnotesize\ttfamily Long64\+\_\+t Qn\+::\+Correction\+Histogram\+::\+Get\+Bin (\begin{DoxyParamCaption}\item[{const double $\ast$}]{variable\+Container }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get the bin number for the current variable content
+
+The bin number identifies the event class the current variable content points to under the passed channel.
+
+
+\begin{DoxyParams}{Parameters}
+{\em variable\+Container} & the current variables content addressed by var Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the associated bin to the current variables content 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classQn_1_1CorrectionHistogramBase_ab1f64550f4e1812864da6f9f6ea565e6}{Qn\+::\+Correction\+Histogram\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionHistogram_a469c7ca13b740d1224dcaf5c9a41eb2b}\label{classQn_1_1CorrectionHistogram_a469c7ca13b740d1224dcaf5c9a41eb2b}} 
+\index{Qn\+::\+Correction\+Histogram@{Qn\+::\+Correction\+Histogram}!Get\+Bin\+Content@{Get\+Bin\+Content}}
+\index{Get\+Bin\+Content@{Get\+Bin\+Content}!Qn\+::\+Correction\+Histogram@{Qn\+::\+Correction\+Histogram}}
+\subsubsection{\texorpdfstring{Get\+Bin\+Content()}{GetBinContent()}}
+{\footnotesize\ttfamily Float\+\_\+t Qn\+::\+Correction\+Histogram\+::\+Get\+Bin\+Content (\begin{DoxyParamCaption}\item[{Long64\+\_\+t}]{bin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get the bin content for the passed bin number
+
+The bin number identifies a desired event class whose content is requested.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bin} & the interested bin number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the bin number content 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classQn_1_1CorrectionHistogramBase_a9e4e745a6f4cbebf5b9277d6d63bc9c7}{Qn\+::\+Correction\+Histogram\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionHistogram_ac9feeeb4721f0b199c5c96e41224836e}\label{classQn_1_1CorrectionHistogram_ac9feeeb4721f0b199c5c96e41224836e}} 
+\index{Qn\+::\+Correction\+Histogram@{Qn\+::\+Correction\+Histogram}!Get\+Bin\+Error@{Get\+Bin\+Error}}
+\index{Get\+Bin\+Error@{Get\+Bin\+Error}!Qn\+::\+Correction\+Histogram@{Qn\+::\+Correction\+Histogram}}
+\subsubsection{\texorpdfstring{Get\+Bin\+Error()}{GetBinError()}}
+{\footnotesize\ttfamily Float\+\_\+t Qn\+::\+Correction\+Histogram\+::\+Get\+Bin\+Error (\begin{DoxyParamCaption}\item[{Long64\+\_\+t}]{bin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get the bin content error for the passed bin number
+
+The bin number identifies a desired event class whose content error is requested.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bin} & the interested bin number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the bin number content error 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classQn_1_1CorrectionHistogramBase_a50a7dd4c5bbe5e4d0e405365c2a9104d}{Qn\+::\+Correction\+Histogram\+Base}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/include/Correction\+Histogram.\+h\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/Correction\+Histogram.\+cpp\end{DoxyCompactItemize}

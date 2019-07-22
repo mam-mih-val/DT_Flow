@@ -1,0 +1,48 @@
+\hypertarget{classQn_1_1EventShapeResult}{}\section{Qn\+:\+:Event\+Shape\+Result Class Reference}
+\label{classQn_1_1EventShapeResult}\index{Qn\+::\+Event\+Shape\+Result@{Qn\+::\+Event\+Shape\+Result}}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1EventShapeResult_a21d00afbd3a0896249f23b20e6c365a0}\label{classQn_1_1EventShapeResult_a21d00afbd3a0896249f23b20e6c365a0}} 
+enum {\bfseries State} \{ {\bfseries Uninitialized}, 
+{\bfseries Collecting}, 
+{\bfseries Calibrating}, 
+{\bfseries Reading}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1EventShapeResult_a38f78009043029a9d576ed215725c68f}\label{classQn_1_1EventShapeResult_a38f78009043029a9d576ed215725c68f}} 
+{\bfseries Event\+Shape\+Result} (\mbox{\hyperlink{classQn_1_1Correlation}{Qn\+::\+Correlation}} $\ast$ptr, T\+H1F histo)
+\item 
+\mbox{\Hypertarget{classQn_1_1EventShapeResult_ad68afa1261a18c8c199cd18dc9c83628}\label{classQn_1_1EventShapeResult_ad68afa1261a18c8c199cd18dc9c83628}} 
+{\bfseries Event\+Shape\+Result} (\mbox{\hyperlink{classQn_1_1Correlation}{Qn\+::\+Correlation}} $\ast$ptr)
+\item 
+\mbox{\Hypertarget{classQn_1_1EventShapeResult_a09e729415756ebf90fdecc43c8e11f6b}\label{classQn_1_1EventShapeResult_a09e729415756ebf90fdecc43c8e11f6b}} 
+void {\bfseries Fit\+Splines} ()
+\item 
+\mbox{\Hypertarget{classQn_1_1EventShapeResult_add9cc39867a4d8bb1b18a18ab6f7ed3b}\label{classQn_1_1EventShapeResult_add9cc39867a4d8bb1b18a18ab6f7ed3b}} 
+const \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container\+Event\+Shape}} \& {\bfseries Get\+Calibration} () const
+\item 
+\mbox{\Hypertarget{classQn_1_1EventShapeResult_a7b74d348f97e70fd483c3cc8d9667594}\label{classQn_1_1EventShapeResult_a7b74d348f97e70fd483c3cc8d9667594}} 
+void {\bfseries Configure} ()
+\item 
+\mbox{\Hypertarget{classQn_1_1EventShapeResult_a77f09db1049efcffa791228783bef74f}\label{classQn_1_1EventShapeResult_a77f09db1049efcffa791228783bef74f}} 
+void {\bfseries Fill\+Calibration\+Histogram} ()
+\item 
+\mbox{\Hypertarget{classQn_1_1EventShapeResult_abdfab557a7efdad7c008f52bc440cb72}\label{classQn_1_1EventShapeResult_abdfab557a7efdad7c008f52bc440cb72}} 
+double {\bfseries Get\+Percentile} (const std\+::vector$<$ unsigned long $>$ \&eventindices)
+\item 
+\mbox{\Hypertarget{classQn_1_1EventShapeResult_aa2ff95d57f72e0b77f2f0182cb33bad0}\label{classQn_1_1EventShapeResult_aa2ff95d57f72e0b77f2f0182cb33bad0}} 
+void {\bfseries Set\+Input\+Data} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container\+Event\+Shape}} $>$ eventshape)
+\item 
+\mbox{\Hypertarget{classQn_1_1EventShapeResult_aeca1778bf874483fb3174ce4ae57f545}\label{classQn_1_1EventShapeResult_aeca1778bf874483fb3174ce4ae57f545}} 
+State {\bfseries Get\+State} () const
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Correlation/include/Event\+Shape\+Result.\+h\item 
+D\+T\+\_\+\+Flow/\+Correlation/Event\+Shape\+Result.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,484 @@
+\hypertarget{classQn_1_1CorrectionCalculator}{}\section{Qn\+:\+:Correction\+Calculator Class Reference}
+\label{classQn_1_1CorrectionCalculator}\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+Inheritance diagram for Qn\+:\+:Correction\+Calculator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classQn_1_1CorrectionCalculator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classQn_1_1CorrectionCalculator_a66db1979cc23ca81e8cace68d816f8c3}{Correction\+Calculator}} ()
+\item 
+virtual \mbox{\hyperlink{classQn_1_1CorrectionCalculator_a52d30901588086ead7400efffcc56c98}{$\sim$\+Correction\+Calculator}} ()
+\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionCalculator_ac0ad939e7fbdcb80c6b2ee08fc7d3447}{Set\+List\+Of\+Processes\+Names}} (T\+Obj\+Array $\ast$names)
+\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionCalculator_a74c96c14696e8221ec839d7c8b5f773b}{Set\+Current\+Process\+List\+Name}} (const char $\ast$name)
+\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionCalculator_a62057548ca452e31e76ff98c9e5b6fd0}{Set\+Calibration\+Histograms\+List}} (T\+File $\ast$calibration\+File)
+\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionCalculator_a00dfda0d66bfdeeec6497580e491774a}{Set\+Should\+Fill\+Output\+Histograms}} (Bool\+\_\+t enable=k\+T\+R\+UE)
+\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionCalculator_a598ddf62e8f05b71bf3e5c573a4af6c2}{Set\+Should\+Fill\+Q\+A\+Histograms}} (Bool\+\_\+t enable=k\+T\+R\+UE)
+\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionCalculator_a97f032c649755a11b88f919dbb02c717}{Set\+Should\+Fill\+Nve\+Q\+A\+Histograms}} (Bool\+\_\+t enable=k\+T\+R\+UE)
+\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionCalculator_abfa3d7424b677f225d2e7c4f37d70e8a}{Set\+Should\+Fill\+Qn\+Vector\+Tree}} (Bool\+\_\+t enable=k\+T\+R\+UE)
+\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionCalculator_a31d52031dbe77275dc0c6fea04675464}{Add\+Detector}} (\mbox{\hyperlink{classQn_1_1CorrectionDetector}{Correction\+Detector}} $\ast$detector)
+\item 
+\mbox{\hyperlink{classQn_1_1CorrectionDetector}{Correction\+Detector}} $\ast$ \mbox{\hyperlink{classQn_1_1CorrectionCalculator_a424e42bfb3c9d9591463c41644c9f6f6}{Find\+Detector}} (const char $\ast$name) const
+\item 
+\mbox{\hyperlink{classQn_1_1CorrectionDetector}{Correction\+Detector}} $\ast$ \mbox{\hyperlink{classQn_1_1CorrectionCalculator_affd2bd5b4eb73289f03356c3246dfeb3}{Find\+Detector}} (Int\+\_\+t id) const
+\item 
+\mbox{\hyperlink{classQn_1_1DetectorConfiguration}{Detector\+Configuration}} $\ast$ \mbox{\hyperlink{classQn_1_1CorrectionCalculator_a0bc04e4ee0d401f3336cce67089cfbd7}{Find\+Detector\+Configuration}} (const char $\ast$name) const
+\item 
+double $\ast$ \mbox{\hyperlink{classQn_1_1CorrectionCalculator_aee791a60fb690d80912719312abb2a15}{Get\+Data\+Container}} ()
+\item 
+double $\ast$$\ast$ \mbox{\hyperlink{classQn_1_1CorrectionCalculator_a9234784d26c9658bf2da7052f7652ebb}{Get\+Data\+Pointer}} ()
+\item 
+Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionCalculator_a1c3dca90ca901753f71f95cfea0473de}{Get\+Should\+Fill\+Output\+Histograms}} () const
+\item 
+Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionCalculator_a9ccaff2f7d4e3b7d5f7badfc6e904b91}{Get\+Should\+Fill\+Q\+A\+Histograms}} () const
+\item 
+Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionCalculator_aa36a55165d5992bf626705df5bc4c992}{Get\+Should\+Fill\+Nve\+Q\+A\+Histograms}} () const
+\item 
+Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionCalculator_aeb441a15ddd2c239a7f1d1fa1c9d5021}{Get\+Should\+Fill\+Qn\+Vector\+Tree}} () const
+\item 
+T\+List $\ast$ \mbox{\hyperlink{classQn_1_1CorrectionCalculator_ab09eb2913769e2624959d2edafe2c608}{Get\+Output\+Histograms\+List}} () const
+\item 
+T\+List $\ast$ \mbox{\hyperlink{classQn_1_1CorrectionCalculator_abae9945e1ce19dc5f02840ba7b254ac4}{Get\+Q\+A\+Histograms\+List}} () const
+\item 
+T\+List $\ast$ \mbox{\hyperlink{classQn_1_1CorrectionCalculator_a6fadf124a9086811170938d32c7e7ded}{Get\+Nve\+Q\+A\+Histograms\+List}} () const
+\item 
+T\+Tree $\ast$ \mbox{\hyperlink{classQn_1_1CorrectionCalculator_adf1e27092d3097725f051716bf3205d8}{Get\+Qn\+Vector\+Tree}} () const
+\item 
+T\+List $\ast$ \mbox{\hyperlink{classQn_1_1CorrectionCalculator_adf7ecbc252f8265d0dcd11aa9bdc01db}{Get\+Qn\+Vector\+List}} () const
+\item 
+const T\+List $\ast$ \mbox{\hyperlink{classQn_1_1CorrectionCalculator_aefeaabf638391df34dba7527ac11302c}{Get\+Detector\+Qn\+Vector\+List}} (const char $\ast$subdetector) const
+\item 
+const \mbox{\hyperlink{classQn_1_1CorrectionQnVector}{Correction\+Qn\+Vector}} $\ast$ \mbox{\hyperlink{classQn_1_1CorrectionCalculator_acc68a2a755636f395fe0baaff56e19d9}{Get\+Detector\+Qn\+Vector}} (const char $\ast$subdetector, const char $\ast$expectedstep=\char`\"{}latest\char`\"{}, const char $\ast$altstep=\char`\"{}latest\char`\"{}) const
+\item 
+const \mbox{\hyperlink{classQn_1_1CorrectionQnVector}{Correction\+Qn\+Vector}} $\ast$ \mbox{\hyperlink{classQn_1_1CorrectionCalculator_a1cf177c6ef11b329e7cbcece3639d2cc}{Get\+Detector\+Qn\+Vector\+Ptr}} (const char $\ast$subdetector, const char $\ast$expectedstep=\char`\"{}latest\char`\"{}, const char $\ast$altstep=\char`\"{}latest\char`\"{}) const
+\item 
+const char $\ast$ \mbox{\hyperlink{classQn_1_1CorrectionCalculator_a7aeab06a810f9b535b9c7532b64c57e7}{Get\+Calibration\+Histograms\+Container\+Name}} () const
+\item 
+const char $\ast$ \mbox{\hyperlink{classQn_1_1CorrectionCalculator_a4b36448df2483b65b25c5f8c2023cf1a}{Get\+Calibration\+Q\+A\+Histograms\+Container\+Name}} () const
+\item 
+const char $\ast$ \mbox{\hyperlink{classQn_1_1CorrectionCalculator_a2cb630436105a18170a5adc2d1dae78a}{Get\+Calibration\+Nve\+Q\+A\+Histograms\+Container\+Name}} () const
+\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionCalculator_a559ad761a94638850fcfc5eee6c7ba5b}\label{classQn_1_1CorrectionCalculator_a559ad761a94638850fcfc5eee6c7ba5b}} 
+void \mbox{\hyperlink{classQn_1_1CorrectionCalculator_a559ad761a94638850fcfc5eee6c7ba5b}{Print\+Framework\+Configuration}} () const
+\begin{DoxyCompactList}\small\item\em Produce an understandable picture of current correction configuration. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionCalculator_ae3601c3eb23395888308b80a2017ac4e}{Initialize\+Qn\+Corrections\+Framework}} ()
+\item 
+Int\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionCalculator_ab50f8695fcc8a8a4765fb6d9cf45a5d6}{Add\+Data\+Vector}} (Int\+\_\+t detector\+Id, Double\+\_\+t phi, Double\+\_\+t weight=1.\+0, Int\+\_\+t channel\+Id=-\/1)
+\item 
+const char $\ast$ \mbox{\hyperlink{classQn_1_1CorrectionCalculator_a616c96ae201975106427677203bfd3c8}{Get\+Accepted\+Data\+Detector\+Configuration\+Name}} (Int\+\_\+t detector\+Id, Int\+\_\+t index) const
+\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionCalculator_abd87637ad85b843ff19877814d2dddd4}{Process\+Event}} ()
+\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionCalculator_aaafca143aa07fcc93936b53877e65452}{Clear\+Event}} ()
+\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionCalculator_a1a8056c9dcc824dd62057d41cf9ba4c0}{Finalize\+Qn\+Corrections\+Framework}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classQn_1_1CorrectionCalculator_a66db1979cc23ca81e8cace68d816f8c3}\label{classQn_1_1CorrectionCalculator_a66db1979cc23ca81e8cace68d816f8c3}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Correction\+Calculator@{Correction\+Calculator}}
+\index{Correction\+Calculator@{Correction\+Calculator}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Correction\+Calculator()}{CorrectionCalculator()}}
+{\footnotesize\ttfamily Qn\+::\+Correction\+Calculator\+::\+Correction\+Calculator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default constructor. The class owns the detectors and will be destroyed with it \mbox{\Hypertarget{classQn_1_1CorrectionCalculator_a52d30901588086ead7400efffcc56c98}\label{classQn_1_1CorrectionCalculator_a52d30901588086ead7400efffcc56c98}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!````~Correction\+Calculator@{$\sim$\+Correction\+Calculator}}
+\index{````~Correction\+Calculator@{$\sim$\+Correction\+Calculator}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{$\sim$\+Correction\+Calculator()}{~CorrectionCalculator()}}
+{\footnotesize\ttfamily Qn\+::\+Correction\+Calculator\+::$\sim$\+Correction\+Calculator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Default destructor Deletes the memory taken 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQn_1_1CorrectionCalculator_ab50f8695fcc8a8a4765fb6d9cf45a5d6}\label{classQn_1_1CorrectionCalculator_ab50f8695fcc8a8a4765fb6d9cf45a5d6}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Add\+Data\+Vector@{Add\+Data\+Vector}}
+\index{Add\+Data\+Vector@{Add\+Data\+Vector}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Add\+Data\+Vector()}{AddDataVector()}}
+{\footnotesize\ttfamily Int\+\_\+t Qn\+::\+Correction\+Calculator\+::\+Add\+Data\+Vector (\begin{DoxyParamCaption}\item[{Int\+\_\+t}]{detector\+Id,  }\item[{Double\+\_\+t}]{phi,  }\item[{Double\+\_\+t}]{weight = {\ttfamily 1.0},  }\item[{Int\+\_\+t}]{channel\+Id = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+New data vector for the framework The request is transmitted to the passed detector together with the current content of the variable bank. 
+\begin{DoxyParams}{Parameters}
+{\em detector\+Id} & id of the involved detector \\
+\hline
+{\em phi} & azimuthal angle \\
+\hline
+{\em weight} & the weight of the data vector \\
+\hline
+{\em channel\+Id} & the channel Id that originates the data vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of detector configurations that accepted and stored the data vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionCalculator_a31d52031dbe77275dc0c6fea04675464}\label{classQn_1_1CorrectionCalculator_a31d52031dbe77275dc0c6fea04675464}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Add\+Detector@{Add\+Detector}}
+\index{Add\+Detector@{Add\+Detector}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Add\+Detector()}{AddDetector()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Calculator\+::\+Add\+Detector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQn_1_1CorrectionDetector}{Correction\+Detector}} $\ast$}]{detector }\end{DoxyParamCaption})}
+
+Adds a new detector Checks for an already added detector and for a detector id out of range. If so, gives a runtime error to inform of misuse. 
+\begin{DoxyParams}{Parameters}
+{\em detector} & the new detector to incorporate to the framework \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionCalculator_aaafca143aa07fcc93936b53877e65452}\label{classQn_1_1CorrectionCalculator_aaafca143aa07fcc93936b53877e65452}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Clear\+Event@{Clear\+Event}}
+\index{Clear\+Event@{Clear\+Event}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Clear\+Event()}{ClearEvent()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Calculator\+::\+Clear\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Clear the current event
+
+The request is transmitted to the different detectors.
+
+Must be called only at the end of each event to start processing the next one \mbox{\Hypertarget{classQn_1_1CorrectionCalculator_a1a8056c9dcc824dd62057d41cf9ba4c0}\label{classQn_1_1CorrectionCalculator_a1a8056c9dcc824dd62057d41cf9ba4c0}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Finalize\+Qn\+Corrections\+Framework@{Finalize\+Qn\+Corrections\+Framework}}
+\index{Finalize\+Qn\+Corrections\+Framework@{Finalize\+Qn\+Corrections\+Framework}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Finalize\+Qn\+Corrections\+Framework()}{FinalizeQnCorrectionsFramework()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Calculator\+::\+Finalize\+Qn\+Corrections\+Framework (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Produce the final output and release the framework. Produce the all data lists that collect data from all concurrent processes. \mbox{\Hypertarget{classQn_1_1CorrectionCalculator_a424e42bfb3c9d9591463c41644c9f6f6}\label{classQn_1_1CorrectionCalculator_a424e42bfb3c9d9591463c41644c9f6f6}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Find\+Detector@{Find\+Detector}}
+\index{Find\+Detector@{Find\+Detector}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Find\+Detector()}{FindDetector()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQn_1_1CorrectionDetector}{Correction\+Detector}} $\ast$ Qn\+::\+Correction\+Calculator\+::\+Find\+Detector (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name }\end{DoxyParamCaption}) const}
+
+Searches for a concrete detector by name 
+\begin{DoxyParams}{Parameters}
+{\em name} & the name of the detector to find \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the found detector (N\+U\+LL if not found) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionCalculator_affd2bd5b4eb73289f03356c3246dfeb3}\label{classQn_1_1CorrectionCalculator_affd2bd5b4eb73289f03356c3246dfeb3}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Find\+Detector@{Find\+Detector}}
+\index{Find\+Detector@{Find\+Detector}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Find\+Detector()}{FindDetector()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQn_1_1CorrectionDetector}{Correction\+Detector}} $\ast$ Qn\+::\+Correction\+Calculator\+::\+Find\+Detector (\begin{DoxyParamCaption}\item[{Int\+\_\+t}]{id }\end{DoxyParamCaption}) const}
+
+Searches for a concrete detector by detector id 
+\begin{DoxyParams}{Parameters}
+{\em id} & the id of the detector to find \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the found detector (N\+U\+LL if not found) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionCalculator_a0bc04e4ee0d401f3336cce67089cfbd7}\label{classQn_1_1CorrectionCalculator_a0bc04e4ee0d401f3336cce67089cfbd7}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Find\+Detector\+Configuration@{Find\+Detector\+Configuration}}
+\index{Find\+Detector\+Configuration@{Find\+Detector\+Configuration}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Find\+Detector\+Configuration()}{FindDetectorConfiguration()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQn_1_1DetectorConfiguration}{Detector\+Configuration}} $\ast$ Qn\+::\+Correction\+Calculator\+::\+Find\+Detector\+Configuration (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name }\end{DoxyParamCaption}) const}
+
+Searches for a concrete detector configuration by name 
+\begin{DoxyParams}{Parameters}
+{\em name} & the name of the detector configuration to find \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the found detector configuration (N\+U\+LL if not found) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionCalculator_a616c96ae201975106427677203bfd3c8}\label{classQn_1_1CorrectionCalculator_a616c96ae201975106427677203bfd3c8}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Get\+Accepted\+Data\+Detector\+Configuration\+Name@{Get\+Accepted\+Data\+Detector\+Configuration\+Name}}
+\index{Get\+Accepted\+Data\+Detector\+Configuration\+Name@{Get\+Accepted\+Data\+Detector\+Configuration\+Name}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Get\+Accepted\+Data\+Detector\+Configuration\+Name()}{GetAcceptedDataDetectorConfigurationName()}}
+{\footnotesize\ttfamily const char $\ast$ Qn\+::\+Correction\+Calculator\+::\+Get\+Accepted\+Data\+Detector\+Configuration\+Name (\begin{DoxyParamCaption}\item[{Int\+\_\+t}]{detector\+Id,  }\item[{Int\+\_\+t}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets the name of the detector configuration at index that accepted last data vector 
+\begin{DoxyParams}{Parameters}
+{\em detector\+Id} & id of the involved detector \\
+\hline
+{\em index} & the position in the list of accepted data vector configuration \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the configuration name 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionCalculator_a7aeab06a810f9b535b9c7532b64c57e7}\label{classQn_1_1CorrectionCalculator_a7aeab06a810f9b535b9c7532b64c57e7}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Get\+Calibration\+Histograms\+Container\+Name@{Get\+Calibration\+Histograms\+Container\+Name}}
+\index{Get\+Calibration\+Histograms\+Container\+Name@{Get\+Calibration\+Histograms\+Container\+Name}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Get\+Calibration\+Histograms\+Container\+Name()}{GetCalibrationHistogramsContainerName()}}
+{\footnotesize\ttfamily const char$\ast$ Qn\+::\+Correction\+Calculator\+::\+Get\+Calibration\+Histograms\+Container\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets the name of the calibration histograms container \begin{DoxyReturn}{Returns}
+the calibration histograms container name 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionCalculator_a2cb630436105a18170a5adc2d1dae78a}\label{classQn_1_1CorrectionCalculator_a2cb630436105a18170a5adc2d1dae78a}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Get\+Calibration\+Nve\+Q\+A\+Histograms\+Container\+Name@{Get\+Calibration\+Nve\+Q\+A\+Histograms\+Container\+Name}}
+\index{Get\+Calibration\+Nve\+Q\+A\+Histograms\+Container\+Name@{Get\+Calibration\+Nve\+Q\+A\+Histograms\+Container\+Name}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Get\+Calibration\+Nve\+Q\+A\+Histograms\+Container\+Name()}{GetCalibrationNveQAHistogramsContainerName()}}
+{\footnotesize\ttfamily const char$\ast$ Qn\+::\+Correction\+Calculator\+::\+Get\+Calibration\+Nve\+Q\+A\+Histograms\+Container\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets the name of the non validated calibration entries QA histograms container \begin{DoxyReturn}{Returns}
+the calibration QA histograms container name 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionCalculator_a4b36448df2483b65b25c5f8c2023cf1a}\label{classQn_1_1CorrectionCalculator_a4b36448df2483b65b25c5f8c2023cf1a}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Get\+Calibration\+Q\+A\+Histograms\+Container\+Name@{Get\+Calibration\+Q\+A\+Histograms\+Container\+Name}}
+\index{Get\+Calibration\+Q\+A\+Histograms\+Container\+Name@{Get\+Calibration\+Q\+A\+Histograms\+Container\+Name}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Get\+Calibration\+Q\+A\+Histograms\+Container\+Name()}{GetCalibrationQAHistogramsContainerName()}}
+{\footnotesize\ttfamily const char$\ast$ Qn\+::\+Correction\+Calculator\+::\+Get\+Calibration\+Q\+A\+Histograms\+Container\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets the name of the calibration QA histograms container \begin{DoxyReturn}{Returns}
+the calibration QA histograms container name 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionCalculator_aee791a60fb690d80912719312abb2a15}\label{classQn_1_1CorrectionCalculator_aee791a60fb690d80912719312abb2a15}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Get\+Data\+Container@{Get\+Data\+Container}}
+\index{Get\+Data\+Container@{Get\+Data\+Container}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Get\+Data\+Container()}{GetDataContainer()}}
+{\footnotesize\ttfamily double$\ast$ Qn\+::\+Correction\+Calculator\+::\+Get\+Data\+Container (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets a pointer to the data variables bank \begin{DoxyReturn}{Returns}
+the pointer to the data container 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionCalculator_a9234784d26c9658bf2da7052f7652ebb}\label{classQn_1_1CorrectionCalculator_a9234784d26c9658bf2da7052f7652ebb}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Get\+Data\+Pointer@{Get\+Data\+Pointer}}
+\index{Get\+Data\+Pointer@{Get\+Data\+Pointer}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Get\+Data\+Pointer()}{GetDataPointer()}}
+{\footnotesize\ttfamily double$\ast$$\ast$ Qn\+::\+Correction\+Calculator\+::\+Get\+Data\+Pointer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets a pointer to the data variables bank \begin{DoxyReturn}{Returns}
+the pointer to the data container 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionCalculator_acc68a2a755636f395fe0baaff56e19d9}\label{classQn_1_1CorrectionCalculator_acc68a2a755636f395fe0baaff56e19d9}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Get\+Detector\+Qn\+Vector@{Get\+Detector\+Qn\+Vector}}
+\index{Get\+Detector\+Qn\+Vector@{Get\+Detector\+Qn\+Vector}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Get\+Detector\+Qn\+Vector()}{GetDetectorQnVector()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classQn_1_1CorrectionQnVector}{Correction\+Qn\+Vector}} $\ast$ Qn\+::\+Correction\+Calculator\+::\+Get\+Detector\+Qn\+Vector (\begin{DoxyParamCaption}\item[{const char $\ast$}]{subdetector,  }\item[{const char $\ast$}]{expectedstep = {\ttfamily \char`\"{}latest\char`\"{}},  }\item[{const char $\ast$}]{altstep = {\ttfamily \char`\"{}latest\char`\"{}} }\end{DoxyParamCaption}) const}
+
+Get out of the detector configuration \mbox{\hyperlink{namespaceQn}{Qn}} vector list the \mbox{\hyperlink{namespaceQn}{Qn}} vector which complies the expected or alternative correction step 
+\begin{DoxyParams}{Parameters}
+{\em subdetector} & the name of the detector configuration of interest \\
+\hline
+{\em expectedstep} & the name of the expected last correction applied \\
+\hline
+{\em altstep} & the name of the alternative correction step if the expected one is not found \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the found \mbox{\hyperlink{namespaceQn}{Qn}} vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionCalculator_aefeaabf638391df34dba7527ac11302c}\label{classQn_1_1CorrectionCalculator_aefeaabf638391df34dba7527ac11302c}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Get\+Detector\+Qn\+Vector\+List@{Get\+Detector\+Qn\+Vector\+List}}
+\index{Get\+Detector\+Qn\+Vector\+List@{Get\+Detector\+Qn\+Vector\+List}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Get\+Detector\+Qn\+Vector\+List()}{GetDetectorQnVectorList()}}
+{\footnotesize\ttfamily const T\+List $\ast$ Qn\+::\+Correction\+Calculator\+::\+Get\+Detector\+Qn\+Vector\+List (\begin{DoxyParamCaption}\item[{const char $\ast$}]{subdetector }\end{DoxyParamCaption}) const}
+
+Get the detector configuration \mbox{\hyperlink{namespaceQn}{Qn}} vector list 
+\begin{DoxyParams}{Parameters}
+{\em subdetector} & the name of the detector configuration of interest \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the found \mbox{\hyperlink{namespaceQn}{Qn}} vector list 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionCalculator_a1cf177c6ef11b329e7cbcece3639d2cc}\label{classQn_1_1CorrectionCalculator_a1cf177c6ef11b329e7cbcece3639d2cc}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Get\+Detector\+Qn\+Vector\+Ptr@{Get\+Detector\+Qn\+Vector\+Ptr}}
+\index{Get\+Detector\+Qn\+Vector\+Ptr@{Get\+Detector\+Qn\+Vector\+Ptr}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Get\+Detector\+Qn\+Vector\+Ptr()}{GetDetectorQnVectorPtr()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classQn_1_1CorrectionQnVector}{Correction\+Qn\+Vector}} $\ast$ Qn\+::\+Correction\+Calculator\+::\+Get\+Detector\+Qn\+Vector\+Ptr (\begin{DoxyParamCaption}\item[{const char $\ast$}]{subdetector,  }\item[{const char $\ast$}]{expectedstep = {\ttfamily \char`\"{}latest\char`\"{}},  }\item[{const char $\ast$}]{altstep = {\ttfamily \char`\"{}latest\char`\"{}} }\end{DoxyParamCaption}) const}
+
+Get out of the detector configuration \mbox{\hyperlink{namespaceQn}{Qn}} vector list the \mbox{\hyperlink{namespaceQn}{Qn}} vector which complies the expected or alternative correction step 
+\begin{DoxyParams}{Parameters}
+{\em subdetector} & the name of the detector configuration of interest \\
+\hline
+{\em expectedstep} & the name of the expected last correction applied \\
+\hline
+{\em altstep} & the name of the alternative correction step if the expected one is not found \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the found \mbox{\hyperlink{namespaceQn}{Qn}} vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionCalculator_a6fadf124a9086811170938d32c7e7ded}\label{classQn_1_1CorrectionCalculator_a6fadf124a9086811170938d32c7e7ded}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Get\+Nve\+Q\+A\+Histograms\+List@{Get\+Nve\+Q\+A\+Histograms\+List}}
+\index{Get\+Nve\+Q\+A\+Histograms\+List@{Get\+Nve\+Q\+A\+Histograms\+List}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Get\+Nve\+Q\+A\+Histograms\+List()}{GetNveQAHistogramsList()}}
+{\footnotesize\ttfamily T\+List$\ast$ Qn\+::\+Correction\+Calculator\+::\+Get\+Nve\+Q\+A\+Histograms\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets the non validated entries QA histograms list \begin{DoxyReturn}{Returns}
+the list of QA histograms 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionCalculator_ab09eb2913769e2624959d2edafe2c608}\label{classQn_1_1CorrectionCalculator_ab09eb2913769e2624959d2edafe2c608}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Get\+Output\+Histograms\+List@{Get\+Output\+Histograms\+List}}
+\index{Get\+Output\+Histograms\+List@{Get\+Output\+Histograms\+List}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Get\+Output\+Histograms\+List()}{GetOutputHistogramsList()}}
+{\footnotesize\ttfamily T\+List$\ast$ Qn\+::\+Correction\+Calculator\+::\+Get\+Output\+Histograms\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets the output histograms list \begin{DoxyReturn}{Returns}
+the list of histograms for building correction parameters 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionCalculator_abae9945e1ce19dc5f02840ba7b254ac4}\label{classQn_1_1CorrectionCalculator_abae9945e1ce19dc5f02840ba7b254ac4}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Get\+Q\+A\+Histograms\+List@{Get\+Q\+A\+Histograms\+List}}
+\index{Get\+Q\+A\+Histograms\+List@{Get\+Q\+A\+Histograms\+List}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Get\+Q\+A\+Histograms\+List()}{GetQAHistogramsList()}}
+{\footnotesize\ttfamily T\+List$\ast$ Qn\+::\+Correction\+Calculator\+::\+Get\+Q\+A\+Histograms\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets the QA histograms list \begin{DoxyReturn}{Returns}
+the list of QA histograms 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionCalculator_adf7ecbc252f8265d0dcd11aa9bdc01db}\label{classQn_1_1CorrectionCalculator_adf7ecbc252f8265d0dcd11aa9bdc01db}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Get\+Qn\+Vector\+List@{Get\+Qn\+Vector\+List}}
+\index{Get\+Qn\+Vector\+List@{Get\+Qn\+Vector\+List}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Get\+Qn\+Vector\+List()}{GetQnVectorList()}}
+{\footnotesize\ttfamily T\+List$\ast$ Qn\+::\+Correction\+Calculator\+::\+Get\+Qn\+Vector\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets the \mbox{\hyperlink{namespaceQn}{Qn}} vector tree \begin{DoxyReturn}{Returns}
+the list of detector configurations \mbox{\hyperlink{namespaceQn}{Qn}} vectors 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionCalculator_adf1e27092d3097725f051716bf3205d8}\label{classQn_1_1CorrectionCalculator_adf1e27092d3097725f051716bf3205d8}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Get\+Qn\+Vector\+Tree@{Get\+Qn\+Vector\+Tree}}
+\index{Get\+Qn\+Vector\+Tree@{Get\+Qn\+Vector\+Tree}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Get\+Qn\+Vector\+Tree()}{GetQnVectorTree()}}
+{\footnotesize\ttfamily T\+Tree$\ast$ Qn\+::\+Correction\+Calculator\+::\+Get\+Qn\+Vector\+Tree (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets the \mbox{\hyperlink{namespaceQn}{Qn}} vector tree \begin{DoxyReturn}{Returns}
+the tree of histograms for building correction parameters 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionCalculator_aa36a55165d5992bf626705df5bc4c992}\label{classQn_1_1CorrectionCalculator_aa36a55165d5992bf626705df5bc4c992}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Get\+Should\+Fill\+Nve\+Q\+A\+Histograms@{Get\+Should\+Fill\+Nve\+Q\+A\+Histograms}}
+\index{Get\+Should\+Fill\+Nve\+Q\+A\+Histograms@{Get\+Should\+Fill\+Nve\+Q\+A\+Histograms}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Get\+Should\+Fill\+Nve\+Q\+A\+Histograms()}{GetShouldFillNveQAHistograms()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Correction\+Calculator\+::\+Get\+Should\+Fill\+Nve\+Q\+A\+Histograms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get whether the non validated entries QA histograms should be filled \begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if the non validated entries QA histograms should be filled 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionCalculator_a1c3dca90ca901753f71f95cfea0473de}\label{classQn_1_1CorrectionCalculator_a1c3dca90ca901753f71f95cfea0473de}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Get\+Should\+Fill\+Output\+Histograms@{Get\+Should\+Fill\+Output\+Histograms}}
+\index{Get\+Should\+Fill\+Output\+Histograms@{Get\+Should\+Fill\+Output\+Histograms}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Get\+Should\+Fill\+Output\+Histograms()}{GetShouldFillOutputHistograms()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Correction\+Calculator\+::\+Get\+Should\+Fill\+Output\+Histograms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get whether the output histograms should be filled \begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if the output histograms should be filled 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionCalculator_a9ccaff2f7d4e3b7d5f7badfc6e904b91}\label{classQn_1_1CorrectionCalculator_a9ccaff2f7d4e3b7d5f7badfc6e904b91}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Get\+Should\+Fill\+Q\+A\+Histograms@{Get\+Should\+Fill\+Q\+A\+Histograms}}
+\index{Get\+Should\+Fill\+Q\+A\+Histograms@{Get\+Should\+Fill\+Q\+A\+Histograms}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Get\+Should\+Fill\+Q\+A\+Histograms()}{GetShouldFillQAHistograms()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Correction\+Calculator\+::\+Get\+Should\+Fill\+Q\+A\+Histograms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get whether the QA histograms should be filled \begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if the QA histograms should be filled 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionCalculator_aeb441a15ddd2c239a7f1d1fa1c9d5021}\label{classQn_1_1CorrectionCalculator_aeb441a15ddd2c239a7f1d1fa1c9d5021}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Get\+Should\+Fill\+Qn\+Vector\+Tree@{Get\+Should\+Fill\+Qn\+Vector\+Tree}}
+\index{Get\+Should\+Fill\+Qn\+Vector\+Tree@{Get\+Should\+Fill\+Qn\+Vector\+Tree}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Get\+Should\+Fill\+Qn\+Vector\+Tree()}{GetShouldFillQnVectorTree()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Correction\+Calculator\+::\+Get\+Should\+Fill\+Qn\+Vector\+Tree (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get whether the \mbox{\hyperlink{namespaceQn}{Qn}} vector tree should be populated \begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if the \mbox{\hyperlink{namespaceQn}{Qn}} vector should be written into a T\+Tree 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionCalculator_ae3601c3eb23395888308b80a2017ac4e}\label{classQn_1_1CorrectionCalculator_ae3601c3eb23395888308b80a2017ac4e}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Initialize\+Qn\+Corrections\+Framework@{Initialize\+Qn\+Corrections\+Framework}}
+\index{Initialize\+Qn\+Corrections\+Framework@{Initialize\+Qn\+Corrections\+Framework}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Initialize\+Qn\+Corrections\+Framework()}{InitializeQnCorrectionsFramework()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Calculator\+::\+Initialize\+Qn\+Corrections\+Framework (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Initializes the correction framework Basically the different list containing framework objects are built. Calibration histograms are on a per process basis while QA histograms don\textquotesingle{}t. \mbox{\Hypertarget{classQn_1_1CorrectionCalculator_abd87637ad85b843ff19877814d2dddd4}\label{classQn_1_1CorrectionCalculator_abd87637ad85b843ff19877814d2dddd4}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Process\+Event@{Process\+Event}}
+\index{Process\+Event@{Process\+Event}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Process\+Event()}{ProcessEvent()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Calculator\+::\+Process\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Process the current event
+
+The request is transmitted to the different detectors first for applying the different correction steps and then to collect the correction steps data.
+
+Must be called only when the whole data vectors for the event have been incorporated to the framework. \mbox{\Hypertarget{classQn_1_1CorrectionCalculator_a62057548ca452e31e76ff98c9e5b6fd0}\label{classQn_1_1CorrectionCalculator_a62057548ca452e31e76ff98c9e5b6fd0}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Set\+Calibration\+Histograms\+List@{Set\+Calibration\+Histograms\+List}}
+\index{Set\+Calibration\+Histograms\+List@{Set\+Calibration\+Histograms\+List}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Set\+Calibration\+Histograms\+List()}{SetCalibrationHistogramsList()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Calculator\+::\+Set\+Calibration\+Histograms\+List (\begin{DoxyParamCaption}\item[{T\+File $\ast$}]{calibration\+File }\end{DoxyParamCaption})}
+
+Sets the base list that will own the input calibration histograms 
+\begin{DoxyParams}{Parameters}
+{\em calibration\+File} & the file \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionCalculator_a74c96c14696e8221ec839d7c8b5f773b}\label{classQn_1_1CorrectionCalculator_a74c96c14696e8221ec839d7c8b5f773b}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Set\+Current\+Process\+List\+Name@{Set\+Current\+Process\+List\+Name}}
+\index{Set\+Current\+Process\+List\+Name@{Set\+Current\+Process\+List\+Name}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Set\+Current\+Process\+List\+Name()}{SetCurrentProcessListName()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Calculator\+::\+Set\+Current\+Process\+List\+Name (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name }\end{DoxyParamCaption})}
+
+Set the name of the list that should be considered as assigned to the current process If the stored process list name is the default one and the support histograms are already created, change the list name and store the new name and get the new process list on the calibration histograms list if any and pass it to the detectors for input calibration histograms attachment. Changing process list name on the fly during a running process is not supported. If the list of concurrent processes names is not empty, the new process name should be in the list. If not a run time error is raised. 
+\begin{DoxyParams}{Parameters}
+{\em name} & the name of the list \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionCalculator_ac0ad939e7fbdcb80c6b2ee08fc7d3447}\label{classQn_1_1CorrectionCalculator_ac0ad939e7fbdcb80c6b2ee08fc7d3447}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Set\+List\+Of\+Processes\+Names@{Set\+List\+Of\+Processes\+Names}}
+\index{Set\+List\+Of\+Processes\+Names@{Set\+List\+Of\+Processes\+Names}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Set\+List\+Of\+Processes\+Names()}{SetListOfProcessesNames()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Calculator\+::\+Set\+List\+Of\+Processes\+Names (\begin{DoxyParamCaption}\item[{T\+Obj\+Array $\ast$}]{names }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Establishes the list of processes names 
+\begin{DoxyParams}{Parameters}
+{\em names} & an array containing the processes names \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionCalculator_a97f032c649755a11b88f919dbb02c717}\label{classQn_1_1CorrectionCalculator_a97f032c649755a11b88f919dbb02c717}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Set\+Should\+Fill\+Nve\+Q\+A\+Histograms@{Set\+Should\+Fill\+Nve\+Q\+A\+Histograms}}
+\index{Set\+Should\+Fill\+Nve\+Q\+A\+Histograms@{Set\+Should\+Fill\+Nve\+Q\+A\+Histograms}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Set\+Should\+Fill\+Nve\+Q\+A\+Histograms()}{SetShouldFillNveQAHistograms()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Calculator\+::\+Set\+Should\+Fill\+Nve\+Q\+A\+Histograms (\begin{DoxyParamCaption}\item[{Bool\+\_\+t}]{enable = {\ttfamily kTRUE} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Enables disables the filling of non validated entries QA histograms 
+\begin{DoxyParams}{Parameters}
+{\em enable} & k\+T\+R\+UE for enabling non validated entries QA histograms filling \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionCalculator_a00dfda0d66bfdeeec6497580e491774a}\label{classQn_1_1CorrectionCalculator_a00dfda0d66bfdeeec6497580e491774a}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Set\+Should\+Fill\+Output\+Histograms@{Set\+Should\+Fill\+Output\+Histograms}}
+\index{Set\+Should\+Fill\+Output\+Histograms@{Set\+Should\+Fill\+Output\+Histograms}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Set\+Should\+Fill\+Output\+Histograms()}{SetShouldFillOutputHistograms()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Calculator\+::\+Set\+Should\+Fill\+Output\+Histograms (\begin{DoxyParamCaption}\item[{Bool\+\_\+t}]{enable = {\ttfamily kTRUE} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Enables disables the filling of histograms for building correction parameters 
+\begin{DoxyParams}{Parameters}
+{\em enable} & k\+T\+R\+UE for enabling histograms filling \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionCalculator_a598ddf62e8f05b71bf3e5c573a4af6c2}\label{classQn_1_1CorrectionCalculator_a598ddf62e8f05b71bf3e5c573a4af6c2}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Set\+Should\+Fill\+Q\+A\+Histograms@{Set\+Should\+Fill\+Q\+A\+Histograms}}
+\index{Set\+Should\+Fill\+Q\+A\+Histograms@{Set\+Should\+Fill\+Q\+A\+Histograms}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Set\+Should\+Fill\+Q\+A\+Histograms()}{SetShouldFillQAHistograms()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Calculator\+::\+Set\+Should\+Fill\+Q\+A\+Histograms (\begin{DoxyParamCaption}\item[{Bool\+\_\+t}]{enable = {\ttfamily kTRUE} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Enables disables the filling of QA histograms 
+\begin{DoxyParams}{Parameters}
+{\em enable} & k\+T\+R\+UE for enabling QA histograms filling \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionCalculator_abfa3d7424b677f225d2e7c4f37d70e8a}\label{classQn_1_1CorrectionCalculator_abfa3d7424b677f225d2e7c4f37d70e8a}} 
+\index{Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}!Set\+Should\+Fill\+Qn\+Vector\+Tree@{Set\+Should\+Fill\+Qn\+Vector\+Tree}}
+\index{Set\+Should\+Fill\+Qn\+Vector\+Tree@{Set\+Should\+Fill\+Qn\+Vector\+Tree}!Qn\+::\+Correction\+Calculator@{Qn\+::\+Correction\+Calculator}}
+\subsubsection{\texorpdfstring{Set\+Should\+Fill\+Qn\+Vector\+Tree()}{SetShouldFillQnVectorTree()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Calculator\+::\+Set\+Should\+Fill\+Qn\+Vector\+Tree (\begin{DoxyParamCaption}\item[{Bool\+\_\+t}]{enable = {\ttfamily kTRUE} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Enables disables the output of \mbox{\hyperlink{namespaceQn}{Qn}} vector on a T\+Tree structure 
+\begin{DoxyParams}{Parameters}
+{\em enable} & k\+T\+R\+UE for enabling \mbox{\hyperlink{namespaceQn}{Qn}} vector output into a T\+Tree \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/include/Correction\+Calculator.\+h\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/Correction\+Calculator.\+cpp\end{DoxyCompactItemize}

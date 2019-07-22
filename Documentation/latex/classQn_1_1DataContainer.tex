@@ -1,0 +1,736 @@
+\hypertarget{classQn_1_1DataContainer}{}\section{Qn\+:\+:Data\+Container$<$ T $>$ Class Template Reference}
+\label{classQn_1_1DataContainer}\index{Qn\+::\+Data\+Container$<$ T $>$@{Qn\+::\+Data\+Container$<$ T $>$}}
+
+
+Template container class for Q-\/vectors and correlations.  
+
+
+
+
+{\ttfamily \#include $<$Data\+Container.\+h$>$}
+
+Inheritance diagram for Qn\+:\+:Data\+Container$<$ T $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classQn_1_1DataContainer}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1DataContainer_a5a4ec4b1dad17823d08521e87bb82d80}\label{classQn_1_1DataContainer_a5a4ec4b1dad17823d08521e87bb82d80}} 
+enum {\bfseries Settings} \{ {\bfseries Is\+Mergable} = B\+IT(14), 
+{\bfseries N\+Central\+Settings} = B\+IT(15)
+ \}
+\item 
+\mbox{\Hypertarget{classQn_1_1DataContainer_ada8edb56cdc0396c0221600a29a19b15}\label{classQn_1_1DataContainer_ada8edb56cdc0396c0221600a29a19b15}} 
+using {\bfseries Qn\+Axes} = std\+::vector$<$ \mbox{\hyperlink{classQn_1_1Axis}{Axis}} $>$
+\item 
+\mbox{\Hypertarget{classQn_1_1DataContainer_a3b96114bb9dfccb532095194bd26837c}\label{classQn_1_1DataContainer_a3b96114bb9dfccb532095194bd26837c}} 
+using {\bfseries size\+\_\+type} = std\+::size\+\_\+t
+\item 
+\mbox{\Hypertarget{classQn_1_1DataContainer_a1cf7439f08b74652e4016d7b6586dbf1}\label{classQn_1_1DataContainer_a1cf7439f08b74652e4016d7b6586dbf1}} 
+using {\bfseries iterator} = typename std\+::vector$<$ T $>$\+::iterator
+\item 
+\mbox{\Hypertarget{classQn_1_1DataContainer_a241d6f7b4490707b08ce0a8aa08b07a1}\label{classQn_1_1DataContainer_a241d6f7b4490707b08ce0a8aa08b07a1}} 
+using {\bfseries const\+\_\+iterator} = typename std\+::vector$<$ T $>$\+::const\+\_\+iterator
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classQn_1_1DataContainer_a5443239806a27f42e502c88d6f76328e}{Data\+Container}} ()
+\item 
+\mbox{\hyperlink{classQn_1_1DataContainer_a1f171432b577b5d0061908d461c39198}{Data\+Container}} (std\+::vector$<$ \mbox{\hyperlink{classQn_1_1Axis}{Axis}} $>$ axes)
+\item 
+\mbox{\Hypertarget{classQn_1_1DataContainer_a92dd60f02cc0f05d0c06ca95d68b3551}\label{classQn_1_1DataContainer_a92dd60f02cc0f05d0c06ca95d68b3551}} 
+const\+\_\+iterator \mbox{\hyperlink{classQn_1_1DataContainer_a92dd60f02cc0f05d0c06ca95d68b3551}{begin}} () const
+\begin{DoxyCompactList}\small\item\em iterator for external use \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQn_1_1DataContainer_a8ea9e17c117d88252bee513bed2208b6}\label{classQn_1_1DataContainer_a8ea9e17c117d88252bee513bed2208b6}} 
+const\+\_\+iterator \mbox{\hyperlink{classQn_1_1DataContainer_a8ea9e17c117d88252bee513bed2208b6}{end}} () const
+\begin{DoxyCompactList}\small\item\em iterator for external use \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQn_1_1DataContainer_ad9d4fa0d39d72c3e5cbf527c9b462322}\label{classQn_1_1DataContainer_ad9d4fa0d39d72c3e5cbf527c9b462322}} 
+iterator \mbox{\hyperlink{classQn_1_1DataContainer_ad9d4fa0d39d72c3e5cbf527c9b462322}{begin}} ()
+\begin{DoxyCompactList}\small\item\em iterator for external use \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQn_1_1DataContainer_aaab2056ff13b5342a5dc9a94ca6e9141}\label{classQn_1_1DataContainer_aaab2056ff13b5342a5dc9a94ca6e9141}} 
+iterator \mbox{\hyperlink{classQn_1_1DataContainer_aaab2056ff13b5342a5dc9a94ca6e9141}{end}} ()
+\begin{DoxyCompactList}\small\item\em iterator for external use \end{DoxyCompactList}\item 
+size\+\_\+type \mbox{\hyperlink{classQn_1_1DataContainer_a95370695e706347db87491cdd65fcffb}{size}} () const noexcept
+\item 
+void \mbox{\hyperlink{classQn_1_1DataContainer_a1e60f7b54d499b8bca9ea2a04fc55340}{Add\+Axes}} (const Qn\+Axes \&axes)
+\item 
+void \mbox{\hyperlink{classQn_1_1DataContainer_a5fd9996f60f536d991b0b4f6cdd9d838}{Add\+Axis}} (const \mbox{\hyperlink{classQn_1_1Axis}{Axis}} \&axis)
+\item 
+void \mbox{\hyperlink{classQn_1_1DataContainer_a2baf9c75f0652ea0a0ef30aaf2ce8deb}{Initialize\+Entries}} (const T obj)
+\item 
+std\+::vector$<$ size\+\_\+type $>$ \mbox{\hyperlink{classQn_1_1DataContainer_a5acec0ed294b3225f32981636af698d7}{Get\+Diagonal}} (const Qn\+Axes \&axes)
+\item 
+T const  \& \mbox{\hyperlink{classQn_1_1DataContainer_a637662b4443d60c9aab35a906ee98877}{At}} (const typename std\+::vector$<$ size\+\_\+type $>$ \&bins) const
+\item 
+T \& \mbox{\hyperlink{classQn_1_1DataContainer_af1565f4febc1125cac6e1fed8398f38f}{At}} (const typename std\+::vector$<$ size\+\_\+type $>$ \&bins)
+\item 
+T \& \mbox{\hyperlink{classQn_1_1DataContainer_a929706074edc9dd3bcc89a68c307b9c3}{At}} (size\+\_\+type index) noexcept
+\item 
+T const  \& \mbox{\hyperlink{classQn_1_1DataContainer_af89617f2b9005713df9134dbd8417835}{At}} (size\+\_\+type index) const noexcept
+\item 
+{\footnotesize template$<$typename Function $>$ }\\void \mbox{\hyperlink{classQn_1_1DataContainer_a617cf83f205e54105a339e819592daf0}{Call\+On\+Element}} (const typename std\+::vector$<$ size\+\_\+type $>$ \&indices, Function \&\&lambda)
+\item 
+{\footnotesize template$<$typename Function $>$ }\\void \mbox{\hyperlink{classQn_1_1DataContainer_a1fa55b9f9adc8a07b3a4d7ed51b5516b}{Call\+On\+Element}} (Function \&\&lambda)
+\item 
+{\footnotesize template$<$typename Function $>$ }\\void \mbox{\hyperlink{classQn_1_1DataContainer_af663740b50d50356b29149e0d013d40d}{Call\+On\+Element}} (const std\+::vector$<$ float $>$ \&coordinates, Function \&\&lambda)
+\item 
+{\footnotesize template$<$typename Function $>$ }\\void \mbox{\hyperlink{classQn_1_1DataContainer_ad98f8acd6c4ac7f5ba171eb779acbcee}{Call\+On\+Element}} (const long index, Function \&\&lambda)
+\item 
+const Qn\+Axes \& \mbox{\hyperlink{classQn_1_1DataContainer_a8c603692b39277e0cfbaa83c69c31336}{Get\+Axes}} () const
+\item 
+Qn\+Axes \& \mbox{\hyperlink{classQn_1_1DataContainer_acf5507cd4e2b1cb26b58b176b9a7cde3}{Get\+Axes}} ()
+\item 
+\mbox{\hyperlink{classQn_1_1Axis}{Axis}} \mbox{\hyperlink{classQn_1_1DataContainer_a1fdc10d4a7feb391aa7291900c9e2073}{Get\+Axis}} (const std\+::string name) const
+\item 
+void \mbox{\hyperlink{classQn_1_1DataContainer_ac4cb2d0af4e28966603b97dc50e5ce50}{Get\+Index}} (std\+::vector$<$ size\+\_\+type $>$ \&indices, const unsigned long offset) const
+\item 
+std\+::vector$<$ size\+\_\+type $>$ \mbox{\hyperlink{classQn_1_1DataContainer_aa9b5b94b254a2e447b843b3bed6a9b92}{Get\+Index}} (const unsigned long offset) const
+\item 
+std\+::string \mbox{\hyperlink{classQn_1_1DataContainer_a50ede53a78fd13dfa1cf4bad0b04babc}{Get\+Bin\+Description}} (const unsigned long offset) const
+\item 
+{\footnotesize template$<$typename Function $>$ }\\\mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container}}$<$ T $>$ \mbox{\hyperlink{classQn_1_1DataContainer_ac20e9292be55e0241647f356c1d7bb4e}{Projection}} (const std\+::vector$<$ std\+::string $>$ axis\+\_\+names, Function \&\&lambda) const
+\item 
+\mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container}}$<$ T $>$ \mbox{\hyperlink{classQn_1_1DataContainer_a0f0c2dbb7e48d706ca19d45fa32f99f4}{Projection}} (const std\+::vector$<$ std\+::string $>$ axis\+\_\+names=\{\}) const
+\item 
+{\footnotesize template$<$typename Function $>$ }\\\mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container}}$<$ T $>$ \mbox{\hyperlink{classQn_1_1DataContainer_a40c7b7ffaa61bbf616006b2fa95f6d5f}{Projection\+Exclude}} (const std\+::vector$<$ std\+::string $>$ axis\+\_\+names, Function \&\&lambda, std\+::vector$<$ int $>$ exindices) const
+\item 
+{\footnotesize template$<$typename Function $>$ }\\\mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container}}$<$ T $>$ \mbox{\hyperlink{classQn_1_1DataContainer_a270d35d401e506983516dbd00728232d}{Map}} (Function \&\&lambda) const
+\item 
+\mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container}}$<$ T $>$ \mbox{\hyperlink{classQn_1_1DataContainer_a6f6590866c0cfe451cf966292d3eb69a}{Select}} (const \mbox{\hyperlink{classQn_1_1Axis}{Axis}} \&axis) const
+\item 
+{\footnotesize template$<$typename Function $>$ }\\\mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container}}$<$ T $>$ \mbox{\hyperlink{classQn_1_1DataContainer_aeac968c52250853cca2fd0ed2978c8e4}{Rebin}} (const \mbox{\hyperlink{classQn_1_1Axis}{Axis}} \&rebinaxis, Function \&\&lambda) const
+\item 
+\mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container}}$<$ T $>$ \mbox{\hyperlink{classQn_1_1DataContainer_a775225cf7b6e9bd66c7571531013c07d}{Rebin}} (const \mbox{\hyperlink{classQn_1_1Axis}{Axis}} \&rebinaxis) const
+\item 
+{\footnotesize template$<$typename Function $>$ }\\\mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container}}$<$ T $>$ \mbox{\hyperlink{classQn_1_1DataContainer_a2c165924fca1953fd09f2a7aabdb608c}{Filter}} (Function \&\&lambda) const
+\item 
+{\footnotesize template$<$typename Function $>$ }\\\mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container}}$<$ T $>$ \mbox{\hyperlink{classQn_1_1DataContainer_afe0598569174690569116e5120234b7d}{Apply}} (const \mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container}}$<$ T $>$ \&data, Function \&\&lambda) const
+\item 
+void \mbox{\hyperlink{classQn_1_1DataContainer_acd8c7e0e00f681929bf29f35830ff232}{Clear\+Data}} ()
+\item 
+void \mbox{\hyperlink{classQn_1_1DataContainer_a60a01024cc3b7c421ff1270608975ee7}{Clear\+Data\+At}} (const size\+\_\+type position)
+\item 
+bool \mbox{\hyperlink{classQn_1_1DataContainer_a5cb38267726d0c1e2196f51d066e306f}{Is\+Integrated}} () const
+\item 
+Long64\+\_\+t \mbox{\hyperlink{classQn_1_1DataContainer_a7bc5a8330ed6a0a1964fc27af7fd6775}{Merge}} (T\+Collection $\ast$inputlist)
+\item 
+void \mbox{\hyperlink{classQn_1_1DataContainer_a655e42708d02b905b28cba7fb4f0dd42}{Set\+Setting}} (unsigned int bits)
+\item 
+\mbox{\Hypertarget{classQn_1_1DataContainer_a18f35066b8d8519b827256ddd6971921}\label{classQn_1_1DataContainer_a18f35066b8d8519b827256ddd6971921}} 
+void {\bfseries Reset\+Setting} (unsigned int bits)
+\item 
+void \mbox{\hyperlink{classQn_1_1DataContainer_a146d918368c9ab5273e223fac3bcedf1}{N\+Draw}} (Option\+\_\+t $\ast$option, const std\+::string \&axis\+\_\+name=\char`\"{}\char`\"{})
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1DataContainer_acb108bdec1e5d316e0b8504546a961c4}{Browse}} (T\+Browser $\ast$b)
+\item 
+\mbox{\Hypertarget{classQn_1_1DataContainer_aab04c45c30d45f97b0d14fdf77b7e027}\label{classQn_1_1DataContainer_aab04c45c30d45f97b0d14fdf77b7e027}} 
+{\footnotesize template$<$$>$ }\\void {\bfseries Browse} (T\+Browser $\ast$b)
+\item 
+\mbox{\Hypertarget{classQn_1_1DataContainer_aa4a6b4892e6f6355e4eccc3676fb0398}\label{classQn_1_1DataContainer_aa4a6b4892e6f6355e4eccc3676fb0398}} 
+{\footnotesize template$<$$>$ }\\void {\bfseries Browse} (T\+Browser $\ast$b)
+\item 
+\mbox{\Hypertarget{classQn_1_1DataContainer_a66d138be93bbaed9617de46d0cb32505}\label{classQn_1_1DataContainer_a66d138be93bbaed9617de46d0cb32505}} 
+{\footnotesize template$<$$>$ }\\void {\bfseries N\+Draw} (Option\+\_\+t $\ast$option, const std\+::string \&axis\+\_\+name)
+\item 
+\mbox{\Hypertarget{classQn_1_1DataContainer_a33c502bca3a71804831f2a1dff0951b0}\label{classQn_1_1DataContainer_a33c502bca3a71804831f2a1dff0951b0}} 
+{\footnotesize template$<$$>$ }\\void {\bfseries Set\+Setting} (const unsigned int bits)
+\item 
+\mbox{\Hypertarget{classQn_1_1DataContainer_ab9bb103e9b8ecded19d30979809b08a3}\label{classQn_1_1DataContainer_ab9bb103e9b8ecded19d30979809b08a3}} 
+{\footnotesize template$<$$>$ }\\void {\bfseries Reset\+Setting} (const unsigned int bits)
+\item 
+\mbox{\Hypertarget{classQn_1_1DataContainer_a823ec9f69fcbbd4af4b31d8866806c25}\label{classQn_1_1DataContainer_a823ec9f69fcbbd4af4b31d8866806c25}} 
+{\footnotesize template$<$$>$ }\\Long64\+\_\+t {\bfseries Merge} (T\+Collection $\ast$inputlist)=delete
+\item 
+\mbox{\Hypertarget{classQn_1_1DataContainer_a76da5955d2884b691edd5afce6d3a531}\label{classQn_1_1DataContainer_a76da5955d2884b691edd5afce6d3a531}} 
+{\footnotesize template$<$$>$ }\\Long64\+\_\+t {\bfseries Merge} (T\+Collection $\ast$inputlist)=delete
+\item 
+\mbox{\Hypertarget{classQn_1_1DataContainer_a2fe2338539953479112cd96155b3bbd8}\label{classQn_1_1DataContainer_a2fe2338539953479112cd96155b3bbd8}} 
+{\footnotesize template$<$$>$ }\\Long64\+\_\+t {\bfseries Merge} (T\+Collection $\ast$inputlist)=delete
+\item 
+\mbox{\Hypertarget{classQn_1_1DataContainer_acce1b182d0c927793f12625b17a9666b}\label{classQn_1_1DataContainer_acce1b182d0c927793f12625b17a9666b}} 
+{\footnotesize template$<$$>$ }\\Long64\+\_\+t {\bfseries Merge} (T\+Collection $\ast$inputlist)=delete
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Qn\+::\+Data\+Container$<$ T $>$}
+
+Template container class for Q-\/vectors and correlations. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em T} & Type of object inside of container \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classQn_1_1DataContainer_a5443239806a27f42e502c88d6f76328e}\label{classQn_1_1DataContainer_a5443239806a27f42e502c88d6f76328e}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!Data\+Container@{Data\+Container}}
+\index{Data\+Container@{Data\+Container}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{Data\+Container()}{DataContainer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::\mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Default constructor Axes can be added later. If no axes are added the \mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container}} is integrated with only one entry. \mbox{\Hypertarget{classQn_1_1DataContainer_a1f171432b577b5d0061908d461c39198}\label{classQn_1_1DataContainer_a1f171432b577b5d0061908d461c39198}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!Data\+Container@{Data\+Container}}
+\index{Data\+Container@{Data\+Container}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{Data\+Container()}{DataContainer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::\mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container}} (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classQn_1_1Axis}{Axis}} $>$}]{axes }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+Constructor 
+\begin{DoxyParams}{Parameters}
+{\em axes} & vector of axes of the datacontainer. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQn_1_1DataContainer_a1e60f7b54d499b8bca9ea2a04fc55340}\label{classQn_1_1DataContainer_a1e60f7b54d499b8bca9ea2a04fc55340}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!Add\+Axes@{Add\+Axes}}
+\index{Add\+Axes@{Add\+Axes}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{Add\+Axes()}{AddAxes()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+void \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::Add\+Axes (\begin{DoxyParamCaption}\item[{const Qn\+Axes \&}]{axes }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds axes for storing data 
+\begin{DoxyParams}{Parameters}
+{\em axes} & vector of axes \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1DataContainer_a5fd9996f60f536d991b0b4f6cdd9d838}\label{classQn_1_1DataContainer_a5fd9996f60f536d991b0b4f6cdd9d838}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!Add\+Axis@{Add\+Axis}}
+\index{Add\+Axis@{Add\+Axis}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{Add\+Axis()}{AddAxis()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+void \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::Add\+Axis (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQn_1_1Axis}{Axis}} \&}]{axis }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds existing axis for storing the data with variable binning 
+\begin{DoxyParams}{Parameters}
+{\em axis} & \mbox{\hyperlink{classQn_1_1Axis}{Axis}} to be added. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1DataContainer_afe0598569174690569116e5120234b7d}\label{classQn_1_1DataContainer_afe0598569174690569116e5120234b7d}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!Apply@{Apply}}
+\index{Apply@{Apply}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{Apply()}{Apply()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+template$<$typename Function $>$ \\
+\mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container}}$<$T$>$ \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::Apply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container}}$<$ T $>$ \&}]{data,  }\item[{Function \&\&}]{lambda }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Apply function to two datacontainers. The axes need to have the same order. Elements in datacontainer with smaller dimensions are used as \char`\"{}integrated bins\char`\"{}. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Function} & type of function \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Datacontainer \\
+\hline
+{\em lambda} & function to be applied on both elements \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+resulting datacontainer. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1DataContainer_a637662b4443d60c9aab35a906ee98877}\label{classQn_1_1DataContainer_a637662b4443d60c9aab35a906ee98877}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!At@{At}}
+\index{At@{At}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{At()}{At()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+T const\& \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::At (\begin{DoxyParamCaption}\item[{const typename std\+::vector$<$ size\+\_\+type $>$ \&}]{bins }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get element in the specified bin 
+\begin{DoxyParams}{Parameters}
+{\em bins} & Vector of bin indices of the desired element \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1DataContainer_af1565f4febc1125cac6e1fed8398f38f}\label{classQn_1_1DataContainer_af1565f4febc1125cac6e1fed8398f38f}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!At@{At}}
+\index{At@{At}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{At()}{At()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+T\& \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::At (\begin{DoxyParamCaption}\item[{const typename std\+::vector$<$ size\+\_\+type $>$ \&}]{bins }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get element in the specified bin 
+\begin{DoxyParams}{Parameters}
+{\em bins} & Vector of bin indices of the desired element \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1DataContainer_a929706074edc9dd3bcc89a68c307b9c3}\label{classQn_1_1DataContainer_a929706074edc9dd3bcc89a68c307b9c3}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!At@{At}}
+\index{At@{At}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{At()}{At()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+T\& \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::At (\begin{DoxyParamCaption}\item[{size\+\_\+type}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Get element in the specified bin 
+\begin{DoxyParams}{Parameters}
+{\em index} & index of element \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1DataContainer_af89617f2b9005713df9134dbd8417835}\label{classQn_1_1DataContainer_af89617f2b9005713df9134dbd8417835}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!At@{At}}
+\index{At@{At}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{At()}{At()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+T const\& \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::At (\begin{DoxyParamCaption}\item[{size\+\_\+type}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Get element in the specified bin 
+\begin{DoxyParams}{Parameters}
+{\em index} & index of element \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1DataContainer_acb108bdec1e5d316e0b8504546a961c4}\label{classQn_1_1DataContainer_acb108bdec1e5d316e0b8504546a961c4}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!Browse@{Browse}}
+\index{Browse@{Browse}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{Browse()}{Browse()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+virtual void \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::Browse (\begin{DoxyParamCaption}\item[{T\+Browser $\ast$}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Display contents of \mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container}} in T\+Browser. Implementation for template specializations please see below. 
+\begin{DoxyParams}{Parameters}
+{\em b} & T\+Browser \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1DataContainer_a617cf83f205e54105a339e819592daf0}\label{classQn_1_1DataContainer_a617cf83f205e54105a339e819592daf0}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!Call\+On\+Element@{Call\+On\+Element}}
+\index{Call\+On\+Element@{Call\+On\+Element}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{Call\+On\+Element()}{CallOnElement()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+template$<$typename Function $>$ \\
+void \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::Call\+On\+Element (\begin{DoxyParamCaption}\item[{const typename std\+::vector$<$ size\+\_\+type $>$ \&}]{indices,  }\item[{Function \&\&}]{lambda }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Calls function on element specified by indices. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Function} & type of function to be called on the object \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em indices} & indicies multidimensional indices of the element. \\
+\hline
+{\em lambda} & function to be called on the element. Takes element of type T as an argument. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1DataContainer_a1fa55b9f9adc8a07b3a4d7ed51b5516b}\label{classQn_1_1DataContainer_a1fa55b9f9adc8a07b3a4d7ed51b5516b}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!Call\+On\+Element@{Call\+On\+Element}}
+\index{Call\+On\+Element@{Call\+On\+Element}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{Call\+On\+Element()}{CallOnElement()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+template$<$typename Function $>$ \\
+void \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::Call\+On\+Element (\begin{DoxyParamCaption}\item[{Function \&\&}]{lambda }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Calls function on element for integrated datacontainer. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Function} & type of function to be called on the object \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em coordinates} & coordinates of element to be modified \\
+\hline
+{\em lambda} & function to be called on the element. Takes element of type T as an argument. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1DataContainer_af663740b50d50356b29149e0d013d40d}\label{classQn_1_1DataContainer_af663740b50d50356b29149e0d013d40d}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!Call\+On\+Element@{Call\+On\+Element}}
+\index{Call\+On\+Element@{Call\+On\+Element}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{Call\+On\+Element()}{CallOnElement()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+template$<$typename Function $>$ \\
+void \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::Call\+On\+Element (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ float $>$ \&}]{coordinates,  }\item[{Function \&\&}]{lambda }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Calls function on element specified by indices. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Function} & type of function to be called on the object \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em coordinates} & coordinates of element to be modified \\
+\hline
+{\em lambda} & function to be called on the element. Takes element of type T as an argument. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1DataContainer_ad98f8acd6c4ac7f5ba171eb779acbcee}\label{classQn_1_1DataContainer_ad98f8acd6c4ac7f5ba171eb779acbcee}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!Call\+On\+Element@{Call\+On\+Element}}
+\index{Call\+On\+Element@{Call\+On\+Element}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{Call\+On\+Element()}{CallOnElement()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+template$<$typename Function $>$ \\
+void \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::Call\+On\+Element (\begin{DoxyParamCaption}\item[{const long}]{index,  }\item[{Function \&\&}]{lambda }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Calls function on element specified by indices. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Function} & type of function to be called on the object \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em index} & linear index of element to be modified \\
+\hline
+{\em lambda} & function to be called on the element. Takes element of type T as an argument. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1DataContainer_acd8c7e0e00f681929bf29f35830ff232}\label{classQn_1_1DataContainer_acd8c7e0e00f681929bf29f35830ff232}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!Clear\+Data@{Clear\+Data}}
+\index{Clear\+Data@{Clear\+Data}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{Clear\+Data()}{ClearData()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+void \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::Clear\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Clears data to be filled. To be called after one event. \mbox{\Hypertarget{classQn_1_1DataContainer_a60a01024cc3b7c421ff1270608975ee7}\label{classQn_1_1DataContainer_a60a01024cc3b7c421ff1270608975ee7}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!Clear\+Data\+At@{Clear\+Data\+At}}
+\index{Clear\+Data\+At@{Clear\+Data\+At}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{Clear\+Data\+At()}{ClearDataAt()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+void \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::Clear\+Data\+At (\begin{DoxyParamCaption}\item[{const size\+\_\+type}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Clear data at the specified postion. 
+\begin{DoxyParams}{Parameters}
+{\em position} & position at which to clear the data. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1DataContainer_a2c165924fca1953fd09f2a7aabdb608c}\label{classQn_1_1DataContainer_a2c165924fca1953fd09f2a7aabdb608c}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!Filter@{Filter}}
+\index{Filter@{Filter}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{Filter()}{Filter()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+template$<$typename Function $>$ \\
+\mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container}}$<$T$>$ \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::Filter (\begin{DoxyParamCaption}\item[{Function \&\&}]{lambda }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Apply cut to an axis of the datacontainer. All bins which do not pass the cut are set to 0. \mbox{\Hypertarget{classQn_1_1DataContainer_a8c603692b39277e0cfbaa83c69c31336}\label{classQn_1_1DataContainer_a8c603692b39277e0cfbaa83c69c31336}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!Get\+Axes@{Get\+Axes}}
+\index{Get\+Axes@{Get\+Axes}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{Get\+Axes()}{GetAxes()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+const Qn\+Axes\& \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::Get\+Axes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get vector of axes \begin{DoxyReturn}{Returns}
+Vector of axes 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1DataContainer_acf5507cd4e2b1cb26b58b176b9a7cde3}\label{classQn_1_1DataContainer_acf5507cd4e2b1cb26b58b176b9a7cde3}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!Get\+Axes@{Get\+Axes}}
+\index{Get\+Axes@{Get\+Axes}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{Get\+Axes()}{GetAxes()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+Qn\+Axes\& \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::Get\+Axes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get vector of axes \begin{DoxyReturn}{Returns}
+Vector of axes 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1DataContainer_a1fdc10d4a7feb391aa7291900c9e2073}\label{classQn_1_1DataContainer_a1fdc10d4a7feb391aa7291900c9e2073}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!Get\+Axis@{Get\+Axis}}
+\index{Get\+Axis@{Get\+Axis}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{Get\+Axis()}{GetAxis()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\mbox{\hyperlink{classQn_1_1Axis}{Axis}} \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::Get\+Axis (\begin{DoxyParamCaption}\item[{const std\+::string}]{name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get \mbox{\hyperlink{classQn_1_1Axis}{Axis}} with the given name. Throws exception when not found. 
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the desired axis \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classQn_1_1Axis}{Axis}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1DataContainer_a50ede53a78fd13dfa1cf4bad0b04babc}\label{classQn_1_1DataContainer_a50ede53a78fd13dfa1cf4bad0b04babc}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!Get\+Bin\+Description@{Get\+Bin\+Description}}
+\index{Get\+Bin\+Description@{Get\+Bin\+Description}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{Get\+Bin\+Description()}{GetBinDescription()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+std\+::string \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::Get\+Bin\+Description (\begin{DoxyParamCaption}\item[{const unsigned long}]{offset }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gives description by concenating axis names with coordinates 
+\begin{DoxyParams}{Parameters}
+{\em offset} & linear index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string with bin description 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1DataContainer_a5acec0ed294b3225f32981636af698d7}\label{classQn_1_1DataContainer_a5acec0ed294b3225f32981636af698d7}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!Get\+Diagonal@{Get\+Diagonal}}
+\index{Get\+Diagonal@{Get\+Diagonal}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{Get\+Diagonal()}{GetDiagonal()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+std\+::vector$<$size\+\_\+type$>$ \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::Get\+Diagonal (\begin{DoxyParamCaption}\item[{const Qn\+Axes \&}]{axes }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Calculates the diagonal indices of a given number of axes. 
+\begin{DoxyParams}{Parameters}
+{\em axes} & vector of axes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector of linear indices in the diagonal. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1DataContainer_ac4cb2d0af4e28966603b97dc50e5ce50}\label{classQn_1_1DataContainer_ac4cb2d0af4e28966603b97dc50e5ce50}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!Get\+Index@{Get\+Index}}
+\index{Get\+Index@{Get\+Index}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{Get\+Index()}{GetIndex()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+void \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::Get\+Index (\begin{DoxyParamCaption}\item[{std\+::vector$<$ size\+\_\+type $>$ \&}]{indices,  }\item[{const unsigned long}]{offset }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Calculates indices in multiple dimensions from linearized index 
+\begin{DoxyParams}{Parameters}
+{\em indices} & Outparameter for the indices \\
+\hline
+{\em offset} & Index of linearized vector \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1DataContainer_aa9b5b94b254a2e447b843b3bed6a9b92}\label{classQn_1_1DataContainer_aa9b5b94b254a2e447b843b3bed6a9b92}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!Get\+Index@{Get\+Index}}
+\index{Get\+Index@{Get\+Index}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{Get\+Index()}{GetIndex()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+std\+::vector$<$size\+\_\+type$>$ \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::Get\+Index (\begin{DoxyParamCaption}\item[{const unsigned long}]{offset }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Calculates indices in multiple dimensions from linearized index 
+\begin{DoxyParams}{Parameters}
+{\em offset} & Index of linearized vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector of indices 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1DataContainer_a2baf9c75f0652ea0a0ef30aaf2ce8deb}\label{classQn_1_1DataContainer_a2baf9c75f0652ea0a0ef30aaf2ce8deb}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!Initialize\+Entries@{Initialize\+Entries}}
+\index{Initialize\+Entries@{Initialize\+Entries}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{Initialize\+Entries()}{InitializeEntries()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+void \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::Initialize\+Entries (\begin{DoxyParamCaption}\item[{const T}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Initialized the object in the histogram to a given object 
+\begin{DoxyParams}{Parameters}
+{\em obj} & Object to be intialized to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1DataContainer_a5cb38267726d0c1e2196f51d066e306f}\label{classQn_1_1DataContainer_a5cb38267726d0c1e2196f51d066e306f}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!Is\+Integrated@{Is\+Integrated}}
+\index{Is\+Integrated@{Is\+Integrated}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{Is\+Integrated()}{IsIntegrated()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+bool \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::Is\+Integrated (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Checks if datacontainer is integrated. It is integrated if first axis is the integrated axis with Id == -\/1; \begin{DoxyReturn}{Returns}
+true if integrated, else false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1DataContainer_a270d35d401e506983516dbd00728232d}\label{classQn_1_1DataContainer_a270d35d401e506983516dbd00728232d}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!Map@{Map}}
+\index{Map@{Map}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{Map()}{Map()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+template$<$typename Function $>$ \\
+\mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container}}$<$T$>$ \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::Map (\begin{DoxyParamCaption}\item[{Function \&\&}]{lambda }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Map function to datacontainer. Does not modify the original container. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Function} & function \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lambda} & unary function to be applied to each element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+datacontainer after applying function. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1DataContainer_a7bc5a8330ed6a0a1964fc27af7fd6775}\label{classQn_1_1DataContainer_a7bc5a8330ed6a0a1964fc27af7fd6775}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!Merge@{Merge}}
+\index{Merge@{Merge}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{Merge()}{Merge()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+Long64\+\_\+t \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::Merge (\begin{DoxyParamCaption}\item[{T\+Collection $\ast$}]{inputlist }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Merges \mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container}} with Data\+Containers in T\+Collection. Function used in \char`\"{}hadd\char`\"{} A function with signature T Merge( T, T) needs to be implemented for merging to work. 
+\begin{DoxyParams}{Parameters}
+{\em inputlist} & List of datacontainers \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size of datacontainer. dummyvalue 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1DataContainer_a146d918368c9ab5273e223fac3bcedf1}\label{classQn_1_1DataContainer_a146d918368c9ab5273e223fac3bcedf1}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!N\+Draw@{N\+Draw}}
+\index{N\+Draw@{N\+Draw}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{N\+Draw()}{NDraw()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+void \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::N\+Draw (\begin{DoxyParamCaption}\item[{Option\+\_\+t $\ast$}]{option,  }\item[{const std\+::string \&}]{axis\+\_\+name = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Can draw the \mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container}} with up to two dimensions. Implementration for template specializations please see below 
+\begin{DoxyParams}{Parameters}
+{\em option} & draw option \\
+\hline
+{\em axis\+\_\+name} & name of axis used for second dimension. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1DataContainer_ac20e9292be55e0241647f356c1d7bb4e}\label{classQn_1_1DataContainer_ac20e9292be55e0241647f356c1d7bb4e}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!Projection@{Projection}}
+\index{Projection@{Projection}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{Projection()}{Projection()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+template$<$typename Function $>$ \\
+\mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container}}$<$T$>$ \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::Projection (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$}]{axis\+\_\+names,  }\item[{Function \&\&}]{lambda }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Projects datacontainer on a subset of axes 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Function} & typename of function. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em axis\+\_\+names} & subset of axes used for the projection. \\
+\hline
+{\em lambda} & Function used to add two entries. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+projected datacontainer. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1DataContainer_a0f0c2dbb7e48d706ca19d45fa32f99f4}\label{classQn_1_1DataContainer_a0f0c2dbb7e48d706ca19d45fa32f99f4}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!Projection@{Projection}}
+\index{Projection@{Projection}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{Projection()}{Projection()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container}}$<$T$>$ \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::Projection (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$}]{axis\+\_\+names = {\ttfamily \{\}} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Projects datacontainer on a subset of axes 
+\begin{DoxyParams}{Parameters}
+{\em axis\+\_\+names} & subset of axes used for the projection. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+projected datacontainer. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1DataContainer_a40c7b7ffaa61bbf616006b2fa95f6d5f}\label{classQn_1_1DataContainer_a40c7b7ffaa61bbf616006b2fa95f6d5f}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!Projection\+Exclude@{Projection\+Exclude}}
+\index{Projection\+Exclude@{Projection\+Exclude}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{Projection\+Exclude()}{ProjectionExclude()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+template$<$typename Function $>$ \\
+\mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container}}$<$T$>$ \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::Projection\+Exclude (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$}]{axis\+\_\+names,  }\item[{Function \&\&}]{lambda,  }\item[{std\+::vector$<$ int $>$}]{exindices }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Projects datacontainer on a subset of axes 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Function} & typename of function. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em axes} & subset of axes used for the projection. \\
+\hline
+{\em lambda} & Function used to add two entries. \\
+\hline
+{\em exindices} & indices excluded from the projection. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+projected datacontainer. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1DataContainer_aeac968c52250853cca2fd0ed2978c8e4}\label{classQn_1_1DataContainer_aeac968c52250853cca2fd0ed2978c8e4}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!Rebin@{Rebin}}
+\index{Rebin@{Rebin}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{Rebin()}{Rebin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+template$<$typename Function $>$ \\
+\mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container}}$<$T$>$ \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::Rebin (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQn_1_1Axis}{Axis}} \&}]{rebinaxis,  }\item[{Function \&\&}]{lambda }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Rebins the Datacontainer using the supplied function to calculate the new bin entries of the specified axis. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Function} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em rebinaxis} & axis to be rebinned. \\
+\hline
+{\em lambda} & function used to calculate new bin entries. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+rebinned datacontainer. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1DataContainer_a775225cf7b6e9bd66c7571531013c07d}\label{classQn_1_1DataContainer_a775225cf7b6e9bd66c7571531013c07d}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!Rebin@{Rebin}}
+\index{Rebin@{Rebin}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{Rebin()}{Rebin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container}}$<$T$>$ \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::Rebin (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQn_1_1Axis}{Axis}} \&}]{rebinaxis }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Rebins the Datacontainer to the new bin entries of the specified axis. Using default addition method. 
+\begin{DoxyParams}{Parameters}
+{\em rebinaxis} & axis to be rebinned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+rebinned datacontainer. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1DataContainer_a6f6590866c0cfe451cf966292d3eb69a}\label{classQn_1_1DataContainer_a6f6590866c0cfe451cf966292d3eb69a}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!Select@{Select}}
+\index{Select@{Select}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{Select()}{Select()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\mbox{\hyperlink{classQn_1_1DataContainer}{Data\+Container}}$<$T$>$ \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::Select (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQn_1_1Axis}{Axis}} \&}]{axis }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Selects subrange of axis of datacontainer. If resulting axis is one dimensional it is deleted and dimension of the resulting container is reduced by one. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Function} & type of function \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em data} & input data container \\
+\hline
+{\em axis} & subrange of axis to perform selection \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1DataContainer_a655e42708d02b905b28cba7fb4f0dd42}\label{classQn_1_1DataContainer_a655e42708d02b905b28cba7fb4f0dd42}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!Set\+Setting@{Set\+Setting}}
+\index{Set\+Setting@{Set\+Setting}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{Set\+Setting()}{SetSetting()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+void \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::Set\+Setting (\begin{DoxyParamCaption}\item[{unsigned int}]{bits }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set Bits of the Container to configure contents see contents for possible settings 
+\begin{DoxyParams}{Parameters}
+{\em bits} & settings bits \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1DataContainer_a95370695e706347db87491cdd65fcffb}\label{classQn_1_1DataContainer_a95370695e706347db87491cdd65fcffb}} 
+\index{Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}!size@{size}}
+\index{size@{size}!Qn\+::\+Data\+Container@{Qn\+::\+Data\+Container}}
+\subsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+size\+\_\+type \mbox{\hyperlink{classQn_1_1DataContainer}{Qn\+::\+Data\+Container}}$<$ T $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Size of data container \begin{DoxyReturn}{Returns}
+number of entries in the container 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Base/include/Data\+Container.\+h\end{DoxyCompactItemize}

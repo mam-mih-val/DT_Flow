@@ -1,0 +1,61 @@
+\hypertarget{classQn_1_1EventCut}{}\section{Qn\+:\+:Event\+Cut$<$ V\+AR, T $>$ Class Template Reference}
+\label{classQn_1_1EventCut}\index{Qn\+::\+Event\+Cut$<$ V\+A\+R, T $>$@{Qn\+::\+Event\+Cut$<$ V\+A\+R, T $>$}}
+
+
+{\ttfamily \#include $<$Event\+Cuts.\+h$>$}
+
+Inheritance diagram for Qn\+:\+:Event\+Cut$<$ V\+AR, T $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classQn_1_1EventCut}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1EventCut_a09f20d8a667327a23148d8488ea35dcd}\label{classQn_1_1EventCut_a09f20d8a667327a23148d8488ea35dcd}} 
+{\bfseries Event\+Cut} (V\+AR(\&arr)\mbox{[}sizeof...(T)\mbox{]}, std\+::function$<$ bool(T...)$>$ lambda)
+\item 
+bool \mbox{\hyperlink{classQn_1_1EventCut_ab559f2c200401108566c1641773d778e}{Check}} () override
+\item 
+\mbox{\Hypertarget{classQn_1_1EventCut_a4cfeb68f1bed74e602b98df2a9ddd414}\label{classQn_1_1EventCut_a4cfeb68f1bed74e602b98df2a9ddd414}} 
+std\+::string {\bfseries Name} () override
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename V\+AR, typename... T$>$\newline
+class Qn\+::\+Event\+Cut$<$ V\+A\+R, T $>$}
+
+Template class of a cut applied in the correction step. Number of dimensions is determined by the signature of the cut function and by the size of the variables array passed to the constructor. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of variable \\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQn_1_1EventCut_ab559f2c200401108566c1641773d778e}\label{classQn_1_1EventCut_ab559f2c200401108566c1641773d778e}} 
+\index{Qn\+::\+Event\+Cut@{Qn\+::\+Event\+Cut}!Check@{Check}}
+\index{Check@{Check}!Qn\+::\+Event\+Cut@{Qn\+::\+Event\+Cut}}
+\subsubsection{\texorpdfstring{Check()}{Check()}}
+{\footnotesize\ttfamily template$<$typename V\+AR , typename... T$>$ \\
+bool \mbox{\hyperlink{classQn_1_1EventCut}{Qn\+::\+Event\+Cut}}$<$ V\+AR, T $>$\+::Check (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Check if the cut is passed for variables at variable id + i 
+\begin{DoxyParams}{Parameters}
+{\em i} & offset from the variable id. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the cut is passed. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{structQn_1_1EventCutBase}{Qn\+::\+Event\+Cut\+Base}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Correlation/include/Event\+Cuts.\+h\end{DoxyCompactItemize}

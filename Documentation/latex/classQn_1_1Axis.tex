@@ -1,0 +1,232 @@
+\hypertarget{classQn_1_1Axis}{}\section{Qn\+:\+:Axis Class Reference}
+\label{classQn_1_1Axis}\index{Qn\+::\+Axis@{Qn\+::\+Axis}}
+
+
+Parameter axis with variable bin widths.  
+
+
+
+
+{\ttfamily \#include $<$Axis.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1Axis_aecaef827e021f557908269e846ec953f}\label{classQn_1_1Axis_aecaef827e021f557908269e846ec953f}} 
+typedef std\+::vector$<$ float $>$\+::const\+\_\+iterator {\bfseries citerator}
+\item 
+\mbox{\Hypertarget{classQn_1_1Axis_a17ec979786a378efeb648d11be4ddbc2}\label{classQn_1_1Axis_a17ec979786a378efeb648d11be4ddbc2}} 
+typedef std\+::vector$<$ float $>$\+::iterator {\bfseries iterator}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1Axis_afda68534099c45ff3e4105a9dd5d6f15}\label{classQn_1_1Axis_afda68534099c45ff3e4105a9dd5d6f15}} 
+\mbox{\hyperlink{classQn_1_1Axis_afda68534099c45ff3e4105a9dd5d6f15}{Axis}} ()=default
+\begin{DoxyCompactList}\small\item\em default constructor \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQn_1_1Axis_a681cf1e062f2256bcdaea4c990b87e79}\label{classQn_1_1Axis_a681cf1e062f2256bcdaea4c990b87e79}} 
+virtual \mbox{\hyperlink{classQn_1_1Axis_a681cf1e062f2256bcdaea4c990b87e79}{$\sim$\+Axis}} ()=default
+\begin{DoxyCompactList}\small\item\em default destructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQn_1_1Axis_aecffcf8ea49a172d67e5a620082f3914}{Axis}} (std\+::string name, std\+::vector$<$ float $>$ bin\+\_\+edges)
+\item 
+\mbox{\hyperlink{classQn_1_1Axis_aba5f6d07ac72fc4eda097edd15336c86}{Axis}} (std\+::string name, const int nbins, const float lowbin, const float upbin)
+\item 
+\mbox{\Hypertarget{classQn_1_1Axis_a5a1bb456f84f482991c75154ca8dbe2c}\label{classQn_1_1Axis_a5a1bb456f84f482991c75154ca8dbe2c}} 
+{\bfseries Axis} (const \mbox{\hyperlink{classQn_1_1Axis}{Qn\+::\+Axis}} \&axis)
+\item 
+\mbox{\Hypertarget{classQn_1_1Axis_acf2d80052d44ddb91ac2223747ebd8ab}\label{classQn_1_1Axis_acf2d80052d44ddb91ac2223747ebd8ab}} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{classQn_1_1Axis}{Axis}} \&axis) const
+\item 
+\mbox{\Hypertarget{classQn_1_1Axis_a1b3db6cf7a0918edc640a8a38556a04a}\label{classQn_1_1Axis_a1b3db6cf7a0918edc640a8a38556a04a}} 
+citerator \mbox{\hyperlink{classQn_1_1Axis_a1b3db6cf7a0918edc640a8a38556a04a}{begin}} () const
+\begin{DoxyCompactList}\small\item\em iterator for external use \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQn_1_1Axis_a41d685ea3eb8ed0b3b0cf91228caf819}\label{classQn_1_1Axis_a41d685ea3eb8ed0b3b0cf91228caf819}} 
+citerator \mbox{\hyperlink{classQn_1_1Axis_a41d685ea3eb8ed0b3b0cf91228caf819}{end}} () const
+\begin{DoxyCompactList}\small\item\em iterator for external use \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQn_1_1Axis_a46c31b76eb3c41e25c75c8e540d2d037}\label{classQn_1_1Axis_a46c31b76eb3c41e25c75c8e540d2d037}} 
+iterator \mbox{\hyperlink{classQn_1_1Axis_a46c31b76eb3c41e25c75c8e540d2d037}{begin}} ()
+\begin{DoxyCompactList}\small\item\em iterator for external use \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQn_1_1Axis_a4d2e34076f1915409a8dae58cce1812f}\label{classQn_1_1Axis_a4d2e34076f1915409a8dae58cce1812f}} 
+iterator \mbox{\hyperlink{classQn_1_1Axis_a4d2e34076f1915409a8dae58cce1812f}{end}} ()
+\begin{DoxyCompactList}\small\item\em iterator for external use \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classQn_1_1Axis_a80eca8411e7749624fbd146248869fc8}{Set\+Name}} (const std\+::string name)
+\item 
+std\+::string \mbox{\hyperlink{classQn_1_1Axis_a355ae8809138b8b1017d51d607059ea6}{Name}} () const
+\item 
+long \mbox{\hyperlink{classQn_1_1Axis_ae2a512dfaf15fbeddfa02c85adb9883f}{Find\+Bin}} (const float value) const
+\item 
+\mbox{\Hypertarget{classQn_1_1Axis_af39b2ee7c9ad0bff5bd7069d6b4f3288}\label{classQn_1_1Axis_af39b2ee7c9ad0bff5bd7069d6b4f3288}} 
+std\+::string {\bfseries Get\+Bin\+Name} (unsigned int i) const
+\item 
+citerator \mbox{\hyperlink{classQn_1_1Axis_a757b881b8615df4ed6d6ba917770b354}{Find\+Bin\+Iter}} (const float value)
+\item 
+std\+::vector$<$ float $>$\+::size\+\_\+type \mbox{\hyperlink{classQn_1_1Axis_ac3db40c16950698d698f55bcb1c51bf9}{size}} () const
+\item 
+float \mbox{\hyperlink{classQn_1_1Axis_ac40575006fde015d3b25c7e838e21994}{Get\+Lower\+Bin\+Edge}} (const unsigned long bin) const
+\item 
+float \mbox{\hyperlink{classQn_1_1Axis_a8ac94e3567fb894439c0a4844c62e4a2}{Get\+Upper\+Bin\+Edge}} (const unsigned long bin) const
+\item 
+float \mbox{\hyperlink{classQn_1_1Axis_ae9c911292458f9668e689be50614d8dc}{Get\+First\+Bin\+Edge}} () const
+\item 
+float \mbox{\hyperlink{classQn_1_1Axis_ac363f1585fc08372b81ebba24f2cd38f}{Get\+Last\+Bin\+Edge}} () const
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Parameter axis with variable bin widths. 
+
+Basic axis implementation 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classQn_1_1Axis_aecffcf8ea49a172d67e5a620082f3914}\label{classQn_1_1Axis_aecffcf8ea49a172d67e5a620082f3914}} 
+\index{Qn\+::\+Axis@{Qn\+::\+Axis}!Axis@{Axis}}
+\index{Axis@{Axis}!Qn\+::\+Axis@{Qn\+::\+Axis}}
+\subsubsection{\texorpdfstring{Axis()}{Axis()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Qn\+::\+Axis\+::\+Axis (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::vector$<$ float $>$}]{bin\+\_\+edges }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor for variable or fixed bin width. 
+\begin{DoxyParams}{Parameters}
+{\em name} & name of axis. \\
+\hline
+{\em bin\+\_\+edges} & vector of bin edges. starting with lowest bin edge and ending with uppermost bin edge. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1Axis_aba5f6d07ac72fc4eda097edd15336c86}\label{classQn_1_1Axis_aba5f6d07ac72fc4eda097edd15336c86}} 
+\index{Qn\+::\+Axis@{Qn\+::\+Axis}!Axis@{Axis}}
+\index{Axis@{Axis}!Qn\+::\+Axis@{Qn\+::\+Axis}}
+\subsubsection{\texorpdfstring{Axis()}{Axis()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Qn\+::\+Axis\+::\+Axis (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{const int}]{nbins,  }\item[{const float}]{lowbin,  }\item[{const float}]{upbin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor for fixed bin width. Calculates bin width automatically and sets bin edges. 
+\begin{DoxyParams}{Parameters}
+{\em name} & name of axis \\
+\hline
+{\em nbins} & number of bins \\
+\hline
+{\em lowbin} & lowest bin edge \\
+\hline
+{\em upbin} & uppermost bin edge \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQn_1_1Axis_ae2a512dfaf15fbeddfa02c85adb9883f}\label{classQn_1_1Axis_ae2a512dfaf15fbeddfa02c85adb9883f}} 
+\index{Qn\+::\+Axis@{Qn\+::\+Axis}!Find\+Bin@{Find\+Bin}}
+\index{Find\+Bin@{Find\+Bin}!Qn\+::\+Axis@{Qn\+::\+Axis}}
+\subsubsection{\texorpdfstring{Find\+Bin()}{FindBin()}}
+{\footnotesize\ttfamily long Qn\+::\+Axis\+::\+Find\+Bin (\begin{DoxyParamCaption}\item[{const float}]{value }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Finds bin index for a given value if value is smaller than lowest bin return -\/1. 
+\begin{DoxyParams}{Parameters}
+{\em value} & for finding corresponding bin \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bin index 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1Axis_a757b881b8615df4ed6d6ba917770b354}\label{classQn_1_1Axis_a757b881b8615df4ed6d6ba917770b354}} 
+\index{Qn\+::\+Axis@{Qn\+::\+Axis}!Find\+Bin\+Iter@{Find\+Bin\+Iter}}
+\index{Find\+Bin\+Iter@{Find\+Bin\+Iter}!Qn\+::\+Axis@{Qn\+::\+Axis}}
+\subsubsection{\texorpdfstring{Find\+Bin\+Iter()}{FindBinIter()}}
+{\footnotesize\ttfamily Qn\+::\+Axis\+::citerator Qn\+::\+Axis\+::\+Find\+Bin\+Iter (\begin{DoxyParamCaption}\item[{const float}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Finds bin iterator for a given value if value is smaller than lowest bin returns \mbox{\hyperlink{classQn_1_1Axis_a4d2e34076f1915409a8dae58cce1812f}{end()}}. 
+\begin{DoxyParams}{Parameters}
+{\em value} & for finding corresponding bin \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bin index 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1Axis_ae9c911292458f9668e689be50614d8dc}\label{classQn_1_1Axis_ae9c911292458f9668e689be50614d8dc}} 
+\index{Qn\+::\+Axis@{Qn\+::\+Axis}!Get\+First\+Bin\+Edge@{Get\+First\+Bin\+Edge}}
+\index{Get\+First\+Bin\+Edge@{Get\+First\+Bin\+Edge}!Qn\+::\+Axis@{Qn\+::\+Axis}}
+\subsubsection{\texorpdfstring{Get\+First\+Bin\+Edge()}{GetFirstBinEdge()}}
+{\footnotesize\ttfamily float Qn\+::\+Axis\+::\+Get\+First\+Bin\+Edge (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets lower bin edge 
+\begin{DoxyParams}{Parameters}
+{\em bin} & Index of bin of interest \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+lower edge of bin of interest 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1Axis_ac363f1585fc08372b81ebba24f2cd38f}\label{classQn_1_1Axis_ac363f1585fc08372b81ebba24f2cd38f}} 
+\index{Qn\+::\+Axis@{Qn\+::\+Axis}!Get\+Last\+Bin\+Edge@{Get\+Last\+Bin\+Edge}}
+\index{Get\+Last\+Bin\+Edge@{Get\+Last\+Bin\+Edge}!Qn\+::\+Axis@{Qn\+::\+Axis}}
+\subsubsection{\texorpdfstring{Get\+Last\+Bin\+Edge()}{GetLastBinEdge()}}
+{\footnotesize\ttfamily float Qn\+::\+Axis\+::\+Get\+Last\+Bin\+Edge (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets upper bin edge 
+\begin{DoxyParams}{Parameters}
+{\em bin} & Index of bin of interest \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+upper edge of bin of interest 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1Axis_ac40575006fde015d3b25c7e838e21994}\label{classQn_1_1Axis_ac40575006fde015d3b25c7e838e21994}} 
+\index{Qn\+::\+Axis@{Qn\+::\+Axis}!Get\+Lower\+Bin\+Edge@{Get\+Lower\+Bin\+Edge}}
+\index{Get\+Lower\+Bin\+Edge@{Get\+Lower\+Bin\+Edge}!Qn\+::\+Axis@{Qn\+::\+Axis}}
+\subsubsection{\texorpdfstring{Get\+Lower\+Bin\+Edge()}{GetLowerBinEdge()}}
+{\footnotesize\ttfamily float Qn\+::\+Axis\+::\+Get\+Lower\+Bin\+Edge (\begin{DoxyParamCaption}\item[{const unsigned long}]{bin }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets lower bin edge 
+\begin{DoxyParams}{Parameters}
+{\em bin} & Index of bin of interest \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+lower edge of bin of interest 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1Axis_a8ac94e3567fb894439c0a4844c62e4a2}\label{classQn_1_1Axis_a8ac94e3567fb894439c0a4844c62e4a2}} 
+\index{Qn\+::\+Axis@{Qn\+::\+Axis}!Get\+Upper\+Bin\+Edge@{Get\+Upper\+Bin\+Edge}}
+\index{Get\+Upper\+Bin\+Edge@{Get\+Upper\+Bin\+Edge}!Qn\+::\+Axis@{Qn\+::\+Axis}}
+\subsubsection{\texorpdfstring{Get\+Upper\+Bin\+Edge()}{GetUpperBinEdge()}}
+{\footnotesize\ttfamily float Qn\+::\+Axis\+::\+Get\+Upper\+Bin\+Edge (\begin{DoxyParamCaption}\item[{const unsigned long}]{bin }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets upper bin edge 
+\begin{DoxyParams}{Parameters}
+{\em bin} & Index of bin of interest \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+upper edge of bin of interest 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1Axis_a355ae8809138b8b1017d51d607059ea6}\label{classQn_1_1Axis_a355ae8809138b8b1017d51d607059ea6}} 
+\index{Qn\+::\+Axis@{Qn\+::\+Axis}!Name@{Name}}
+\index{Name@{Name}!Qn\+::\+Axis@{Qn\+::\+Axis}}
+\subsubsection{\texorpdfstring{Name()}{Name()}}
+{\footnotesize\ttfamily std\+::string Qn\+::\+Axis\+::\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns Name of axis. \begin{DoxyReturn}{Returns}
+name of axis 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1Axis_a80eca8411e7749624fbd146248869fc8}\label{classQn_1_1Axis_a80eca8411e7749624fbd146248869fc8}} 
+\index{Qn\+::\+Axis@{Qn\+::\+Axis}!Set\+Name@{Set\+Name}}
+\index{Set\+Name@{Set\+Name}!Qn\+::\+Axis@{Qn\+::\+Axis}}
+\subsubsection{\texorpdfstring{Set\+Name()}{SetName()}}
+{\footnotesize\ttfamily void Qn\+::\+Axis\+::\+Set\+Name (\begin{DoxyParamCaption}\item[{const std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set Name of axis. 
+\begin{DoxyParams}{Parameters}
+{\em name} & name of axis \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1Axis_ac3db40c16950698d698f55bcb1c51bf9}\label{classQn_1_1Axis_ac3db40c16950698d698f55bcb1c51bf9}} 
+\index{Qn\+::\+Axis@{Qn\+::\+Axis}!size@{size}}
+\index{size@{size}!Qn\+::\+Axis@{Qn\+::\+Axis}}
+\subsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily std\+::vector$<$float$>$\+::size\+\_\+type Qn\+::\+Axis\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns number of bins. \begin{DoxyReturn}{Returns}
+number of bins. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Base/include/Axis.\+h\item 
+D\+T\+\_\+\+Flow/\+Base/Axis.\+cpp\end{DoxyCompactItemize}

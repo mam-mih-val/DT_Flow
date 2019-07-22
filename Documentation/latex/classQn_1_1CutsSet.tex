@@ -1,0 +1,85 @@
+\hypertarget{classQn_1_1CutsSet}{}\section{Qn\+:\+:Cuts\+Set Class Reference}
+\label{classQn_1_1CutsSet}\index{Qn\+::\+Cuts\+Set@{Qn\+::\+Cuts\+Set}}
+Inheritance diagram for Qn\+:\+:Cuts\+Set\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classQn_1_1CutsSet}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classQn_1_1CutsSet_abb692440b7ffadcf3a0b5881fc1906c8}{Cuts\+Set}} (Int\+\_\+t n=T\+Collection\+::k\+Init\+Capacity)
+\item 
+\mbox{\hyperlink{classQn_1_1CutsSet_ac8b055e82b9f8dbb70c427525543a6a2}{Cuts\+Set}} (const \mbox{\hyperlink{classQn_1_1CutsSet}{Cuts\+Set}} \&ccs)
+\item 
+\mbox{\Hypertarget{classQn_1_1CutsSet_ad10fa23d0dc5e73f22d067111be6ed76}\label{classQn_1_1CutsSet_ad10fa23d0dc5e73f22d067111be6ed76}} 
+virtual \mbox{\hyperlink{classQn_1_1CutsSet_ad10fa23d0dc5e73f22d067111be6ed76}{$\sim$\+Cuts\+Set}} ()
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classQn_1_1CutsBase}{Cuts\+Base}} $\ast$ \mbox{\hyperlink{classQn_1_1CutsSet_a2f572076ba27d9031975fc38dc160d12}{At}} (Int\+\_\+t i) const
+\item 
+Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CutsSet_a69dc9eba4cdb1e1270bb9340212f20b7}{Is\+Selected}} (const double $\ast$variable\+Container)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classQn_1_1CutsSet_abb692440b7ffadcf3a0b5881fc1906c8}\label{classQn_1_1CutsSet_abb692440b7ffadcf3a0b5881fc1906c8}} 
+\index{Qn\+::\+Cuts\+Set@{Qn\+::\+Cuts\+Set}!Cuts\+Set@{Cuts\+Set}}
+\index{Cuts\+Set@{Cuts\+Set}!Qn\+::\+Cuts\+Set@{Qn\+::\+Cuts\+Set}}
+\subsubsection{\texorpdfstring{Cuts\+Set()}{CutsSet()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Qn\+::\+Cuts\+Set\+::\+Cuts\+Set (\begin{DoxyParamCaption}\item[{Int\+\_\+t}]{n = {\ttfamily TCollection\+:\+:kInitCapacity} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Normal constructor 
+\begin{DoxyParams}{Parameters}
+{\em n} & number of cuts in the set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CutsSet_ac8b055e82b9f8dbb70c427525543a6a2}\label{classQn_1_1CutsSet_ac8b055e82b9f8dbb70c427525543a6a2}} 
+\index{Qn\+::\+Cuts\+Set@{Qn\+::\+Cuts\+Set}!Cuts\+Set@{Cuts\+Set}}
+\index{Cuts\+Set@{Cuts\+Set}!Qn\+::\+Cuts\+Set@{Qn\+::\+Cuts\+Set}}
+\subsubsection{\texorpdfstring{Cuts\+Set()}{CutsSet()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Qn\+::\+Cuts\+Set\+::\+Cuts\+Set (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQn_1_1CutsSet}{Cuts\+Set}} \&}]{ccs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Copy constructor 
+\begin{DoxyParams}{Parameters}
+{\em ccs} & the object instance to be copied \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQn_1_1CutsSet_a2f572076ba27d9031975fc38dc160d12}\label{classQn_1_1CutsSet_a2f572076ba27d9031975fc38dc160d12}} 
+\index{Qn\+::\+Cuts\+Set@{Qn\+::\+Cuts\+Set}!At@{At}}
+\index{At@{At}!Qn\+::\+Cuts\+Set@{Qn\+::\+Cuts\+Set}}
+\subsubsection{\texorpdfstring{At()}{At()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classQn_1_1CutsBase}{Cuts\+Base}}$\ast$ Qn\+::\+Cuts\+Set\+::\+At (\begin{DoxyParamCaption}\item[{Int\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Access the event class variable at the passed position 
+\begin{DoxyParams}{Parameters}
+{\em i} & position in the array (starting at zero) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the event class variable object a position i 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CutsSet_a69dc9eba4cdb1e1270bb9340212f20b7}\label{classQn_1_1CutsSet_a69dc9eba4cdb1e1270bb9340212f20b7}} 
+\index{Qn\+::\+Cuts\+Set@{Qn\+::\+Cuts\+Set}!Is\+Selected@{Is\+Selected}}
+\index{Is\+Selected@{Is\+Selected}!Qn\+::\+Cuts\+Set@{Qn\+::\+Cuts\+Set}}
+\subsubsection{\texorpdfstring{Is\+Selected()}{IsSelected()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Cuts\+Set\+::\+Is\+Selected (\begin{DoxyParamCaption}\item[{const double $\ast$}]{variable\+Container }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Checks that the current content of the variable\+Container passes the whole set of cuts by going through all the array components
+
+
+\begin{DoxyParams}{Parameters}
+{\em variable\+Container} & the current variables content addressed by var Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if the actual values pass the set of cuts else k\+F\+A\+L\+SE 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/include/Cuts\+Set.\+h\end{DoxyCompactItemize}

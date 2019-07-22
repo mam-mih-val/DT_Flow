@@ -1,0 +1,169 @@
+\hypertarget{classQn_1_1EventShape}{}\section{Qn\+:\+:Event\+Shape Class Reference}
+\label{classQn_1_1EventShape}\index{Qn\+::\+Event\+Shape@{Qn\+::\+Event\+Shape}}
+Inheritance diagram for Qn\+:\+:Event\+Shape\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classQn_1_1EventShape}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classQn_1_1EventShape_a5dce9f7b8a7fa7a8a663634ece8b7cb6}{State}} \{ {\bfseries Uninitialized}, 
+{\bfseries Ready\+For\+Collecting}, 
+{\bfseries Ready\+For\+Calculation}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classQn_1_1EventShape_ad24dc1e3b27a1a1b476d4e46f2374f9a}{Event\+Shape}} ()=default
+\item 
+\mbox{\hyperlink{classQn_1_1EventShape_ac275147afb48e3eeb997626b8f7eac43}{Event\+Shape}} (std\+::string name, T\+H1F histo)
+\item 
+void \mbox{\hyperlink{classQn_1_1EventShape_a306f3bb8d75c6feae8b5f633a724d73e}{Set\+Histo}} (T\+H1F $\ast$histo, std\+::string name)
+\item 
+std\+::string \mbox{\hyperlink{classQn_1_1EventShape_abc015406701863883722b6b848fa2ac0}{Name}} () const
+\item 
+float \mbox{\hyperlink{classQn_1_1EventShape_a05bdd3d71c99c4a4dc192cbd861198df}{Get\+Percentile}} (float q)
+\item 
+void \mbox{\hyperlink{classQn_1_1EventShape_ad00484e1a53ab0e3c56eafe7f199c67b}{Integrate\+Hist}} ()
+\item 
+void \mbox{\hyperlink{classQn_1_1EventShape_af2c3ca720b05814421f7293fadacc312}{Fit\+With\+Spline}} ()
+\item 
+void \mbox{\hyperlink{classQn_1_1EventShape_a7ef94151a36c2c7ab03e5771f216a5f6}{Fill}} (const \mbox{\hyperlink{structQn_1_1Product}{Product}} \&product)
+\item 
+T\+H1F $\ast$ \mbox{\hyperlink{classQn_1_1EventShape_abfcccc33d6d51fdac3f72ac4039a4ad1}{Get\+Hist}} () const
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1EventShape_a9391dd288a73ae2008fdf0668e8b78cb}\label{classQn_1_1EventShape_a9391dd288a73ae2008fdf0668e8b78cb}} 
+std\+::string {\bfseries name\+\_\+}
+\item 
+\mbox{\Hypertarget{classQn_1_1EventShape_ab440a85cfe628204a36b4dd1bbcd0df3}\label{classQn_1_1EventShape_ab440a85cfe628204a36b4dd1bbcd0df3}} 
+T\+Spline3 $\ast$ {\bfseries spline\+\_\+} = nullptr
+\item 
+\mbox{\Hypertarget{classQn_1_1EventShape_aded33163b97cd9464e4a4823bd2e0aa2}\label{classQn_1_1EventShape_aded33163b97cd9464e4a4823bd2e0aa2}} 
+T\+H1F $\ast$ {\bfseries histo\+\_\+} = nullptr
+\item 
+\mbox{\Hypertarget{classQn_1_1EventShape_a751746c6990b00fa5dd33c63685d32f7}\label{classQn_1_1EventShape_a751746c6990b00fa5dd33c63685d32f7}} 
+T\+H1F $\ast$ {\bfseries integral\+\_\+} = nullptr
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1EventShape_a3a0a26221b1b247ef5256348a0fa2ec2}\label{classQn_1_1EventShape_a3a0a26221b1b247ef5256348a0fa2ec2}} 
+\mbox{\hyperlink{classQn_1_1EventShape}{Qn\+::\+Event\+Shape}} {\bfseries operator+} (const \mbox{\hyperlink{classQn_1_1EventShape}{Qn\+::\+Event\+Shape}} \&a, const \mbox{\hyperlink{classQn_1_1EventShape}{Qn\+::\+Event\+Shape}} \&b)
+\item 
+\mbox{\Hypertarget{classQn_1_1EventShape_a8026b1421bb3957d46d6d095a7fe3c8c}\label{classQn_1_1EventShape_a8026b1421bb3957d46d6d095a7fe3c8c}} 
+\mbox{\hyperlink{classQn_1_1EventShape}{Qn\+::\+Event\+Shape}} {\bfseries Merge} (const \mbox{\hyperlink{classQn_1_1EventShape}{Qn\+::\+Event\+Shape}} \&a, const \mbox{\hyperlink{classQn_1_1EventShape}{Qn\+::\+Event\+Shape}} \&b)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classQn_1_1EventShape_a5dce9f7b8a7fa7a8a663634ece8b7cb6}\label{classQn_1_1EventShape_a5dce9f7b8a7fa7a8a663634ece8b7cb6}} 
+\index{Qn\+::\+Event\+Shape@{Qn\+::\+Event\+Shape}!State@{State}}
+\index{State@{State}!Qn\+::\+Event\+Shape@{Qn\+::\+Event\+Shape}}
+\subsubsection{\texorpdfstring{State}{State}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classQn_1_1EventShape_a5dce9f7b8a7fa7a8a663634ece8b7cb6}{Qn\+::\+Event\+Shape\+::\+State}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+holds the information of the state 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classQn_1_1EventShape_ad24dc1e3b27a1a1b476d4e46f2374f9a}\label{classQn_1_1EventShape_ad24dc1e3b27a1a1b476d4e46f2374f9a}} 
+\index{Qn\+::\+Event\+Shape@{Qn\+::\+Event\+Shape}!Event\+Shape@{Event\+Shape}}
+\index{Event\+Shape@{Event\+Shape}!Qn\+::\+Event\+Shape@{Qn\+::\+Event\+Shape}}
+\subsubsection{\texorpdfstring{Event\+Shape()}{EventShape()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Qn\+::\+Event\+Shape\+::\+Event\+Shape (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+default constructor \mbox{\Hypertarget{classQn_1_1EventShape_ac275147afb48e3eeb997626b8f7eac43}\label{classQn_1_1EventShape_ac275147afb48e3eeb997626b8f7eac43}} 
+\index{Qn\+::\+Event\+Shape@{Qn\+::\+Event\+Shape}!Event\+Shape@{Event\+Shape}}
+\index{Event\+Shape@{Event\+Shape}!Qn\+::\+Event\+Shape@{Qn\+::\+Event\+Shape}}
+\subsubsection{\texorpdfstring{Event\+Shape()}{EventShape()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Qn\+::\+Event\+Shape\+::\+Event\+Shape (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{T\+H1F}]{histo }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+constructor 
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the sub event \\
+\hline
+{\em histo} & histogram with the correct binning \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQn_1_1EventShape_a7ef94151a36c2c7ab03e5771f216a5f6}\label{classQn_1_1EventShape_a7ef94151a36c2c7ab03e5771f216a5f6}} 
+\index{Qn\+::\+Event\+Shape@{Qn\+::\+Event\+Shape}!Fill@{Fill}}
+\index{Fill@{Fill}!Qn\+::\+Event\+Shape@{Qn\+::\+Event\+Shape}}
+\subsubsection{\texorpdfstring{Fill()}{Fill()}}
+{\footnotesize\ttfamily void Qn\+::\+Event\+Shape\+::\+Fill (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structQn_1_1Product}{Product}} \&}]{product }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Fill the current subevent information to the histogram. 
+\begin{DoxyParams}{Parameters}
+{\em product} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1EventShape_af2c3ca720b05814421f7293fadacc312}\label{classQn_1_1EventShape_af2c3ca720b05814421f7293fadacc312}} 
+\index{Qn\+::\+Event\+Shape@{Qn\+::\+Event\+Shape}!Fit\+With\+Spline@{Fit\+With\+Spline}}
+\index{Fit\+With\+Spline@{Fit\+With\+Spline}!Qn\+::\+Event\+Shape@{Qn\+::\+Event\+Shape}}
+\subsubsection{\texorpdfstring{Fit\+With\+Spline()}{FitWithSpline()}}
+{\footnotesize\ttfamily void Qn\+::\+Event\+Shape\+::\+Fit\+With\+Spline (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Fit the histogram with a spline to calculate the percentiles. \mbox{\Hypertarget{classQn_1_1EventShape_abfcccc33d6d51fdac3f72ac4039a4ad1}\label{classQn_1_1EventShape_abfcccc33d6d51fdac3f72ac4039a4ad1}} 
+\index{Qn\+::\+Event\+Shape@{Qn\+::\+Event\+Shape}!Get\+Hist@{Get\+Hist}}
+\index{Get\+Hist@{Get\+Hist}!Qn\+::\+Event\+Shape@{Qn\+::\+Event\+Shape}}
+\subsubsection{\texorpdfstring{Get\+Hist()}{GetHist()}}
+{\footnotesize\ttfamily T\+H1F$\ast$ Qn\+::\+Event\+Shape\+::\+Get\+Hist (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the histogram. \begin{DoxyReturn}{Returns}
+returns the distribution of all events. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1EventShape_a05bdd3d71c99c4a4dc192cbd861198df}\label{classQn_1_1EventShape_a05bdd3d71c99c4a4dc192cbd861198df}} 
+\index{Qn\+::\+Event\+Shape@{Qn\+::\+Event\+Shape}!Get\+Percentile@{Get\+Percentile}}
+\index{Get\+Percentile@{Get\+Percentile}!Qn\+::\+Event\+Shape@{Qn\+::\+Event\+Shape}}
+\subsubsection{\texorpdfstring{Get\+Percentile()}{GetPercentile()}}
+{\footnotesize\ttfamily float Qn\+::\+Event\+Shape\+::\+Get\+Percentile (\begin{DoxyParamCaption}\item[{float}]{q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets the percentile of the given q vector magnitude 
+\begin{DoxyParams}{Parameters}
+{\em q} & magnitude of the q vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+percentile of the current event. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1EventShape_ad00484e1a53ab0e3c56eafe7f199c67b}\label{classQn_1_1EventShape_ad00484e1a53ab0e3c56eafe7f199c67b}} 
+\index{Qn\+::\+Event\+Shape@{Qn\+::\+Event\+Shape}!Integrate\+Hist@{Integrate\+Hist}}
+\index{Integrate\+Hist@{Integrate\+Hist}!Qn\+::\+Event\+Shape@{Qn\+::\+Event\+Shape}}
+\subsubsection{\texorpdfstring{Integrate\+Hist()}{IntegrateHist()}}
+{\footnotesize\ttfamily void Qn\+::\+Event\+Shape\+::\+Integrate\+Hist (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Calculate the integrated histogram of the distribution. \mbox{\Hypertarget{classQn_1_1EventShape_abc015406701863883722b6b848fa2ac0}\label{classQn_1_1EventShape_abc015406701863883722b6b848fa2ac0}} 
+\index{Qn\+::\+Event\+Shape@{Qn\+::\+Event\+Shape}!Name@{Name}}
+\index{Name@{Name}!Qn\+::\+Event\+Shape@{Qn\+::\+Event\+Shape}}
+\subsubsection{\texorpdfstring{Name()}{Name()}}
+{\footnotesize\ttfamily std\+::string Qn\+::\+Event\+Shape\+::\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets the name \begin{DoxyReturn}{Returns}
+the name of the subevent. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1EventShape_a306f3bb8d75c6feae8b5f633a724d73e}\label{classQn_1_1EventShape_a306f3bb8d75c6feae8b5f633a724d73e}} 
+\index{Qn\+::\+Event\+Shape@{Qn\+::\+Event\+Shape}!Set\+Histo@{Set\+Histo}}
+\index{Set\+Histo@{Set\+Histo}!Qn\+::\+Event\+Shape@{Qn\+::\+Event\+Shape}}
+\subsubsection{\texorpdfstring{Set\+Histo()}{SetHisto()}}
+{\footnotesize\ttfamily void Qn\+::\+Event\+Shape\+::\+Set\+Histo (\begin{DoxyParamCaption}\item[{T\+H1F $\ast$}]{histo,  }\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the name and binning 
+\begin{DoxyParams}{Parameters}
+{\em histo} & histogram with binning information \\
+\hline
+{\em name} & name of the subevent \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Base/include/Event\+Shape.\+h\item 
+D\+T\+\_\+\+Flow/\+Base/Event\+Shape.\+cpp\end{DoxyCompactItemize}

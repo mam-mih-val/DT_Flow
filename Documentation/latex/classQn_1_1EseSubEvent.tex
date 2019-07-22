@@ -1,0 +1,57 @@
+\hypertarget{classQn_1_1EseSubEvent}{}\section{Qn\+:\+:Ese\+Sub\+Event Class Reference}
+\label{classQn_1_1EseSubEvent}\index{Qn\+::\+Ese\+Sub\+Event@{Qn\+::\+Ese\+Sub\+Event}}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1EseSubEvent_a2687faacf0aaaacd1a80bbc51614aa07}\label{classQn_1_1EseSubEvent_a2687faacf0aaaacd1a80bbc51614aa07}} 
+enum {\bfseries State} \+: int \{ {\bfseries unini} = 0, 
+{\bfseries collect} = 1, 
+{\bfseries calib} = 2, 
+{\bfseries percent} = 3
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1EseSubEvent_ac89c06299684f76e6b8110074a42d553}\label{classQn_1_1EseSubEvent_ac89c06299684f76e6b8110074a42d553}} 
+{\bfseries Ese\+Sub\+Event} (\mbox{\hyperlink{classQn_1_1EseHandler}{Ese\+Handler}} $\ast$handler, const std\+::string \&name, const std\+::vector$<$ std\+::string $>$ \&input, Correlation\+::function\+\_\+t lambda, const T\+H1F \&histo)
+\item 
+\mbox{\Hypertarget{classQn_1_1EseSubEvent_a8243c90d1d7aa2fc6e0308cb18bf4569}\label{classQn_1_1EseSubEvent_a8243c90d1d7aa2fc6e0308cb18bf4569}} 
+void {\bfseries Connect\+Input} (T\+File $\ast$input\+\_\+treefile, T\+File $\ast$calib)
+\item 
+\mbox{\Hypertarget{classQn_1_1EseSubEvent_aaac0a65949ae1c1dfdf29d7e4987267f}\label{classQn_1_1EseSubEvent_aaac0a65949ae1c1dfdf29d7e4987267f}} 
+void {\bfseries Connect\+Output} (T\+Tree $\ast$tree, T\+File $\ast$calib)
+\item 
+\mbox{\Hypertarget{classQn_1_1EseSubEvent_a6bc3388985fc0715ba32e378d428834c}\label{classQn_1_1EseSubEvent_a6bc3388985fc0715ba32e378d428834c}} 
+void {\bfseries Configure} ()
+\item 
+\mbox{\Hypertarget{classQn_1_1EseSubEvent_adb6e9050cf7cfa775ad07affb94b4ab8}\label{classQn_1_1EseSubEvent_adb6e9050cf7cfa775ad07affb94b4ab8}} 
+void {\bfseries Add\+Correlation} ()
+\item 
+\mbox{\Hypertarget{classQn_1_1EseSubEvent_ab67dbd34169aeb9880ae68819bc21bb2}\label{classQn_1_1EseSubEvent_ab67dbd34169aeb9880ae68819bc21bb2}} 
+void {\bfseries Do} (const std\+::vector$<$ unsigned long $>$ \&eventindices)
+\item 
+\mbox{\Hypertarget{classQn_1_1EseSubEvent_a0748197895abc2934bd441642983c750}\label{classQn_1_1EseSubEvent_a0748197895abc2934bd441642983c750}} 
+void {\bfseries Clear} ()
+\item 
+\mbox{\Hypertarget{classQn_1_1EseSubEvent_a2fc8b53006e70b3afb4669a5a98a5c5a}\label{classQn_1_1EseSubEvent_a2fc8b53006e70b3afb4669a5a98a5c5a}} 
+void {\bfseries Finalize} ()
+\item 
+\mbox{\Hypertarget{classQn_1_1EseSubEvent_a0b3b24e583618bebf4d364edcfc8cc55}\label{classQn_1_1EseSubEvent_a0b3b24e583618bebf4d364edcfc8cc55}} 
+std\+::string {\bfseries Report} ()
+\item 
+\mbox{\Hypertarget{classQn_1_1EseSubEvent_a810c864e00edeeaad1b3c8abc6a86092}\label{classQn_1_1EseSubEvent_a810c864e00edeeaad1b3c8abc6a86092}} 
+State {\bfseries Get\+State} () const
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1EseSubEvent_a98a8b4d32230d9e80900f33b07a5d0ff}\label{classQn_1_1EseSubEvent_a98a8b4d32230d9e80900f33b07a5d0ff}} 
+static constexpr int {\bfseries k\+N\+Bins} = 10
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Correlation/include/Ese\+Sub\+Event.\+h\item 
+D\+T\+\_\+\+Flow/\+Correlation/Ese\+Sub\+Event.\+cpp\end{DoxyCompactItemize}

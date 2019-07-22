@@ -1,0 +1,82 @@
+\hypertarget{classQn_1_1Sampler}{}\section{Qn\+:\+:Sampler Class Reference}
+\label{classQn_1_1Sampler}\index{Qn\+::\+Sampler@{Qn\+::\+Sampler}}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1Sampler_acfcaba7b9132b1c31bccfb570b990564}\label{classQn_1_1Sampler_acfcaba7b9132b1c31bccfb570b990564}} 
+enum {\bfseries Method} \{ {\bfseries N\+O\+NE}, 
+{\bfseries B\+O\+O\+T\+S\+T\+R\+AP}, 
+{\bfseries S\+U\+B\+S\+A\+M\+P\+L\+I\+NG}
+ \}
+\item 
+\mbox{\Hypertarget{classQn_1_1Sampler_a57358caeddbfa3dfdff9bd8c4a4a2a9c}\label{classQn_1_1Sampler_a57358caeddbfa3dfdff9bd8c4a4a2a9c}} 
+enum {\bfseries Resample} \{ {\bfseries ON} = true, 
+{\bfseries O\+FF} = false
+ \}
+\item 
+\mbox{\Hypertarget{classQn_1_1Sampler_a110060afda3bf22b610943a67d62635c}\label{classQn_1_1Sampler_a110060afda3bf22b610943a67d62635c}} 
+using {\bfseries size\+\_\+type} = std\+::size\+\_\+t
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1Sampler_ad3257addf47d7336d6758711c6e630e4}\label{classQn_1_1Sampler_ad3257addf47d7336d6758711c6e630e4}} 
+{\bfseries Sampler} (size\+\_\+type nevents, size\+\_\+type nsamples)
+\item 
+\mbox{\Hypertarget{classQn_1_1Sampler_ad6645e5f41c1e0918f373723a435540c}\label{classQn_1_1Sampler_ad6645e5f41c1e0918f373723a435540c}} 
+{\bfseries Sampler} (size\+\_\+type nsamples, Method met)
+\item 
+\mbox{\Hypertarget{classQn_1_1Sampler_aa5892fc9e201aedf2d4d2f1b6bc9ac75}\label{classQn_1_1Sampler_aa5892fc9e201aedf2d4d2f1b6bc9ac75}} 
+{\bfseries Sampler} (size\+\_\+type n\+\_\+events, Method method, size\+\_\+type nsamples, unsigned long seed=time(0))
+\item 
+\mbox{\Hypertarget{classQn_1_1Sampler_a93efc50f83024cdc757d3553155c6e07}\label{classQn_1_1Sampler_a93efc50f83024cdc757d3553155c6e07}} 
+void {\bfseries Set\+Number\+Of\+Events} (size\+\_\+type num)
+\item 
+\mbox{\Hypertarget{classQn_1_1Sampler_a30dead3c37604973ae89f339cc733c93}\label{classQn_1_1Sampler_a30dead3c37604973ae89f339cc733c93}} 
+void {\bfseries Create\+Samples} ()
+\item 
+\mbox{\Hypertarget{classQn_1_1Sampler_a1993d5942aea552b89f44a904af1b2d9}\label{classQn_1_1Sampler_a1993d5942aea552b89f44a904af1b2d9}} 
+size\+\_\+type {\bfseries Get\+Num\+Samples} () const
+\item 
+\mbox{\Hypertarget{classQn_1_1Sampler_ac569f34bfcdc1895a828ff452281830b}\label{classQn_1_1Sampler_ac569f34bfcdc1895a828ff452281830b}} 
+void {\bfseries Create\+Sub\+Samples} ()
+\item 
+\mbox{\Hypertarget{classQn_1_1Sampler_a97a202fb9bd736888d6150d99a239988}\label{classQn_1_1Sampler_a97a202fb9bd736888d6150d99a239988}} 
+void {\bfseries Create\+Bootstrap\+Samples} ()
+\item 
+\mbox{\Hypertarget{classQn_1_1Sampler_ac3f924d5848075a864b92d6cc6dafc31}\label{classQn_1_1Sampler_ac3f924d5848075a864b92d6cc6dafc31}} 
+void {\bfseries Create\+Moutof\+N\+Bootstrap\+Samples} (float m\+\_\+fraction)
+\item 
+\mbox{\Hypertarget{classQn_1_1Sampler_afdc08607db98336cbdd1fdd7944eece7}\label{classQn_1_1Sampler_afdc08607db98336cbdd1fdd7944eece7}} 
+void {\bfseries Create\+Divided\+Bootstrap\+Samples} (size\+\_\+type ndivisions)
+\item 
+\mbox{\Hypertarget{classQn_1_1Sampler_a6f7b6ae009eae228bb9738e0bdb7cd71}\label{classQn_1_1Sampler_a6f7b6ae009eae228bb9738e0bdb7cd71}} 
+void {\bfseries Create\+Resamples} ()
+\item 
+\mbox{\Hypertarget{classQn_1_1Sampler_a206327cba9e1bc5e879a4814cad6b70d}\label{classQn_1_1Sampler_a206327cba9e1bc5e879a4814cad6b70d}} 
+const std\+::vector$<$ size\+\_\+type $>$ \& {\bfseries Get\+Fill\+Vector} (size\+\_\+type ievent) const
+\item 
+\mbox{\Hypertarget{classQn_1_1Sampler_a3ae9867cb08031cc13db517368934609}\label{classQn_1_1Sampler_a3ae9867cb08031cc13db517368934609}} 
+void {\bfseries Get\+Fill\+Vector} (std\+::vector$<$ size\+\_\+type $>$ \&vector)
+\item 
+\mbox{\Hypertarget{classQn_1_1Sampler_a3ccd05e48187ac40040700f2585c39de}\label{classQn_1_1Sampler_a3ccd05e48187ac40040700f2585c39de}} 
+void {\bfseries Update\+Event} ()
+\item 
+\mbox{\Hypertarget{classQn_1_1Sampler_a07c562d61b9c41364dfbb0d0dad2cc40}\label{classQn_1_1Sampler_a07c562d61b9c41364dfbb0d0dad2cc40}} 
+void {\bfseries Reset\+Event} ()
+\item 
+\mbox{\Hypertarget{classQn_1_1Sampler_a5407b83a6a302a03b8e8fcb119792c28}\label{classQn_1_1Sampler_a5407b83a6a302a03b8e8fcb119792c28}} 
+std\+::vector$<$ std\+::vector$<$ size\+\_\+type $>$ $>$ {\bfseries Get\+Samples} () const
+\item 
+\mbox{\Hypertarget{classQn_1_1Sampler_aec220862f1fbf315f6131c07e2fe6bf9}\label{classQn_1_1Sampler_aec220862f1fbf315f6131c07e2fe6bf9}} 
+void {\bfseries Set\+Samples} (const std\+::vector$<$ std\+::vector$<$ size\+\_\+type $>$$>$ \&samples)
+\item 
+\mbox{\Hypertarget{classQn_1_1Sampler_a57cd57478f5495eca5cc71ac9796ca27}\label{classQn_1_1Sampler_a57cd57478f5495eca5cc71ac9796ca27}} 
+std\+::string {\bfseries Report} ()
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Correlation/include/Sampler.\+h\item 
+D\+T\+\_\+\+Flow/\+Correlation/Sampler.\+cpp\end{DoxyCompactItemize}

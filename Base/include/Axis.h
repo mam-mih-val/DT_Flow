@@ -60,8 +60,6 @@ class Axis {
     }
   }
 
-  Axis(const Qn::Axis &axis) : name_(axis.name_), bin_edges_(axis.bin_edges_) {}
-
   bool operator==(const Axis &axis) const { return name_==axis.name_; }
 
   typedef typename std::vector<float>::const_iterator citerator;
@@ -71,9 +69,9 @@ class Axis {
   iterator begin() { return bin_edges_.begin(); } ///< iterator for external use
   iterator end() { return bin_edges_.end(); } ///< iterator for external use
   /**
-   * Set Name of axis.
-   * @param name name of axis
-   */
+ * Set Name of axis.
+ * @param name name of axis
+ */
   inline void SetName(const std::string name) { name_ = name; }
   /**
    * Returns Name of axis.
@@ -102,7 +100,6 @@ class Axis {
     return bin;
   };
 
-  inline std::string GetBinName(unsigned int i) const {return name_+":"+std::to_string(GetLowerBinEdge(i));}
   /**
  * Finds bin iterator for a given value
  * if value is smaller than lowest bin returns end().
@@ -128,26 +125,13 @@ class Axis {
    * @return upper edge of bin of interest
    */
   inline float GetUpperBinEdge(const unsigned long bin) const { return bin_edges_.at(bin + 1); }
-  /**
-   * Gets lower bin edge
-   * @param bin Index of bin of interest
-   * @return lower edge of bin of interest
-   */
-  inline float GetFirstBinEdge() const { return bin_edges_.front(); }
-  /**
-   * Gets upper bin edge
-   * @param bin Index of bin of interest
-   * @return upper edge of bin of interest
-   */
-  inline float GetLastBinEdge() const { return bin_edges_.back(); }
-
 
  private:
   std::string name_;
   std::vector<float> bin_edges_;
 
   /// \cond CLASSIMP
- ClassDef(Axis, 3);
+ ClassDef(Axis, 2);
   /// \endcond
 };
 

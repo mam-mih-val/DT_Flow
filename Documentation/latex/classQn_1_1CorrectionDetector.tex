@@ -1,0 +1,353 @@
+\hypertarget{classQn_1_1CorrectionDetector}{}\section{Qn\+:\+:Correction\+Detector Class Reference}
+\label{classQn_1_1CorrectionDetector}\index{Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}}
+Inheritance diagram for Qn\+:\+:Correction\+Detector\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classQn_1_1CorrectionDetector}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionDetector_a58413afb9c1be0e4ddf602aa351fe00f}\label{classQn_1_1CorrectionDetector_a58413afb9c1be0e4ddf602aa351fe00f}} 
+\mbox{\hyperlink{classQn_1_1CorrectionDetector_a58413afb9c1be0e4ddf602aa351fe00f}{Correction\+Detector}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQn_1_1CorrectionDetector_a50aa008a5c92d7773d8b9851806ddb19}{Correction\+Detector}} (const char $\ast$name, Int\+\_\+t id)
+\item 
+virtual \mbox{\hyperlink{classQn_1_1CorrectionDetector_a90e172fc836adae967b808cb75be3ca3}{$\sim$\+Correction\+Detector}} ()
+\item 
+Int\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionDetector_a8f3d562c17ea64048e7830683387588c}{Get\+Id}} ()
+\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionDetector_a7858076955dbbffabbe3092f9936f51a}{Create\+Support\+Data\+Structures}} ()
+\item 
+Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionDetector_a401cd8059027ee1f06eb96de414edc0c}{Create\+Support\+Histograms}} (T\+List $\ast$list)
+\item 
+Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionDetector_a3670d14b0e6fc446631c87dc5bb0d12b}{Create\+Q\+A\+Histograms}} (T\+List $\ast$list)
+\item 
+Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionDetector_a24c31acbd10eaf982a10b304390de47c}{Create\+Nve\+Q\+A\+Histograms}} (T\+List $\ast$list)
+\item 
+Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionDetector_a9348902c90054c1f1d262081c2818b2e}{Attach\+Correction\+Inputs}} (T\+List $\ast$list)
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1CorrectionDetector_a9cd7dd2c1a6d5d8cb7a1a0a18f3f5ee3}{After\+Inputs\+Attach\+Actions}} ()
+\item 
+Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionDetector_a4942a3b1f05f8a7f4d899e6ae9808338}{Process\+Corrections}} (const double $\ast$variable\+Container)
+\item 
+Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionDetector_a8415d9c428d7a168cc953da44b6a5e01}{Process\+Data\+Collection}} (const double $\ast$variable\+Container)
+\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionDetector_a46b40b3743208bcf3cddd063690985e8}{Include\+Qn\+Vectors}} (T\+List $\ast$list)
+\item 
+const char $\ast$ \mbox{\hyperlink{classQn_1_1CorrectionDetector_a02acf1eeed47ab5eb2df84ae1de57b59}{Get\+Accepted\+Data\+Detector\+Configuration\+Name}} (Int\+\_\+t index) const
+\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionDetector_a8de962ff8acbffdcfb15eba90a3a91ed}{Attach\+Corrections\+Manager}} (\mbox{\hyperlink{classQn_1_1CorrectionCalculator}{Correction\+Calculator}} $\ast$manager)
+\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionDetector_a029dd33340f261a48a2c7fb32c599e7f}{Add\+Detector\+Configuration}} (\mbox{\hyperlink{classQn_1_1DetectorConfiguration}{Detector\+Configuration}} $\ast$detector\+Configuration)
+\item 
+\mbox{\hyperlink{classQn_1_1DetectorConfiguration}{Detector\+Configuration}} $\ast$ \mbox{\hyperlink{classQn_1_1CorrectionDetector_a5b4d3b18be6dd94a86e56d838c42ca80}{Find\+Detector\+Configuration}} (const char $\ast$name)
+\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionDetector_a7605d01ec9abe6675b325d6ae2d710e9}{Fill\+Detector\+Configuration\+Name\+List}} (T\+List $\ast$list) const
+\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionDetector_af4426ef9b524025c09e6f78a156b8f5d}{Fill\+Overall\+Input\+Correction\+Step\+List}} (T\+List $\ast$list) const
+\item 
+void \mbox{\hyperlink{classQn_1_1CorrectionDetector_a5a6b9787279e397b1682e72038acd3fe}{Fill\+Overall\+Qn\+Vector\+Correction\+Step\+List}} (T\+List $\ast$list) const
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1CorrectionDetector_afbfcc072f1ba0d4b6c42a62daeb5a58e}{Report\+On\+Corrections}} (T\+List $\ast$steps, T\+List $\ast$calib, T\+List $\ast$apply) const
+\item 
+Int\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionDetector_a94328e4e2b21ac573c9f32d2d9a3e24a}{Add\+Data\+Vector}} (const double $\ast$variable\+Container, Double\+\_\+t phi, Double\+\_\+t weight=1.\+0, Int\+\_\+t channel\+Id=-\/1)
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1CorrectionDetector_a9ff746e0a0128405bb37ffc0384fe114}{Clear\+Detector}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classQn_1_1CorrectionDetector_a50aa008a5c92d7773d8b9851806ddb19}\label{classQn_1_1CorrectionDetector_a50aa008a5c92d7773d8b9851806ddb19}} 
+\index{Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}!Correction\+Detector@{Correction\+Detector}}
+\index{Correction\+Detector@{Correction\+Detector}!Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}}
+\subsubsection{\texorpdfstring{Correction\+Detector()}{CorrectionDetector()}}
+{\footnotesize\ttfamily Qn\+::\+Correction\+Detector\+::\+Correction\+Detector (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{Int\+\_\+t}]{id }\end{DoxyParamCaption})}
+
+Normal constructor 
+\begin{DoxyParams}{Parameters}
+{\em name} & the name of the detector \\
+\hline
+{\em id} & detector Id \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionDetector_a90e172fc836adae967b808cb75be3ca3}\label{classQn_1_1CorrectionDetector_a90e172fc836adae967b808cb75be3ca3}} 
+\index{Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}!````~Correction\+Detector@{$\sim$\+Correction\+Detector}}
+\index{````~Correction\+Detector@{$\sim$\+Correction\+Detector}!Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}}
+\subsubsection{\texorpdfstring{$\sim$\+Correction\+Detector()}{~CorrectionDetector()}}
+{\footnotesize\ttfamily Qn\+::\+Correction\+Detector\+::$\sim$\+Correction\+Detector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Default destructor The detector class does not own anything 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQn_1_1CorrectionDetector_a94328e4e2b21ac573c9f32d2d9a3e24a}\label{classQn_1_1CorrectionDetector_a94328e4e2b21ac573c9f32d2d9a3e24a}} 
+\index{Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}!Add\+Data\+Vector@{Add\+Data\+Vector}}
+\index{Add\+Data\+Vector@{Add\+Data\+Vector}!Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}}
+\subsubsection{\texorpdfstring{Add\+Data\+Vector()}{AddDataVector()}}
+{\footnotesize\ttfamily Int\+\_\+t Qn\+::\+Correction\+Detector\+::\+Add\+Data\+Vector (\begin{DoxyParamCaption}\item[{const double $\ast$}]{variable\+Container,  }\item[{Double\+\_\+t}]{phi,  }\item[{Double\+\_\+t}]{weight = {\ttfamily 1.0},  }\item[{Int\+\_\+t}]{channel\+Id = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+New data vector for the detector The request is transmitted to the attached detector configurations. The current content of the variable bank is passed in order to check for optional cuts tha define the detector configurations. 
+\begin{DoxyParams}{Parameters}
+{\em variable\+Container} & pointer to the variable content bank \\
+\hline
+{\em phi} & azimuthal angle \\
+\hline
+{\em weight} & the weight of the data vector \\
+\hline
+{\em channel\+Id} & the channel Id that originates the data vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of detector configurations that accepted and stored the data vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionDetector_a029dd33340f261a48a2c7fb32c599e7f}\label{classQn_1_1CorrectionDetector_a029dd33340f261a48a2c7fb32c599e7f}} 
+\index{Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}!Add\+Detector\+Configuration@{Add\+Detector\+Configuration}}
+\index{Add\+Detector\+Configuration@{Add\+Detector\+Configuration}!Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}}
+\subsubsection{\texorpdfstring{Add\+Detector\+Configuration()}{AddDetectorConfiguration()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Detector\+::\+Add\+Detector\+Configuration (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQn_1_1DetectorConfiguration}{Detector\+Configuration}} $\ast$}]{detector\+Configuration }\end{DoxyParamCaption})}
+
+Adds a new detector configuration to the current detector
+
+Raise an execution error if the configuration detector reference is not empty and if the detector configuration is already incorporated to the detector. 
+\begin{DoxyParams}{Parameters}
+{\em detector\+Configuration} & pointer to the configuration to be added \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionDetector_a9cd7dd2c1a6d5d8cb7a1a0a18f3f5ee3}\label{classQn_1_1CorrectionDetector_a9cd7dd2c1a6d5d8cb7a1a0a18f3f5ee3}} 
+\index{Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}!After\+Inputs\+Attach\+Actions@{After\+Inputs\+Attach\+Actions}}
+\index{After\+Inputs\+Attach\+Actions@{After\+Inputs\+Attach\+Actions}!Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}}
+\subsubsection{\texorpdfstring{After\+Inputs\+Attach\+Actions()}{AfterInputsAttachActions()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Detector\+::\+After\+Inputs\+Attach\+Actions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Perform after calibration histograms attach actions It is used to inform the different correction step that all conditions for running the network are in place so it is time to check if their requirements are satisfied
+
+The request is transmitted to the attached detector configurations \mbox{\Hypertarget{classQn_1_1CorrectionDetector_a9348902c90054c1f1d262081c2818b2e}\label{classQn_1_1CorrectionDetector_a9348902c90054c1f1d262081c2818b2e}} 
+\index{Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}!Attach\+Correction\+Inputs@{Attach\+Correction\+Inputs}}
+\index{Attach\+Correction\+Inputs@{Attach\+Correction\+Inputs}!Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}}
+\subsubsection{\texorpdfstring{Attach\+Correction\+Inputs()}{AttachCorrectionInputs()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Correction\+Detector\+::\+Attach\+Correction\+Inputs (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{list }\end{DoxyParamCaption})}
+
+Asks for attaching the needed input information to the correction steps
+
+The request is transmitted to the attached detector configurations 
+\begin{DoxyParams}{Parameters}
+{\em list} & list where the input information should be found \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if everything went OK 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionDetector_a8de962ff8acbffdcfb15eba90a3a91ed}\label{classQn_1_1CorrectionDetector_a8de962ff8acbffdcfb15eba90a3a91ed}} 
+\index{Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}!Attach\+Corrections\+Manager@{Attach\+Corrections\+Manager}}
+\index{Attach\+Corrections\+Manager@{Attach\+Corrections\+Manager}!Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}}
+\subsubsection{\texorpdfstring{Attach\+Corrections\+Manager()}{AttachCorrectionsManager()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Detector\+::\+Attach\+Corrections\+Manager (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQn_1_1CorrectionCalculator}{Correction\+Calculator}} $\ast$}]{manager }\end{DoxyParamCaption})}
+
+Stores the framework manager pointer and transmits it to the incorporated detector configurations if any
+
+
+\begin{DoxyParams}{Parameters}
+{\em manager} & the framework manager \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionDetector_a9ff746e0a0128405bb37ffc0384fe114}\label{classQn_1_1CorrectionDetector_a9ff746e0a0128405bb37ffc0384fe114}} 
+\index{Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}!Clear\+Detector@{Clear\+Detector}}
+\index{Clear\+Detector@{Clear\+Detector}!Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}}
+\subsubsection{\texorpdfstring{Clear\+Detector()}{ClearDetector()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Detector\+::\+Clear\+Detector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Clean the detector to accept a new event
+
+Transfers the order to the detector configurations \mbox{\Hypertarget{classQn_1_1CorrectionDetector_a24c31acbd10eaf982a10b304390de47c}\label{classQn_1_1CorrectionDetector_a24c31acbd10eaf982a10b304390de47c}} 
+\index{Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}!Create\+Nve\+Q\+A\+Histograms@{Create\+Nve\+Q\+A\+Histograms}}
+\index{Create\+Nve\+Q\+A\+Histograms@{Create\+Nve\+Q\+A\+Histograms}!Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}}
+\subsubsection{\texorpdfstring{Create\+Nve\+Q\+A\+Histograms()}{CreateNveQAHistograms()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Correction\+Detector\+::\+Create\+Nve\+Q\+A\+Histograms (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{list }\end{DoxyParamCaption})}
+
+Asks for non validated entries QA histograms creation
+
+The request is transmitted to the attached detector configurations 
+\begin{DoxyParams}{Parameters}
+{\em list} & list where the histograms should be incorporated for its persistence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if everything went OK 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionDetector_a3670d14b0e6fc446631c87dc5bb0d12b}\label{classQn_1_1CorrectionDetector_a3670d14b0e6fc446631c87dc5bb0d12b}} 
+\index{Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}!Create\+Q\+A\+Histograms@{Create\+Q\+A\+Histograms}}
+\index{Create\+Q\+A\+Histograms@{Create\+Q\+A\+Histograms}!Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}}
+\subsubsection{\texorpdfstring{Create\+Q\+A\+Histograms()}{CreateQAHistograms()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Correction\+Detector\+::\+Create\+Q\+A\+Histograms (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{list }\end{DoxyParamCaption})}
+
+Asks for QA histograms creation
+
+The request is transmitted to the attached detector configurations 
+\begin{DoxyParams}{Parameters}
+{\em list} & list where the histograms should be incorporated for its persistence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if everything went OK 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionDetector_a7858076955dbbffabbe3092f9936f51a}\label{classQn_1_1CorrectionDetector_a7858076955dbbffabbe3092f9936f51a}} 
+\index{Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}!Create\+Support\+Data\+Structures@{Create\+Support\+Data\+Structures}}
+\index{Create\+Support\+Data\+Structures@{Create\+Support\+Data\+Structures}!Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}}
+\subsubsection{\texorpdfstring{Create\+Support\+Data\+Structures()}{CreateSupportDataStructures()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Detector\+::\+Create\+Support\+Data\+Structures (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Asks for support data structures creation
+
+The request is transmitted to the attached detector configurations \mbox{\Hypertarget{classQn_1_1CorrectionDetector_a401cd8059027ee1f06eb96de414edc0c}\label{classQn_1_1CorrectionDetector_a401cd8059027ee1f06eb96de414edc0c}} 
+\index{Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}!Create\+Support\+Histograms@{Create\+Support\+Histograms}}
+\index{Create\+Support\+Histograms@{Create\+Support\+Histograms}!Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}}
+\subsubsection{\texorpdfstring{Create\+Support\+Histograms()}{CreateSupportHistograms()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Correction\+Detector\+::\+Create\+Support\+Histograms (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{list }\end{DoxyParamCaption})}
+
+Asks for support histograms creation
+
+The request is transmitted to the attached detector configurations 
+\begin{DoxyParams}{Parameters}
+{\em list} & list where the histograms should be incorporated for its persistence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if everything went OK 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionDetector_a7605d01ec9abe6675b325d6ae2d710e9}\label{classQn_1_1CorrectionDetector_a7605d01ec9abe6675b325d6ae2d710e9}} 
+\index{Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}!Fill\+Detector\+Configuration\+Name\+List@{Fill\+Detector\+Configuration\+Name\+List}}
+\index{Fill\+Detector\+Configuration\+Name\+List@{Fill\+Detector\+Configuration\+Name\+List}!Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}}
+\subsubsection{\texorpdfstring{Fill\+Detector\+Configuration\+Name\+List()}{FillDetectorConfigurationNameList()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Detector\+::\+Fill\+Detector\+Configuration\+Name\+List (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{list }\end{DoxyParamCaption}) const}
+
+Include the name of each detector configuration into the passed list
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & the list where to incorporate detector configurations name \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionDetector_af4426ef9b524025c09e6f78a156b8f5d}\label{classQn_1_1CorrectionDetector_af4426ef9b524025c09e6f78a156b8f5d}} 
+\index{Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}!Fill\+Overall\+Input\+Correction\+Step\+List@{Fill\+Overall\+Input\+Correction\+Step\+List}}
+\index{Fill\+Overall\+Input\+Correction\+Step\+List@{Fill\+Overall\+Input\+Correction\+Step\+List}!Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}}
+\subsubsection{\texorpdfstring{Fill\+Overall\+Input\+Correction\+Step\+List()}{FillOverallInputCorrectionStepList()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Detector\+::\+Fill\+Overall\+Input\+Correction\+Step\+List (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{list }\end{DoxyParamCaption}) const}
+
+Include the name of the input correction steps on each detector configuration into the passed list
+
+The request is transmitted to the attached detector configurations 
+\begin{DoxyParams}{Parameters}
+{\em list} & list where the corrected \mbox{\hyperlink{namespaceQn}{Qn}} vector should be added \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionDetector_a5a6b9787279e397b1682e72038acd3fe}\label{classQn_1_1CorrectionDetector_a5a6b9787279e397b1682e72038acd3fe}} 
+\index{Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}!Fill\+Overall\+Qn\+Vector\+Correction\+Step\+List@{Fill\+Overall\+Qn\+Vector\+Correction\+Step\+List}}
+\index{Fill\+Overall\+Qn\+Vector\+Correction\+Step\+List@{Fill\+Overall\+Qn\+Vector\+Correction\+Step\+List}!Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}}
+\subsubsection{\texorpdfstring{Fill\+Overall\+Qn\+Vector\+Correction\+Step\+List()}{FillOverallQnVectorCorrectionStepList()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Detector\+::\+Fill\+Overall\+Qn\+Vector\+Correction\+Step\+List (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{list }\end{DoxyParamCaption}) const}
+
+Include the name of the \mbox{\hyperlink{namespaceQn}{Qn}} vector correction steps on each detector configuration into the passed list
+
+The request is transmitted to the attached detector configurations 
+\begin{DoxyParams}{Parameters}
+{\em list} & list where the corrected \mbox{\hyperlink{namespaceQn}{Qn}} vector should be added \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionDetector_a5b4d3b18be6dd94a86e56d838c42ca80}\label{classQn_1_1CorrectionDetector_a5b4d3b18be6dd94a86e56d838c42ca80}} 
+\index{Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}!Find\+Detector\+Configuration@{Find\+Detector\+Configuration}}
+\index{Find\+Detector\+Configuration@{Find\+Detector\+Configuration}!Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}}
+\subsubsection{\texorpdfstring{Find\+Detector\+Configuration()}{FindDetectorConfiguration()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQn_1_1DetectorConfiguration}{Detector\+Configuration}} $\ast$ Qn\+::\+Correction\+Detector\+::\+Find\+Detector\+Configuration (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name }\end{DoxyParamCaption})}
+
+Searches for a concrete detector configuration by name 
+\begin{DoxyParams}{Parameters}
+{\em name} & the name of the detector configuration to find \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the found detector configuration (N\+U\+LL if not found) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionDetector_a02acf1eeed47ab5eb2df84ae1de57b59}\label{classQn_1_1CorrectionDetector_a02acf1eeed47ab5eb2df84ae1de57b59}} 
+\index{Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}!Get\+Accepted\+Data\+Detector\+Configuration\+Name@{Get\+Accepted\+Data\+Detector\+Configuration\+Name}}
+\index{Get\+Accepted\+Data\+Detector\+Configuration\+Name@{Get\+Accepted\+Data\+Detector\+Configuration\+Name}!Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}}
+\subsubsection{\texorpdfstring{Get\+Accepted\+Data\+Detector\+Configuration\+Name()}{GetAcceptedDataDetectorConfigurationName()}}
+{\footnotesize\ttfamily const char$\ast$ Qn\+::\+Correction\+Detector\+::\+Get\+Accepted\+Data\+Detector\+Configuration\+Name (\begin{DoxyParamCaption}\item[{Int\+\_\+t}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets the name of the detector configuration at index that accepted last data vector 
+\begin{DoxyParams}{Parameters}
+{\em index} & the position in the list of accepted data vector configuration \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the configuration name 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionDetector_a8f3d562c17ea64048e7830683387588c}\label{classQn_1_1CorrectionDetector_a8f3d562c17ea64048e7830683387588c}} 
+\index{Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}!Get\+Id@{Get\+Id}}
+\index{Get\+Id@{Get\+Id}!Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}}
+\subsubsection{\texorpdfstring{Get\+Id()}{GetId()}}
+{\footnotesize\ttfamily Int\+\_\+t Qn\+::\+Correction\+Detector\+::\+Get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets the detector Id
+
+\begin{DoxyReturn}{Returns}
+detector Id 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionDetector_a46b40b3743208bcf3cddd063690985e8}\label{classQn_1_1CorrectionDetector_a46b40b3743208bcf3cddd063690985e8}} 
+\index{Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}!Include\+Qn\+Vectors@{Include\+Qn\+Vectors}}
+\index{Include\+Qn\+Vectors@{Include\+Qn\+Vectors}!Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}}
+\subsubsection{\texorpdfstring{Include\+Qn\+Vectors()}{IncludeQnVectors()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Detector\+::\+Include\+Qn\+Vectors (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{list }\end{DoxyParamCaption})}
+
+Include the the list of \mbox{\hyperlink{namespaceQn}{Qn}} vector associated to the detector into the passed list
+
+The request is transmitted to the attached detector configurations 
+\begin{DoxyParams}{Parameters}
+{\em list} & list where the corrected \mbox{\hyperlink{namespaceQn}{Qn}} vector should be added \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQn_1_1CorrectionDetector_a4942a3b1f05f8a7f4d899e6ae9808338}\label{classQn_1_1CorrectionDetector_a4942a3b1f05f8a7f4d899e6ae9808338}} 
+\index{Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}!Process\+Corrections@{Process\+Corrections}}
+\index{Process\+Corrections@{Process\+Corrections}!Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}}
+\subsubsection{\texorpdfstring{Process\+Corrections()}{ProcessCorrections()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Correction\+Detector\+::\+Process\+Corrections (\begin{DoxyParamCaption}\item[{const double $\ast$}]{variable\+Container }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Ask for processing corrections for the involved detector
+
+The request is transmitted to the attached detector configurations \begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if everything went OK 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionDetector_a8415d9c428d7a168cc953da44b6a5e01}\label{classQn_1_1CorrectionDetector_a8415d9c428d7a168cc953da44b6a5e01}} 
+\index{Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}!Process\+Data\+Collection@{Process\+Data\+Collection}}
+\index{Process\+Data\+Collection@{Process\+Data\+Collection}!Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}}
+\subsubsection{\texorpdfstring{Process\+Data\+Collection()}{ProcessDataCollection()}}
+{\footnotesize\ttfamily Bool\+\_\+t Qn\+::\+Correction\+Detector\+::\+Process\+Data\+Collection (\begin{DoxyParamCaption}\item[{const double $\ast$}]{variable\+Container }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Ask for processing corrections data collection for the involved detector
+
+The request is transmitted to the attached detector configurations \begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if everything went OK 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classQn_1_1CorrectionDetector_afbfcc072f1ba0d4b6c42a62daeb5a58e}\label{classQn_1_1CorrectionDetector_afbfcc072f1ba0d4b6c42a62daeb5a58e}} 
+\index{Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}!Report\+On\+Corrections@{Report\+On\+Corrections}}
+\index{Report\+On\+Corrections@{Report\+On\+Corrections}!Qn\+::\+Correction\+Detector@{Qn\+::\+Correction\+Detector}}
+\subsubsection{\texorpdfstring{Report\+On\+Corrections()}{ReportOnCorrections()}}
+{\footnotesize\ttfamily void Qn\+::\+Correction\+Detector\+::\+Report\+On\+Corrections (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{steps,  }\item[{T\+List $\ast$}]{calib,  }\item[{T\+List $\ast$}]{apply }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Provide information about assigned corrections on each of the detector configurations
+
+The request is transmitted to the attached detector configurations 
+\begin{DoxyParams}{Parameters}
+{\em steps} & list for incorporating the list of assigned correction steps \\
+\hline
+{\em calib} & list for incorporating the list of steps in calibrating status \\
+\hline
+{\em apply} & list for incorporating the list of steps in applying status \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/include/Correction\+Detector.\+h\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/Correction\+Detector.\+cpp\end{DoxyCompactItemize}

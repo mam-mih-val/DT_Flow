@@ -1,0 +1,269 @@
+\hypertarget{classQn_1_1CorrectionOnInputData}{}\section{Qn\+:\+:Correction\+On\+Input\+Data Class Reference}
+\label{classQn_1_1CorrectionOnInputData}\index{Qn\+::\+Correction\+On\+Input\+Data@{Qn\+::\+Correction\+On\+Input\+Data}}
+Inheritance diagram for Qn\+:\+:Correction\+On\+Input\+Data\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classQn_1_1CorrectionOnInputData}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionOnInputData_a15e8ed1c6af8a630b16f3816306b2f1d}\label{classQn_1_1CorrectionOnInputData_a15e8ed1c6af8a630b16f3816306b2f1d}} 
+\mbox{\hyperlink{classQn_1_1CorrectionOnInputData_a15e8ed1c6af8a630b16f3816306b2f1d}{Correction\+On\+Input\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQn_1_1CorrectionOnInputData_a519a4d9222892b586efa89bb47cd46e8}{Correction\+On\+Input\+Data}} (const char $\ast$name, const char $\ast$key)
+\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionOnInputData_a2cdd1d2536214897d3b61fc2463601c6}\label{classQn_1_1CorrectionOnInputData_a2cdd1d2536214897d3b61fc2463601c6}} 
+virtual \mbox{\hyperlink{classQn_1_1CorrectionOnInputData_a2cdd1d2536214897d3b61fc2463601c6}{$\sim$\+Correction\+On\+Input\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classQn_1_1CorrectionOnInputData_adab1d79e0c216c6c981cd8d7ed271490}{Attached\+To\+Framework\+Manager}} ()=0
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionOnInputData_a37c53966c0121ed0f7d764a9769690be}{Attach\+Input}} (T\+List $\ast$list)=0
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1CorrectionOnInputData_ada5498cdbba9a7697a120f47fd64ae46}{After\+Inputs\+Attach\+Actions}} ()
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1CorrectionOnInputData_a7da5cb5e6c82e28e2dd63d82ac82bc8a}{Create\+Support\+Data\+Structures}} ()=0
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionOnInputData_a1556dd574545ef77d6b462020101bf39}{Create\+Support\+Histograms}} (T\+List $\ast$list)=0
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionOnInputData_a42390a6c47f558faeb1e14d245dcbc4a}{Process\+Corrections}} (const double $\ast$variable\+Container)=0
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionOnInputData_aff000eb0dbd571ac42eb0c4d3771ba69}{Process\+Data\+Collection}} (const double $\ast$variable\+Container)=0
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1CorrectionOnInputData_a9072c5ffae945c464bed4ee3e60858a4}{Include\+Corrected\+Qn\+Vector}} (T\+List $\ast$list)
+\item 
+virtual void \mbox{\hyperlink{classQn_1_1CorrectionOnInputData_a8da92a3389c8654961199f123d5e6a6d}{Clear\+Correction\+Step}} ()=0
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionOnInputData_a738e13f0a496811358ad3f5b86320ffa}{Is\+Being\+Applied}} () const
+\item 
+virtual Bool\+\_\+t \mbox{\hyperlink{classQn_1_1CorrectionOnInputData_a40b05b6db47e8dd52e1f6a616b9b9d3a}{Report\+Usage}} (T\+List $\ast$calibration\+List, T\+List $\ast$apply\+List)=0
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQn_1_1CorrectionOnInputData_a0c85055b2faa6f776e4c3c0367a16417}\label{classQn_1_1CorrectionOnInputData_a0c85055b2faa6f776e4c3c0367a16417}} 
+class {\bfseries Detector\+Configuration\+Channels}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classQn_1_1CorrectionOnInputData_a519a4d9222892b586efa89bb47cd46e8}\label{classQn_1_1CorrectionOnInputData_a519a4d9222892b586efa89bb47cd46e8}} 
+\index{Qn\+::\+Correction\+On\+Input\+Data@{Qn\+::\+Correction\+On\+Input\+Data}!Correction\+On\+Input\+Data@{Correction\+On\+Input\+Data}}
+\index{Correction\+On\+Input\+Data@{Correction\+On\+Input\+Data}!Qn\+::\+Correction\+On\+Input\+Data@{Qn\+::\+Correction\+On\+Input\+Data}}
+\subsubsection{\texorpdfstring{Correction\+On\+Input\+Data()}{CorrectionOnInputData()}}
+{\footnotesize\ttfamily Qn\+::\+Correction\+On\+Input\+Data\+::\+Correction\+On\+Input\+Data (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{const char $\ast$}]{key }\end{DoxyParamCaption})}
+
+Normal constructor 
+\begin{DoxyParams}{Parameters}
+{\em name} & of the correction step \\
+\hline
+{\em key} & the associated ordering key \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQn_1_1CorrectionOnInputData_ada5498cdbba9a7697a120f47fd64ae46}\label{classQn_1_1CorrectionOnInputData_ada5498cdbba9a7697a120f47fd64ae46}} 
+\index{Qn\+::\+Correction\+On\+Input\+Data@{Qn\+::\+Correction\+On\+Input\+Data}!After\+Inputs\+Attach\+Actions@{After\+Inputs\+Attach\+Actions}}
+\index{After\+Inputs\+Attach\+Actions@{After\+Inputs\+Attach\+Actions}!Qn\+::\+Correction\+On\+Input\+Data@{Qn\+::\+Correction\+On\+Input\+Data}}
+\subsubsection{\texorpdfstring{After\+Inputs\+Attach\+Actions()}{AfterInputsAttachActions()}}
+{\footnotesize\ttfamily virtual void Qn\+::\+Correction\+On\+Input\+Data\+::\+After\+Inputs\+Attach\+Actions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Perform after calibration histograms attach actions It is used to inform the different correction step that all conditions for running the network are in place so it is time to check if their requirements are satisfied
+
+Does nothing for the time being 
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionStepBase_a0c32c1fceb1f1be225ef0407a806f9e2}{Qn\+::\+Correction\+Step\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionOnInputData_adab1d79e0c216c6c981cd8d7ed271490}\label{classQn_1_1CorrectionOnInputData_adab1d79e0c216c6c981cd8d7ed271490}} 
+\index{Qn\+::\+Correction\+On\+Input\+Data@{Qn\+::\+Correction\+On\+Input\+Data}!Attached\+To\+Framework\+Manager@{Attached\+To\+Framework\+Manager}}
+\index{Attached\+To\+Framework\+Manager@{Attached\+To\+Framework\+Manager}!Qn\+::\+Correction\+On\+Input\+Data@{Qn\+::\+Correction\+On\+Input\+Data}}
+\subsubsection{\texorpdfstring{Attached\+To\+Framework\+Manager()}{AttachedToFrameworkManager()}}
+{\footnotesize\ttfamily virtual void Qn\+::\+Correction\+On\+Input\+Data\+::\+Attached\+To\+Framework\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Informs when the detector configuration has been attached to the framework manager Basically this allows interaction between the different framework sections at configuration time Pure virtual function 
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionStepBase_a0c255ad7095cd2aa89fcf1f1db068949}{Qn\+::\+Correction\+Step\+Base}}.
+
+
+
+Implemented in \mbox{\hyperlink{classQn_1_1GainEqualization_a487cc533ff299196a16d0ee4688d1039}{Qn\+::\+Gain\+Equalization}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionOnInputData_a37c53966c0121ed0f7d764a9769690be}\label{classQn_1_1CorrectionOnInputData_a37c53966c0121ed0f7d764a9769690be}} 
+\index{Qn\+::\+Correction\+On\+Input\+Data@{Qn\+::\+Correction\+On\+Input\+Data}!Attach\+Input@{Attach\+Input}}
+\index{Attach\+Input@{Attach\+Input}!Qn\+::\+Correction\+On\+Input\+Data@{Qn\+::\+Correction\+On\+Input\+Data}}
+\subsubsection{\texorpdfstring{Attach\+Input()}{AttachInput()}}
+{\footnotesize\ttfamily virtual Bool\+\_\+t Qn\+::\+Correction\+On\+Input\+Data\+::\+Attach\+Input (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Attaches the needed input information to the correction step
+
+Pure virtual function 
+\begin{DoxyParams}{Parameters}
+{\em list} & list where the inputs should be found \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if everything went OK 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionStepBase_aa778d3926bb1ee463753466f2216187d}{Qn\+::\+Correction\+Step\+Base}}.
+
+
+
+Implemented in \mbox{\hyperlink{classQn_1_1GainEqualization_a167a6348fcdf8c0f48cb16a3dd9d1c29}{Qn\+::\+Gain\+Equalization}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionOnInputData_a8da92a3389c8654961199f123d5e6a6d}\label{classQn_1_1CorrectionOnInputData_a8da92a3389c8654961199f123d5e6a6d}} 
+\index{Qn\+::\+Correction\+On\+Input\+Data@{Qn\+::\+Correction\+On\+Input\+Data}!Clear\+Correction\+Step@{Clear\+Correction\+Step}}
+\index{Clear\+Correction\+Step@{Clear\+Correction\+Step}!Qn\+::\+Correction\+On\+Input\+Data@{Qn\+::\+Correction\+On\+Input\+Data}}
+\subsubsection{\texorpdfstring{Clear\+Correction\+Step()}{ClearCorrectionStep()}}
+{\footnotesize\ttfamily virtual void Qn\+::\+Correction\+On\+Input\+Data\+::\+Clear\+Correction\+Step (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Clean the correction to accept a new event Pure virtual function 
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionStepBase_a879c47010a868c19bd08042445662e2e}{Qn\+::\+Correction\+Step\+Base}}.
+
+
+
+Implemented in \mbox{\hyperlink{classQn_1_1GainEqualization_a8ee1f2ecf6929de35d455515a067ac9c}{Qn\+::\+Gain\+Equalization}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionOnInputData_a7da5cb5e6c82e28e2dd63d82ac82bc8a}\label{classQn_1_1CorrectionOnInputData_a7da5cb5e6c82e28e2dd63d82ac82bc8a}} 
+\index{Qn\+::\+Correction\+On\+Input\+Data@{Qn\+::\+Correction\+On\+Input\+Data}!Create\+Support\+Data\+Structures@{Create\+Support\+Data\+Structures}}
+\index{Create\+Support\+Data\+Structures@{Create\+Support\+Data\+Structures}!Qn\+::\+Correction\+On\+Input\+Data@{Qn\+::\+Correction\+On\+Input\+Data}}
+\subsubsection{\texorpdfstring{Create\+Support\+Data\+Structures()}{CreateSupportDataStructures()}}
+{\footnotesize\ttfamily virtual void Qn\+::\+Correction\+On\+Input\+Data\+::\+Create\+Support\+Data\+Structures (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Asks for support data structures creation
+
+Pure virtual function 
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionStepBase_a800ac634950eb231d72033b03cc899cd}{Qn\+::\+Correction\+Step\+Base}}.
+
+
+
+Implemented in \mbox{\hyperlink{classQn_1_1GainEqualization_a3b1da6e8711ef1e7dea394d3612ee8f9}{Qn\+::\+Gain\+Equalization}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionOnInputData_a1556dd574545ef77d6b462020101bf39}\label{classQn_1_1CorrectionOnInputData_a1556dd574545ef77d6b462020101bf39}} 
+\index{Qn\+::\+Correction\+On\+Input\+Data@{Qn\+::\+Correction\+On\+Input\+Data}!Create\+Support\+Histograms@{Create\+Support\+Histograms}}
+\index{Create\+Support\+Histograms@{Create\+Support\+Histograms}!Qn\+::\+Correction\+On\+Input\+Data@{Qn\+::\+Correction\+On\+Input\+Data}}
+\subsubsection{\texorpdfstring{Create\+Support\+Histograms()}{CreateSupportHistograms()}}
+{\footnotesize\ttfamily virtual Bool\+\_\+t Qn\+::\+Correction\+On\+Input\+Data\+::\+Create\+Support\+Histograms (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Asks for support histograms creation
+
+Pure virtual function 
+\begin{DoxyParams}{Parameters}
+{\em list} & list where the histograms should be incorporated for its persistence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if everything went OK 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionStepBase_a156c05dc7a6a8e149674ccfb11e596c9}{Qn\+::\+Correction\+Step\+Base}}.
+
+
+
+Implemented in \mbox{\hyperlink{classQn_1_1GainEqualization_a3f34cc42fe078c556d9acf98525490ce}{Qn\+::\+Gain\+Equalization}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionOnInputData_a9072c5ffae945c464bed4ee3e60858a4}\label{classQn_1_1CorrectionOnInputData_a9072c5ffae945c464bed4ee3e60858a4}} 
+\index{Qn\+::\+Correction\+On\+Input\+Data@{Qn\+::\+Correction\+On\+Input\+Data}!Include\+Corrected\+Qn\+Vector@{Include\+Corrected\+Qn\+Vector}}
+\index{Include\+Corrected\+Qn\+Vector@{Include\+Corrected\+Qn\+Vector}!Qn\+::\+Correction\+On\+Input\+Data@{Qn\+::\+Correction\+On\+Input\+Data}}
+\subsubsection{\texorpdfstring{Include\+Corrected\+Qn\+Vector()}{IncludeCorrectedQnVector()}}
+{\footnotesize\ttfamily virtual void Qn\+::\+Correction\+On\+Input\+Data\+::\+Include\+Corrected\+Qn\+Vector (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Include the new corrected \mbox{\hyperlink{namespaceQn}{Qn}} vector into the passed list
+
+Does nothing. Not applicable for corrections on input data 
+\begin{DoxyParams}{Parameters}
+{\em list} & list where the corrected \mbox{\hyperlink{namespaceQn}{Qn}} vector should be added \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionStepBase_a5f8936b56bfe4e5a7bf1e79775241500}{Qn\+::\+Correction\+Step\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionOnInputData_a738e13f0a496811358ad3f5b86320ffa}\label{classQn_1_1CorrectionOnInputData_a738e13f0a496811358ad3f5b86320ffa}} 
+\index{Qn\+::\+Correction\+On\+Input\+Data@{Qn\+::\+Correction\+On\+Input\+Data}!Is\+Being\+Applied@{Is\+Being\+Applied}}
+\index{Is\+Being\+Applied@{Is\+Being\+Applied}!Qn\+::\+Correction\+On\+Input\+Data@{Qn\+::\+Correction\+On\+Input\+Data}}
+\subsubsection{\texorpdfstring{Is\+Being\+Applied()}{IsBeingApplied()}}
+{\footnotesize\ttfamily virtual Bool\+\_\+t Qn\+::\+Correction\+On\+Input\+Data\+::\+Is\+Being\+Applied (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Reports if the correction step is being applied \begin{DoxyReturn}{Returns}
+F\+A\+L\+SE, input data correction step dont make use of this service, yet 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionStepBase_aa99ab21886c2b4d8c3c6e1f60b84acc9}{Qn\+::\+Correction\+Step\+Base}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionOnInputData_a42390a6c47f558faeb1e14d245dcbc4a}\label{classQn_1_1CorrectionOnInputData_a42390a6c47f558faeb1e14d245dcbc4a}} 
+\index{Qn\+::\+Correction\+On\+Input\+Data@{Qn\+::\+Correction\+On\+Input\+Data}!Process\+Corrections@{Process\+Corrections}}
+\index{Process\+Corrections@{Process\+Corrections}!Qn\+::\+Correction\+On\+Input\+Data@{Qn\+::\+Correction\+On\+Input\+Data}}
+\subsubsection{\texorpdfstring{Process\+Corrections()}{ProcessCorrections()}}
+{\footnotesize\ttfamily virtual Bool\+\_\+t Qn\+::\+Correction\+On\+Input\+Data\+::\+Process\+Corrections (\begin{DoxyParamCaption}\item[{const double $\ast$}]{variable\+Container }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Processes the correction step
+
+Pure virtual function \begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if everything went OK 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionStepBase_a773ff3bbe5e7c8bcfb11a4f4138af1e1}{Qn\+::\+Correction\+Step\+Base}}.
+
+
+
+Implemented in \mbox{\hyperlink{classQn_1_1GainEqualization_ade22bc9b3aee596b6594d8a8d6fdc1f1}{Qn\+::\+Gain\+Equalization}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionOnInputData_aff000eb0dbd571ac42eb0c4d3771ba69}\label{classQn_1_1CorrectionOnInputData_aff000eb0dbd571ac42eb0c4d3771ba69}} 
+\index{Qn\+::\+Correction\+On\+Input\+Data@{Qn\+::\+Correction\+On\+Input\+Data}!Process\+Data\+Collection@{Process\+Data\+Collection}}
+\index{Process\+Data\+Collection@{Process\+Data\+Collection}!Qn\+::\+Correction\+On\+Input\+Data@{Qn\+::\+Correction\+On\+Input\+Data}}
+\subsubsection{\texorpdfstring{Process\+Data\+Collection()}{ProcessDataCollection()}}
+{\footnotesize\ttfamily virtual Bool\+\_\+t Qn\+::\+Correction\+On\+Input\+Data\+::\+Process\+Data\+Collection (\begin{DoxyParamCaption}\item[{const double $\ast$}]{variable\+Container }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Processes the correction step data collection
+
+Pure virtual function \begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if everything went OK 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionStepBase_a77005ff85ae351cb290fee4adb41c029}{Qn\+::\+Correction\+Step\+Base}}.
+
+
+
+Implemented in \mbox{\hyperlink{classQn_1_1GainEqualization_a9984ec9a1056bc3e336ff9ac50888641}{Qn\+::\+Gain\+Equalization}}.
+
+\mbox{\Hypertarget{classQn_1_1CorrectionOnInputData_a40b05b6db47e8dd52e1f6a616b9b9d3a}\label{classQn_1_1CorrectionOnInputData_a40b05b6db47e8dd52e1f6a616b9b9d3a}} 
+\index{Qn\+::\+Correction\+On\+Input\+Data@{Qn\+::\+Correction\+On\+Input\+Data}!Report\+Usage@{Report\+Usage}}
+\index{Report\+Usage@{Report\+Usage}!Qn\+::\+Correction\+On\+Input\+Data@{Qn\+::\+Correction\+On\+Input\+Data}}
+\subsubsection{\texorpdfstring{Report\+Usage()}{ReportUsage()}}
+{\footnotesize\ttfamily virtual Bool\+\_\+t Qn\+::\+Correction\+On\+Input\+Data\+::\+Report\+Usage (\begin{DoxyParamCaption}\item[{T\+List $\ast$}]{calibration\+List,  }\item[{T\+List $\ast$}]{apply\+List }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Report on correction usage Pure virtual function Correction step should incorporate its name in calibration list if it is producing information calibration in the ongoing step and in the apply list if it is applying correction in the ongoing step. 
+\begin{DoxyParams}{Parameters}
+{\em calibration\+List} & list containing the correction steps producing calibration information \\
+\hline
+{\em apply\+List} & list containing the correction steps applying corrections \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k\+T\+R\+UE if the correction step is being applied 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classQn_1_1CorrectionStepBase_a235ae6623fbbe26601b95f7e76753bfd}{Qn\+::\+Correction\+Step\+Base}}.
+
+
+
+Implemented in \mbox{\hyperlink{classQn_1_1GainEqualization_af444038af10eb53d8bd6c8703d4e5629}{Qn\+::\+Gain\+Equalization}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/include/Correction\+On\+Input\+Data.\+h\item 
+D\+T\+\_\+\+Flow/\+Qn\+Corrections/Correction\+On\+Input\+Data.\+cpp\end{DoxyCompactItemize}
