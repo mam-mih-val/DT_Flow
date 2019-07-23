@@ -4,4 +4,7 @@ build
 .DS_STORE
 docs/doxygen
 Doxyfile
+.vscode
+*.root
+
 
