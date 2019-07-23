@@ -46,15 +46,16 @@ class CorrectionTask {
 	protected:
 
 	enum Vars{
-		kCentrality=0,
-		kFwModuleRing,
-		kFwModuleId,
-		kFwModuleAdc,
-		kFwModulePhi,
-		kNumberOfVars
+		kCentrality=0,	//0
+		kFwModuleRing, 	//1
+		kFwModuleId=kFwModuleRing+304,	//2
+		kFwModuleAdc=kFwModuleId+304,	//3
+		kFwModulePhi=kFwModuleAdc+304,	//4
+		kNumberOfVars=kFwModulePhi+304	//5
 	};
 	std::shared_ptr<TFile> out_file_;
-	std::shared_ptr<TFile> in_calibration_file_;
+	// std::shared_ptr<TFile> in_calibration_file_;
+	TFile* in_calibration_file_;
 	std::shared_ptr<TFile> out_calibration_file_;
 	TTree *out_tree_;
 	TBranch* DTEvent;

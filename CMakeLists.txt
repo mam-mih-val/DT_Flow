@@ -19,6 +19,7 @@ if ("${CMAKE_COMPILER_ID}" STREQUAL  "Clang")
     add_compile_options("-stdlib=libc++")
 endif()
 
+set(CMAKE_BUILD_TYPE debug)
 
 set(QNCORR_SOURCES
         QnCorrections/CorrectionOnInputData.cpp
