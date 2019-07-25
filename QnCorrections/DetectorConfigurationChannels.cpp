@@ -274,10 +274,7 @@ Bool_t DetectorConfigurationChannels::CreateQAHistograms(TList *list) {
 
   /* let's get the effective number of channels */
   Int_t nNoOfChannels = 0;
-  std::cout << "DetectorConfigurationChannels.cpp: 330 line passed" << std::endl;
   for (Int_t i = 0; i < fNoOfChannels; i++){
-  	// std::cout << "DetectorConfigurationChannels.cpp: 278 line passed" << std::endl;
-  	// std::cout << fUsedChannel << std::endl;
     if (fUsedChannel && fUsedChannel[i])
       nNoOfChannels++;
   }
@@ -330,7 +327,6 @@ Bool_t DetectorConfigurationChannels::CreateQAHistograms(TList *list) {
   /* now propagate it to the input data corrections */
   Bool_t retValue = kTRUE;
   for (Int_t ixCorrection = 0; ixCorrection < fInputDataCorrections.GetEntries(); ixCorrection++) {
-  std::cout << "DetectorConfigurationChannels.cpp: 330 line passed" << std::endl;
     retValue = retValue && (fInputDataCorrections.At(ixCorrection)->CreateQAHistograms(detectorConfigurationList));
   }
 
