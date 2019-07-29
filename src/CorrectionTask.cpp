@@ -10,22 +10,14 @@ namespace Qn {
 
 CorrectionTask::CorrectionTask(std::string inFile, std::string incalib) :
 	out_file_(new TFile("output.root", "RECREATE")),
-	// in_calibration_file_(new TFile(incalib.c_str(), "READ")),
-	in_calibration_file_{new TFile(incalib.c_str(), "READ")},
+	in_calibration_file_(new TFile(incalib.c_str(), "READ")),
 	out_calibration_file_(new TFile("qn.root", "RECREATE")),
 	out_tree_(new TTree("tree", "tree")),
 	fManager(),
 	write_tree_(true) ,
-	fEvent{nullptr}
+	fVarManager(new DataTreeVarManager(inFile))
 {
-	fChain = new TChain("DataTree");
-    fChain->Add(inFile.c_str());
-	std::cout << "File read. " << fChain->GetEntries() << " events found." << endl;
-    fChain->SetBranchAddress("DTEvent", &fEvent);
-	std::cout << "Branch read successfully" << std::endl;
-	fSelector = new Selector(fEvent);
 	out_file_->cd();
-	std::cout << "Construction of Qn::CorrectionTask ended successfully" << endl;
 }
 
 void CorrectionTask::Run() 
@@ -33,12 +25,11 @@ void CorrectionTask::Run()
 	Initialize();
 	QnCorrectionsSetTracingLevel(kError);
 	std::cout << "Processing..." << std::endl;
-	
-	Long64_t numEvents = fChain->GetEntries();
-	for(Long64_t idx=0; idx<numEvents; idx++) 
+	int numEvents = fVarManager->GetNumberOfEvents();
+	for(int idx=0; idx<numEvents; idx++) 
 	{
-		fChain->GetEntry(idx);
-		if( !fSelector->IsCorrectEvent() )
+		fVarManager->SwitchEvent(idx);
+		if( !fVarManager->IsGoodEvent() )
 			continue;
 		Process();
 	}
@@ -46,18 +37,18 @@ void CorrectionTask::Run()
 }
 
 void CorrectionTask::Initialize() {
-	cout << "Initialization began" << endl;
 	// Add Variables to variable manager needed for filling
-	fManager.AddVariable("Centrality", kCentrality, 1);
-	fManager.AddVariable("FwRing", kFwModuleRing, 304);
-	fManager.AddVariable("FwModuleId", kFwModuleId, 304);
-	fManager.AddVariable("FwAdc", kFwModuleAdc, 304);
-	fManager.AddVariable("FwPhi", kFwModulePhi, 304);
+	fManager.AddVariable("Centrality", DataTreeVarManager::kCentrality, 1);
+	fManager.AddVariable("FwRing", DataTreeVarManager::kFwModuleRing, 304);
+	fManager.AddVariable("FwModuleId", DataTreeVarManager::kFwModuleId, 304);
+	fManager.AddVariable("FwAdc", DataTreeVarManager::kFwModuleAdc, 304);
+	fManager.AddVariable("FwPhi", DataTreeVarManager::kFwModulePhi, 304);
 	std::cout << "Variables added" << std::endl;
 	//Correction eventvariables
 	
 	fManager.SetEventVariable("Centrality");
 	fManager.AddCorrectionAxis({"Centrality", 10, 0, 50});
+
 
 	//Configuration of FW. Preparing for add axis to qa histograms
   
@@ -103,32 +94,31 @@ void CorrectionTask::Initialize() {
 	
 	fManager.SetTree(out_tree_);
 	fManager.Initialize(in_calibration_file_);
+	std::cout << "Successfully initialized" << std::endl;
 }
 
 void CorrectionTask::Process() {
 	fManager.Reset();
-	auto varContainer = fManager.GetVariableContainer(); 
-	varContainer[kCentrality]=fEvent->GetCentrality(HADES_constants::kNhitsTOF_RPC_cut);
-	for(int idx=0; idx<304; idx++)
-	{
-		varContainer[kFwModuleRing+idx]=0;
-		varContainer[kFwModuleId+idx]=idx;
-		varContainer[kFwModuleAdc+idx]=0;
-		varContainer[kFwModulePhi+idx]=0;
-	}
-	Int_t nModules = fEvent->GetNPSDModules();
-	for(Int_t idx=0; idx<nModules; idx++) 
-	{
-		if( !fSelector->IsCorrectFwHit(idx, 0, "adc", 80.0) )
-			continue;
-		int moduleId = fEvent->GetPSDModule(idx)->GetId();
-		varContainer[kFwModuleRing+moduleId]=	(double) fEvent->GetPSDModule(idx)->GetRing();
-		varContainer[kFwModuleAdc+moduleId]=	(double) fEvent->GetPSDModule(idx)->GetEnergy();
-		varContainer[kFwModulePhi+moduleId]=	(double) fEvent->GetPSDModule(idx)->GetPhi();
-		// std::cout << " *** " << std::endl;
-		// for(int i=0; i<kNumberOfVars; i++)
-		// 	std::cout << i << ": " << varContainer[i] << std::endl;
-	}
+	fVarManager->FillEventVariables(fManager.GetVariableContainer());
+	// auto varContainer = fManager.GetVariableContainer(); 
+	// varContainer[VAR::kCentrality]=fEvent->GetCentrality(HADES_constants::kNhitsTOF_RPC_cut);
+	// for(int idx=0; idx<304; idx++)
+	// {
+	// 	varContainer[VAR::kFwModuleRing+idx]=0;
+	// 	varContainer[VAR::kFwModuleId+idx]=idx;
+	// 	varContainer[VAR::kFwModuleAdc+idx]=0;
+	// 	varContainer[VAR::kFwModulePhi+idx]=0;
+	// }
+	// Int_t nModules = fEvent->GetNPSDModules();
+	// for(Int_t idx=0; idx<nModules; idx++) 
+	// {
+	// 	if( !fSelector->IsCorrectFwHit(idx, 0, "adc", 80.0) )
+	// 		continue;
+	// 	int moduleId = fEvent->GetPSDModule(idx)->GetId();
+	// 	varContainer[VAR::kFwModuleRing+moduleId]=	(double) fEvent->GetPSDModule(idx)->GetRing();
+	// 	varContainer[VAR::kFwModuleAdc+moduleId]=	(double) fEvent->GetPSDModule(idx)->GetEnergy();
+	// 	varContainer[VAR::kFwModulePhi+moduleId]=	(double) fEvent->GetPSDModule(idx)->GetPhi();
+	// }
 	fManager.ProcessEvent();
 	fManager.FillChannelDetectors();
 	fManager.ProcessQnVectors();

@@ -15,6 +15,7 @@
 #include "TTree.h"
 #include "TChain.h"
 #include "TTreeReader.h"
+#include "DataTreeVarManager.h"
 
 #include "HADES_constants.h"
 
@@ -45,23 +46,11 @@ class CorrectionTask {
 
 	protected:
 
-	enum Vars{
-		kCentrality=0,	//0
-		kFwModuleRing, 	//1
-		kFwModuleId=kFwModuleRing+304,	//2
-		kFwModuleAdc=kFwModuleId+304,	//3
-		kFwModulePhi=kFwModuleAdc+304,	//4
-		kNumberOfVars=kFwModulePhi+304	//5
-	};
 	std::shared_ptr<TFile> out_file_;
-	// std::shared_ptr<TFile> in_calibration_file_;
-	TFile* in_calibration_file_;
+	std::shared_ptr<TFile> in_calibration_file_;
 	std::shared_ptr<TFile> out_calibration_file_;
+	std::shared_ptr<DataTreeVarManager> fVarManager;
 	TTree *out_tree_;
-	TBranch* DTEvent;
-	DataTreeEvent* fEvent;
-	TChain* fChain;
-	Selector* fSelector;
 	Qn::CorrectionManager fManager;
 	bool write_tree_;
 };

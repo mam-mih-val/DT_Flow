@@ -1,9 +1,16 @@
 #include "Selector.h"
 
 
+Selector::Selector() 
+{
+    hIncorrectEvent = new TH1F("Amount of rejected events on this cut",";code of the cut;counts",cNumOfEventCuts,0,cNumOfEventCuts);
+    hIncorrectTracks= new TH1F("Amount of rejected tracks on this cut",";code of the cut;counts",cNumOfTrackCuts,0,cNumOfTrackCuts);
+	cout << "Selector initialized successfully" << endl;
+}
+
 Selector::Selector(DataTreeEvent* _fEvent) 
 {
-    fEvent = _fEvent;
+    // fEvent = _fEvent;
     hIncorrectEvent = new TH1F("Amount of rejected events on this cut",";code of the cut;counts",cNumOfEventCuts,0,cNumOfEventCuts);
     hIncorrectTracks= new TH1F("Amount of rejected tracks on this cut",";code of the cut;counts",cNumOfTrackCuts,0,cNumOfTrackCuts);
 	cout << "Selector initialized successfully" << endl;
@@ -17,8 +24,12 @@ Selector::~Selector()
 
 bool Selector::IsCorrectEvent(int iPT)
 {
-    this->CheckEventCuts();
-
+    // this->CheckEventCuts();
+	if( !fEvent )
+	{
+		std::cout << "Event pointer is empty" << std::endl;
+		return false;
+	}
 	if( iPT!=-1 )
 	{
     	if( !fEvent->GetTrigger(iPT)->GetIsFired() )

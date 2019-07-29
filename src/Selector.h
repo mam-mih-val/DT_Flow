@@ -17,7 +17,7 @@ using std::endl;
 class Selector
 {
     private:
-    DataTreeEvent*  fEvent;
+    DataTreeEvent*	fEvent;
     TH1F*           hRejectedEvents;
     TH1F*           hRejectedTracks;
     TH1F*           hIncorrectEvent;
@@ -44,13 +44,14 @@ class Selector
         cChi2, //3
         cNumOfTrackCuts //5
     };
-	Selector();
     public:
-    Selector(DataTreeEvent* fEvent);
+	Selector();
+    Selector(DataTreeEvent* _fEvent);
     ~Selector();
     bool	IsCorrectEvent(int iPT = -1);
     bool	IsCorrectTrack(int idx);
     bool	IsCorrectFwHit(int idx, bool channelSelection=0, std::string signal="adc", float minSignal=0.0, float maxSignal=9999.0);
+	void	SetEventAddress(DataTreeEvent* _fEvent) {fEvent=_fEvent;}
 	void	SetStatOption(bool _bSaveStat = 1) { bSaveStat = _bSaveStat; }
     void    CheckEventCuts();
     void    CheckTrackCuts(int idx);
