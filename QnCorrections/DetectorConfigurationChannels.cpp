@@ -32,7 +32,6 @@
 /// \file QnCorrectionsDetectorConfigurationChannels.cxx
 /// \brief Implementation of the channel detector configuration class 
 
-#include <iostream>
 #include "CorrectionProfileComponents.h"
 #include "DetectorConfigurationChannels.h"
 #include "CorrectionLog.h"
@@ -274,10 +273,9 @@ Bool_t DetectorConfigurationChannels::CreateQAHistograms(TList *list) {
 
   /* let's get the effective number of channels */
   Int_t nNoOfChannels = 0;
-  for (Int_t i = 0; i < fNoOfChannels; i++){
-    if (fUsedChannel && fUsedChannel[i])
+  for (Int_t i = 0; i < fNoOfChannels; i++)
+    if (fUsedChannel[i])
       nNoOfChannels++;
-  }
 
   if (ixVarId!=-1) {
     fQAMultiplicityBefore3D = new TH3F(
@@ -320,6 +318,7 @@ Bool_t DetectorConfigurationChannels::CreateQAHistograms(TList *list) {
           bin++;
         }
     }
+
     detectorConfigurationList->Add(fQAMultiplicityBefore3D);
     detectorConfigurationList->Add(fQAMultiplicityAfter3D);
   }
