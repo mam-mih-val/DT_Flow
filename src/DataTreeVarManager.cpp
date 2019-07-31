@@ -34,3 +34,14 @@ void DataTreeVarManager::FillEventVariables(double* varContainer)
 	}
 }
 
+void DataTreeVarManager::FillTrackVariables(int idx, double* varContainer)
+{
+	double BETA = sqrt( 1.0 - 0.938*0.938/1.23/1.23 );
+	TVector3 b{0,0,-BETA}; 
+	auto p = fEvent->GetVertexTrack(idx)->GetMomentum();
+	p.Boost(b);
+	varContainer[kMdcPt]=p.Pt();
+	varContainer[kMdcYcm]=p.Rapidity();
+	varContainer[kMdcPhi]=p.Phi();
+	varContainer[kMdcPid]=fEvent->GetVertexTrack(idx)->GetPdgId();
+}

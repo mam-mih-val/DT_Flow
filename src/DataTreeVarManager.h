@@ -5,6 +5,8 @@
 
 #include <TChain.h>
 #include "Selector.h"
+#include "TVector3.h"
+#include "TLorentzVector.h"
 #include "DataTreeEvent.h"
 
 #include "HADES_constants.h"
@@ -15,9 +17,14 @@ class DataTreeVarManager{
 	std::shared_ptr<Selector> fSelector;
 	DataTreeEvent* fEvent;
 	DataTreeVarManager();
+	int fCurrentTrackIdx;
 	public:
 	enum Vars{
 		kCentrality=0,	//0
+		kMdcPt,
+		kMdcYcm,
+		kMdcPhi,
+		kMdcPid,
 		kFwModuleRing, 	//1
 		kFwModuleId=kFwModuleRing+304,	//2
 		kFwModuleAdc=kFwModuleId+304,	//3
@@ -28,7 +35,10 @@ class DataTreeVarManager{
 	~DataTreeVarManager() = default;
 	DataTreeEvent*	Event() {return fEvent;}
 	void			FillEventVariables(double* varContainer);
-	int 			GetNumberOfEvents() {return fChain->GetEntries();}
+	void			FillTrackVariables(int idx, double* varContainer);
+	int 			GetNumberOfEvents() { return fChain->GetEntries(); }
+	int				GetNumberOfTracks() { return fEvent->GetNVertexTracks(); }
 	bool			IsGoodEvent(){ return fSelector->IsCorrectEvent(); }
-	void			SwitchEvent(int idx) {fChain->GetEntry(idx); }
+	bool			IsGoodTrack(int idx){ return fSelector->IsCorrectTrack(idx); }
+	void			SwitchEvent(int idx) { fChain->GetEntry(idx); }
 };

@@ -39,6 +39,10 @@ void CorrectionTask::Run()
 void CorrectionTask::Initialize() {
 	// Add Variables to variable manager needed for filling
 	fManager.AddVariable("Centrality", DataTreeVarManager::kCentrality, 1);
+	fManager.AddVariable("Pt", DataTreeVarManager::kMdcPt, 1);
+	fManager.AddVariable("Phi", DataTreeVarManager::kMdcPhi, 1);
+	fManager.AddVariable("Ycm", DataTreeVarManager::kMdcYcm, 1);
+	fManager.AddVariable("Pid", DataTreeVarManager::kMdcPid, 1);
 	fManager.AddVariable("FwRing", DataTreeVarManager::kFwModuleRing, 304);
 	fManager.AddVariable("FwModuleId", DataTreeVarManager::kFwModuleId, 304);
 	fManager.AddVariable("FwAdc", DataTreeVarManager::kFwModuleAdc, 304);
@@ -49,6 +53,22 @@ void CorrectionTask::Initialize() {
 	fManager.SetEventVariable("Centrality");
 	fManager.AddCorrectionAxis({"Centrality", 10, 0, 50});
 
+	Axis pt("Pt", 15, 0., 1.5);
+	Axis ycm("Ycm", 16, -0.8, 0.8);
+	
+	// Configuration of MDC.
+
+	auto MdcConfiguration = [](DetectorConfiguration *config)
+	{
+		config->SetNormalization(QVector::Normalization::M);
+		auto recenter = new Recentering();
+		config->AddCorrectionOnQnVector(recenter);
+		auto rescale = new TwistAndRescale();
+		rescale->SetApplyTwist(true);
+		rescale->SetApplyRescale(true);
+		rescale->SetTwistAndRescaleMethod(TwistAndRescale::TWRESCALE_doubleHarmonic);
+		config->AddCorrectionOnQnVector(rescale);
+	};
 
 	//Configuration of FW. Preparing for add axis to qa histograms
 	//Producing the function which will configurate the correction Manager
@@ -72,6 +92,11 @@ void CorrectionTask::Initialize() {
 		}
 		config->SetChannelsScheme(fwChannels, fwChannelGroups);
 	};
+	// u-vectors from MDC
+	fManager.AddDetector("ProtonMdc", DetectorType::TRACK, "Phi", "Pt", {pt, ycm}, {1});
+	fManager.AddCut("ProtonMdc", {"Pid"}, [](const double &pid){ return pid > 13.99 || pid < 14.01; });
+	fManager.SetCorrectionSteps("ProtonMdc", MdcConfiguration);
+
 	// 3 sub-events method.
 	// Each detector builds own Q-vector, which means, you need to add required count of detectors and then configurate their cuts.  
 	fManager.AddDetector("Fw1", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
@@ -86,6 +111,7 @@ void CorrectionTask::Initialize() {
 	fManager.AddCut("Fw3", {"FwModuleId"}, [](const double &module){ return module>207.0 && module < 304.0; });
 	fManager.SetCorrectionSteps("Fw3", FwConfiguration);
   
+	fManager.AddHisto2D("ProtonMdc", {{"Ycm", 100, -0.8, 0.8}, {"Pt", 100, 0., 1.5}} );
 	fManager.AddHisto2D("Fw1", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}} );
 	fManager.AddHisto2D("Fw2", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}} );
 	fManager.AddHisto2D("Fw3", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}} );
@@ -102,7 +128,14 @@ void CorrectionTask::Process() {
 	fVarManager->FillEventVariables(fManager.GetVariableContainer());
 	fManager.ProcessEvent();
 	fManager.FillChannelDetectors();
-	fManager.FillTrackingDetectors();
+	int trackNumber = fVarManager->GetNumberOfTracks();
+	for(int i=0; i<trackNumber; i++)
+	{
+		if( !fVarManager->IsGoodTrack(i) )
+			continue;
+		fVarManager->FillTrackVariables( i, fManager.GetVariableContainer() );
+		fManager.FillTrackingDetectors();
+	}
 	fManager.ProcessQnVectors();
 }
 
