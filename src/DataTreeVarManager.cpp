@@ -16,10 +16,10 @@ void DataTreeVarManager::FillEventVariables(double* varContainer)
 	varContainer[kCentrality]=fEvent->GetCentrality(HADES_constants::kNhitsTOF_RPC_cut);
 	for(int idx=0; idx<304; idx++)
 	{
-		varContainer[kFwModuleRing+idx]=0;
-		varContainer[kFwModuleId+idx]=idx;
-		varContainer[kFwModuleAdc+idx]=0;
-		varContainer[kFwModulePhi+idx]=0;
+		varContainer[kFwModuleRing+idx]=0.0;
+		varContainer[kFwModuleId+idx]=-idx;
+		varContainer[kFwModuleAdc+idx]=0.0;
+		varContainer[kFwModulePhi+idx]=0.0;
 	}
 	Int_t nModules = fEvent->GetNPSDModules();
 	for(Int_t idx=0; idx<nModules; idx++) 
@@ -30,6 +30,7 @@ void DataTreeVarManager::FillEventVariables(double* varContainer)
 		varContainer[kFwModuleRing+moduleId]=	(double) fEvent->GetPSDModule(idx)->GetRing();
 		varContainer[kFwModuleAdc+moduleId]=	(double) fEvent->GetPSDModule(idx)->GetEnergy();
 		varContainer[kFwModulePhi+moduleId]=	(double) fEvent->GetPSDModule(idx)->GetPhi();
+		varContainer[kFwModuleId+moduleId] =	(double) moduleId;
 	}
 }
 
