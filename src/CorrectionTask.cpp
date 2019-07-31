@@ -32,6 +32,8 @@ void CorrectionTask::Run()
 		if( !fVarManager->IsGoodEvent() )
 			continue;
 		Process();
+		float progress = (float) idx / (float) numEvents;
+		this->ProgressBar(progress);
 	}
 	Finalize();
 }
@@ -143,5 +145,19 @@ void CorrectionTask::Finalize() {
 	fManager.Finalize();
 	fManager.SaveOutput(out_calibration_file_, out_file_);
 	std::cout << "Successfully Finalized." << std::endl;
+}
+
+void CorrectionTask::ProgressBar(float progress)
+{
+	int barWidth = 70;
+	std::cout << "[";
+	int pos = barWidth * progress;
+	for (int i = 0; i < barWidth; ++i) {
+	if (i < pos) std::cout << "=";
+	else if (i == pos) std::cout << ">";
+	else std::cout << " ";
+	}
+	std::cout << "] " << int(progress * 100.0) << " %\r";
+	std::cout.flush();
 }
 }

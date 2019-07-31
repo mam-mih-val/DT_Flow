@@ -43,6 +43,7 @@ class CorrectionTask {
 	 * Finalizes TestTask. Called after processing is done.
 	 */
 	void Finalize();
+	void ProgressBar(float progress);
 
 	protected:
 
