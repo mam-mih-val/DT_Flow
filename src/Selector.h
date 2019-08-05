@@ -50,7 +50,7 @@ class Selector
     ~Selector();
     bool	IsCorrectEvent(int iPT = -1);
     bool	IsCorrectTrack(int idx);
-    bool	IsCorrectFwHit(int idx, bool channelSelection=0, std::string signal="adc", float minSignal=0.0, float maxSignal=9999.0);
+    bool	IsCorrectFwHit(int idx, bool channelSelection=0, std::string signal="adc", float minSignal=0.0, float maxSignal=999.0);
 	void	SetEventAddress(DataTreeEvent* _fEvent) {fEvent=_fEvent;}
 	void	SetStatOption(bool _bSaveStat = 1) { bSaveStat = _bSaveStat; }
     void    CheckEventCuts();

@@ -26,6 +26,7 @@ void CorrectionTask::Run()
 	QnCorrectionsSetTracingLevel(kError);
 	std::cout << "Processing..." << std::endl;
 	int numEvents = fVarManager->GetNumberOfEvents();
+	int goodEvents=0;
 	for(int idx=0; idx<numEvents; idx++) 
 	{
 		fVarManager->SwitchEvent(idx);
@@ -34,7 +35,9 @@ void CorrectionTask::Run()
 		Process();
 		float progress = (float) idx / (float) numEvents;
 		this->ProgressBar(progress);
+		goodEvents++;
 	}
+	std::cout << goodEvents << "good events" << std::endl;
 	Finalize();
 }
 
@@ -102,7 +105,7 @@ void CorrectionTask::Initialize() {
 	// 3 sub-events method.
 	// Each detector builds own Q-vector, which means, you need to add required count of detectors and then configurate their cuts.  
 	fManager.AddDetector("Fw1", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
-	fManager.AddCut("Fw1", {"FwModuleId", "FwAdc"}, [](const double &module, const double &adc){ return module>0.0 && module <144.0 && adc>10.0; });
+	fManager.AddCut("Fw1", {"FwModuleId"}, [](const double &module){ return module >= 0.0 && module <144.0; });
 	fManager.SetCorrectionSteps("Fw1", FwConfiguration);
 
 	fManager.AddDetector("Fw2", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
@@ -144,7 +147,7 @@ void CorrectionTask::Process() {
 void CorrectionTask::Finalize() {
 	fManager.Finalize();
 	fManager.SaveOutput(out_calibration_file_, out_file_);
-	std::cout << "Successfully Finalized." << std::endl;
+	// std::cout << "Successfully Finalized." << std::endl;
 }
 
 void CorrectionTask::ProgressBar(float progress)
