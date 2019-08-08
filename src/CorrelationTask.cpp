@@ -87,7 +87,9 @@ void CorrelationTask::Run() {
   in_tree_->LoadTree(0); // prevents weird TTree errors
   std::cout << "Processing..." << std::endl;
   int eventsteps = nEvents / 100;
-  while (reader_->Next()) {
+  events = 0;
+  do
+  {
     events++;
     fManager.Process();
     if (eventsteps > 1 && events % eventsteps == 0) {
@@ -95,6 +97,7 @@ void CorrelationTask::Run() {
       ProgressBar(progress);
     }
   }
+  while(reader_->Next());
   fManager.Finalize();
   std::cout << std::endl << "number of analyzed events: " << events << std::endl;
 }
@@ -107,7 +110,7 @@ std::unique_ptr<TTree> CorrelationTask::MakeChain(std::string fileList, std::str
 }
 
 void CorrelationTask::ProgressBar(float progress) {
-  int barWidth = 70;
+  int barWidth = 100;
   std::cout << "[";
   int pos = barWidth * progress;
   for (int i = 0; i < barWidth; ++i) {

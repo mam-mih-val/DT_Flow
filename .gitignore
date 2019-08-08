@@ -8,4 +8,5 @@ Doxyfile
 .rootrc
 *.root
 Runner/list
-
+Output/*.*
+Painter/*.*

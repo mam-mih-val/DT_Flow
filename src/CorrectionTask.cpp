@@ -105,15 +105,15 @@ void CorrectionTask::Initialize() {
 	// 3 sub-events method.
 	// Each detector builds own Q-vector, which means, you need to add required count of detectors and then configurate their cuts.  
 	fManager.AddDetector("Fw1", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
-	fManager.AddCut("Fw1", {"FwModuleId"}, [](const double &module){ return module >= 0.0 && module <144.0; });
+	fManager.AddCut("Fw1", {"FwModuleId"}, [](const double &module){ return module >= 0.0 && module < 144.0; });
 	fManager.SetCorrectionSteps("Fw1", FwConfiguration);
 
 	fManager.AddDetector("Fw2", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
-	fManager.AddCut("Fw2", {"FwModuleId"}, [](const double &module){ return module>143.0 && module < 208.0; });
+	fManager.AddCut("Fw2", {"FwModuleId"}, [](const double &module){ return module > 143.0 && module < 208.0; });
 	fManager.SetCorrectionSteps("Fw2", FwConfiguration);
 
 	fManager.AddDetector("Fw3", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
-	fManager.AddCut("Fw3", {"FwModuleId"}, [](const double &module){ return module>207.0 && module < 304.0; });
+	fManager.AddCut("Fw3", {"FwModuleId"}, [](const double &module){ return module > 207.0 && module < 304.0; });
 	fManager.SetCorrectionSteps("Fw3", FwConfiguration);
   
 	fManager.AddHisto2D("ProtonMdc", {{"Ycm", 100, -0.8, 0.8}, {"Pt", 100, 0., 1.5}} );
@@ -121,7 +121,7 @@ void CorrectionTask::Initialize() {
 	fManager.AddHisto2D("Fw2", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}} );
 	fManager.AddHisto2D("Fw3", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}} );
 	
-	fManager.AddEventHisto1D({{"Centrality", 10, 0, 50}});
+	fManager.AddEventHisto1D({{"Centrality", 20, 0, 100}});
 	
 	fManager.SetTree(out_tree_);
 	fManager.Initialize(in_calibration_file_);
@@ -152,7 +152,7 @@ void CorrectionTask::Finalize() {
 
 void CorrectionTask::ProgressBar(float progress)
 {
-	int barWidth = 70;
+	int barWidth = 100;
 	std::cout << "[";
 	int pos = barWidth * progress;
 	for (int i = 0; i < barWidth; ++i) {
