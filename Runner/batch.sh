@@ -1,6 +1,6 @@
 #!/bin/bash
 
-hadesroot=/cvmfs/hades.gsi.de/install/6.12.06/hydra2-4.9w/defall.sh 
+basic_root=/lustre/nyx/cbm/users/ogolosov/soft/root-6.14.08_std11/bin/thisroot.sh 
 
 current_dir=$(pwd)
 partition=main
@@ -26,4 +26,4 @@ echo log_dir=$log_dir
 echo n_runs=$n_runs
 echo job_range=$job_range
 
-sbatch -J DT_Reader -p $partition -t $time -a $job_range -e ${log_dir}/%A_%a.e -o ${log_dir}/%A_%a.o --export=executable=$executable,output_dir=$output_dir,file_list=$file_list,hadesroot=$hadesroot batch_run.sh
+sbatch -J DT_Reader -p $partition -t $time -a $job_range -e ${log_dir}/%A_%a.e -o ${log_dir}/%A_%a.o --export=executable=$executable,output_dir=$output_dir,file_list=$file_list,basic_root=$hadesroot batch_run.sh
