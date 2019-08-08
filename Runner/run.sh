@@ -6,11 +6,11 @@ inFile=$1
 ../build/src/correct $inFile nothing
 mv output.root output_0.root
 
-#recentering
+# #recentering
 ../build/src/correct $inFile qn.root
 mv output.root output_1.root
 
-# #twist and rescale
+# # #twist and rescale
 # ../build/src/correct $inFile qn.root
 # mv output.root output_2.root
 
