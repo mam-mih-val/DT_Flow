@@ -1,13 +1,13 @@
 inFile=$1
-
+build_dir=$2
 #build q-vectors
 
 #no corrections
-../build/src/correct $inFile nothing
+$build_dir/src/correct $inFile nothing
 mv output.root output_0.root
 
 # #recentering
-../build/src/correct $inFile qn.root
+$build_dir/src/correct $inFile qn.root
 mv output.root output_1.root
 
 # # #twist and rescale
@@ -16,4 +16,4 @@ mv output.root output_1.root
 
 #correlate q-vecors from desired correction step
 ls output_1.root > list
-../build/src/correlate output_1.root
+$build_dir/src/correlate output_1.root

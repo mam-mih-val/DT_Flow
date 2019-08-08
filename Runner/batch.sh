@@ -6,6 +6,7 @@ current_dir=$(pwd)
 partition=main
 time=8:00:00
 executable=$current_dir/../Runner/run.sh
+build_dir=$current_dir/../build
 
 file_list=${1}
 output_dir=${2}
@@ -26,4 +27,4 @@ echo log_dir=$log_dir
 echo n_runs=$n_runs
 echo job_range=$job_range
 
-sbatch -J DT_Reader -p $partition -t $time -a $job_range -e ${log_dir}/%A_%a.e -o ${log_dir}/%A_%a.o --export=executable=$executable,output_dir=$output_dir,file_list=$file_list,basic_root=$hadesroot batch_run.sh
+sbatch -J DT_Reader -p $partition -t $time -a $job_range -e ${log_dir}/%A_%a.e -o ${log_dir}/%A_%a.o --export=executable=$executable,output_dir=$output_dir,file_list=$file_list,basic_root=$basic_root,build_dir=$build_dir batch_run.sh
