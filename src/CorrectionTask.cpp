@@ -58,7 +58,7 @@ void CorrectionTask::Initialize() {
 	fManager.SetEventVariable("Centrality");
 	fManager.AddCorrectionAxis({"Centrality", 10, 0, 50});
 
-	Axis pt("Pt", 15, 0., 1.5);
+	Axis pt("Pt", 20, 0., 1.0);
 	Axis ycm("Ycm", 16, -0.8, 0.8);
 	
 	// Configuration of MDC.
