@@ -4,11 +4,11 @@ format='+%Y/%m/%d-%H:%M:%S'
 
 date $format
 
-cd $output_dir
 
 job_num=$(($SLURM_ARRAY_TASK_ID))
 input_file=`sed -n "${job_num}p" < $file_list`
 
+cd $output_dir
 mkdir -p $job_num
 cd $job_num
 
