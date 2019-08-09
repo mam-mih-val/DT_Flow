@@ -33,7 +33,7 @@ void CorrelationTask::Configure(Qn::CorrelationManager &manager)
 
   manager.SetOutputFile("Correlations.root");
   manager.AddEventVariable({"Centrality", 10, 0, 50});
-//   manager.ConfigureResampling(Qn::Sampler::Method::NONE, 100); // BOOTSTRAP, SUBSAMPLING
+  manager.ConfigureResampling(Qn::Sampler::Method::BOOTSTRAP, 100); // BOOTSTRAP, SUBSAMPLING
 
   manager.AddQVectors("Fw1, Fw2, Fw3");
   manager.AddQVectors("ProtonMdc");

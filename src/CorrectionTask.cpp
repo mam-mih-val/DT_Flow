@@ -56,9 +56,9 @@ void CorrectionTask::Initialize() {
 	//Correction eventvariables
 	
 	fManager.SetEventVariable("Centrality");
-	fManager.AddCorrectionAxis({"Centrality", 10, 0, 50});
+	fManager.AddCorrectionAxis({"Centrality", 20, 0, 100});
 
-	Axis pt("Pt", 20, 0., 1.0);
+	// Axis pt("Pt", 20, 0., 1.0);
 	Axis ycm("Ycm", 16, -0.8, 0.8);
 	
 	// Configuration of MDC.
@@ -98,8 +98,8 @@ void CorrectionTask::Initialize() {
 		config->SetChannelsScheme(fwChannels, fwChannelGroups);
 	};
 	// u-vectors from MDC
-	fManager.AddDetector("ProtonMdc", DetectorType::TRACK, "Phi", "Pt", {pt, ycm}, {1});
-	fManager.AddCut("ProtonMdc", {"Pid"}, [](const double &pid){ return pid > 13.99 || pid < 14.01; });
+	fManager.AddDetector("ProtonMdc", DetectorType::TRACK, "Phi", "Pt", {ycm}, {1});
+	fManager.AddCut("ProtonMdc", {"Pid", "Pt"}, [](const double &pid, const double &pt){ return pid > 13.99 && pid < 14.01 && pt > 0.8 && pt < 0.85; });
 	fManager.SetCorrectionSteps("ProtonMdc", MdcConfiguration);
 
 	// 3 sub-events method.
