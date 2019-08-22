@@ -54,24 +54,24 @@ void CorrelationTask::Configure(Qn::CorrelationManager &manager)
     {
 		auto Q2 = Q_vector.at (idx2);
 		manager.AddCorrelation(Q1 + "_" + Q2 + "_XX", Q1 + ", " + Q2, XX);
-		manager.SetRefQinCorrelation(Q1 + "_" + Q2 + "_XX", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+		manager.SetRefQinCorrelation(Q1 + "_" + Q2 + "_XX", {Qn::Weight::POINTAVERAGE, Qn::Weight::POINTAVERAGE});
 		manager.AddCorrelation(Q1 + "_" + Q2 + "_YY", Q1 + ", " + Q2, YY);
-		manager.SetRefQinCorrelation(Q1 + "_" + Q2 + "_YY", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+		manager.SetRefQinCorrelation(Q1 + "_" + Q2 + "_YY", {Qn::Weight::POINTAVERAGE, Qn::Weight::POINTAVERAGE});
 		manager.AddCorrelation(Q1 + "_" + Q2 + "_XY", Q1 + ", " + Q2, XY);
-		manager.SetRefQinCorrelation(Q1 + "_" + Q2 + "_XY", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+		manager.SetRefQinCorrelation(Q1 + "_" + Q2 + "_XY", {Qn::Weight::POINTAVERAGE, Qn::Weight::POINTAVERAGE});
 		manager.AddCorrelation(Q1 + "_" + Q2 + "_YX", Q1 + ", " + Q2, YX);
-		manager.SetRefQinCorrelation(Q1 + "_" + Q2 + "_YX", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+		manager.SetRefQinCorrelation(Q1 + "_" + Q2 + "_YX", {Qn::Weight::POINTAVERAGE, Qn::Weight::POINTAVERAGE});
     }
 	for(auto &u : u_vector)
 	{
 		manager.AddCorrelation(u + "_" + Q1 + "_XX", u + ", " + Q1, XX);
-		manager.SetRefQinCorrelation(u + "_" + Q1 + "_XX", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+		manager.SetRefQinCorrelation(u + "_" + Q1 + "_XX", {Qn::Weight::OBSERVABLE, Qn::Weight::POINTAVERAGE});
 		manager.AddCorrelation(u + "_" + Q1 + "_YY", u + ", " + Q1, YY);
-		manager.SetRefQinCorrelation(u + "_" + Q1 + "_YY", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+		manager.SetRefQinCorrelation(u + "_" + Q1 + "_YY", {Qn::Weight::OBSERVABLE, Qn::Weight::POINTAVERAGE});
 		manager.AddCorrelation(u + "_" + Q1 + "_XY", u + ", " + Q1, XY);
-		manager.SetRefQinCorrelation(u + "_" + Q1 + "_XY", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+		manager.SetRefQinCorrelation(u + "_" + Q1 + "_XY", {Qn::Weight::OBSERVABLE, Qn::Weight::POINTAVERAGE});
 		manager.AddCorrelation(u + "_" + Q1 + "_YX", u + ", " + Q1, YX);
-		manager.SetRefQinCorrelation(u + "_" + Q1 + "_YX", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+		manager.SetRefQinCorrelation(u + "_" + Q1 + "_YX", {Qn::Weight::OBSERVABLE, Qn::Weight::POINTAVERAGE});
 	}
   }
 }
