@@ -12,16 +12,10 @@ Qn::DataContainer<Qn::Stats> *BuildResolution(TFile *file, bool bs)
 	{
 		std::string name = "Fw1_Fw2_" + combination.at(i);
 		file->GetObject(name.c_str(), q1q2[i]);
-		// if(!bs)
-		 	// q1q2[i]->CallOnElement([](Qn::Stats &stat){ stat.SetStatus(Qn::Stats::Status::POINTAVERAGE); });
 		name = "Fw2_Fw3_" + combination.at(i);
 		file->GetObject(name.c_str(), q2q3[i]);
-		// if(!bs)
-		 	// q2q3[i]->CallOnElement([](Qn::Stats &stat){ stat.SetStatus(Qn::Stats::Status::POINTAVERAGE); });
 		name = "Fw1_Fw3_" + combination.at(i);
 		file->GetObject(name.c_str(), q1q3[i]);
-		// if(!bs)
-		 	// q1q3[i]->CallOnElement([](Qn::Stats &stat){ stat.SetStatus(Qn::Stats::Status::POINTAVERAGE); });
 	}
 	
 	auto res = new Qn::DataContainer<Qn::Stats>[6];
@@ -29,8 +23,6 @@ Qn::DataContainer<Qn::Stats> *BuildResolution(TFile *file, bool bs)
 
 	for (int i = 0; i < 2; i++)
 	{
-		// for(int j=0; j<q1q2[i]->size(); j++)
-			// q2q3[i]->At(j).SetStatus(Qn::Stats::Status::POINTAVERAGE);
 		res[i] = (*q1q2[i]) * (*q1q3[i]) / (*q2q3[i] * 2.0);
 		res[i] = Sqrt(res[k + i]);
 	}
@@ -110,10 +102,10 @@ vector<TGraphAsymmErrors *> ToTGraphAsymmErrors(Qn::DataContainer<Qn::Stats> *co
 	return graph;
 }
 
-vector<TH1F *> ToTH1F(Qn::DataContainer<Qn::Stats> *container)
+vector<TH1F *> ToTH1F(Qn::DataContainer<Qn::Stats> *container, int amount=6) // amount is a size of array of DataContainers
 {
 	vector<TH1F *> histo;
-	for(int i=0; i<6; i++)
+	for(int i=0; i<amount; i++)
 	{
 		std::vector<Qn::Axis> axis = container[i].GetAxes();
 		if( axis.size() > 1 )
