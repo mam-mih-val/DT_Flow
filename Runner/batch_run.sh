@@ -15,20 +15,16 @@ cd $job_num
 echo "loading " $basic_root
 source $basic_root
 
-# echo "executing $executable $input_file"
-
-# $executable --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal $input_file $build_dir
-
 #no corrections
 echo "executing $build_dir/src/correct --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal $inFile nothing"
 $build_dir/src/correct --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal $inFile nothing
 mv output.root output_0.root
 
-# #recentering
+#recentering
 $build_dir/src/correct  --signal $signal --perchannel $channelSelection --min $minSignal --max &maxSignal $inFile qn.root
 mv output.root output_1.root
 
-# # #twist and rescale
+#twist and rescale
 $build_dir/src/correct  --signal $signal --perchannel $channelSelection --min $minSignal --max &maxSignal $inFile qn.root
 mv output.root output_2.root
 
