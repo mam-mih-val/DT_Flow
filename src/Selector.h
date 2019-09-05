@@ -16,45 +16,25 @@ using std::endl;
 
 class Selector
 {
-    private:
-    DataTreeEvent*	fEvent;
-    TH1F*           hRejectedEvents;
-    TH1F*           hRejectedTracks;
-    TH1F*           hIncorrectEvent;
-    TH1F*           hIncorrectTracks;
-	bool			bSaveStat = 1;
-    enum event_cuts{
-        cVeretexPositionZ = 0,
-        cVeretexPositionXY, //1
-        cTriggerVertexClust, //3
-        cTriggerVertexCand, //4
-        cTriggerGoodStart, //5
-        cTriggerNoPileUp, //6
-        cTriggerGoodStartVeto, //7
-        cTriggerGoodStartMeta, //8
-        cTriggerNoVeto, //9
-        cPT2, //10
-        cPT3, //11
-        cNumOfEventCuts //12
-    };
-    enum track_cuts{
-        cDCA = 0,
-        cTrackHitMatchX, //1
-        cTrackHitMatchY, //2
-        cChi2, //3
-        cNumOfTrackCuts //5
-    };
-    public:
-	Selector();
-    Selector(DataTreeEvent* _fEvent);
-    ~Selector();
-    bool	IsCorrectEvent(int iPT = -1);
+public:
+	Selector() {};
+    Selector(DataTreeEvent* _fEvent) { fEvent=_fEvent; };
+    ~Selector() = default;
+    bool	IsCorrectEvent();
     bool	IsCorrectTrack(int idx);
-    bool	IsCorrectFwHit(int idx, bool channelSelection=0, std::string signal="adc", float minSignal=0.0, float maxSignal=999.0);
+    bool	IsCorrectFwHit(int idx);
 	void	SetEventAddress(DataTreeEvent* _fEvent) {fEvent=_fEvent;}
-	void	SetStatOption(bool _bSaveStat = 1) { bSaveStat = _bSaveStat; }
-    void    CheckEventCuts();
-    void    CheckTrackCuts(int idx);
-    void    DrawStatistics();
-    void    SaveStatistics(std::string fileName);
+	void	SetFwChannelSelection(bool value=false) { fChannelSelection=value; }
+	void	SetFwSignalType(std::string value="adc") { fFwSignal=value; }
+	void	SetFwSignalRange(float minValue=80.0, float maxValue=80.0) { 
+		fMinSignal=minValue; 
+		fMaxSignal=maxValue; 
+	}
+
+private:
+    DataTreeEvent*	fEvent{nullptr};
+	bool fChannelSelection=false;
+	std::string fFwSignal="adc";
+	float fMinSignal=80.0;
+	float fMaxSignal=999.0;
 };

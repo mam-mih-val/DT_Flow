@@ -41,4 +41,5 @@ class DataTreeVarManager{
 	bool			IsGoodEvent(){ return fSelector->IsCorrectEvent(); }
 	bool			IsGoodTrack(int idx){ return fSelector->IsCorrectTrack(idx); }
 	void			SwitchEvent(int idx) { fChain->GetEntry(idx); }
+	std::shared_ptr<Selector> GetSelector(){ return fSelector; }
 };

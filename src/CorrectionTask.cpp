@@ -37,8 +37,15 @@ void CorrectionTask::Run()
 		this->ProgressBar(progress);
 		goodEvents++;
 	}
-	std::cout << goodEvents << "good events" << std::endl;
+	std::cout << goodEvents << " good events" << std::endl;
 	Finalize();
+}
+
+void CorrectionTask::SetFwConfiguration(bool perChannel, std::string signal, float min, float max)
+{
+	fVarManager->GetSelector()->SetFwSignalType(signal);
+	fVarManager->GetSelector()->SetFwChannelSelection(perChannel);
+	fVarManager->GetSelector()->SetFwSignalRange(min, max);
 }
 
 void CorrectionTask::Initialize() {
