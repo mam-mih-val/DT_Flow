@@ -17,7 +17,7 @@ source $basic_root
 
 echo "executing $executable $input_file"
 
-$executable $input_file $build_dir
+$executable --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal $input_file $build_dir
 
 echo JOB FINISHED!
 date $format
