@@ -15,9 +15,26 @@ cd $job_num
 echo "loading " $basic_root
 source $basic_root
 
-echo "executing $executable $input_file"
+# echo "executing $executable $input_file"
 
-$executable --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal $input_file $build_dir
+# $executable --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal $input_file $build_dir
+
+#no corrections
+echo "executing $build_dir/src/correct --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal $inFile nothing"
+$build_dir/src/correct --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal $inFile nothing
+mv output.root output_0.root
+
+# #recentering
+$build_dir/src/correct  --signal $signal --perchannel $channelSelection --min $minSignal --max &maxSignal $inFile qn.root
+mv output.root output_1.root
+
+# # #twist and rescale
+$build_dir/src/correct  --signal $signal --perchannel $channelSelection --min $minSignal --max &maxSignal $inFile qn.root
+mv output.root output_2.root
+
+#correlate q-vecors from desired correction step
+ls output_1.root > list
+$build_dir/src/correlate output_1.root
 
 echo JOB FINISHED!
 date $format
