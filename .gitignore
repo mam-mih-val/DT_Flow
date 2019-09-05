@@ -10,3 +10,6 @@ Doxyfile
 Runner/list
 Output/*.*
 Painter/*.*
+Macros/Compiled/*.d
+Macros/Compiled/*.pcm
+Macros/Compiled/*.so
