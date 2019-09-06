@@ -5,6 +5,7 @@ channelSelection=0
 minSignal=0
 maxSignal=999
 pidCode=14
+nSteps=3
 
 while [ "$#" -gt "2" ]
 do
@@ -27,7 +28,9 @@ do
     shift ;;
     --) shift
     break ;;
-    # *) echo Error: incorrect option
+    --nsteps) nSteps=$2
+    echo found number of steps: $nSteps
+    *) echo Error: incorrect option
     esac
     shift
 done
@@ -62,4 +65,4 @@ echo log_dir=$log_dir
 echo n_runs=$n_runs
 echo job_range=$job_range
 
-sbatch -J DT_Reader -p $partition -t $time -a $job_range -e ${log_dir}/%A_%a.e -o ${log_dir}/%A_%a.o --export=executable=$executable,output_dir=$output_dir,file_list=$file_list,basic_root=$basic_root,build_dir=$build_dir,minSignal=$minSignal,maxSignal=$maxSignal,signal=$signal,channelSelection=$channelSelection batch_run.sh
+sbatch -J DT_Reader -p $partition -t $time -a $job_range -e ${log_dir}/%A_%a.e -o ${log_dir}/%A_%a.o --export=executable=$executable,output_dir=$output_dir,file_list=$file_list,basic_root=$basic_root,build_dir=$build_dir,minSignal=$minSignal,maxSignal=$maxSignal,signal=$signal,channelSelection=$channelSelection,nSteps=$nSteps batch_run.sh

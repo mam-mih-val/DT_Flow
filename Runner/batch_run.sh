@@ -29,7 +29,7 @@ mv output.root output_2.root
 
 #correlate q-vecors from desired correction step
 ls output_1.root > list
-$build_dir/src/correlate output_1.root
+$build_dir/src/correlate output_${nSteps}.root
 
 echo JOB FINISHED!
 date $format
