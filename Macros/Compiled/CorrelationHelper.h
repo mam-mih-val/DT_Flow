@@ -14,6 +14,7 @@ class CorrelationHelper{
 	~CorrelationHelper(){ fHeap.clear(); }
 	void SetFile(std::string fileName) { fFile.reset(TFile::Open(fileName.data())); }
 	void SetFile(std::shared_ptr<TFile> file) { fFile = file; }
+	void SetFile(TFile* file) { fFile.reset(file); }
 	Qn::DataContainer<Qn::Stats>& GetDataContainer(std::string name);
 	
 	Qn::DataContainer<Qn::Stats> MakeComputations(

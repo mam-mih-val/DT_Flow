@@ -2,10 +2,19 @@
 
 Qn::DataContainer<Qn::Stats>& CorrelationHelper::GetDataContainer(std::string name){ 
 	Qn::DataContainer<Qn::Stats> empty;
+	Qn::DataContainer<Qn::Stats>* ptr{nullptr};
 	if( fHeap.count(name) !=0 ) 
 		return fHeap.at(name); 
 	else
-		return empty;
+	{
+		if(!fFile)
+			return empty;
+		fFile->GetObject(name.data(), ptr);
+		if(!ptr)
+			return empty;
+		fHeap.insert( make_pair(name, *ptr) );
+		return *ptr;
+	}
 }
 
 Qn::DataContainer<Qn::Stats> CorrelationHelper::MakeComputations(
