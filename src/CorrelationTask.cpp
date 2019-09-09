@@ -36,10 +36,13 @@ void CorrelationTask::Configure(Qn::CorrelationManager &manager)
   manager.ConfigureResampling(Qn::Sampler::Method::BOOTSTRAP, 100); // BOOTSTRAP, SUBSAMPLING
 
   manager.AddQVectors("Fw1, Fw2, Fw3");
+  manager.AddQVectors("RS1, RS2");
   manager.AddQVectors("ProtonMdc");
   
   std::vector<string> Q_vector{"Fw1", "Fw2", "Fw3"};
   std::vector<string> u_vector{"ProtonMdc"};
+
+  std::vector<string> RsQvector{"RS1", "RS2"};
   
   /**
    * Correlations of all detectors vs PsiRP
@@ -71,8 +74,19 @@ void CorrelationTask::Configure(Qn::CorrelationManager &manager)
 		manager.AddCorrelation(u + "_" + Q1 + "_XY", u + ", " + Q1, XY);
 		manager.SetRefQinCorrelation(u + "_" + Q1 + "_XY", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
 		manager.AddCorrelation(u + "_" + Q1 + "_YX", u + ", " + Q1, YX);
-		manager.SetRefQinCorrelation(u + "_" + Q1 + "_YX", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+		manager.SetRefQinCorrelation(u + "_" + Q1 + "_YX", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});  
 	}
+  }
+  manager.AddCorrelation(RsQvector.at(0) + "_" + RsQvector.at(1) + "_XX", RsQvector.at(0) + ", " + RsQvector.at(1), XX);
+	manager.SetRefQinCorrelation(RsQvector.at(0) + "_" + RsQvector.at(1) + "_XX", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+  manager.AddCorrelation(RsQvector.at(0) + "_" + RsQvector.at(1) + "_YY", RsQvector.at(0) + ", " + RsQvector.at(1), YY);
+	manager.SetRefQinCorrelation(RsQvector.at(0) + "_" + RsQvector.at(1) + "_YY", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+  for( auto Q : RsQvector )
+  {
+    manager.AddCorrelation(u_vector.at(0) + "_" + Q + "_XX", u_vector.at(0) + ", " + Q, XX);
+	  manager.SetRefQinCorrelation(u_vector.at(0) + "_" + Q + "_XX", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+    manager.AddCorrelation(u_vector.at(0) + "_" + Q + "_YY", u_vector.at(0) + ", " + Q, YY);
+	  manager.SetRefQinCorrelation(u_vector.at(0) + "_" + Q + "_YY", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
   }
 }
 

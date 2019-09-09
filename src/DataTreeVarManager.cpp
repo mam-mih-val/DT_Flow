@@ -20,8 +20,10 @@ void DataTreeVarManager::FillEventVariables(double* varContainer)
 		varContainer[kFwModuleRing+idx]=		0.0;
 		varContainer[kFwModuleAdc+idx]=			0.0;
 		varContainer[kFwModulePhi+idx]=			0.0;
+		varContainer[kRandomSe+idx]=			0.0;
 	}
 	Int_t nModules = fEvent->GetNPSDModules();
+	std::vector<int> moduleList;
 	for(Int_t idx=0; idx<nModules; idx++) 
 	{
 		if( !fSelector->IsCorrectFwHit(idx) )
@@ -30,7 +32,11 @@ void DataTreeVarManager::FillEventVariables(double* varContainer)
 		varContainer[kFwModuleRing+moduleId]=	(double) fEvent->GetPSDModule(idx)->GetRing()+1.0;
 		varContainer[kFwModuleAdc+moduleId]=	(double) fEvent->GetPSDModule(idx)->GetEnergy();
 		varContainer[kFwModulePhi+moduleId]=	(double) fEvent->GetPSDModule(idx)->GetPhi();
+		moduleList.push_back(idx);
 	}
+	random_shuffle( moduleList.begin(), moduleList.end() );
+	for( int idx = 0; idx<moduleList.size(); idx++ )
+		varContainer[kRandomSe + moduleList.at(idx)] = idx % 2 == 0 ? 1.0 : 2.0;
 }
 
 void DataTreeVarManager::FillTrackVariables(int idx, double* varContainer)
