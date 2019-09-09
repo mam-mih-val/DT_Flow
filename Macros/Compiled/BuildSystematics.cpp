@@ -7,218 +7,156 @@
 #include "CorrelationHelper.h"
 #include "TGraphAsymmErrors.h"
 #include "TMultiGraph.h"
+#include "THStack.h"
 #include "TClonesArray.h"
 #include "TColor.h"
 #include "TPad.h"
+#include "SetStyle.h"
+#include "TRatioPlot.h"
 
-void BuildSystematics( std::string fileName="../../Output/Bs.root" )
+void BuildSystematics( std::string fileName="../../Output/Bs.root", std::string canvasName="jenya" )
 {
 	CorrelationHelper helper;
 	helper.SetFile(fileName);
-	std::vector<std::string> components = {"_XX", "_YY"};
-	std::vector<std::string> flowName = {"flow_Fw1", "flow_Fw2", "flow_Fw3"};
-	for( auto component : components )
+	// Q-vector correlations names
+	vector<std::string> corrX = { "Fw1_Fw2_XX", "Fw1_Fw3_XX", "Fw2_Fw3_XX" }; 
+	vector<std::string> corrY = { "Fw1_Fw2_YY", "Fw1_Fw3_YY", "Fw2_Fw3_YY" };
+	// Resolution names
+	std::vector<std::string> resNamesX = {"resolution_Fw1_XX", "resolution_Fw2_XX", "resolution_Fw3_XX"};
+	std::vector<std::string> resNamesY = {"resolution_Fw1_YY", "resolution_Fw2_YY", "resolution_Fw3_YY"};
+	// Computing resolution
+	helper.BuildResolution3Se( corrX, resNamesX );
+	helper.BuildResolution3Se( corrY, resNamesY );
+	// <u,Q> correlations names
+	vector<std::string> unX = { "ProtonMdc_Fw1_XX", "ProtonMdc_Fw2_XX", "ProtonMdc_Fw3_XX" };
+	vector<std::string> unY = { "ProtonMdc_Fw1_YY", "ProtonMdc_Fw2_YY", "ProtonMdc_Fw3_YY" };
+	// Flow names
+	std::vector<std::string> flowNamesX = {"flow_Fw1_XX", "flow_Fw2_XX", "flow_Fw3_XX"};
+	std::vector<std::string> flowNamesY = {"flow_Fw1_YY", "flow_Fw2_YY", "flow_Fw3_YY"};
+	// Computing flow
+	helper.BuildFlow3Se(unX, resNamesX, flowNamesX);
+	helper.BuildFlow3Se(unY, resNamesY, flowNamesY);
+	// list of flow containers to merge to get averaged on sub-events and components
+	std::vector<std::string> listIntegrated;
+	std::vector<std::string> flowComp = { "flow_XX", "flow_YY" };
+	std::vector<std::string> flowSe = { "flow_Fw1", "flow_Fw2", "flow_Fw3" };
+	for(uint i=0; i<flowNamesX.size(); i++)
 	{
-		vector<std::string> res1Se{"Fw1_Fw2"+component, "Fw1_Fw3"+component, "Fw2_Fw3"+component};
-		vector<std::string> res2Se{"Fw1_Fw2"+component, "Fw2_Fw3"+component, "Fw1_Fw3"+component};
-		vector<std::string> res3Se{"Fw2_Fw3"+component, "Fw1_Fw3"+component, "Fw1_Fw2"+component};
-		std::array<std::vector<std::string>, 3> resConfig;
-		resConfig.at(0)=res1Se;
-		resConfig.at(1)=res2Se;
-		resConfig.at(2)=res3Se;
-		std::vector<std::string> resNames{"Fw1"+component, "Fw2"+component, "Fw3"+component};
-		helper.BuildResolution3SE( resConfig, resNames );
-		
-		vector<std::string> flow1Se{"ProtonMdc_Fw1"+component, "Fw1"+component};
-		vector<std::string> flow2Se{"ProtonMdc_Fw2"+component, "Fw2"+component};
-		vector<std::string> flow3Se{"ProtonMdc_Fw3"+component, "Fw3"+component};
-		std::array<std::vector<std::string>, 3> flowConfig;
-		flowConfig.at(0)=flow1Se;
-		flowConfig.at(1)=flow2Se;
-		flowConfig.at(2)=flow3Se;
-		std::vector<std::string> flowNames{
-			flowName.at(0)+component, 
-			flowName.at(1)+component, 
-			flowName.at(2)+component
-		};
-		helper.BuildFlow3SE( flowConfig, flowNames );
+		listIntegrated.push_back(flowNamesX.at(i));
+		listIntegrated.push_back(flowNamesY.at(i));
+		std::vector<std::string> se={flowNamesX.at(i), flowNamesY.at(i)};
+		helper.Merge( se, flowSe.at(i) );
 	}
-	Qn::DataContainer<Qn::Stats> integral; // Integrated Flow
-	std::vector<Qn::DataContainer<Qn::Stats>> flowDiffOnSe; // Flow diffetiated on sub-events
-	std::vector<Qn::DataContainer<Qn::Stats>> flowDiffOnComp; // Flow diffetiated on x-y components
-	std::array< std::vector< std::string >, 3> listDiffOnSe; // list of strings for merging by coponents to estimate difference between SE
-	std::array< std::vector< std::string >, 2> listDiffOnComp; // list of strings for merging by SE to estimate difference between components
-	std::vector< std::string > listIntegrated; // list of strings for merging by SE to estimate difference between components
-	for( int i=0; i<flowName.size(); i++ )
+	// averaging on sub-events & components
+	helper.Merge(listIntegrated, "flow_refference");
+	helper.Merge( flowNamesX, flowComp.at(0) );
+	helper.Merge( flowNamesY, flowComp.at(1) );
+	
+	// lambda function for projection and recomputing errors using bootstrapping
+	auto rebinProj = [](std::vector<Qn::DataContainer<Qn::Stats>> container){
+		container.at(0) = container.at(0).Rebin({"Centrality", 2, 20, 30});
+		container.at(0) = container.at(0).Projection({"0_Ycm"});
+		container.at(0).SetSetting( Qn::Stats::Settings::CORRELATEDERRORS );
+		return container.at(0);
+	};
+	auto ErrProp = [](std::vector<Qn::DataContainer<Qn::Stats>> container){
+		container.at(0).SetSetting( Qn::Stats::Settings::CORRELATEDERRORS );
+		return container.at(0);
+	};
+	for( auto &flow : flowComp )
 	{
-		for(int j=0; j<components.size(); j++)
-		{
-			std::string name = flowName.at(i)+components.at(j);
-			listDiffOnSe.at(i).push_back( name );
-			listDiffOnComp.at(j).push_back( name );
-			listIntegrated.push_back(name);
-		}
+		helper.MakeComputations({flow}, rebinProj, flow+"_1d");
+		flow+="_1d";
 	}
-	integral = helper.Merge( listIntegrated, "Integral" );
-	std::vector<std::string> strSe = { "Fw1", "Fw2", "Fw3" };
-	std::vector<std::string> strComp = { "X", "Y" };
+	for( auto &flow : flowSe )
 	{
-		int i=0;
-		for( auto list : listDiffOnSe )
-		{
-			flowDiffOnSe.push_back(helper.Merge( list, strSe.at(i) ));
-			i++;
-		}
-		i=0;
-		for( auto list : listDiffOnComp )
-		{
-			flowDiffOnComp.push_back( helper.Merge( list, strComp.at(i) ) );
-			i++;
-		}
+		helper.MakeComputations({flow}, rebinProj, flow+"_1d");
+		flow+="_1d";
 	}
-	for( auto &flow : flowDiffOnSe )
+	helper.MakeComputations({"flow_refference"}, rebinProj, "flow_refference_1d");
+	
+	auto setDrawSettings = [](TH1F* histo, std::string title, int color, int style){
+		histo->SetTitle(title.data());
+		histo->SetLineColor(color);
+		histo->SetMarkerColor(color);
+		histo->SetMarkerStyle(style);
+		histo->SetMarkerSize( 1.5 );
+		histo->SetLineWidth( 3.0 );
+	};
+	std::vector<std::string> ratioComp;
+	for( auto flow : flowComp )
 	{
-		flow = flow.Rebin({"Centrality", 2, 20, 30});
-		flow = flow.Projection({"0_Ycm"});
+		helper.BuildRatio({"flow_refference_1d", flow}, "ratio_"+flow);
+		ratioComp.push_back("ratio_"+flow);
 	}
-	for( auto &flow : flowDiffOnComp )
+	std::vector<std::string> ratioSe;
+	for( auto flow : flowSe )
 	{
-		flow = flow.Rebin({"Centrality", 2, 20, 30});
-		flow = flow.Projection({"0_Ycm"});
+		helper.BuildRatio({"flow_refference_1d", flow}, "ratio_"+flow);
+		ratioSe.push_back("ratio_"+flow);
 	}
-	integral = integral.Rebin({"Centrality", 2, 20, 30});
-	integral = integral.Projection({"0_Ycm"});
-	integral.SetSetting( Qn::Stats::Settings::CORRELATEDERRORS );
+	TH1F* histoFlowRefference = helper.GetTh1f("flow_refference_1d");
+	vector<TH1F*> histoFlowComp = helper.GetVectorTh1f(flowComp);
+	vector<TH1F*> histoRatioComp = helper.GetVectorTh1f(ratioComp);
+	vector<TH1F*> histoFlowSe = helper.GetVectorTh1f(flowSe);
+	vector<TH1F*> histoRatioSe = helper.GetVectorTh1f(ratioSe);
 
-	vector<TMultiGraph*> stack{
-		new TMultiGraph("sub_events", ";y-y_{beam};v1"),
-		new TMultiGraph("components", ";y-y_{beam};v1")
+	
+	std::vector<int> histoStyle{ 21, 22, 23 };
+	std::vector<int> histoColor{ kRed+1, kGreen+1, kBlue+1 };
+	std::vector<THStack*> stack {
+		new THStack( "Components", ";y-y_{beam};v_{1}" ),
+		new THStack( "Sub-Events", ";y-y_{beam};v_{1}" ),
+		new THStack( "Components_ratio", ";y-y_{beam}" ),
+		new THStack( "Sub-Events_ratio", ";y-y_{beam}" )
 	};
-	std::vector<std::string> graphTitle{
-		"v_{1}^{a}",
-		"v_{1}^{b}",
-		"v_{1}^{c}"
-	};
-	std::vector<int> graphStyle{ 21, 22, 23 };
-	std::vector<int> graphColor{ kRed+1, kGreen+1, kBlue+1 };
-	TGraphAsymmErrors* tempGraph;
-	int k=0; 
-	for( auto flow : flowDiffOnSe )
+	std::vector<std::string> histoTitle = {"v_{1}^{x}", "v_{1}^{y}"};
+	for( uint i=0; i<histoFlowComp.size(); i++ )
 	{
-		flow.SetSetting( Qn::Stats::Settings::CORRELATEDERRORS );
-		tempGraph = Qn::DataContainerHelper::ToTGraph(flow);
-		tempGraph->SetTitle( graphTitle.at(k).data() );
-		tempGraph->SetMarkerStyle( graphStyle.at(k) );
-		tempGraph->SetMarkerColor( graphColor.at(k) );
-		tempGraph->SetLineColor( graphColor.at(k) );
-		tempGraph->SetLineWidth( 3.0 );
-		tempGraph->SetMarkerSize( 1.5 );
-		stack.at(0)->Add( tempGraph, "P" );
-		k++;
+		setDrawSettings(histoFlowComp.at(i), histoTitle.at(i), histoColor.at(i), histoStyle.at(i) );
+		setDrawSettings(histoRatioComp.at(i), "ratio_"+histoTitle.at(i), histoColor.at(i), histoStyle.at(i) );
+		stack.at(0)->Add(histoFlowComp.at(i));
+		stack.at(2)->Add( histoRatioComp.at(i) );
 	}
-	k=0;
-	graphTitle = {"v_{1}^{x}","v_{1}^{y}"};
-	for( auto flow : flowDiffOnComp )
+	histoTitle = {"v_{1}^{a}", "v_{1}^{b}", "v_{1}^{c}"};
+	
+	for( uint i=0; i<histoFlowSe.size(); i++ )
 	{
-		flow.SetSetting( Qn::Stats::Settings::CORRELATEDERRORS );
-		tempGraph = Qn::DataContainerHelper::ToTGraph(flow);
-		tempGraph->SetTitle( graphTitle.at(k).data() );
-		tempGraph->SetMarkerStyle( graphStyle.at(k) );
-		tempGraph->SetMarkerColor( graphColor.at(k) );
-		tempGraph->SetLineColor( graphColor.at(k) );
-		tempGraph->SetLineWidth( 3.0 );
-		tempGraph->SetMarkerSize( 1.5 );
-		stack.at(1)->Add( tempGraph, "P" );
-		k++;
+		setDrawSettings(histoFlowSe.at(i), histoTitle.at(i), histoColor.at(i), histoStyle.at(i) );
+		setDrawSettings(histoRatioSe.at(i), "ratio_"+histoTitle.at(i), histoColor.at(i), histoStyle.at(i) );
+		stack.at(1)->Add(histoFlowSe.at(i));
+		stack.at(3)->Add(histoRatioSe.at(i));
 	}
-	tempGraph = Qn::DataContainerHelper::ToTGraph(integral);
-	tempGraph->SetTitle( "refference" );
-	tempGraph->SetMarkerStyle( 20 );
-	tempGraph->SetMarkerColor( kBlack );
-	tempGraph->SetLineColor( kBlack );
-	tempGraph->SetLineWidth( 3.0 );
-	tempGraph->SetMarkerSize( 1.5 );
-	stack.at(0)->Add( tempGraph );
-	stack.at(1)->Add( tempGraph );
-	TCanvas* canvas = new TCanvas( "Flow_channels", "", 2100, 2000 );
-	canvas->Divide(2,2);
-	canvas->cd(1);
-	stack.at(0)->GetHistogram()->SetMinimum(-0.5);
-	stack.at(0)->GetHistogram()->SetMaximum(0.5);
-	stack.at(0)->Draw("A");
+	setDrawSettings(histoFlowRefference, "Refference", kBlack, 20 );
+	stack.at(0)->Add(histoFlowRefference);
+	stack.at(1)->Add(histoFlowRefference);
+	SetStyle();
+	std::vector<TCanvas*> canvas;
+	canvas.push_back(new TCanvas("Components", "", 2100, 1000));
+	canvas.at(0)->Divide(2,1);
+	canvas.at(0)->cd(1);
+	stack.at(0)->SetMinimum(-0.5);
+	stack.at(0)->SetMaximum(0.5);
+	stack.at(0)->Draw("NOSTACK");
 	gPad->BuildLegend();
-	canvas->cd(2);
-	stack.at(1)->GetHistogram()->SetMinimum(-0.5);
-	stack.at(1)->GetHistogram()->SetMaximum(0.5);
-	stack.at(1)->Draw("A");
+	canvas.at(0)->cd(2);
+	stack.at(2)->SetMinimum(0.9);
+	stack.at(2)->SetMaximum(1.1);
+	stack.at(2)->Draw("NOSTACK");
+	auto name = canvasName+"_1.png";
+	canvas.at(0)->Print(name.data());
+	canvas.push_back( new TCanvas("Sub-Events", "", 2100, 1000));
+	canvas.at(1)->Divide(2,1);
+	canvas.at(1)->cd(1);
+	stack.at(1)->SetMinimum(-0.5);
+	stack.at(1)->SetMaximum(0.5);
+	stack.at(1)->Draw("NOSTACK");
 	gPad->BuildLegend();
-
-	std::vector<Qn::DataContainer<Qn::Stats>> ratioSe;
-	std::vector<Qn::DataContainer<Qn::Stats>> ratioComp;
-	auto ratio = []( std::vector<Qn::DataContainer<Qn::Stats>> corr ){
-		Qn::DataContainer<Qn::Stats> num = corr.at(0);
-		Qn::DataContainer<Qn::Stats> den = corr.at(1);
-		num = num.Rebin({"Centrality", 2, 20, 30});
-		num = num.Projection({"0_Ycm"});
-		den = den.Rebin({"Centrality", 2, 20, 30});
-		den = den.Projection({"0_Ycm"});
-		Qn::DataContainer<Qn::Stats> ratio = num/den;
-		return ratio;
-	};
-	for( auto se : strSe )
-	{
-		ratioSe.push_back( helper.MadeComputations( {"Integral", se}, ratio, se+"_ratio" ) );
-	}
-	for( auto comp : strComp )
-	{
-		ratioComp.push_back( helper.MadeComputations( {"Integral", comp}, ratio, comp+"_ratio" ) );
-	}
-	// for( auto &ratio : ratioSe )
-	// {
-	// 	ratio = ratio.Rebin({"Centrality", 2, 20, 30});
-	// 	ratio = ratio.Projection({"0_Ycm"});
-	// }
-	// for( auto &ratio : ratioComp )
-	// {
-	// 	ratio = ratio.Rebin({"Centrality", 2, 20, 30});
-	// 	ratio = ratio.Projection({"0_Ycm"});
-	// }
-	vector<TMultiGraph*> ratioStack{
-		new TMultiGraph("ratio_sub_events", ";y-y_{beam};v1_{ref}/v1_{se}"),
-		new TMultiGraph("ratio_components", ";y-y_{beam};v1_{ref}/v1_{comp}")
-	};
-	k=0; 
-	for( auto flow : ratioSe )
-	{
-		flow.SetSetting( Qn::Stats::Settings::CORRELATEDERRORS );
-		tempGraph = Qn::DataContainerHelper::ToTGraph(flow);
-		tempGraph->SetMarkerStyle( graphStyle.at(k) );
-		tempGraph->SetMarkerColor( graphColor.at(k) );
-		tempGraph->SetLineColor( graphColor.at(k) );
-		tempGraph->SetLineWidth( 3.0 );
-		tempGraph->SetMarkerSize( 1.5 );
-		ratioStack.at(0)->Add( tempGraph, "P" );
-		k++;
-	}
-	k=0; 
-	for( auto flow : ratioComp )
-	{
-		flow.SetSetting( Qn::Stats::Settings::CORRELATEDERRORS );
-		tempGraph = Qn::DataContainerHelper::ToTGraph(flow);
-		tempGraph->SetMarkerStyle( graphStyle.at(k) );
-		tempGraph->SetMarkerColor( graphColor.at(k) );
-		tempGraph->SetLineColor( graphColor.at(k) );
-		tempGraph->SetLineWidth( 3.0 );
-		tempGraph->SetMarkerSize( 1.5 );
-		ratioStack.at(1)->Add( tempGraph, "P" );
-		k++;
-	}
-	canvas->cd(3);
-	ratioStack.at(0)->GetHistogram()->SetMinimum(0.8);
-	ratioStack.at(0)->GetHistogram()->SetMaximum(1.2);
-	ratioStack.at(0)->Draw("A");
-	canvas->cd(4);
-	ratioStack.at(1)->GetHistogram()->SetMinimum(0.8);
-	ratioStack.at(1)->GetHistogram()->SetMaximum(1.2);
-	ratioStack.at(1)->Draw("A");
+	canvas.at(1)->cd(2);
+	stack.at(3)->SetMinimum(0.9);
+	stack.at(3)->SetMaximum(1.1);
+	stack.at(3)->Draw("NOSTACK");
+	name = canvasName+"_2.png";
+	canvas.at(1)->Print(name.data());
+	helper.SaveToFile(canvasName+".root");
 }
