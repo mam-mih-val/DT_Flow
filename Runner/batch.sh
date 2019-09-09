@@ -26,11 +26,12 @@ do
     --pid) pidCode=$2
     echo found pid code = $pidCode
     shift ;;
-    --) shift
-    break ;;
     --nsteps) nSteps=$2
     echo found number of steps: $nSteps
-    *) echo Error: incorrect option
+    shift ;;
+    --) shift
+    break ;;
+    # *) echo Error: incorrect option
     esac
     shift
 done
