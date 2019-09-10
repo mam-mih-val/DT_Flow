@@ -5,7 +5,7 @@ channelSelection=0
 minSignal=0
 maxSignal=999
 pidCode=14
-nSteps=3
+nSteps=2 # 1 is for recentring, 2 is for twist and rescaling
 
 while [ "$#" -gt "2" ]
 do
@@ -65,5 +65,12 @@ echo output_dir=$output_dir
 echo log_dir=$log_dir
 echo n_runs=$n_runs
 echo job_range=$job_range
+
+echo CONFIGURATION:
+echo signal type: $signal
+echo signal range: $minSignal-$maxSignal
+echo channel selection: $channelSelection
+echo pid code: $pidCode
+echo number of correction steps: $nSteps
 
 sbatch -J DT_Reader -p $partition -t $time -a $job_range -e ${log_dir}/%A_%a.e -o ${log_dir}/%A_%a.o --export=executable=$executable,output_dir=$output_dir,file_list=$file_list,basic_root=$basic_root,build_dir=$build_dir,minSignal=$minSignal,maxSignal=$maxSignal,signal=$signal,channelSelection=$channelSelection,nSteps=$nSteps batch_run.sh
