@@ -16,6 +16,7 @@
 
 void BuildSystematics( std::string fileName="../../Output/Bs.root", std::string canvasName="jenya" )
 {
+	std::string uName = "ProtonMdc";
 	CorrelationHelper helper;
 	helper.SetFile(fileName);
 	// Q-vector correlations names
@@ -158,5 +159,36 @@ void BuildSystematics( std::string fileName="../../Output/Bs.root", std::string 
 	stack.at(3)->Draw("NOSTACK");
 	name = canvasName+"_2.png";
 	canvas.at(1)->Print(name.data());
+	
+	stack.push_back( new THStack( "fullRes", "Full Event Resolution;centrality [%]; R_{1}^{full}" ) );
+	helper.BuildFullEvtResolution("RS1_RS2_XX", "Full_Resolution_XX");
+	helper.BuildFullEvtResolution("RS1_RS2_YY", "Full_Resolution_YY");
+	std::vector<TH1F*> fullRes = helper.GetVectorTh1f({"Full_Resolution_XX", "Full_Resolution_YY"});
+	for(auto res : fullRes )
+		stack.back()->Add(res);
+	setDrawSettings( fullRes.at(0), "x-component; centrality [%]; R_{1}", kBlue, 20 );
+	setDrawSettings( fullRes.at(1), "y-component; centrality [%]; R_{1}", kRed, 21 );
+	canvas.push_back( new TCanvas("full_res", "", 2100, 1000) );
+	canvas.back()->Divide(2,1);
+	canvas.back()->cd(1);
+	stack.back()->Draw("NOSTACK");
+	gPad->BuildLegend();
+	
+	stack.push_back( new THStack( "flowRs", "Flow Random Sub-Event; y-y_{beam}; v_{1}" ) );
+	helper.BuildFlowFullEvent("ProtonMdc_Full_XX", "Full_Resolution_XX", "flow_RS_XX");
+	helper.BuildFlowFullEvent("ProtonMdc_Full_YY", "Full_Resolution_YY", "flow_RS_YY");
+	helper.MakeComputations({"flow_RS_XX"}, rebinProj, "flow_RS_XX_1d");
+	helper.MakeComputations({"flow_RS_YY"}, rebinProj, "flow_RS_YY_1d");
+	canvas.back()->cd(2);
+	std::vector<TH1F*> flowRs = helper.GetVectorTh1f({"flow_RS_XX_1d", "flow_RS_YY_1d"});
+	setDrawSettings( flowRs.at(0), "x-component; centrality [%]; R_{1}", kBlue, 20 );
+	setDrawSettings( flowRs.at(1), "y-component; centrality [%]; R_{1}", kRed, 21 );
+	stack.back()->Add( flowRs.at(0) );
+	stack.back()->Add( flowRs.at(1) );
+	stack.back()->SetMinimum(-0.5);
+	stack.back()->SetMaximum(0.5);
+	stack.back()->Draw("NOSTACK");
+	name = canvasName+"_3.png";
+	canvas.back()->Print(name.data());
 	helper.SaveToFile(canvasName+".root");
 }

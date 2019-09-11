@@ -6,6 +6,8 @@
 #include "TFile.h"
 #include "TList.h"
 #include "TH1F.h"
+#include "TF1.h"
+#include "TMath.h"
 #include <iostream>
 
 class CorrelationHelper{
@@ -28,6 +30,11 @@ class CorrelationHelper{
 		std::vector<std::string> corrNames,
 		std::vector<std::string> resNames
 	);
+
+	std::vector<Qn::DataContainer<Qn::Stats>> BuildResolutionRs(
+		std::vector<std::string> corrNames,
+		std::vector<std::string> resNames
+	);
 	
 	std::vector<Qn::DataContainer<Qn::Stats>> BuildFlow3Se(
 		std::vector<std::string> unNames,
@@ -39,6 +46,29 @@ class CorrelationHelper{
 		std::vector<std::string> corr,
 		std::string resultName
 	);
+
+	TH1F* BuildResolutionFullEvent(
+		std::string corrName,
+		std::string resName
+	);
+
+	Qn::DataContainer<Qn::Stats> BuildFullEvtResolution(
+		std::string corrName,
+		std::string resultName
+	);
+
+	Qn::DataContainer<Qn::Stats> BuildFlowFullEvent(
+		std::string uName,
+		std::string resName,
+		std::string resultName
+	);
+
+	Qn::DataContainer<Qn::Stats> BuildRatio(
+		std::string uName,
+		std::string resName,
+		std::string resultName
+	);
+
 	TH1F* GetTh1f( std::string name );
 	std::vector<TH1F*> GetVectorTh1f( std::vector<std::string> names );
 	void PrintHeap() {
@@ -54,6 +84,10 @@ class CorrelationHelper{
 		}
 	}
 	protected:
+	
+	double GetResolutionRs( double meanCosine );
 	std::map<std::string, Qn::DataContainer<Qn::Stats> > fHeap;
+	std::map<std::string, TH1F*> fHistoHeap;
 	std::shared_ptr<TFile> fFile;
+	std::vector<TH1F*> fRsResolution;
 };

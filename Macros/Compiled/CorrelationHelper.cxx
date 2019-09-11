@@ -89,6 +89,105 @@ std::vector<Qn::DataContainer<Qn::Stats>> CorrelationHelper::BuildResolution3Se(
 	return result;
 }
 
+Qn::DataContainer<Qn::Stats> CorrelationHelper::BuildFullEvtResolution(
+	std::string corrName,
+	std::string resultName
+)
+{
+	auto R = [](std::vector<Qn::DataContainer<Qn::Stats>> corr){
+		Qn::DataContainer<Qn::Stats> result;
+		result = ResFullEvent(corr.at(0));
+		return result;
+	};
+	Qn::DataContainer<Qn::Stats> result;
+	result = MakeComputations({corrName}, R, resultName);
+	return result;
+}
+
+double CorrelationHelper::GetResolutionRs( double meanCosine )
+{
+	auto Rchi = [](double chi){
+		using namespace TMath;
+		double chi2 = chi*chi;
+		double I0 = BesselI0(chi2*0.5);
+		double I1 = BesselI1(chi2*0.5);
+		double pi = Pi();
+		double res = Sqrt( pi )*0.5*chi*Exp( -chi2/2.0 )*( I0+I1 );
+		return res;
+	};
+	auto Dichtomy = []( 
+		double a, 
+		double b, 
+		std::function<double(double)> f
+	)
+	{
+		double D =  pow( 10, -6 );
+		while( fabs(a-b) > D )
+		{
+			double c = 	0.5*(a+b);
+			double fa = f(a);
+			double fb = f(b);
+			if( fa * fb > 0 )
+			{
+				std::cout << "there is no solution on this range" << endl;
+				std::cout << "f(" << a << ")=" << fa << std::endl;
+				std::cout << "f(" << b << ")=" << fb << std::endl;
+				break;
+			}
+			double fc = f(c);
+			if( fa * fc < 0.0 )
+				b = c;
+			if( fb * fc < 0.0 )
+				a = c;
+		}
+		return 0.5*(a+b);
+	};
+	double min=0.0;
+	double max=3.0;
+	double chi0 = Dichtomy( min, max, [Rchi, meanCosine](double chi){ return Rchi(chi) - meanCosine; } );
+	return Rchi( sqrt(2)*chi0 );
+}
+
+TH1F* CorrelationHelper::BuildResolutionFullEvent(
+	std::string corrName,
+	std::string resName
+)
+{
+	Qn::DataContainer<Qn::Stats> container = GetDataContainer(corrName);
+	container = Sqrt( container*2.0 );
+	container.SetSetting( Qn::Stats::Settings::CORRELATEDERRORS );
+	std::vector<Qn::Axis> axes = container.GetAxes();
+	int  	nbins = axes.at(0).size();
+	float  	xmin = axes.at(0).GetLowerBinEdge(0);
+	float  	xmax = axes.at(0).GetUpperBinEdge(nbins-1);
+	fRsResolution.push_back( new TH1F(resName.data(), "", nbins, xmin, xmax ) );
+	for(int i=0; i<container.size(); i++)
+	{
+		Qn::Stats bin = container.At(i);
+		float mean = bin.Mean();
+		float error = bin.Error();
+		float res = GetResolutionRs( mean );
+		fRsResolution.back()->SetBinContent(i+1, res);
+		fRsResolution.back()->SetBinError(i+1, error);
+	}
+	fHistoHeap.insert( make_pair(resName, fRsResolution.back()) );
+	return fRsResolution.back();
+}
+
+Qn::DataContainer<Qn::Stats> CorrelationHelper::BuildFlowFullEvent(
+	std::string uName,
+	std::string resName,
+	std::string resultName
+)
+{
+	auto flow = [](std::vector<Qn::DataContainer<Qn::Stats>> corr){
+		auto result = corr.at(0)/corr.at(1) * 2;
+		return result;
+	};
+	auto result = MakeComputations( {uName, resName}, flow, resultName );
+	return result;
+}
+
 std::vector<Qn::DataContainer<Qn::Stats>> CorrelationHelper::BuildFlow3Se(
 	std::vector<std::string> unNames,
 	std::vector<std::string> resNames,
