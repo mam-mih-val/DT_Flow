@@ -13,3 +13,4 @@ Painter/*.*
 Macros/Compiled/*.d
 Macros/Compiled/*.pcm
 Macros/Compiled/*.so
+*.png
