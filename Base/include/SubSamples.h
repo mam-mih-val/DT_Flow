@@ -22,6 +22,7 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <functional>
 
 #include "Rtypes.h"
 #include "TH1F.h"
@@ -118,7 +119,7 @@ class SubSamples {
       samples_.at(sample).Fill(product);
     }
   }
-
+  
   void SetNumberOfSamples(size_type nsamples) { samples_.resize(nsamples); }
 
   void Print(double real_mean);
@@ -185,6 +186,10 @@ class SubSamples {
 
   static SubSamples ScaleNormal(const SubSamples &, double);
   static SubSamples ScalePointAverage(const SubSamples &, double);
+
+  static SubSamples ResFullEventNormal(const SubSamples &samp);
+  static double GetResolutionRs( double meanCosine );
+
 
  private:
   std::vector<Sample> samples_;

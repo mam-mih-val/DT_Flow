@@ -38,10 +38,10 @@ void CorrelationTask::Configure(Qn::CorrelationManager &manager)
   manager.AddQVectors("Fw1, Fw2, Fw3");
   manager.AddQVectors("RS1, RS2");
   manager.AddQVectors("Full");
-  manager.AddQVectors("ProtonMdc");
+  manager.AddQVectors("TracksMdc");
   
   std::vector<string> Q_vector{"Fw1", "Fw2", "Fw3"};
-  std::vector<string> u_vector{"ProtonMdc"};
+  std::vector<string> u_vector{"TracksMdc"};
 
   std::vector<string> RsQvector{"RS1", "RS2"};
   

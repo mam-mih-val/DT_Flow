@@ -118,6 +118,61 @@ Profile Profile::SqrtPointAverage(const Profile &prof) {
   return result;
 }
 
+Profile Profile::ResFullEventNormal(const Profile &prof) {
+  Profile result;
+  double mean = prof.sumwy_/prof.sumw_;
+  double variance = fabs(prof.sumwy2_/prof.sumw_ - mean*mean);
+  double neff = prof.sumw_*prof.sumw_/prof.sumw2_;
+  double var;
+  if (neff > 0.) {
+    var = std::sqrt(variance/neff);
+  } else { var = 0.; }
+
+  double res = GetFullResolution( mean );
+  double delta = var/mean*res;
+	result.sumwy_ = res*prof.entries_;
+  result.sumw_ = prof.entries_;
+  result.sumwy2_ = sqrt(res+delta);
+  result.sumw2_ = prof.entries_;
+  result.entries_ = prof.entries_;
+  return result;
+}
+
+double Profile::GetFullResolution( double XX )
+{
+	std::string formulae = "sqrt(pi)/2*x*exp(-x^2/2)*(TMath::BesselI0(x^2/2)+TMath::BesselI1(x^2/2))";
+	std::string equation = formulae + "-" + std::to_string( sqrt(2*XX) );
+	TF1 f("equation", equation.data(), 0.0, 3.0);
+	// f.Draw();
+	double a=0.0;
+	double b=3.0;
+	int i=0;
+	while( fabs(a-b) > pow(10,-6) )
+	{
+		double c = (a+b)/2;
+    double fc = f(c);
+    if( fc == 0 )
+      break;
+    double fa = f(a);
+    double fb = f(b);
+		if( fa*fc < 0.0 )
+		{
+			b=c;
+			i++;
+			continue;
+		}
+		if( fb*fc < 0.0 )
+		{
+			a=c;
+			i++;
+			continue;
+		}
+	}
+  double chi = (a+b)/2;
+  f = TF1("resolution", formulae.data(), 0.0, 3.0);
+  return f( sqrt(2)*chi );
+}
+
 Profile Profile::ScaleNormal(const Profile &lhs, double scale) {
   Profile result;
   result.sumwy_ = lhs.sumwy_ * scale;

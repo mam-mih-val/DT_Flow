@@ -22,6 +22,9 @@
 #include <iostream>
 
 #include "Rtypes.h"
+#include "TMath.h"
+#include "TF1.h"
+#include <functional>
 
 #include "Product.h"
 
@@ -49,6 +52,7 @@ class Profile {
     ++entries_;
   }
 
+  int Entries() { return entries_; }
   inline double Mean() const {
     if (sumw_ > 0.) {
       return sumwy_/sumw_;
@@ -102,6 +106,9 @@ class Profile {
 
   static Profile ScaleNormal(const Profile &, double);
   static Profile ScalePointAverage(const Profile &, double);
+
+  static Profile ResFullEventNormal(const Profile &);
+  static double GetFullResolution( double meanCosine );
 
  private:
   double sumwy_ = 0.;

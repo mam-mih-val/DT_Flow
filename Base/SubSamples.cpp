@@ -160,6 +160,53 @@ SubSamples SubSamples::SqrtNormal(const SubSamples &samp) {
   return subsamples;
 }
 
+SubSamples SubSamples::ResFullEventNormal(const SubSamples &samp) {
+  SubSamples subsamples(samp);
+  int i=0;
+  for (auto &sum : subsamples) {
+    double mean = samp.samples_[i].sumwy/samp.samples_[i].sumw;
+    sum.sumwy = GetResolutionRs(mean)*samp.samples_[i].entries;
+    sum.sumw = samp.samples_[i].entries;
+    i++;
+  }
+  return subsamples;
+}
+
+double SubSamples::GetResolutionRs( double XX )
+{
+	std::string formulae = "sqrt(pi)/2*x*exp(-x^2/2)*(TMath::BesselI0(x^2/2)+TMath::BesselI1(x^2/2))";
+  std::string equation = formulae + "-" + std::to_string( sqrt(2*XX) );
+	TF1 f("equation", equation.data(), 0.0, 3.0);
+	// f.Draw();
+	double a=0.0;
+	double b=3.0;
+	int i=0;
+	while( fabs(a-b) > pow(10,-6) )
+	{
+		double c = (a+b)/2;
+    double fc = f(c);
+    if( fc == 0 )
+      break;
+    double fa = f(a);
+    double fb = f(b);
+		if( fa*fc < 0.0 )
+		{
+			b=c;
+			i++;
+			continue;
+		}
+		if( fb*fc < 0.0 )
+		{
+			a=c;
+			i++;
+			continue;
+		}
+	}
+  double chi = (a+b)/2;
+  f = TF1("resolution", formulae.data(), 0.0, 3.0);
+  return f( sqrt(2)*chi );
+}
+
 SubSamples SubSamples::SqrtPointAverage(const SubSamples &samp) {
   SubSamples subsamples(samp);
   int i = 0;

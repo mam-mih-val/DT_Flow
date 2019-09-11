@@ -835,6 +835,10 @@ DataContainer<T> operator*(const DataContainer<T> &a, double b) {
   return a.Map([b](const T &a) { return a*b; });
 }
 template<typename T>
+DataContainer<T> ResFullEvent(const DataContainer<T> &a) {
+  return a.Map([](const T &x) { return Qn::ResFullEvent(x); });
+}
+template<typename T>
 DataContainer<T> Sqrt(const DataContainer<T> &a) {
   return a.Map([](const T &x) { return Qn::Sqrt(x); });
 }
