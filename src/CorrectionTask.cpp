@@ -60,6 +60,8 @@ void CorrectionTask::Initialize() {
 	fManager.AddVariable("FwAdc", DataTreeVarManager::kFwModuleAdc, 304);
 	fManager.AddVariable("FwPhi", DataTreeVarManager::kFwModulePhi, 304);
 	fManager.AddVariable("RandomSe", DataTreeVarManager::kRandomSe, 304);
+	fManager.AddVariable("moduleX", DataTreeVarManager::kFwModuleX, 304);
+	fManager.AddVariable("moduleY", DataTreeVarManager::kFwModuleY, 304);
 	std::cout << "Variables added" << std::endl;
 	//Correction eventvariables
 	
@@ -125,12 +127,16 @@ void CorrectionTask::Initialize() {
 	fManager.SetCorrectionSteps("Fw3", FwConfiguration);
 	
 	fManager.AddDetector("RS1", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
-	fManager.AddCut("RS1", {"RandomSe"}, [](const double &rs){ return rs < 1.01 && rs > 0.99; });
+	fManager.AddCut("RS1", {"RandomSe"}, [](const double &rs){ return rs == 1.00; });
 	fManager.SetCorrectionSteps("RS1", FwConfiguration);
 	
 	fManager.AddDetector("RS2", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
-	fManager.AddCut("RS2", {"RandomSe"}, [](const double &rs){ return rs < 2.01 && rs > 1.99; });
+	fManager.AddCut("RS2", {"RandomSe"}, [](const double &rs){ return rs == 2.00; });
 	fManager.SetCorrectionSteps("RS2", FwConfiguration);
+	
+	fManager.AddDetector("Full", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
+	// fManager.AddCut("RS2", {"RandomSe"}, [](const double &rs){ return rs < 2.01 && rs > 1.99; });
+	fManager.SetCorrectionSteps("Full", FwConfiguration);
   
 	fManager.AddHisto2D("ProtonMdc", {{"Ycm", 100, -0.8, 0.8}, {"Pt", 100, 0., 1.5}} );
 	fManager.AddHisto2D("Fw1", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}} );
@@ -138,6 +144,8 @@ void CorrectionTask::Initialize() {
 	fManager.AddHisto2D("Fw3", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}} );
 	fManager.AddHisto2D("RS1", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}} );
 	fManager.AddHisto2D("RS2", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}} );
+	fManager.AddHisto2D("RS1", {{"moduleX", 3000, -3000., 3000.}, {"moduleY", 3000, -3000., 3000.}} );
+	fManager.AddHisto2D("RS2", {{"moduleX", 3000, -3000., 3000.}, {"moduleY", 3000, -3000., 3000.}} );
 	
 	fManager.AddEventHisto1D({{"Centrality", 20, 0, 100}});
 	

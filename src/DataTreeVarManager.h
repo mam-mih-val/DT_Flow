@@ -30,7 +30,9 @@ class DataTreeVarManager{
 		kFwModuleAdc=kFwModuleId+304,	//3
 		kFwModulePhi=kFwModuleAdc+304,	//4
 		kRandomSe=kFwModulePhi+304,
-		kNumberOfVars=kRandomSe+304	//5
+		kFwModuleX=kRandomSe+304,
+		kFwModuleY=kFwModuleX+304,
+		kNumberOfVars=kFwModuleY+304	//5
 	};
 	DataTreeVarManager(std::string fileName);
 	~DataTreeVarManager() = default;

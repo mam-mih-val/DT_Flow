@@ -37,6 +37,7 @@ void CorrelationTask::Configure(Qn::CorrelationManager &manager)
 
   manager.AddQVectors("Fw1, Fw2, Fw3");
   manager.AddQVectors("RS1, RS2");
+  manager.AddQVectors("Full");
   manager.AddQVectors("ProtonMdc");
   
   std::vector<string> Q_vector{"Fw1", "Fw2", "Fw3"};
@@ -77,17 +78,23 @@ void CorrelationTask::Configure(Qn::CorrelationManager &manager)
 		manager.SetRefQinCorrelation(u + "_" + Q1 + "_YX", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});  
 	}
   }
-  manager.AddCorrelation(RsQvector.at(0) + "_" + RsQvector.at(1) + "_XX", RsQvector.at(0) + ", " + RsQvector.at(1), XX);
+  manager.AddCorrelation(RsQvector.at(0) + "_" + RsQvector.at(1) + "_XX", RsQvector.at(0) + ", " + RsQvector.at(1), XX); // Add QxQy
 	manager.SetRefQinCorrelation(RsQvector.at(0) + "_" + RsQvector.at(1) + "_XX", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
   manager.AddCorrelation(RsQvector.at(0) + "_" + RsQvector.at(1) + "_YY", RsQvector.at(0) + ", " + RsQvector.at(1), YY);
 	manager.SetRefQinCorrelation(RsQvector.at(0) + "_" + RsQvector.at(1) + "_YY", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+  
   for( auto Q : RsQvector )
-  {
+  {  
     manager.AddCorrelation(u_vector.at(0) + "_" + Q + "_XX", u_vector.at(0) + ", " + Q, XX);
-	  manager.SetRefQinCorrelation(u_vector.at(0) + "_" + Q + "_XX", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+    manager.SetRefQinCorrelation(u_vector.at(0) + "_" + Q + "_XX", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
     manager.AddCorrelation(u_vector.at(0) + "_" + Q + "_YY", u_vector.at(0) + ", " + Q, YY);
-	  manager.SetRefQinCorrelation(u_vector.at(0) + "_" + Q + "_YY", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+    manager.SetRefQinCorrelation(u_vector.at(0) + "_" + Q + "_YY", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
   }
+
+  manager.AddCorrelation(u_vector.at(0) + "_" + "Full" + "_XX", u_vector.at(0) + ", " + "Full", XX);
+  manager.SetRefQinCorrelation(u_vector.at(0) + "_" + "Full" + "_XX", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+  manager.AddCorrelation(u_vector.at(0) + "_" + "Full" + "_YY", u_vector.at(0) + ", " + "Full", YY);
+  manager.SetRefQinCorrelation(u_vector.at(0) + "_" + "Full" + "_YY", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
 }
 
 void CorrelationTask::Run() {
