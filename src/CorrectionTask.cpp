@@ -107,6 +107,26 @@ void CorrectionTask::Initialize() {
 		}
 		config->SetChannelsScheme(fwChannels, fwChannelGroups);
 	};
+	auto RsConfiguration = [](DetectorConfiguration *config) 
+	{
+		config->SetNormalization(QVector::Normalization::MAGNITUDE);
+		auto recenter = new Recentering();
+		config->AddCorrectionOnQnVector(recenter);
+		// auto rescale = new TwistAndRescale();
+		// rescale->SetApplyTwist(true);
+		// rescale->SetApplyRescale(true);
+		// rescale->SetTwistAndRescaleMethod(TwistAndRescale::TWRESCALE_doubleHarmonic);
+		// config->AddCorrectionOnQnVector(rescale);
+		auto fwChannels=new bool[304];
+		auto fwChannelGroups=new int[304];
+		for(int i=0; i<304; i++)
+		{
+			fwChannels[i]=true;
+			fwChannelGroups[i]=i;
+		}
+		config->SetChannelsScheme(fwChannels, fwChannelGroups);
+	};
+
 	// u-vectors from MDC
 	fManager.AddDetector("ProtonMdc", DetectorType::TRACK, "Phi", "Pt", {ycm}, {1});
 	fManager.AddCut("ProtonMdc", {"Pid", "Pt"}, [](const double &pid, const double &pt){ return pid > 13.99 && pid < 14.01 && pt > 0.8 && pt < 0.85; });
@@ -128,15 +148,14 @@ void CorrectionTask::Initialize() {
 	
 	fManager.AddDetector("RS1", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
 	fManager.AddCut("RS1", {"RandomSe"}, [](const double &rs){ return rs == 1.00; });
-	fManager.SetCorrectionSteps("RS1", FwConfiguration);
+	fManager.SetCorrectionSteps("RS1", RsConfiguration);
 	
 	fManager.AddDetector("RS2", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
 	fManager.AddCut("RS2", {"RandomSe"}, [](const double &rs){ return rs == 2.00; });
-	fManager.SetCorrectionSteps("RS2", FwConfiguration);
+	fManager.SetCorrectionSteps("RS2", RsConfiguration);
 	
 	fManager.AddDetector("Full", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
-	// fManager.AddCut("RS2", {"RandomSe"}, [](const double &rs){ return rs < 2.01 && rs > 1.99; });
-	fManager.SetCorrectionSteps("Full", FwConfiguration);
+	fManager.SetCorrectionSteps("Full", RsConfiguration);
   
 	fManager.AddHisto2D("ProtonMdc", {{"Ycm", 100, -0.8, 0.8}, {"Pt", 100, 0., 1.5}} );
 	fManager.AddHisto2D("Fw1", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}} );
