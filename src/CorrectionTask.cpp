@@ -137,7 +137,7 @@ void CorrectionTask::Initialize() {
 	fManager.SetCorrectionSteps("Fw2Sp", FwSpConfiguration);
 
 	fManager.AddDetector("Fw2Ep", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
-	fManager.AddCut("Fw2Ep", {"FwModuleId"}, [](const double &module) { return module >= 0.0 && module < 144.0; });
+	fManager.AddCut("Fw2Ep", {"FwModuleId"}, [](const double &module) { return module > 143.0 && module < 208.0; });
 	fManager.SetCorrectionSteps("Fw2Ep", FwEpConfiguration);
 
 	fManager.AddDetector("Fw3Sp", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
@@ -145,7 +145,7 @@ void CorrectionTask::Initialize() {
 	fManager.SetCorrectionSteps("Fw3Sp", FwSpConfiguration);
 
 	fManager.AddDetector("Fw3Ep", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
-	fManager.AddCut("Fw3Ep", {"FwModuleId"}, [](const double &module) { return module >= 0.0 && module < 144.0; });
+	fManager.AddCut("Fw3Ep", {"FwModuleId"}, [](const double &module) { return module > 207.0 && module < 304.0; });
 	fManager.SetCorrectionSteps("Fw3Ep", FwEpConfiguration);
 
 	fManager.AddDetector("Rs1Ep", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
