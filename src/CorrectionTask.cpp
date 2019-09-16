@@ -161,7 +161,7 @@ void CorrectionTask::Initialize() {
 	fManager.SetCorrectionSteps("Rs2Ep", FwEpConfiguration);
 
 	fManager.AddDetector("Rs2Sp", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
-	fManager.AddCut("Rs2Sp", {"RandomSe"}, [](const double &rs) { return rs == 1.00; });
+	fManager.AddCut("Rs2Sp", {"RandomSe"}, [](const double &rs) { return rs == 2.00; });
 	fManager.SetCorrectionSteps("Rs2Sp", FwSpConfiguration);
 
 	fManager.AddDetector("Full", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
