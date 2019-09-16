@@ -11,9 +11,12 @@ Qn::DataContainer<Qn::Stats>& CorrelationHelper::GetDataContainer(std::string na
 			return empty;
 		fFile->GetObject(name.data(), ptr);
 		if(!ptr)
+		{
+			std::cout << "No such a data container: " << name << std::endl;
 			return empty;
+		}
 		fHeap.insert( make_pair(name, *ptr) );
-		return *ptr;
+		return GetDataContainer(name);
 	}
 }
 
@@ -27,22 +30,10 @@ Qn::DataContainer<Qn::Stats> CorrelationHelper::MakeComputations(
 	Qn::DataContainer<Qn::Stats>* ptr{0};
 	for( auto name : varNames )
 	{
-		if( fHeap.count(name) == 0 )
-		{
-			fFile->GetObject(name.data(), ptr);
-			if( !ptr )
-			{
-				std::cout << "No such variable: " << name << std::endl;
-				continue;
-			}
-			arg.push_back(*ptr);
-			fHeap.insert(make_pair( name, arg.back() ));
-			ptr=nullptr;
-		}
-		else
-			arg.push_back( fHeap.at(name) );
+		arg.push_back( GetDataContainer(name) );
 	}
 	auto result = lambda(arg);
+	result.SetSetting(Qn::Stats::Settings::CORRELATEDERRORS);
 	fHeap.insert(make_pair(resultName, result));
 	return result;
 }
@@ -102,76 +93,6 @@ Qn::DataContainer<Qn::Stats> CorrelationHelper::BuildFullEvtResolution(
 	Qn::DataContainer<Qn::Stats> result;
 	result = MakeComputations({corrName}, R, resultName);
 	return result;
-}
-
-double CorrelationHelper::GetResolutionRs( double meanCosine )
-{
-	auto Rchi = [](double chi){
-		using namespace TMath;
-		double chi2 = chi*chi;
-		double I0 = BesselI0(chi2*0.5);
-		double I1 = BesselI1(chi2*0.5);
-		double pi = Pi();
-		double res = Sqrt( pi )*0.5*chi*Exp( -chi2/2.0 )*( I0+I1 );
-		return res;
-	};
-	auto Dichtomy = []( 
-		double a, 
-		double b, 
-		std::function<double(double)> f
-	)
-	{
-		double D =  pow( 10, -6 );
-		while( fabs(a-b) > D )
-		{
-			double c = 	0.5*(a+b);
-			double fa = f(a);
-			double fb = f(b);
-			if( fa * fb > 0 )
-			{
-				std::cout << "there is no solution on this range" << endl;
-				std::cout << "f(" << a << ")=" << fa << std::endl;
-				std::cout << "f(" << b << ")=" << fb << std::endl;
-				break;
-			}
-			double fc = f(c);
-			if( fa * fc < 0.0 )
-				b = c;
-			if( fb * fc < 0.0 )
-				a = c;
-		}
-		return 0.5*(a+b);
-	};
-	double min=0.0;
-	double max=3.0;
-	double chi0 = Dichtomy( min, max, [Rchi, meanCosine](double chi){ return Rchi(chi) - meanCosine; } );
-	return Rchi( sqrt(2)*chi0 );
-}
-
-TH1F* CorrelationHelper::BuildResolutionFullEvent(
-	std::string corrName,
-	std::string resName
-)
-{
-	Qn::DataContainer<Qn::Stats> container = GetDataContainer(corrName);
-	container = Sqrt( container*2.0 );
-	container.SetSetting( Qn::Stats::Settings::CORRELATEDERRORS );
-	std::vector<Qn::Axis> axes = container.GetAxes();
-	int  	nbins = axes.at(0).size();
-	float  	xmin = axes.at(0).GetLowerBinEdge(0);
-	float  	xmax = axes.at(0).GetUpperBinEdge(nbins-1);
-	fRsResolution.push_back( new TH1F(resName.data(), "", nbins, xmin, xmax ) );
-	for(int i=0; i<container.size(); i++)
-	{
-		Qn::Stats bin = container.At(i);
-		float mean = bin.Mean();
-		float error = bin.Error();
-		float res = GetResolutionRs( mean );
-		fRsResolution.back()->SetBinContent(i+1, res);
-		fRsResolution.back()->SetBinError(i+1, error);
-	}
-	fHistoHeap.insert( make_pair(resName, fRsResolution.back()) );
-	return fRsResolution.back();
 }
 
 Qn::DataContainer<Qn::Stats> CorrelationHelper::BuildFlowFullEvent(
