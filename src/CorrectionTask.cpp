@@ -88,16 +88,11 @@ void CorrectionTask::Initialize() {
 	//Configuration of FW. Preparing for add axis to qa histograms
 	//Producing the function which will configurate the correction Manager
 
-	auto FwConfiguration = [](DetectorConfiguration *config) 
+	auto FwSpConfiguration = [](DetectorConfiguration *config) 
 	{
-		config->SetNormalization(QVector::Normalization::M);
+		config->SetNormalization(QVector::Normalization::M); // Multiplicity
 		auto recenter = new Recentering();
 		config->AddCorrectionOnQnVector(recenter);
-		auto rescale = new TwistAndRescale();
-		rescale->SetApplyTwist(true);
-		rescale->SetApplyRescale(true);
-		rescale->SetTwistAndRescaleMethod(TwistAndRescale::TWRESCALE_doubleHarmonic);
-		config->AddCorrectionOnQnVector(rescale);
 		auto fwChannels=new bool[304];
 		auto fwChannelGroups=new int[304];
 		for(int i=0; i<304; i++)
@@ -107,16 +102,11 @@ void CorrectionTask::Initialize() {
 		}
 		config->SetChannelsScheme(fwChannels, fwChannelGroups);
 	};
-	auto RsConfiguration = [](DetectorConfiguration *config) 
+	auto FwEpConfiguration = [](DetectorConfiguration *config) 
 	{
 		config->SetNormalization(QVector::Normalization::MAGNITUDE);
 		auto recenter = new Recentering();
 		config->AddCorrectionOnQnVector(recenter);
-		// auto rescale = new TwistAndRescale();
-		// rescale->SetApplyTwist(true);
-		// rescale->SetApplyRescale(true);
-		// rescale->SetTwistAndRescaleMethod(TwistAndRescale::TWRESCALE_doubleHarmonic);
-		// config->AddCorrectionOnQnVector(rescale);
 		auto fwChannels=new bool[304];
 		auto fwChannelGroups=new int[304];
 		for(int i=0; i<304; i++)
@@ -134,38 +124,72 @@ void CorrectionTask::Initialize() {
 
 	// 3 sub-events method.
 	// Each detector builds own Q-vector, which means, you need to add required count of detectors and then configurate their cuts.  
-	fManager.AddDetector("Fw1", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
-	fManager.AddCut("Fw1", {"FwModuleId"}, [](const double &module){ return module >= 0.0 && module < 144.0; });
-	fManager.SetCorrectionSteps("Fw1", FwConfiguration);
+	fManager.AddDetector("Fw1Sp", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
+	fManager.AddCut("Fw1Sp", {"FwModuleId"}, [](const double &module){ return module >= 0.0 && module < 144.0; });
+	fManager.SetCorrectionSteps("Fw1Sp", FwSpConfiguration);
 
-	fManager.AddDetector("Fw2", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
-	fManager.AddCut("Fw2", {"FwModuleId"}, [](const double &module){ return module > 143.0 && module < 208.0; });
-	fManager.SetCorrectionSteps("Fw2", FwConfiguration);
+	fManager.AddDetector("Fw1Ep", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
+	fManager.AddCut("Fw1Ep", {"FwModuleId"}, [](const double &module) { return module >= 0.0 && module < 144.0; });
+	fManager.SetCorrectionSteps("Fw1Ep", FwEpConfiguration);
 
-	fManager.AddDetector("Fw3", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
-	fManager.AddCut("Fw3", {"FwModuleId"}, [](const double &module){ return module > 207.0 && module < 304.0; });
-	fManager.SetCorrectionSteps("Fw3", FwConfiguration);
-	
-	fManager.AddDetector("RS1", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
-	fManager.AddCut("RS1", {"RandomSe"}, [](const double &rs){ return rs == 1.00; });
-	fManager.SetCorrectionSteps("RS1", RsConfiguration);
-	
-	fManager.AddDetector("RS2", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
-	fManager.AddCut("RS2", {"RandomSe"}, [](const double &rs){ return rs == 2.00; });
-	fManager.SetCorrectionSteps("RS2", RsConfiguration);
-	
+	fManager.AddDetector("Fw2Sp", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
+	fManager.AddCut("Fw2Sp", {"FwModuleId"}, [](const double &module){ return module > 143.0 && module < 208.0; });
+	fManager.SetCorrectionSteps("Fw2Sp", FwSpConfiguration);
+
+	fManager.AddDetector("Fw2Ep", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
+	fManager.AddCut("Fw2Ep", {"FwModuleId"}, [](const double &module) { return module >= 0.0 && module < 144.0; });
+	fManager.SetCorrectionSteps("Fw2Ep", FwEpConfiguration);
+
+	fManager.AddDetector("Fw3Sp", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
+	fManager.AddCut("Fw3Sp", {"FwModuleId"}, [](const double &module){ return module > 207.0 && module < 304.0; });
+	fManager.SetCorrectionSteps("Fw3Sp", FwSpConfiguration);
+
+	fManager.AddDetector("Fw3Ep", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
+	fManager.AddCut("Fw3Ep", {"FwModuleId"}, [](const double &module) { return module >= 0.0 && module < 144.0; });
+	fManager.SetCorrectionSteps("Fw3Ep", FwEpConfiguration);
+
+	fManager.AddDetector("Rs1Ep", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
+	fManager.AddCut("Rs1Ep", {"RandomSe"}, [](const double &rs){ return rs == 1.00; });
+	fManager.SetCorrectionSteps("Rs1Ep", FwEpConfiguration);
+
+	fManager.AddDetector("Rs1Sp", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
+	fManager.AddCut("Rs1Sp", {"RandomSe"}, [](const double &rs) { return rs == 1.00; });
+	fManager.SetCorrectionSteps("Rs1Sp", FwSpConfiguration);
+
+	fManager.AddDetector("Rs2Ep", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
+	fManager.AddCut("Rs2Ep", {"RandomSe"}, [](const double &rs) { return rs == 2.00; });
+	fManager.SetCorrectionSteps("Rs2Ep", FwEpConfiguration);
+
+	fManager.AddDetector("Rs2Sp", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
+	fManager.AddCut("Rs2Sp", {"RandomSe"}, [](const double &rs) { return rs == 1.00; });
+	fManager.SetCorrectionSteps("Rs2Sp", FwSpConfiguration);
+
 	fManager.AddDetector("Full", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
-	fManager.SetCorrectionSteps("Full", RsConfiguration);
-  
+	fManager.SetCorrectionSteps("Full", FwEpConfiguration);
+
 	fManager.AddHisto2D("TracksMdc", {{"Ycm", 100, -0.8, 0.8}, {"Pt", 100, 0., 1.5}} );
-	fManager.AddHisto2D("Fw1", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}} );
-	fManager.AddHisto2D("Fw2", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}} );
-	fManager.AddHisto2D("Fw3", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}} );
-	fManager.AddHisto2D("RS1", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}} );
-	fManager.AddHisto2D("RS2", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}} );
-	fManager.AddHisto2D("RS1", {{"moduleX", 3000, -3000., 3000.}, {"moduleY", 3000, -3000., 3000.}} );
-	fManager.AddHisto2D("RS2", {{"moduleX", 3000, -3000., 3000.}, {"moduleY", 3000, -3000., 3000.}} );
 	
+	fManager.AddHisto2D("Fw1Sp", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}} );
+	fManager.AddHisto2D("Fw1Ep", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}});
+	
+	fManager.AddHisto2D("Fw2Sp", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}});
+	fManager.AddHisto2D("Fw2Ep", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}});
+
+	fManager.AddHisto2D("Fw3Sp", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}});
+	fManager.AddHisto2D("Fw3Ep", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}});
+
+	fManager.AddHisto2D("Rs1Sp", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}});
+	fManager.AddHisto2D("Rs1Ep", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}});
+
+	fManager.AddHisto2D("Rs2Sp", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}});
+	fManager.AddHisto2D("Rs2Ep", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}});
+
+	fManager.AddHisto2D("Rs1Ep", {{"moduleX", 3000, -3000., 3000.}, {"moduleY", 3000, -3000., 3000.}});
+	fManager.AddHisto2D("Rs2Ep", {{"moduleX", 3000, -3000., 3000.}, {"moduleY", 3000, -3000., 3000.}} );
+
+	fManager.AddHisto2D("Rs1Sp", {{"moduleX", 3000, -3000., 3000.}, {"moduleY", 3000, -3000., 3000.}});
+	fManager.AddHisto2D("Rs2Sp", {{"moduleX", 3000, -3000., 3000.}, {"moduleY", 3000, -3000., 3000.}});
+
 	fManager.AddEventHisto1D({{"Centrality", 20, 0, 100}});
 	
 	fManager.SetTree(out_tree_);

@@ -35,60 +35,85 @@ void CorrelationTask::Configure(Qn::CorrelationManager &manager)
   manager.AddEventVariable({"Centrality", 10, 0, 50});
   manager.ConfigureResampling(Qn::Sampler::Method::BOOTSTRAP, 100); // BOOTSTRAP, SUBSAMPLING
 
-  manager.AddQVectors("Fw1, Fw2, Fw3");
-  manager.AddQVectors("RS1, RS2");
+  manager.AddQVectors(" Fw1Sp, Fw2Sp, Fw3Sp");
+  manager.AddQVectors(" Fw1Ep, Fw2Ep, Fw3Ep");
+  manager.AddQVectors("Rs1Ep, Rs2Ep");
+  manager.AddQVectors("Rs1Sp, Rs2Sp");
   manager.AddQVectors("Full");
   manager.AddQVectors("TracksMdc");
   
-  std::vector<string> Q_vector{"Fw1", "Fw2", "Fw3"};
-  std::vector<string> u_vector{"TracksMdc"};
+  std::vector<std::string> Q3Se{"Fw1", "Fw2", "Fw3"};
+  std::vector<std::string> QRnd{"Rs1", "Rs2"};
+  std::vector<std::string> method{ "Sp", "Ep" };
 
-  std::vector<string> RsQvector{"RS1", "RS2"};
+  std::vector<std::string> u_vector{"TracksMdc"};
   
   /**
    * Correlations of all detectors vs PsiRP
    */
-  string components [] = {"XX", "YY", "XY", "YX"};
-  
-  for (int idx1 = 0; idx1 < Q_vector.size(); idx1++)
+  std::string components [] = {"XX", "YY", "XY", "YX"};
+
+  std::vector<std::string> Q3Se_1{Q3Se.at(1), Q3Se.at(2), Q3Se.at(0)};
+
+  for (int i = 0; i < Q3Se.size(); i++)
   {
-    auto Q1 = Q_vector.at (idx1);
-    
-    for (int idx2 = idx1 + 1; idx2 < Q_vector.size(); idx2++)
+    for( auto meth : method )
     {
-		auto Q2 = Q_vector.at (idx2);
-		manager.AddCorrelation(Q1 + "_" + Q2 + "_XX", Q1 + ", " + Q2, XX);
-		manager.SetRefQinCorrelation(Q1 + "_" + Q2 + "_XX", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
-		manager.AddCorrelation(Q1 + "_" + Q2 + "_YY", Q1 + ", " + Q2, YY);
-		manager.SetRefQinCorrelation(Q1 + "_" + Q2 + "_YY", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
-		manager.AddCorrelation(Q1 + "_" + Q2 + "_XY", Q1 + ", " + Q2, XY);
-		manager.SetRefQinCorrelation(Q1 + "_" + Q2 + "_XY", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
-		manager.AddCorrelation(Q1 + "_" + Q2 + "_YX", Q1 + ", " + Q2, YX);
-		manager.SetRefQinCorrelation(Q1 + "_" + Q2 + "_YX", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+      auto Q1 = Q3Se.at(i)+meth;
+      auto Q2 = Q3Se_1.at(i)+meth;
+      manager.AddCorrelation(Q1 + "_" + Q2 + "_XX", Q1 + ", " + Q2, XX);
+      manager.SetRefQinCorrelation(Q1 + "_" + Q2 + "_XX", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+      manager.AddCorrelation(Q1 + "_" + Q2 + "_YY", Q1 + ", " + Q2, YY);
+      manager.SetRefQinCorrelation(Q1 + "_" + Q2 + "_YY", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+      manager.AddCorrelation(Q1 + "_" + Q2 + "_XY", Q1 + ", " + Q2, XY);
+      manager.SetRefQinCorrelation(Q1 + "_" + Q2 + "_XY", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+      manager.AddCorrelation(Q1 + "_" + Q2 + "_YX", Q1 + ", " + Q2, YX);
+      manager.SetRefQinCorrelation(Q1 + "_" + Q2 + "_YX", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+      
+      auto u = u_vector.at(0);
+      manager.AddCorrelation(u + "_" + Q1 + "_XX", u + ", " + Q1, XX);
+      manager.SetRefQinCorrelation(u + "_" + Q1 + "_XX", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+      manager.AddCorrelation(u + "_" + Q1 + "_YY", u + ", " + Q1, YY);
+      manager.SetRefQinCorrelation(u + "_" + Q1 + "_YY", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+      manager.AddCorrelation(u + "_" + Q1 + "_XY", u + ", " + Q1, XY);
+      manager.SetRefQinCorrelation(u + "_" + Q1 + "_XY", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+      manager.AddCorrelation(u + "_" + Q1 + "_YX", u + ", " + Q1, YX);
+      manager.SetRefQinCorrelation(u + "_" + Q1 + "_YX", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
     }
-	for(auto &u : u_vector)
-	{
-		manager.AddCorrelation(u + "_" + Q1 + "_XX", u + ", " + Q1, XX);
-		manager.SetRefQinCorrelation(u + "_" + Q1 + "_XX", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
-		manager.AddCorrelation(u + "_" + Q1 + "_YY", u + ", " + Q1, YY);
-		manager.SetRefQinCorrelation(u + "_" + Q1 + "_YY", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
-		manager.AddCorrelation(u + "_" + Q1 + "_XY", u + ", " + Q1, XY);
-		manager.SetRefQinCorrelation(u + "_" + Q1 + "_XY", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
-		manager.AddCorrelation(u + "_" + Q1 + "_YX", u + ", " + Q1, YX);
-		manager.SetRefQinCorrelation(u + "_" + Q1 + "_YX", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});  
-	}
   }
-  manager.AddCorrelation(RsQvector.at(0) + "_" + RsQvector.at(1) + "_XX", RsQvector.at(0) + ", " + RsQvector.at(1), XX); // Add QxQy
-	manager.SetRefQinCorrelation(RsQvector.at(0) + "_" + RsQvector.at(1) + "_XX", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
-  manager.AddCorrelation(RsQvector.at(0) + "_" + RsQvector.at(1) + "_YY", RsQvector.at(0) + ", " + RsQvector.at(1), YY);
-	manager.SetRefQinCorrelation(RsQvector.at(0) + "_" + RsQvector.at(1) + "_YY", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
-  
-  for( auto Q : RsQvector )
-  {  
-    manager.AddCorrelation(u_vector.at(0) + "_" + Q + "_XX", u_vector.at(0) + ", " + Q, XX);
-    manager.SetRefQinCorrelation(u_vector.at(0) + "_" + Q + "_XX", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
-    manager.AddCorrelation(u_vector.at(0) + "_" + Q + "_YY", u_vector.at(0) + ", " + Q, YY);
-    manager.SetRefQinCorrelation(u_vector.at(0) + "_" + Q + "_YY", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+
+  for (auto meth : method )
+  {
+    auto Q1 = QRnd.at(0) + meth;
+    auto Q2 = QRnd.at(1) + meth;
+
+    manager.AddCorrelation(Q1 + "_" + Q2 + "_XX", Q1 + ", " + Q2, XX);
+    manager.SetRefQinCorrelation(Q1 + "_" + Q2 + "_XX", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+    manager.AddCorrelation(Q1 + "_" + Q2 + "_YY", Q1 + ", " + Q2, YY);
+    manager.SetRefQinCorrelation(Q1 + "_" + Q2 + "_YY", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+    manager.AddCorrelation(Q1 + "_" + Q2 + "_XY", Q1 + ", " + Q2, XY);
+    manager.SetRefQinCorrelation(Q1 + "_" + Q2 + "_XY", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+    manager.AddCorrelation(Q1 + "_" + Q2 + "_YX", Q1 + ", " + Q2, YX);
+    manager.SetRefQinCorrelation(Q1 + "_" + Q2 + "_YX", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+
+    auto u = u_vector.at(0);
+    manager.AddCorrelation(u + "_" + Q1 + "_XX", u + ", " + Q1, XX);
+    manager.SetRefQinCorrelation(u + "_" + Q1 + "_XX", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+    manager.AddCorrelation(u + "_" + Q1 + "_YY", u + ", " + Q1, YY);
+    manager.SetRefQinCorrelation(u + "_" + Q1 + "_YY", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+    manager.AddCorrelation(u + "_" + Q1 + "_XY", u + ", " + Q1, XY);
+    manager.SetRefQinCorrelation(u + "_" + Q1 + "_XY", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+    manager.AddCorrelation(u + "_" + Q1 + "_YX", u + ", " + Q1, YX);
+    manager.SetRefQinCorrelation(u + "_" + Q1 + "_YX", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+    
+    manager.AddCorrelation(u + "_" + Q2 + "_XX", u + ", " + Q2, XX);
+    manager.SetRefQinCorrelation(u + "_" + Q2 + "_XX", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+    manager.AddCorrelation(u + "_" + Q2 + "_YY", u + ", " + Q2, YY);
+    manager.SetRefQinCorrelation(u + "_" + Q2 + "_YY", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+    manager.AddCorrelation(u + "_" + Q2 + "_XY", u + ", " + Q2, XY);
+    manager.SetRefQinCorrelation(u + "_" + Q2 + "_XY", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+    manager.AddCorrelation(u + "_" + Q2 + "_YX", u + ", " + Q2, YX);
+    manager.SetRefQinCorrelation(u + "_" + Q2 + "_YX", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
   }
 
   manager.AddCorrelation(u_vector.at(0) + "_" + "Full" + "_XX", u_vector.at(0) + ", " + "Full", XX);
