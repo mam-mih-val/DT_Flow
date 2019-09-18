@@ -70,7 +70,7 @@ void CorrectionTask::Initialize() {
 	fManager.SetEventVariable("Centrality");
 	fManager.AddCorrectionAxis({"Centrality", 20, 0, 100});
 
-	// Axis pt("Pt", 20, 0., 1.0);
+	Axis pt("Pt", 20, 0., 1.0);
 	Axis ycm("Ycm", 16, -0.8, 0.8);
 	
 	// Configuration of MDC.
@@ -106,8 +106,8 @@ void CorrectionTask::Initialize() {
 	};
 
 	// u-vectors from MDC
-	fManager.AddDetector("TracksMdc", DetectorType::TRACK, "Phi", "One", {ycm}, {1});
-	fManager.AddCut("TracksMdc", {"Pid", "Pt"}, [](const double &pid, const double &pt){ return pid > 13.99 && pid < 14.01 && pt > 0.8 && pt < 0.85; });
+	fManager.AddDetector("TracksMdc", DetectorType::TRACK, "Phi", "One", {ycm, pt}, {1});
+	fManager.AddCut("TracksMdc", {"Pid", "Pt"}, [](const double &pid, const double &pt){ return pid > 13.99 /* && pid < 14.01 && pt > 0.8 && pt < 0.85 */; });
 	fManager.SetCorrectionSteps("TracksMdc", MdcConfiguration);
 
 	// 3 sub-events method.
