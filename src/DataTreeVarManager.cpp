@@ -32,7 +32,7 @@ void DataTreeVarManager::FillEventVariables(double* varContainer)
 			continue;
 		int moduleId = fEvent->GetPSDModule(idx)->GetId();
 		varContainer[kFwModuleRing+moduleId]=	(double) fEvent->GetPSDModule(idx)->GetRing();
-		varContainer[kFwModuleAdc + moduleId] = (double) fSignal == kAdc ? fEvent->GetPSDModule(idx)->GetEnergy() : fEvent->GetPSDModule(idx)->GetChargeZ();
+		varContainer[kFwModuleAdc + moduleId] = (double) fEvent->GetPSDModule(idx)->GetEnergy();
 		varContainer[kFwModulePhi+moduleId]=	(double) fEvent->GetPSDModule(idx)->GetPhi();
 		varContainer[kFwModuleX+idx]=			(double) fEvent->GetPSDModule(idx)->GetPositionComponent(0);
 		varContainer[kFwModuleY+idx]=			(double) fEvent->GetPSDModule(idx)->GetPositionComponent(1);
