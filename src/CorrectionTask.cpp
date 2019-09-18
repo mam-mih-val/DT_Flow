@@ -113,27 +113,27 @@ void CorrectionTask::Initialize() {
 	// 3 sub-events method.
 	// Each detector builds own Q-vector, which means, you need to add required count of detectors and then configurate their cuts.  
 	fManager.AddDetector("Fw1Sp", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
-	fManager.AddCut("Fw1Sp", {"FwModuleId"}, [](const double &module){ return module >= 0.0 && module < 144.0; });
+	fManager.AddCut("Fw1Sp", {"FwRing"}, [](const double &module) { return module >= 0.0 && module < 4.0; });
 	fManager.SetCorrectionSteps("Fw1Sp", FwConfiguration);
 
 	fManager.AddDetector("Fw1Ep", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
-	fManager.AddCut("Fw1Ep", {"FwModuleId"}, [](const double &module) { return module >= 0.0 && module < 144.0; });
+	fManager.AddCut("Fw1Ep", {"FwRing"}, [](const double &module) { return module >= 0.0 && module < 4.0; });
 	fManager.SetCorrectionSteps("Fw1Ep", FwConfiguration);
 
 	fManager.AddDetector("Fw2Sp", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
-	fManager.AddCut("Fw2Sp", {"FwModuleId"}, [](const double &module){ return module > 143.0 && module < 208.0; });
+	fManager.AddCut("Fw2Sp", {"FwRing"}, [](const double &module) { return module == 5.0 || module == 6.0; });
 	fManager.SetCorrectionSteps("Fw2Sp", FwConfiguration);
 
 	fManager.AddDetector("Fw2Ep", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
-	fManager.AddCut("Fw2Ep", {"FwModuleId"}, [](const double &module) { return module > 143.0 && module < 208.0; });
+	fManager.AddCut("Fw2Ep", {"FwRing"}, [](const double &module) { return module == 5.0 || module == 6.0; });
 	fManager.SetCorrectionSteps("Fw2Ep", FwConfiguration);
 
 	fManager.AddDetector("Fw3Sp", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
-	fManager.AddCut("Fw3Sp", {"FwModuleId"}, [](const double &module){ return module > 207.0 && module < 304.0; });
+	fManager.AddCut("Fw3Sp", {"FwRing"}, [](const double &module) { return module == 8.0 || module == 9.0; });
 	fManager.SetCorrectionSteps("Fw3Sp", FwConfiguration);
 
 	fManager.AddDetector("Fw3Ep", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
-	fManager.AddCut("Fw3Ep", {"FwModuleId"}, [](const double &module) { return module > 207.0 && module < 304.0; });
+	fManager.AddCut("Fw3Ep", {"FwRing"}, [](const double &module) { return module == 8.0 || module == 9.0; });
 	fManager.SetCorrectionSteps("Fw3Ep", FwConfiguration);
 
 	fManager.AddDetector("Rs1Ep", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});

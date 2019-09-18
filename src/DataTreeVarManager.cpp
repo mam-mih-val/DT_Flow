@@ -17,7 +17,7 @@ void DataTreeVarManager::FillEventVariables(double* varContainer)
 	for(int idx=0; idx<304; idx++)
 	{
 		varContainer[kFwModuleId+idx]=(double)	idx;
-		varContainer[kFwModuleRing+idx]=		0.0;
+		varContainer[kFwModuleRing+idx]=		-1.0;
 		varContainer[kFwModuleAdc+idx]=			0.0;
 		varContainer[kFwModulePhi+idx]=			0.0;
 		varContainer[kRandomSe+idx]=			0.0;
@@ -31,7 +31,7 @@ void DataTreeVarManager::FillEventVariables(double* varContainer)
 		if( !fSelector->IsCorrectFwHit(idx) )
 			continue;
 		int moduleId = fEvent->GetPSDModule(idx)->GetId();
-		varContainer[kFwModuleRing+moduleId]=	(double) fEvent->GetPSDModule(idx)->GetRing()+1.0;
+		varContainer[kFwModuleRing+moduleId]=	(double) fEvent->GetPSDModule(idx)->GetRing();
 		varContainer[kFwModuleAdc + moduleId] = (double) fSignal == kAdc ? fEvent->GetPSDModule(idx)->GetEnergy() : fEvent->GetPSDModule(idx)->GetChargeZ();
 		varContainer[kFwModulePhi+moduleId]=	(double) fEvent->GetPSDModule(idx)->GetPhi();
 		varContainer[kFwModuleX+idx]=			(double) fEvent->GetPSDModule(idx)->GetPositionComponent(0);
