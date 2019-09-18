@@ -32,7 +32,7 @@ void DataTreeVarManager::FillEventVariables(double* varContainer)
 			continue;
 		int moduleId = fEvent->GetPSDModule(idx)->GetId();
 		varContainer[kFwModuleRing+moduleId]=	(double) fEvent->GetPSDModule(idx)->GetRing()+1.0;
-		varContainer[kFwModuleAdc+moduleId]=	(double) fEvent->GetPSDModule(idx)->GetEnergy();
+		varContainer[kFwModuleAdc + moduleId] = (double) fSignal == kAdc ? fEvent->GetPSDModule(idx)->GetEnergy() : fEvent->GetPSDModule(idx)->GetChargeZ();
 		varContainer[kFwModulePhi+moduleId]=	(double) fEvent->GetPSDModule(idx)->GetPhi();
 		varContainer[kFwModuleX+idx]=			(double) fEvent->GetPSDModule(idx)->GetPositionComponent(0);
 		varContainer[kFwModuleY+idx]=			(double) fEvent->GetPSDModule(idx)->GetPositionComponent(1);
@@ -49,6 +49,7 @@ void DataTreeVarManager::FillTrackVariables(int idx, double* varContainer)
 	TVector3 b{0,0,-BETA}; 
 	auto p = fEvent->GetVertexTrack(idx)->GetMomentum();
 	p.Boost(b);
+	varContainer[kOne]=1.0;
 	varContainer[kMdcPt]=p.Pt();
 	varContainer[kMdcYcm]=p.Rapidity();
 	varContainer[kMdcPhi]=p.Phi();

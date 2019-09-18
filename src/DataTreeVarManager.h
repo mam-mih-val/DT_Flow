@@ -13,14 +13,21 @@
 
 class DataTreeVarManager{
 	protected:
+	int fSignal=0;
 	std::shared_ptr<TChain> fChain;
 	std::shared_ptr<Selector> fSelector;
 	DataTreeEvent* fEvent;
 	DataTreeVarManager();
 	int fCurrentTrackIdx;
 	public:
+	enum Signals{
+		kAdc=0,
+		kChargeZ,
+		kNumOfSignals
+	};
 	enum Vars{
 		kCentrality=0,	//0
+		kOne,
 		kMdcPt,
 		kMdcYcm,
 		kMdcPhi,
@@ -44,5 +51,6 @@ class DataTreeVarManager{
 	bool			IsGoodEvent(){ return fSelector->IsCorrectEvent(); }
 	bool			IsGoodTrack(int idx){ return fSelector->IsCorrectTrack(idx); }
 	void			SwitchEvent(int idx) { fChain->GetEntry(idx); }
+	void			SetSignal(int signal = DataTreeVarManager::Signals::kAdc) { fSignal=signal; }
 	std::shared_ptr<Selector> GetSelector(){ return fSelector; }
 };
