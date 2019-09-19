@@ -1,4 +1,4 @@
-#include "../Painter/SetStyle.h"
+// #include "../Painter/SetStyle.h"
 void PrimaryQa(std::string name="output_2.root")
 {
 	std::unique_ptr<TFile> file{TFile::Open( name.data() )};
@@ -36,7 +36,7 @@ void PrimaryQa(std::string name="output_2.root")
 		weghtVsCent.at(4)->Fill( centrality, rs2Sp->At(0).sumweights() );
 		weghtVsCent.at(5)->Fill( centrality, full->At(0).sumweights() );
 	}
-	SetStyle();
+	// SetStyle();
 	auto canvas = new TCanvas( "Qn_Qa", "", 3150, 2000 );
 	canvas->Divide(3,2);
 	for( int i=0; i<weghtVsCent.size(); i++ )
