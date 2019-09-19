@@ -7,6 +7,7 @@ date $format
 job_num=$(($SLURM_ARRAY_TASK_ID))
 input_file=`sed -n "${job_num}p" < $file_list`
 
+cp PrimaryQa.cpp $output_dir
 cd $output_dir
 mkdir -p $job_num
 cd $job_num
@@ -31,5 +32,6 @@ mv output.root output_2.root
 ls output_1.root > list
 $build_dir/src/correlate output_${nSteps}.root
 
+root -l -q -b "PrimaryQa.cpp(\"output_${nSteps}.root\")"
 echo JOB FINISHED!
 date $format
