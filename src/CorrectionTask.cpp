@@ -129,11 +129,11 @@ void CorrectionTask::Initialize() {
 	fManager.SetCorrectionSteps("Fw2Ep", FwConfiguration);
 
 	fManager.AddDetector("Fw3Sp", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
-	fManager.AddCut("Fw3Sp", {"FwRing"}, [](const double &module) { return module <= 7.0 && module == 9.0; });
+	fManager.AddCut("Fw3Sp", {"FwRing"}, [](const double &module) { return module >= 7.0 && module <= 9.0; });
 	fManager.SetCorrectionSteps("Fw3Sp", FwConfiguration);
 
 	fManager.AddDetector("Fw3Ep", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
-	fManager.AddCut("Fw3Ep", {"FwRing"}, [](const double &module) { return module <= 7.0 && module == 9.0; });
+	fManager.AddCut("Fw3Ep", {"FwRing"}, [](const double &module) { return module >= 7.0 && module <= 9.0; });
 	fManager.AddDetector("Fw3Sp", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
 	fManager.SetCorrectionSteps("Fw3Ep", FwConfiguration);
 
