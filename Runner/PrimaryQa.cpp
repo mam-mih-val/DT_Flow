@@ -44,5 +44,5 @@ void PrimaryQa(std::string name="output_2.root")
 		canvas->cd(i+1)->SetLogz();
 		weghtVsCent.at(i)->Draw("colz");
 	}
-	canvas->Print("CheckingSumW.png");
+	canvas->Print("CheckingSumW.C");
 }
