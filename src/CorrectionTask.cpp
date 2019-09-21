@@ -95,6 +95,11 @@ void CorrectionTask::Initialize() {
 		config->SetNormalization(QVector::Normalization::M);
 		auto recenter = new Recentering();
 		config->AddCorrectionOnQnVector(recenter);
+		auto rescale = new TwistAndRescale();
+		rescale->SetApplyTwist(true);
+		rescale->SetApplyRescale(true);
+		rescale->SetTwistAndRescaleMethod(TwistAndRescale::TWRESCALE_doubleHarmonic);
+		config->AddCorrectionOnQnVector(rescale);
 		auto fwChannels=new bool[304];
 		auto fwChannelGroups=new int[304];
 		for(int i=0; i<304; i++)
@@ -116,48 +121,47 @@ void CorrectionTask::Initialize() {
 
 	// 3 sub-events method.
 	// Each detector builds own Q-vector, which means, you need to add required count of detectors and then configurate their cuts.  
-	fManager.AddDetector("Fw1Sp", DetectorType::CHANNEL, "FwPhi", "Ones", {}, {1});
+	fManager.AddDetector("Fw1Sp", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
 	fManager.AddCut("Fw1Sp", {"FwRing"}, [](const double &module) { return module >= 0.0 && module <= 4.0; });
 	fManager.SetCorrectionSteps("Fw1Sp", FwConfiguration);
 
-	fManager.AddDetector("Fw1Ep", DetectorType::CHANNEL, "FwPhi", "Ones", {}, {1});
+	fManager.AddDetector("Fw1Ep", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
 	fManager.AddCut("Fw1Ep", {"FwRing"}, [](const double &module) { return module >= 0.0 && module <= 4.0; });
 	fManager.SetCorrectionSteps("Fw1Ep", FwConfiguration);
 
-	fManager.AddDetector("Fw2Sp", DetectorType::CHANNEL, "FwPhi", "Ones", {}, {1});
+	fManager.AddDetector("Fw2Sp", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
 	fManager.AddCut("Fw2Sp", {"FwRing"}, [](const double &module) { return module == 5.0 || module == 6.0; });
 	fManager.SetCorrectionSteps("Fw2Sp", FwConfiguration);
 
-	fManager.AddDetector("Fw2Ep", DetectorType::CHANNEL, "FwPhi", "Ones", {}, {1});
+	fManager.AddDetector("Fw2Ep", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
 	fManager.AddCut("Fw2Ep", {"FwRing"}, [](const double &module) { return module == 5.0 || module == 6.0; });
 	fManager.SetCorrectionSteps("Fw2Ep", FwConfiguration);
 
-	fManager.AddDetector("Fw3Sp", DetectorType::CHANNEL, "FwPhi", "Ones", {}, {1});
+	fManager.AddDetector("Fw3Sp", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
 	fManager.AddCut("Fw3Sp", {"FwRing"}, [](const double &module) { return module >= 7.0 && module <= 9.0; });
 	fManager.SetCorrectionSteps("Fw3Sp", FwConfiguration);
 
-	fManager.AddDetector("Fw3Ep", DetectorType::CHANNEL, "FwPhi", "Ones", {}, {1});
+	fManager.AddDetector("Fw3Ep", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
 	fManager.AddCut("Fw3Ep", {"FwRing"}, [](const double &module) { return module >= 7.0 && module <= 9.0; });
-	fManager.AddDetector("Fw3Sp", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
 	fManager.SetCorrectionSteps("Fw3Ep", FwConfiguration);
 
-	fManager.AddDetector("Rs1Ep", DetectorType::CHANNEL, "FwPhi", "Ones", {}, {1});
+	fManager.AddDetector("Rs1Ep", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
 	fManager.AddCut("Rs1Ep", {"RandomSe"}, [](const double &rs){ return rs == 1.00; });
 	fManager.SetCorrectionSteps("Rs1Ep", FwConfiguration);
 
-	fManager.AddDetector("Rs1Sp", DetectorType::CHANNEL, "FwPhi", "Ones", {}, {1});
+	fManager.AddDetector("Rs1Sp", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
 	fManager.AddCut("Rs1Sp", {"RandomSe"}, [](const double &rs) { return rs == 1.00; });
 	fManager.SetCorrectionSteps("Rs1Sp", FwConfiguration);
 
-	fManager.AddDetector("Rs2Ep", DetectorType::CHANNEL, "FwPhi", "Ones", {}, {1});
+	fManager.AddDetector("Rs2Ep", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
 	fManager.AddCut("Rs2Ep", {"RandomSe"}, [](const double &rs) { return rs == 2.00; });
 	fManager.SetCorrectionSteps("Rs2Ep", FwConfiguration);
 
-	fManager.AddDetector("Rs2Sp", DetectorType::CHANNEL, "FwPhi", "Ones", {}, {1});
+	fManager.AddDetector("Rs2Sp", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
 	fManager.AddCut("Rs2Sp", {"RandomSe"}, [](const double &rs) { return rs == 2.00; });
 	fManager.SetCorrectionSteps("Rs2Sp", FwConfiguration);
 
-	fManager.AddDetector("Full", DetectorType::CHANNEL, "FwPhi", "Ones", {}, {1});
+	fManager.AddDetector("Full", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
 	fManager.SetCorrectionSteps("Full", FwConfiguration);
 
 	// fManager.AddHisto2D("TracksMdc", {{"Ycm", 100, -0.8, 0.8}, {"Pt", 100, 0., 1.5}} );
