@@ -121,30 +121,35 @@ void CorrelationTask::Configure(Qn::CorrelationManager &manager)
     manager.AddCorrelation(Q1 + "_" + Q2 + "_YX", Q1 + ", " + Q2, YX);
     manager.SetRefQinCorrelation(Q1 + "_" + Q2 + "_YX", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
 
-    auto u = u_vector.at(0);
-    manager.AddCorrelation(u + "_" + Q1 + "_XX", u + ", " + Q1, XX);
-    manager.SetRefQinCorrelation(u + "_" + Q1 + "_XX", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
-    manager.AddCorrelation(u + "_" + Q1 + "_YY", u + ", " + Q1, YY);
-    manager.SetRefQinCorrelation(u + "_" + Q1 + "_YY", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
-    manager.AddCorrelation(u + "_" + Q1 + "_XY", u + ", " + Q1, XY);
-    manager.SetRefQinCorrelation(u + "_" + Q1 + "_XY", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
-    manager.AddCorrelation(u + "_" + Q1 + "_YX", u + ", " + Q1, YX);
-    manager.SetRefQinCorrelation(u + "_" + Q1 + "_YX", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
-    
-    manager.AddCorrelation(u + "_" + Q2 + "_XX", u + ", " + Q2, XX);
-    manager.SetRefQinCorrelation(u + "_" + Q2 + "_XX", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
-    manager.AddCorrelation(u + "_" + Q2 + "_YY", u + ", " + Q2, YY);
-    manager.SetRefQinCorrelation(u + "_" + Q2 + "_YY", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
-    manager.AddCorrelation(u + "_" + Q2 + "_XY", u + ", " + Q2, XY);
-    manager.SetRefQinCorrelation(u + "_" + Q2 + "_XY", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
-    manager.AddCorrelation(u + "_" + Q2 + "_YX", u + ", " + Q2, YX);
-    manager.SetRefQinCorrelation(u + "_" + Q2 + "_YX", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+    for( auto u : u_vector )
+    {
+      manager.AddCorrelation(u + "_" + Q1 + "_XX", u + ", " + Q1, XX);
+      manager.SetRefQinCorrelation(u + "_" + Q1 + "_XX", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+      manager.AddCorrelation(u + "_" + Q1 + "_YY", u + ", " + Q1, YY);
+      manager.SetRefQinCorrelation(u + "_" + Q1 + "_YY", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+      manager.AddCorrelation(u + "_" + Q1 + "_XY", u + ", " + Q1, XY);
+      manager.SetRefQinCorrelation(u + "_" + Q1 + "_XY", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+      manager.AddCorrelation(u + "_" + Q1 + "_YX", u + ", " + Q1, YX);
+      manager.SetRefQinCorrelation(u + "_" + Q1 + "_YX", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+
+      manager.AddCorrelation(u + "_" + Q2 + "_XX", u + ", " + Q2, XX);
+      manager.SetRefQinCorrelation(u + "_" + Q2 + "_XX", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+      manager.AddCorrelation(u + "_" + Q2 + "_YY", u + ", " + Q2, YY);
+      manager.SetRefQinCorrelation(u + "_" + Q2 + "_YY", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+      manager.AddCorrelation(u + "_" + Q2 + "_XY", u + ", " + Q2, XY);
+      manager.SetRefQinCorrelation(u + "_" + Q2 + "_XY", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+      manager.AddCorrelation(u + "_" + Q2 + "_YX", u + ", " + Q2, YX);
+      manager.SetRefQinCorrelation(u + "_" + Q2 + "_YX", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+    }
   }
 
-  manager.AddCorrelation(u_vector.at(0) + "_" + "Full" + "_XX", u_vector.at(0) + ", " + "Full", xxEp);
-  manager.SetRefQinCorrelation(u_vector.at(0) + "_" + "Full" + "_XX", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
-  manager.AddCorrelation(u_vector.at(0) + "_" + "Full" + "_YY", u_vector.at(0) + ", " + "Full", yyEp);
-  manager.SetRefQinCorrelation(u_vector.at(0) + "_" + "Full" + "_YY", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+  for( auto u : u_vector )
+  {
+    manager.AddCorrelation(u + "_" + "Full" + "_XX", u + ", " + "Full", xxEp);
+    manager.SetRefQinCorrelation(u + "_" + "Full" + "_XX", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+    manager.AddCorrelation(u + "_" + "Full" + "_YY", u + ", " + "Full", yyEp);
+    manager.SetRefQinCorrelation(u + "_" + "Full" + "_YY", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+  }
 }
 
 void CorrelationTask::Run() {
