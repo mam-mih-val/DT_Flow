@@ -106,9 +106,13 @@ void CorrectionTask::Initialize() {
 	};
 
 	// u-vectors from MDC
-	fManager.AddDetector("TracksMdc", DetectorType::TRACK, "Phi", "Ones", {ycm, pt}, {1});
-	fManager.AddCut("TracksMdc", {"Pid", "Ycm"}, [](const double &pid, const double &y){ return pid > 13.99 && pid < 14.01; });
-	fManager.SetCorrectionSteps("TracksMdc", MdcConfiguration);
+	fManager.AddDetector("TracksMdcYcm", DetectorType::TRACK, "Phi", "Ones", {ycm}, {1});
+	fManager.AddCut("TracksMdcYcm", {"Pid", "Pt"}, [](const double &pid, const double &pt){ return pid > 13.99 && pid < 14.01 && pt > 0.80 && pt < 0.85 ; });
+	fManager.SetCorrectionSteps("TracksMdcYcm", MdcConfiguration);
+	
+	fManager.AddDetector("TracksMdcPt", DetectorType::TRACK, "Phi", "Ones", {pt}, {1});
+	fManager.AddCut("TracksMdcPt", {"Pid", "Ycm"}, [](const double &pid, const double &y){ return pid > 13.99 && pid < 14.01 && y>-0.25 && y<-0.15; });
+	fManager.SetCorrectionSteps("TracksMdcPt", MdcConfiguration);
 
 	// 3 sub-events method.
 	// Each detector builds own Q-vector, which means, you need to add required count of detectors and then configurate their cuts.  
@@ -156,7 +160,7 @@ void CorrectionTask::Initialize() {
 	fManager.AddDetector("Full", DetectorType::CHANNEL, "FwPhi", "Ones", {}, {1});
 	fManager.SetCorrectionSteps("Full", FwConfiguration);
 
-	fManager.AddHisto2D("TracksMdc", {{"Ycm", 100, -0.8, 0.8}, {"Pt", 100, 0., 1.5}} );
+	// fManager.AddHisto2D("TracksMdc", {{"Ycm", 100, -0.8, 0.8}, {"Pt", 100, 0., 1.5}} );
 	
 	fManager.AddHisto2D("Fw1Sp", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}} );
 	fManager.AddHisto2D("Fw1Ep", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}});
