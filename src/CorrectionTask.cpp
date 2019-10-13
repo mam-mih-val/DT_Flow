@@ -84,7 +84,7 @@ void CorrectionTask::Initialize() {
 		rescale->SetApplyTwist(true);
 		rescale->SetApplyRescale(true);
 		rescale->SetTwistAndRescaleMethod(TwistAndRescale::TWRESCALE_doubleHarmonic);
-		// config->AddCorrectionOnQnVector(rescale);
+		config->AddCorrectionOnQnVector(rescale);
 	};
 
 	//Configuration of FW. Preparing for add axis to qa histograms
@@ -107,11 +107,11 @@ void CorrectionTask::Initialize() {
 
 	// u-vectors from MDC
 	fManager.AddDetector("TracksMdcYcm", DetectorType::TRACK, "Phi", "Ones", {ycm}, {1});
-	fManager.AddCut("TracksMdcYcm", {"Pid", "Pt"}, [](const double &pid, const double &pt){ return pid > 13.99 && pid < 14.01 && pt > 0.80 && pt < 0.85 ; });
+	fManager.AddCut("TracksMdcYcm", {"Pid", "Pt"}, [](const double &pid, const double &pt){ return pid == 8.0 && pt > 0.80 && pt < 0.85 ; });
 	fManager.SetCorrectionSteps("TracksMdcYcm", MdcConfiguration);
 	
 	fManager.AddDetector("TracksMdcPt", DetectorType::TRACK, "Phi", "Ones", {pt}, {1});
-	fManager.AddCut("TracksMdcPt", {"Pid", "Ycm"}, [](const double &pid, const double &y){ return pid > 13.99 && pid < 14.01 && y>-0.25 && y<-0.15; });
+	fManager.AddCut("TracksMdcPt", {"Pid", "Ycm"}, [](const double &pid, const double &y){ pid == 8.0 && y>0.15 && y<0.25; });
 	fManager.SetCorrectionSteps("TracksMdcPt", MdcConfiguration);
 
 	// 3 sub-events method.
