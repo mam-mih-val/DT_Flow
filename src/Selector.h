@@ -17,8 +17,8 @@ using std::endl;
 class Selector
 {
 public:
-	Selector() {};
-    Selector(DataTreeEvent* _fEvent) { fEvent=_fEvent; };
+	Selector() = default;;
+    explicit Selector(DataTreeEvent* _fEvent) { fEvent=_fEvent; };
     ~Selector() = default;
     bool	IsCorrectEvent();
     bool	IsCorrectTrack(int idx);
@@ -30,6 +30,7 @@ public:
 		fMinSignal=minValue; 
 		fMaxSignal=maxValue; 
 	}
+	void    SetPid(int pid) { fPid=pid; }
 
 private:
     DataTreeEvent*	fEvent{nullptr};
@@ -37,4 +38,5 @@ private:
 	std::string fFwSignal="adc";
 	float fMinSignal=80.0;
 	float fMaxSignal=999.0;
+	int fPid=14.0;
 };

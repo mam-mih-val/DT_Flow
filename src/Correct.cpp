@@ -12,9 +12,9 @@ int main(int argc, char **argv) {
         cout << argc << " arguments were given, minimum 2 is required" << endl;
         return 1;
     }
-    bool channelSelection;
+    bool channelSelection= false;
     std::string signal="adc";
-    float pid=14;
+    int pid=14;
     float minSignal=0;
     float maxSignal=999;
     if(argc>4)
@@ -44,13 +44,13 @@ int main(int argc, char **argv) {
             }
             if(flag=="--pid")
             {
-                pid=std::atof(argv[i+1]);
+                pid=std::atoi(argv[i+1]);
                 continue;
             }
         }
     }
 	Qn::CorrectionTask task(argv[ argc-2 ], argv[ argc-1 ]);
-	task.SetFwConfiguration( channelSelection, signal, minSignal, maxSignal );
+	task.SetSelectorConfiguration( channelSelection, signal, minSignal, maxSignal, pid);
 	task.Run();
 	auto end = std::chrono::system_clock::now();
 	std::chrono::duration<double> elapsed_seconds = end - start;

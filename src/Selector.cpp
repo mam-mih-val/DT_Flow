@@ -52,6 +52,8 @@ bool Selector::IsCorrectTrack(int idx)
         return false;
     if ( fTrack->GetChi2() > 100 )
         return false;
+    if( fTrack->GetPdgId() != fPid )
+        return false;
     return true;
 }
 

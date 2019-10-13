@@ -41,12 +41,13 @@ void CorrectionTask::Run()
 	Finalize();
 }
 
-void CorrectionTask::SetFwConfiguration(bool perChannel, std::string signal, float min, float max)
+void CorrectionTask::SetSelectorConfiguration(bool perChannel, std::string signal, float min, float max, int pid)
 {
 	fVarManager->GetSelector()->SetFwSignalType(signal);
 	fVarManager->SetSignal(signal == "adc" ? DataTreeVarManager::Signals::kAdc : DataTreeVarManager::Signals::kChargeZ);
 	fVarManager->GetSelector()->SetFwChannelSelection(perChannel);
 	fVarManager->GetSelector()->SetFwSignalRange(min, max);
+	fVarManager->GetSelector()->SetPid(pid);
 }
 
 void CorrectionTask::Initialize() {
@@ -107,11 +108,11 @@ void CorrectionTask::Initialize() {
 
 	// u-vectors from MDC
 	fManager.AddDetector("TracksMdcYcm", DetectorType::TRACK, "Phi", "Ones", {ycm}, {1});
-	fManager.AddCut("TracksMdcYcm", {"Pid", "Pt"}, [](const double &pid, const double &pt){ return pid == 8.0 && pt > 0.80 && pt < 0.85 ; });
+	fManager.AddCut("TracksMdcYcm", {"Pid", "Pt"}, [](const double &pid, const double &pt){ return pt > 0.80 && pt < 0.85 ; });
 	fManager.SetCorrectionSteps("TracksMdcYcm", MdcConfiguration);
 	
 	fManager.AddDetector("TracksMdcPt", DetectorType::TRACK, "Phi", "Ones", {pt}, {1});
-	fManager.AddCut("TracksMdcPt", {"Pid", "Ycm"}, [](const double &pid, const double &y){ pid == 8.0 && y>0.15 && y<0.25; });
+	fManager.AddCut("TracksMdcPt", {"Pid", "Ycm"}, [](const double &pid, const double &y){ return y>0.15 && y<0.25; });
 	fManager.SetCorrectionSteps("TracksMdcPt", MdcConfiguration);
 
 	// 3 sub-events method.
