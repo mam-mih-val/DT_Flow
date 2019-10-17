@@ -40,11 +40,11 @@ $build_dir/src/correct --signal $signal --perchannel $channelSelection --min $mi
 mv output.root output_0.root
 
 #recentering
-$build_dir/src/correct  --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode $inFile qn.root
+$build_dir/src/correct --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode $inFile qn.root
 mv output.root output_1.root
 
 # # #twist and rescale
-$build_dir/src/correct  --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode $inFile qn.root
+$build_dir/src/correct --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode $inFile qn.root
 mv output.root output_2.root
 
 #correlate q-vecors from desired correction step

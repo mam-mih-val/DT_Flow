@@ -53,9 +53,9 @@ void CorrelationTask::Configure(Qn::CorrelationManager &manager)
   manager.AddQVectors("Rs1Ep, Rs2Ep");
   manager.AddQVectors("Rs1Sp, Rs2Sp");
   manager.AddQVectors("Full");
-  manager.AddQVectors("TracksMdcPt");
-  manager.AddQVectors("TracksMdcYcmFw");
-  manager.AddQVectors("TracksMdcYcmBw");
+  manager.AddQVectors("TracksMdcPtFw");
+  manager.AddQVectors("TracksMdcPtBw");
+  manager.AddQVectors("TracksMdcYcm");
   
   std::vector<std::string> Q3Se{"Fw1", "Fw2", "Fw3"};
   std::vector<std::string> QRnd{"Rs1", "Rs2"};
@@ -171,7 +171,7 @@ void CorrelationTask::Run() {
     fManager.Process();
     if (eventsteps > 1 && events % eventsteps == 0) {
       float progress = events / (float) nEvents;
-      ProgressBar(progress);
+      // ProgressBar(progress);
     }
   }
   while(reader_->Next());

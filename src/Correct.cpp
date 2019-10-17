@@ -49,7 +49,14 @@ int main(int argc, char **argv) {
             }
         }
     }
-	Qn::CorrectionTask task(argv[ argc-2 ], argv[ argc-1 ]);
+    std::cout << "Configuration:" << std::endl;
+    std::cout << "Channer Selection:\t" << channelSelection << std::endl;
+    std::cout << "signal:\t" << signal << std::endl;
+    std::cout << "min signal:\t" << minSignal << std::endl;
+    std::cout << "max signal:\t" << maxSignal << std::endl;
+    std::cout << "pid code:\t" << pid<< std::endl;
+
+    Qn::CorrectionTask task(argv[ argc-2 ], argv[ argc-1 ]);
 	task.SetSelectorConfiguration( channelSelection, signal, minSignal, maxSignal, pid);
 	task.Run();
 	auto end = std::chrono::system_clock::now();

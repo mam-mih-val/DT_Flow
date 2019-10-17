@@ -34,7 +34,7 @@ void CorrectionTask::Run()
 			continue;
 		Process();
 		float progress = (float) idx / (float) numEvents;
-		this->ProgressBar(progress);
+		// this->ProgressBar(progress);
 		goodEvents++;
 	}
 	std::cout << goodEvents << " good events" << std::endl;
