@@ -111,12 +111,17 @@ void CorrectionTask::Initialize() {
 	fManager.AddCut("TracksMdcYcm", {"Pid", "Pt"}, [](const double &pid, const double &pt){ return pt > 0.80 && pt < 0.85 ; });
 	fManager.SetCorrectionSteps("TracksMdcYcm", MdcConfiguration);
 	
-	fManager.AddDetector("TracksMdcPt", DetectorType::TRACK, "Phi", "Ones", {pt}, {1});
-	fManager.AddCut("TracksMdcPt", {"Pid", "Ycm"}, [](const double &pid, const double &y){ return y>0.15 && y<0.25; });
-	fManager.SetCorrectionSteps("TracksMdcPt", MdcConfiguration);
+	fManager.AddDetector("TracksMdcPtFw", DetectorType::TRACK, "Phi", "Ones", {pt}, {1});
+	fManager.AddCut("TracksMdcPtFw", {"Pid", "Ycm"}, [](const double &pid, const double &y) { return y > 0.15 && y < 0.25; });
+	fManager.SetCorrectionSteps("TracksMdcPtFw", MdcConfiguration);
+
+	fManager.AddDetector("TracksMdcPtBw", DetectorType::TRACK, "Phi", "Ones", {pt}, {1});
+	fManager.AddCut("TracksMdcPtBw", {"Pid", "Ycm"}, [](const double &pid, const double &y) { return y < -0.15 && y > -0.25; });
+	fManager.SetCorrectionSteps("TracksMdcPtBw", MdcConfiguration);
 
 	// 3 sub-events method.
 	// Each detector builds own Q-vector, which means, you need to add required count of detectors and then configurate their cuts.  
+	
 	fManager.AddDetector("Fw1Sp", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
 	fManager.AddCut("Fw1Sp", {"FwRing"}, [](const double &module) { return module >= 0.0 && module <= 4.0; });
 	fManager.SetCorrectionSteps("Fw1Sp", FwConfiguration);
@@ -140,6 +145,8 @@ void CorrectionTask::Initialize() {
 	fManager.AddDetector("Fw3Ep", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
 	fManager.AddCut("Fw3Ep", {"FwRing"}, [](const double &module) { return module >= 7.0 && module <= 9.0; });
 	fManager.SetCorrectionSteps("Fw3Ep", FwConfiguration);
+
+	// Random sub-event method
 
 	fManager.AddDetector("Rs1Ep", DetectorType::CHANNEL, "FwPhi", "Ones", {}, {1});
 	fManager.AddCut("Rs1Ep", {"RandomSe"}, [](const double &rs){ return rs == 1.00; });

@@ -54,7 +54,8 @@ void CorrelationTask::Configure(Qn::CorrelationManager &manager)
   manager.AddQVectors("Rs1Sp, Rs2Sp");
   manager.AddQVectors("Full");
   manager.AddQVectors("TracksMdcPt");
-  manager.AddQVectors("TracksMdcYcm");
+  manager.AddQVectors("TracksMdcYcmFw");
+  manager.AddQVectors("TracksMdcYcmBw");
   
   std::vector<std::string> Q3Se{"Fw1", "Fw2", "Fw3"};
   std::vector<std::string> QRnd{"Rs1", "Rs2"};
