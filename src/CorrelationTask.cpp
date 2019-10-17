@@ -61,8 +61,8 @@ void CorrelationTask::Configure(Qn::CorrelationManager &manager)
   std::vector<std::string> QRnd{"Rs1", "Rs2"};
   std::vector<std::string> method{ "Sp", "Ep" };
 
-  std::vector<std::string> u_vector{"TracksMdcPt", "TracksMdcYcm"};
-  
+  std::vector<std::string> u_vector{"TracksMdcPtFw", "TracksMdcPtBw", "TracksMdcYcm"};
+
   /**
    * Correlations of all detectors vs PsiRP
    */

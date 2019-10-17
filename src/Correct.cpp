@@ -50,7 +50,7 @@ int main(int argc, char **argv) {
         }
     }
     std::cout << "Configuration:" << std::endl;
-    std::cout << "Channer Selection:\t" << channelSelection << std::endl;
+    std::cout << "per channer :\t" << channelSelection << std::endl;
     std::cout << "signal:\t" << signal << std::endl;
     std::cout << "min signal:\t" << minSignal << std::endl;
     std::cout << "max signal:\t" << maxSignal << std::endl;
