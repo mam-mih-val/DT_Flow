@@ -55,13 +55,13 @@ void CorrelationTask::Configure(Qn::CorrelationManager &manager)
   manager.AddQVectors("Full");
   manager.AddQVectors("TracksMdcPtFw");
   manager.AddQVectors("TracksMdcPtBw");
-  manager.AddQVectors("TracksMdcYcm");
-  
+  manager.AddQVectors("TracksMdcPtMr");
+
   std::vector<std::string> Q3Se{"Fw1", "Fw2", "Fw3"};
   std::vector<std::string> QRnd{"Rs1", "Rs2"};
   std::vector<std::string> method{ "Sp", "Ep" };
 
-  std::vector<std::string> u_vector{"TracksMdcPtFw", "TracksMdcPtBw", "TracksMdcYcm"};
+  std::vector<std::string> u_vector{"TracksMdcPtFw", "TracksMdcPtBw", "TracksMdcPtMr"};
 
   /**
    * Correlations of all detectors vs PsiRP
