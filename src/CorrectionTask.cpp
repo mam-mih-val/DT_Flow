@@ -112,11 +112,11 @@ void CorrectionTask::Initialize() {
 	fManager.SetCorrectionSteps("TracksMdcPtMr", MdcConfiguration);
 	
 	fManager.AddDetector("TracksMdcPtFw", DetectorType::TRACK, "Phi", "Ones", {pt}, {1});
-	fManager.AddCut("TracksMdcPtFw", {"Ycm"}, [](const double &y) { return y > 0.70 && y < 0.60; });
+	fManager.AddCut("TracksMdcPtFw", {"Ycm"}, [](const double &y) { return y < 0.70 && y > 0.60; });
 	fManager.SetCorrectionSteps("TracksMdcPtFw", MdcConfiguration);
 
 	fManager.AddDetector("TracksMdcPtBw", DetectorType::TRACK, "Phi", "Ones", {pt}, {1});
-	fManager.AddCut("TracksMdcPtBw", {"Ycm"}, [](const double &y) { return y < -0.70 && y > -0.60; });
+	fManager.AddCut("TracksMdcPtBw", {"Ycm"}, [](const double &y) { return y > -0.70 && y < -0.60; });
 	fManager.SetCorrectionSteps("TracksMdcPtBw", MdcConfiguration);
 
 	// 3 sub-events method.
