@@ -108,7 +108,7 @@ void CorrectionTask::Initialize() {
 
 	// u-vectors from MDC
 	fManager.AddDetector("TracksMdcPtMr", DetectorType::TRACK, "Phi", "Ones", {pt}, {1});
-	fManager.AddCut("TracksMdcPtMr", {"Ycm"}, [](const double &y){ return y > -0.05 && y < 0.05 ; });
+	fManager.AddCut("TracksMdcPtMr", {"Ycm"}, [](const double &y){ return y > -0.25 && y < -0.15 ; });
 	fManager.SetCorrectionSteps("TracksMdcPtMr", MdcConfiguration);
 	
 	fManager.AddDetector("TracksMdcPtFw", DetectorType::TRACK, "Phi", "Ones", {pt}, {1});

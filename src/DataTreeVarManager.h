@@ -8,6 +8,7 @@
 #include "TVector3.h"
 #include "TLorentzVector.h"
 #include "DataTreeEvent.h"
+#include "Centrality.h"
 
 #include "HADES_constants.h"
 
@@ -17,7 +18,8 @@ class DataTreeVarManager{
 	std::shared_ptr<TChain> fChain;
 	std::shared_ptr<Selector> fSelector;
 	DataTreeEvent* fEvent;
-	DataTreeVarManager();
+	Centrality* fCentrality;
+	DataTreeVarManager() = default;
 	int fCurrentTrackIdx;
 	public:
 	enum Signals{

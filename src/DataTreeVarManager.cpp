@@ -3,7 +3,8 @@
 DataTreeVarManager::DataTreeVarManager(std::string fileName) :
 	fChain(new TChain("DataTree")),
 	fEvent{new DataTreeEvent},
-	fSelector(new Selector)
+	fSelector(new Selector),
+        fCentrality(new Centrality(fEvent))
 	{
 		fChain->Add(fileName.c_str());
 		fChain->SetBranchAddress("DTEvent", &fEvent);
@@ -13,7 +14,8 @@ DataTreeVarManager::DataTreeVarManager(std::string fileName) :
 
 void DataTreeVarManager::FillEventVariables(double* varContainer)
 {
-	varContainer[kCentrality]=fEvent->GetCentrality(HADES_constants::kNhitsTOF_RPC_cut);
+//	varContainer[kCentrality]=fEvent->GetCentrality(HADES_constants::kNhitsTOF_RPC_cut);
+	varContainer[kCentrality]=fCentrality->GetCentrality();
 	for(int idx=0; idx<304; idx++)
 	{
 		varContainer[kFwModuleId+idx]=(double)	idx;
