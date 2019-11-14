@@ -78,14 +78,14 @@ void CorrectionTask::Initialize() {
 
 	auto MdcConfiguration = [](DetectorConfiguration *config)
 	{
-		config->SetNormalization(QVector::Normalization::NONE);
-		auto recenter = new Recentering();
-		config->AddCorrectionOnQnVector(recenter);
-		auto rescale = new TwistAndRescale();
-		rescale->SetApplyTwist(true);
-		rescale->SetApplyRescale(true);
-		rescale->SetTwistAndRescaleMethod(TwistAndRescale::TWRESCALE_doubleHarmonic);
-		//config->AddCorrectionOnQnVector(rescale);
+          config->SetNormalization(QVector::Normalization::NONE);
+          auto recenter = new Recentering();
+          config->AddCorrectionOnQnVector(recenter);
+          auto rescale = new TwistAndRescale();
+          rescale->SetApplyTwist(true);
+          rescale->SetApplyRescale(true);
+          rescale->SetTwistAndRescaleMethod(TwistAndRescale::TWRESCALE_doubleHarmonic);
+          //config->AddCorrectionOnQnVector(rescale);
 	};
 
 	//Configuration of FW. Preparing for add axis to qa histograms
@@ -170,24 +170,25 @@ void CorrectionTask::Initialize() {
 
 	// Random sub-event method
 
-	fManager.AddDetector("Rs1Ep", DetectorType::CHANNEL, "FwPhi", "Ones", {}, {1});
+	fManager.AddDetector("Rs1Ep", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
 	fManager.AddCut("Rs1Ep", {"RandomSe"}, [](const double &rs){ return rs == 1.00; });
-	fManager.SetCorrectionSteps("Rs1Ep", FwEpConfig);
+	fManager.SetCorrectionSteps("Rs1Ep", FwSpConfig);
 
 	fManager.AddDetector("Rs1Sp", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
 	fManager.AddCut("Rs1Sp", {"RandomSe"}, [](const double &rs) { return rs == 1.00; });
 	fManager.SetCorrectionSteps("Rs1Sp", FwSpConfig);
 
-	fManager.AddDetector("Rs2Ep", DetectorType::CHANNEL, "FwPhi", "Ones", {}, {1});
+	fManager.AddDetector("Rs2Ep", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
 	fManager.AddCut("Rs2Ep", {"RandomSe"}, [](const double &rs) { return rs == 2.00; });
-	fManager.SetCorrectionSteps("Rs2Ep", FwEpConfig);
+	fManager.SetCorrectionSteps("Rs2Ep", FwSpConfig);
 
 	fManager.AddDetector("Rs2Sp", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
 	fManager.AddCut("Rs2Sp", {"RandomSe"}, [](const double &rs) { return rs == 2.00; });
 	fManager.SetCorrectionSteps("Rs2Sp", FwSpConfig);
 
-	fManager.AddDetector("Full", DetectorType::CHANNEL, "FwPhi", "Ones", {}, {1});
-	fManager.SetCorrectionSteps("Full", FwEpConfig);
+	fManager.AddDetector("Full", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
+        fManager.AddCut("Full", {"FwAdc"}, [](const double){ return true; });
+	fManager.SetCorrectionSteps("Full", FwSpConfig);
 
 	// fManager.AddHisto2D("TracksMdc", {{"Ycm", 100, -0.8, 0.8}, {"Pt", 100, 0., 1.5}} );
 	
