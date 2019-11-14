@@ -174,7 +174,7 @@ void CorrectionTask::Initialize() {
 	fManager.AddCut("Rs1Ep", {"RandomSe"}, [](const double &rs){ return rs == 1.00; });
 	fManager.SetCorrectionSteps("Rs1Ep", FwEpConfig);
 
-	fManager.AddDetector("Rs1Sp", DetectorType::CHANNEL, "FwPhi", "Ones", {}, {1});
+	fManager.AddDetector("Rs1Sp", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
 	fManager.AddCut("Rs1Sp", {"RandomSe"}, [](const double &rs) { return rs == 1.00; });
 	fManager.SetCorrectionSteps("Rs1Sp", FwSpConfig);
 
@@ -182,7 +182,7 @@ void CorrectionTask::Initialize() {
 	fManager.AddCut("Rs2Ep", {"RandomSe"}, [](const double &rs) { return rs == 2.00; });
 	fManager.SetCorrectionSteps("Rs2Ep", FwEpConfig);
 
-	fManager.AddDetector("Rs2Sp", DetectorType::CHANNEL, "FwPhi", "Ones", {}, {1});
+	fManager.AddDetector("Rs2Sp", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
 	fManager.AddCut("Rs2Sp", {"RandomSe"}, [](const double &rs) { return rs == 2.00; });
 	fManager.SetCorrectionSteps("Rs2Sp", FwSpConfig);
 
