@@ -85,7 +85,7 @@ void CorrectionTask::Initialize() {
 		rescale->SetApplyTwist(true);
 		rescale->SetApplyRescale(true);
 		rescale->SetTwistAndRescaleMethod(TwistAndRescale::TWRESCALE_doubleHarmonic);
-		config->AddCorrectionOnQnVector(rescale);
+		//config->AddCorrectionOnQnVector(rescale);
 	};
 
 	//Configuration of FW. Preparing for add axis to qa histograms
@@ -93,17 +93,21 @@ void CorrectionTask::Initialize() {
 
 	auto FwConfiguration = [](DetectorConfiguration *config) 
 	{
-		config->SetNormalization(QVector::Normalization::M);
-		auto recenter = new Recentering();
-		config->AddCorrectionOnQnVector(recenter);
-		auto fwChannels=new bool[304];
-		auto fwChannelGroups=new int[304];
-		for(int i=0; i<304; i++)
-		{
-			fwChannels[i]=true;
-			fwChannelGroups[i]=i;
-		}
-		config->SetChannelsScheme(fwChannels, fwChannelGroups);
+          config->SetNormalization(QVector::Normalization::M);
+          auto recenter = new Recentering();
+          config->AddCorrectionOnQnVector(recenter);
+          auto rescale = new TwistAndRescale();
+          rescale->SetApplyTwist(true);
+          rescale->SetApplyRescale(true);
+          rescale->SetTwistAndRescaleMethod(TwistAndRescale::TWRESCALE_doubleHarmonic);
+          //config->AddCorrectionOnQnVector(rescale);
+          auto fwChannels=new bool[304];
+          auto fwChannelGroups=new int[304];
+          for(int i=0; i<304; i++){
+            fwChannels[i]=true;
+            fwChannelGroups[i]=i;
+          }
+          config->SetChannelsScheme(fwChannels, fwChannelGroups);
 	};
 
 	// u-vectors from MDC
