@@ -78,7 +78,7 @@ void CorrectionTask::Initialize() {
 
 	auto MdcConfiguration = [](DetectorConfiguration *config)
 	{
-          config->SetNormalization(QVector::Normalization::NONE);
+          config->SetNormalization(QVector::Normalization::M);
           auto recenter = new Recentering();
           config->AddCorrectionOnQnVector(recenter);
           auto rescale = new TwistAndRescale();
@@ -114,14 +114,6 @@ void CorrectionTask::Initialize() {
 	fManager.AddDetector("TracksMdcPtMr", DetectorType::TRACK, "Phi", "Ones", {pt}, {1});
 	fManager.AddCut("TracksMdcPtMr", {"Ycm"}, [](const double &y){ return y > -0.25 && y < -0.15 ; });
 	fManager.SetCorrectionSteps("TracksMdcPtMr", MdcConfiguration);
-	
-	fManager.AddDetector("TracksMdcPtFw", DetectorType::TRACK, "Phi", "Ones", {pt}, {1});
-	fManager.AddCut("TracksMdcPtFw", {"Ycm"}, [](const double &y) { return y < 0.70 && y > 0.60; });
-	fManager.SetCorrectionSteps("TracksMdcPtFw", MdcConfiguration);
-
-	fManager.AddDetector("TracksMdcPtBw", DetectorType::TRACK, "Phi", "Ones", {pt}, {1});
-	fManager.AddCut("TracksMdcPtBw", {"Ycm"}, [](const double &y) { return y > -0.70 && y < -0.60; });
-	fManager.SetCorrectionSteps("TracksMdcPtBw", MdcConfiguration);
 
 	// 3 sub-events method.
 	// Each detector builds own Q-vector, which means, you need to add required count of detectors and then configurate their cuts.  

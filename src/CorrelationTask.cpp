@@ -44,6 +44,9 @@ void CorrelationTask::Configure(Qn::CorrelationManager &manager)
   auto uyQyEp = [](const std::vector<Qn::QVector> &qn) {
     return qn.at(0).y(1) * qn.at(1).y(1) / (qn.at(0).mag(1)*qn.at(1).mag(1));
   };
+  auto uxQxQx = [](const std::vector<Qn::QVector> &qn) {
+    return qn.at(0).y(1) * qn.at(1).y(1) / (qn.at(0).mag(1)*qn.at(1).mag(1));
+  };
 
   manager.SetOutputFile("Correlations.root");
   manager.AddEventVariable({"Centrality", 10, 0, 50});
@@ -54,15 +57,13 @@ void CorrelationTask::Configure(Qn::CorrelationManager &manager)
   manager.AddQVectors("Rs1Ep, Rs2Ep");
   manager.AddQVectors("Rs1Sp, Rs2Sp");
   manager.AddQVectors("Full");
-  manager.AddQVectors("TracksMdcPtFw");
-  manager.AddQVectors("TracksMdcPtBw");
   manager.AddQVectors("TracksMdcPtMr");
 
   std::vector<std::string> Q3Se{"Fw1", "Fw2", "Fw3"};
   std::vector<std::string> QRnd{"Rs1", "Rs2"};
   std::vector<std::string> method{ "Sp", "Ep" };
 
-  std::vector<std::string> u_vector{"TracksMdcPtFw", "TracksMdcPtBw", "TracksMdcPtMr"};
+  std::vector<std::string> u_vector{"TracksMdcPtMr"};
 
   /**
    * Correlations of all detectors vs PsiRP
