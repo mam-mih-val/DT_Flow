@@ -44,8 +44,18 @@ void CorrelationTask::Configure(Qn::CorrelationManager &manager)
   auto uyQyEp = [](const std::vector<Qn::QVector> &qn) {
     return qn.at(0).y(1) * qn.at(1).y(1) / (qn.at(0).mag(1)*qn.at(1).mag(1));
   };
+  // Second harmonics correlations
   auto uxQxQx = [](const std::vector<Qn::QVector> &qn) {
-    return qn.at(0).y(1) * qn.at(1).y(1) / (qn.at(0).mag(1)*qn.at(1).mag(1));
+    return qn.at(0).x(2) * qn.at(1).x(1) * qn.at(2).x(1) / qn.at(0).mag(2);
+  };
+  auto uxQyQy = [](const std::vector<Qn::QVector> &qn) {
+    return - qn.at(0).x(2) * qn.at(1).y(1) * qn.at(2).y(1) / qn.at(0).mag(2);
+  };
+  auto uyQxQy = [](const std::vector<Qn::QVector> &qn) {
+    return qn.at(0).y(2) * qn.at(1).x(1) * qn.at(2).y(1) / qn.at(0).mag(2);
+  };
+  auto uyQyQx = [](const std::vector<Qn::QVector> &qn) {
+    return qn.at(0).y(2) * qn.at(1).y(1) * qn.at(2).x(1) / qn.at(0).mag(2);
   };
 
   manager.SetOutputFile("Correlations.root");
@@ -57,13 +67,13 @@ void CorrelationTask::Configure(Qn::CorrelationManager &manager)
   manager.AddQVectors("Rs1Ep, Rs2Ep");
   manager.AddQVectors("Rs1Sp, Rs2Sp");
   manager.AddQVectors("Full");
-  manager.AddQVectors("TracksMdcPtMr");
+  manager.AddQVectors("TracksMdcPt, TracksMdcYcm");
 
   std::vector<std::string> Q3Se{"Fw1", "Fw2", "Fw3"};
   std::vector<std::string> QRnd{"Rs1", "Rs2"};
   std::vector<std::string> method{ "Sp", "Ep" };
 
-  std::vector<std::string> u_vector{"TracksMdcPtMr"};
+  std::vector<std::string> u_vector{"TracksMdcPt", "TracksMdcYcm"};
 
   /**
    * Correlations of all detectors vs PsiRP
@@ -80,7 +90,6 @@ void CorrelationTask::Configure(Qn::CorrelationManager &manager)
       auto Q2 = Q3Se_1.at(i)+meth;
       auto QxQx = meth == "Sp" ? QxQxSp : QxQxEp;
       auto QyQy = meth == "Sp" ? QyQySp : QyQyEp;
-
       auto uxQx = meth == "Sp" ? uxQxSp : uxQxEp;
       auto uyQy = meth == "Sp" ? uyQySp : uyQyEp;
 
@@ -91,11 +100,22 @@ void CorrelationTask::Configure(Qn::CorrelationManager &manager)
       
       for( auto u : u_vector )
       {
+        // First harmonic
         manager.AddCorrelation(u + "_" + Q1 + "_XX", u + ", " + Q1, uxQx);
         manager.SetRefQinCorrelation(u + "_" + Q1 + "_XX", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
         manager.AddCorrelation(u + "_" + Q1 + "_YY", u + ", " + Q1, uyQy);
         manager.SetRefQinCorrelation(u + "_" + Q1 + "_YY", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+        // Second harmonic
+        manager.AddCorrelation(u + "_" + Q1 + "_" + Q2 + "_XXX", u + ", " + Q1+", " + Q2, uxQxQx);
+        manager.SetRefQinCorrelation(u + "_" + Q1 + "_" + Q2 + "_XXX", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+        manager.AddCorrelation(u + "_" + Q1 + "_" + Q2 + "_XYY", u + ", " + Q1+", " + Q2, uxQyQy);
+        manager.SetRefQinCorrelation(u + "_" + Q1 + "_" + Q2 + "_XYY", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+        manager.AddCorrelation(u + "_" + Q1 + "_" + Q2 + "_YXY", u + ", " + Q1+", " + Q2, uyQxQy);
+        manager.SetRefQinCorrelation(u + "_" + Q1 + "_" + Q2 + "_YXY", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+        manager.AddCorrelation(u + "_" + Q1 + "_" + Q2 + "_YYX", u + ", " + Q1+", " + Q2, uyQyQx);
+        manager.SetRefQinCorrelation(u + "_" + Q1 + "_" + Q2 + "_YYX", {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
       }
+
     }
   }
 
