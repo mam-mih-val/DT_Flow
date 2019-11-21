@@ -121,28 +121,28 @@ void CorrectionTask::Initialize() {
 
 	// 3 sub-events method.
 	// Each detector builds own Q-vector, which means, you need to add required count of detectors and then configurate their cuts.
-	fManager.AddDetector("Fw1", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
+	fManager.AddDetector("Fw1", DetectorType::CHANNEL, "FwPhi", "Ones", {}, {1});
 	fManager.AddCut("Fw1", {"FwRing"}, [](const double &module) { return module >= 0.0 && module <= 4.0; });
 	fManager.SetCorrectionSteps("Fw1", FwConfiguration);
 
-	fManager.AddDetector("Fw2", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
+	fManager.AddDetector("Fw2", DetectorType::CHANNEL, "FwPhi", "Ones", {}, {1});
 	fManager.AddCut("Fw2", {"FwRing"}, [](const double &module) { return module == 5.0 || module == 6.0; });
 	fManager.SetCorrectionSteps("Fw2", FwConfiguration);
 
-	fManager.AddDetector("Fw3", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
+	fManager.AddDetector("Fw3", DetectorType::CHANNEL, "FwPhi", "Ones", {}, {1});
 	fManager.AddCut("Fw3", {"FwRing"}, [](const double &module) { return module >= 7.0 && module <= 9.0; });
 	fManager.SetCorrectionSteps("Fw3", FwConfiguration);
 
 	// Random sub-event method
-	fManager.AddDetector("Rs1", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
+	fManager.AddDetector("Rs1", DetectorType::CHANNEL, "FwPhi", "Ones", {}, {1});
 	fManager.AddCut("Rs1", {"RandomSe"}, [](const double &rs){ return rs == 1.00; });
 	fManager.SetCorrectionSteps("Rs1", FwConfiguration);
 
-	fManager.AddDetector("Rs2", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
+	fManager.AddDetector("Rs2", DetectorType::CHANNEL, "FwPhi", "Ones", {}, {1});
 	fManager.AddCut("Rs2", {"RandomSe"}, [](const double &rs) { return rs == 2.00; });
 	fManager.SetCorrectionSteps("Rs2", FwConfiguration);
 
-	fManager.AddDetector("Full", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
+	fManager.AddDetector("Full", DetectorType::CHANNEL, "FwPhi", "Ones", {}, {1});
 	fManager.SetCorrectionSteps("Full", FwConfiguration);
 
 	// fManager.AddHisto2D("TracksMdc", {{"Ycm", 100, -0.8, 0.8}, {"Pt", 100, 0., 1.5}} );
