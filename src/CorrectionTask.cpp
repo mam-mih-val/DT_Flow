@@ -111,42 +111,42 @@ void CorrectionTask::Initialize() {
 	};
 
 	// u-vectors from MDC
-	fManager.AddDetector("TracksMdcPt", DetectorType::TRACK, "Phi", "Ones", {pt}, {1, 2});
+	fManager.AddDetector("TracksMdcPt", DetectorType::TRACK, "Phi", "Pt", {pt}, {1, 2});
 	fManager.AddCut("TracksMdcPt", {"Ycm"}, [](const double &y){ return -0.25 < y && y < -0.15; });
 	fManager.SetCorrectionSteps("TracksMdcPt", MdcConfiguration);
 
-	fManager.AddDetector("TracksMdcYcm", DetectorType::TRACK, "Phi", "Ones", {ycm}, {1, 2});
+	fManager.AddDetector("TracksMdcYcm", DetectorType::TRACK, "Phi", "Ycm", {ycm}, {1, 2});
 	fManager.AddCut("TracksMdcYcm", {"Pt"}, [](const double &pt){ return 0.80 < pt && pt < 0.85; });
 	fManager.SetCorrectionSteps("TracksMdcYcm", MdcConfiguration);
 
 	// 3 sub-events method.
 	// Each detector builds own Q-vector, which means, you need to add required count of detectors and then configurate their cuts.
-	fManager.AddDetector("Fw1", DetectorType::CHANNEL, "FwPhi", "Ones", {}, {1});
+	fManager.AddDetector("Fw1", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
 	fManager.AddCut("Fw1", {"FwRing"}, [](const double &module) { return module >= 0.0 && module <= 4.0; });
 	fManager.SetCorrectionSteps("Fw1", FwConfiguration);
 
-	fManager.AddDetector("Fw2", DetectorType::CHANNEL, "FwPhi", "Ones", {}, {1});
+	fManager.AddDetector("Fw2", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
 	fManager.AddCut("Fw2", {"FwRing"}, [](const double &module) { return module == 5.0 || module == 6.0; });
 	fManager.SetCorrectionSteps("Fw2", FwConfiguration);
 
-	fManager.AddDetector("Fw3", DetectorType::CHANNEL, "FwPhi", "Ones", {}, {1});
+	fManager.AddDetector("Fw3", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
 	fManager.AddCut("Fw3", {"FwRing"}, [](const double &module) { return module >= 7.0 && module <= 9.0; });
 	fManager.SetCorrectionSteps("Fw3", FwConfiguration);
 
 	// Random sub-event method
-	fManager.AddDetector("Rs1", DetectorType::CHANNEL, "FwPhi", "Ones", {}, {1});
+	fManager.AddDetector("Rs1", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
 	fManager.AddCut("Rs1", {"RandomSe"}, [](const double &rs){ return rs == 1.00; });
 	fManager.SetCorrectionSteps("Rs1", FwConfiguration);
 
-	fManager.AddDetector("Rs2", DetectorType::CHANNEL, "FwPhi", "Ones", {}, {1});
+	fManager.AddDetector("Rs2", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
 	fManager.AddCut("Rs2", {"RandomSe"}, [](const double &rs) { return rs == 2.00; });
 	fManager.SetCorrectionSteps("Rs2", FwConfiguration);
 
-	fManager.AddDetector("Full", DetectorType::CHANNEL, "FwPhi", "Ones", {}, {1});
+	fManager.AddDetector("Full", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
+        fManager.AddCut("Full", {"FwAdc"}, [](const double &adc) { return adc > 0.0; });
 	fManager.SetCorrectionSteps("Full", FwConfiguration);
 
-	// fManager.AddHisto2D("TracksMdc", {{"Ycm", 100, -0.8, 0.8}, {"Pt", 100, 0., 1.5}} );
-	
+
 	fManager.AddHisto2D("Fw1", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}} );
 	fManager.AddHisto2D("Fw2", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}});
 	fManager.AddHisto2D("Fw3", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}});
@@ -154,8 +154,9 @@ void CorrectionTask::Initialize() {
 	fManager.AddHisto2D("Rs1", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}});
 	fManager.AddHisto2D("Rs2", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}});
 
-	fManager.AddHisto2D("Rs1", {{"moduleX", 3000, -3000., 3000.}, {"moduleY", 3000, -3000., 3000.}});
-	fManager.AddHisto2D("Rs2", {{"moduleX", 3000, -3000., 3000.}, {"moduleY", 3000, -3000., 3000.}} );
+	fManager.AddHisto2D("Rs1", {{"moduleX", 50, -1000., 1000.}, {"moduleY", 50, -1000., 1000.}});
+	fManager.AddHisto2D("Rs2", {{"moduleX", 50, -1000., 1000.}, {"moduleY", 50, -1000., 1000.}});
+	fManager.AddHisto2D("Full", {{"moduleX", 50, -1000., 1000.}, {"moduleY", 50, -1000., 1000.}});
 	fManager.AddEventHisto1D({{"Centrality", 20, 0, 100}});
 	fManager.SetTree(out_tree_);
 	fManager.Initialize(in_calibration_file_);
