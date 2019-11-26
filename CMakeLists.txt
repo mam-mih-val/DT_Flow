@@ -173,7 +173,7 @@ include(${ROOT_USE_FILE})
 
 message(STATUS "Using ROOT: ${ROOT_VERSION} <${ROOT_CONFIG}>")
 
-set(ROOTCLING ${ROOT_DIR}/bin/rootcling)
+set(ROOTCLING ${ROOT_DIR}/../bin/rootcling)
 add_custom_command(OUTPUT G__QnCorrections.cxx
         COMMAND ${ROOTCLING} -v -f G__QnCorrections.cxx
         -rml libQnCorrections${CMAKE_SHARED_LIBRARY_SUFFIX}
