@@ -342,6 +342,12 @@ void CorrelationTask::Configure(Qn::CorrelationManager &manager)
     }
   }
 
+//  auto cos_phi_Psi = [](const std::vector<Qn::QVector> &qn) {
+//    double phi = atan2( qn.at(0).y(1), qn.at(0).x(1) );
+//    double Psi = atan2( qn.at(1).y(1), qn.at(1).x(1) );
+//    return cos(phi-Psi);
+//  };
+
   for( auto u : u_vector )
   {
     manager.AddCorrelation(u + "_" + "Full" + "_XX_Ep", u + ", " + "Full", uxQxEp);
@@ -352,6 +358,8 @@ void CorrelationTask::Configure(Qn::CorrelationManager &manager)
     manager.SetRefQinCorrelation(u + "_" + "Full" + "_YX_Ep", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
     manager.AddCorrelation(u + "_" + "Full" + "_YY_Ep", u + ", " + "Full", uyQyEp);
     manager.SetRefQinCorrelation(u + "_" + "Full" + "_YY_Ep", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+//    manager.AddCorrelation(u + "_" + "Full" + "_cos_phi_Psi", u + ", " + "Full", cos_phi_Psi);
+//    manager.SetRefQinCorrelation(u + "_" + "Full" + "_cos_phi_Psi", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
   }
 }
 
