@@ -122,15 +122,15 @@ void CorrectionTask::Initialize() {
 	// 3 sub-events method.
 	// Each detector builds own Q-vector, which means, you need to add required count of detectors and then configurate their cuts.
 	fManager.AddDetector("Fw1", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
-	fManager.AddCut("Fw1", {"FwRing"}, [](const double &module) { return module >= 0.0 && module <= 4.0; });
+	fManager.AddCut("Fw1", {"FwRing"}, [](const double &module) { return module >= 1.0 && module <= 5.0; });
 	fManager.SetCorrectionSteps("Fw1", FwConfiguration);
 
 	fManager.AddDetector("Fw2", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
-	fManager.AddCut("Fw2", {"FwRing"}, [](const double &module) { return module == 5.0 || module == 6.0; });
+	fManager.AddCut("Fw2", {"FwRing"}, [](const double &module) { return module == 6.0 || module == 7.0; });
 	fManager.SetCorrectionSteps("Fw2", FwConfiguration);
 
 	fManager.AddDetector("Fw3", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
-	fManager.AddCut("Fw3", {"FwRing"}, [](const double &module) { return module >= 7.0 && module <= 9.0; });
+	fManager.AddCut("Fw3", {"FwRing"}, [](const double &module) { return module >= 8.0 && module <= 10.0; });
 	fManager.SetCorrectionSteps("Fw3", FwConfiguration);
 
 	// Random sub-event method
