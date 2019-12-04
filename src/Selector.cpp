@@ -69,7 +69,7 @@ bool Selector::IsCorrectFwHit(int idx)
             return false;
         if( ring > 10 )
             return false;
-        if( ring <= false )
+        if( ring <= 5 )
         {
             if( fEvent->GetPSDModule(idx)->GetBeta() < 0.84 )
                 return false;

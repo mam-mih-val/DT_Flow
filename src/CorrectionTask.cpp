@@ -79,7 +79,7 @@ void CorrectionTask::Initialize() {
 	auto MdcConfiguration = [](DetectorConfiguration *config)
 	{
           config->SetNormalization(QVector::Normalization::M);
-          auto recenter = new Recentering();
+//          auto recenter = new Recentering();
           config->AddCorrectionOnQnVector(recenter);
           auto rescale = new TwistAndRescale();
           rescale->SetApplyTwist(true);
