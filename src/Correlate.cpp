@@ -9,7 +9,7 @@ int main(int argc, char **argv) {
   using namespace std;
   string filelist{argv[1]};
   CorrelationTask st(filelist, "tree");
-  std::cout << "go" << std::endl;
+  std::cout << "Processing Correlation Task" << std::endl;
   auto start = std::chrono::system_clock::now();
   st.Run();
   auto end = std::chrono::system_clock::now();

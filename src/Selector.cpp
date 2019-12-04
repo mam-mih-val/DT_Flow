@@ -73,21 +73,21 @@ bool Selector::IsCorrectFwHit(int idx)
         {
             if( fEvent->GetPSDModule(idx)->GetBeta() < 0.84 )
                 return false;
-            if( fEvent->GetPSDModule(idx)->GetBeta() > 1.0 )
+            if( fEvent->GetPSDModule(idx)->GetBeta() > 1.2 )
                 return false;
         }
         if( ring == 6 || ring == 7 )
         {
             if( fEvent->GetPSDModule(idx)->GetBeta() < 0.85 )
                 return false;
-            if( fEvent->GetPSDModule(idx)->GetBeta() > 1.0 )
+            if( fEvent->GetPSDModule(idx)->GetBeta() > 1.2 )
                 return false;
         }
         if( ring >= 8 )
         {
             if( fEvent->GetPSDModule(idx)->GetBeta() < 0.8 )
                 return false;
-            if( fEvent->GetPSDModule(idx)->GetBeta() > 1.0 )
+            if( fEvent->GetPSDModule(idx)->GetBeta() > 1.2 )
                 return false;
         }
     }
