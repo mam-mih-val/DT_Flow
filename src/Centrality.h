@@ -32,7 +32,7 @@ public:
     return centrality_percentile_->GetNbinsX()-1;
   };
   void	LoadCentralityPercentile(){
-    Double_t xAxis1[12] = {0, 53, 63, 74, 87, 101, 117, 135, 156, 181, 246, 280};
+    Double_t xAxis1[12] =  {0, 39, 60, 74, 88, 104, 121, 140, 160, 182, 250, 280};
     centrality_percentile_ = new TH1F("hTOFRPCGlau_5percent_fixedCuts__1","hTOFRPCGlau_5percent_fixedCuts",11, xAxis1);
     centrality_percentile_->SetBinContent(1,10);
     centrality_percentile_->SetBinContent(2,9);

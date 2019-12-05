@@ -16,7 +16,9 @@ bool Selector::IsCorrectEvent()
         return false;
     if ( fEvent->GetVertexQuality() < 0.5 || fEvent->GetVertexQuality() > 40 )
         return false;
-    if ( !fEvent->GetTrigger(HADES_constants::kGoodVertexClust)->GetIsFired() ) 
+    if ( !fEvent->GetTrigger(HADES_constants::kGoodTRIGGER)->GetIsFired() )
+        return false;
+    if ( !fEvent->GetTrigger(HADES_constants::kGoodVertexClust)->GetIsFired() )
         return false;
     if ( ! fEvent->GetTrigger(HADES_constants::kGoodVertexCand)->GetIsFired() )
         return false;
@@ -75,6 +77,8 @@ bool Selector::IsCorrectFwHit(int idx)
                 return false;
             if( fEvent->GetPSDModule(idx)->GetBeta() > 1.0 )
                 return false;
+            if( fEvent->GetPSDModule(idx)->GetEnergy() < 80.0 )
+              return false;
         }
         if( ring == 6 || ring == 7 )
         {
@@ -82,6 +86,8 @@ bool Selector::IsCorrectFwHit(int idx)
                 return false;
             if( fEvent->GetPSDModule(idx)->GetBeta() > 1.0 )
                 return false;
+	        if( fEvent->GetPSDModule(idx)->GetEnergy() < 84.0 )
+		        return false;
         }
         if( ring >= 8 )
         {
@@ -89,6 +95,8 @@ bool Selector::IsCorrectFwHit(int idx)
                 return false;
             if( fEvent->GetPSDModule(idx)->GetBeta() > 1.0 )
                 return false;
+	        if( fEvent->GetPSDModule(idx)->GetEnergy() < 88.0 )
+		        return false;
         }
     }
     else
