@@ -86,12 +86,12 @@ bool Selector::IsCorrectFwHit(int idx)
                 return false;
             if( fEvent->GetPSDModule(idx)->GetBeta() > 1.0 )
                 return false;
-	        if( fEvent->GetPSDModule(idx)->GetEnergy() < 84.0 )
+	        if( fEvent->GetPSDModule(idx)->GetEnergy() < 85.0 )
 		        return false;
         }
         if( ring >= 8 )
         {
-            if( fEvent->GetPSDModule(idx)->GetBeta() < 0.8 )
+            if( fEvent->GetPSDModule(idx)->GetBeta() < 0.80 )
                 return false;
             if( fEvent->GetPSDModule(idx)->GetBeta() > 1.0 )
                 return false;
