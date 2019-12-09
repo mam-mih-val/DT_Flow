@@ -80,12 +80,12 @@ void CorrectionTask::Initialize() {
 	{
           config->SetNormalization(QVector::Normalization::M);
           auto recenter = new Recentering();
-          config->AddCorrectionOnQnVector(recenter);
+//          config->AddCorrectionOnQnVector(recenter);
           auto rescale = new TwistAndRescale();
           rescale->SetApplyTwist(true);
           rescale->SetApplyRescale(true);
           rescale->SetTwistAndRescaleMethod(TwistAndRescale::TWRESCALE_doubleHarmonic);
-          config->AddCorrectionOnQnVector(rescale);
+//          config->AddCorrectionOnQnVector(rescale);
 	};
 
 	//Configuration of FW. Preparing for add axis to qa histograms
