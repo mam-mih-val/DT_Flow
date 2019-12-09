@@ -2,13 +2,13 @@
 
 bool Selector::IsCorrectEvent()
 {
-	if( !fEvent )
-	{
-		std::cout << "Event pointer is empty" << std::endl;
-		return false;
-	}
-	 if( !fEvent->GetTrigger(HADES_constants::kPT2)->GetIsFired() && !fEvent->GetTrigger(HADES_constants::kPT3)->GetIsFired() )
-	 	return false;
+    if( !fEvent )
+    {
+            std::cout << "Event pointer is empty" << std::endl;
+            return false;
+    }
+   if( !fEvent->GetTrigger(HADES_constants::kPT2)->GetIsFired() && !fEvent->GetTrigger(HADES_constants::kPT3)->GetIsFired() )
+          return false;
     if (  fEvent->GetVertexPositionComponent(2) > 0 || fEvent->GetVertexPositionComponent(2) < -60 )
         return false;
     Float_t Rx = fEvent->GetVertexPositionComponent(0), Ry = fEvent->GetVertexPositionComponent(1);
@@ -25,15 +25,15 @@ bool Selector::IsCorrectEvent()
     if( !fEvent->GetTrigger(HADES_constants::kGoodSTART)->GetIsFired() )
         return false;
     if( !fEvent->GetTrigger(HADES_constants::kNoPileUpSTART)->GetIsFired() )
-        return false;  
+        return false;
     if( !fEvent->GetTrigger(HADES_constants::kGoodSTARTVETO)->GetIsFired() )
         return false;
     if( !fEvent->GetTrigger(HADES_constants::kGoodSTARTMETA)->GetIsFired() )
         return false;
     if( !fEvent->GetTrigger(HADES_constants::kNoVETO)->GetIsFired() )
         return false;
-	if( fEvent->GetPSDEnergy() == 0 )
-		return false;
+        if( fEvent->GetPSDEnergy() == 0 )
+                return false;
     return true;
 }
 
@@ -95,8 +95,8 @@ bool Selector::IsCorrectFwHit(int idx)
                 return false;
             if( fEvent->GetPSDModule(idx)->GetBeta() > 1.0 )
                 return false;
-	        if( fEvent->GetPSDModule(idx)->GetEnergy() < 88.0 )
-		        return false;
+            if( fEvent->GetPSDModule(idx)->GetEnergy() < 88.0 )
+                    return false;
         }
     }
     else
