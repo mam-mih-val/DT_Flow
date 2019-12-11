@@ -43,10 +43,9 @@ bool Selector::IsCorrectTrack(int idx)
     DataTreeTOFHit* fHit = fEvent->GetTOFHit(idx);
     Float_t fTof = fHit->GetTime();
     Float_t fLen = fHit->GetPathLength();
-	Float_t fDCAx = fTrack->GetDCAComponent(0);
-	Float_t fDCAy = fTrack->GetDCAComponent(1);
-	Float_t fDCA = sqrt( fDCAx*fDCAx + fDCAy*fDCAy );
-    if ( fDCA > 15 )
+	Float_t fDCAxy = fTrack->GetDCAComponent(0);
+	Float_t fDCAz = fTrack->GetDCAComponent(2);
+    if ( fDCAxy > 15.0 )
         return false;
     if ( fHit->GetPositionComponent(0) < -5 || fHit->GetPositionComponent(0) > 5 )
         return false;
