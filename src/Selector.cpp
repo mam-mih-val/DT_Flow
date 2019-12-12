@@ -39,22 +39,18 @@ bool Selector::IsCorrectEvent()
 
 bool Selector::IsCorrectTrack(int idx)
 {
-    DataTreeTrack* fTrack = fEvent->GetVertexTrack(idx);
-    DataTreeTOFHit* fHit = fEvent->GetTOFHit(idx);
-    Float_t fTof = fHit->GetTime();
-    Float_t fLen = fHit->GetPathLength();
-	Float_t fDCAxy = fTrack->GetDCAComponent(0);
-	Float_t fDCAz = fTrack->GetDCAComponent(2);
-    if ( fDCAxy > 15.0 )
-        return false;
-    if ( fHit->GetPositionComponent(0) < -5 || fHit->GetPositionComponent(0) > 5 )
-        return false;
-    if ( fHit->GetPositionComponent(1) < -5 || fHit->GetPositionComponent(1) > 5 )
-        return false;
-    if ( fTrack->GetChi2() > 100 )
-        return false;
-    if( fTrack->GetPdgId() != fPid )
-        return false;
+    DataTreeTrack* track = fEvent->GetVertexTrack(idx);
+    DataTreeTOFHit*hit = fEvent->GetTOFHit(idx);
+    Float_t fTof = hit->GetTime();
+    Float_t fLen = hit->GetPathLength();
+    float dca_xy = fabs(track->GetDCAComponent(0));
+    float dca_z = fabs(track->GetDCAComponent(2));
+    if (dca_xy > 15.0 )
+      return false;
+    if( dca_z > 15.0 )
+      return false;
+    if(track->GetPdgId() != fPid )
+      return false;
     return true;
 }
 
