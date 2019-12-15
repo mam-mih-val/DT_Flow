@@ -6,11 +6,11 @@ DataTreeVarManager::DataTreeVarManager(std::string fileName) :
 	fSelector(new Selector),
         fCentrality(new Centrality(fEvent))
 	{
-		fChain->Add(fileName.c_str());
-		fChain->SetBranchAddress("DTEvent", &fEvent);
-		fSelector->SetEventAddress(fEvent);
-		std::cout << "Data Tree Var Manager Initialized. " << fChain->GetEntries() << " events were found." << std::endl;
-	}
+          fChain->Add(fileName.c_str());
+          fChain->SetBranchAddress("DTEvent", &fEvent);
+          fSelector->SetEventAddress(fEvent);
+          std::cout << "Data Tree Var Manager Initialized. " << fChain->GetEntries() << " events were found." << std::endl;
+        }
 
 void DataTreeVarManager::FillEventVariables(double* varContainer)
 {
@@ -47,14 +47,10 @@ void DataTreeVarManager::FillEventVariables(double* varContainer)
 
 void DataTreeVarManager::FillTrackVariables(int idx, double* varContainer)
 {
-	double BETA = sqrt( 1.23*1.23-0.938*0.938 ) / 1.23;
-	TVector3 b{0,0,-BETA}; 
-	auto p = fEvent->GetVertexTrack(idx)->GetMomentum();
-        double y_cm = p.Rapidity()-0.74;
-//	p.Boost(b);
-	varContainer[kOne]=1.0;
-	varContainer[kMdcPt]=p.Pt();
-	varContainer[kMdcYcm]=y_cm;
-	varContainer[kMdcPhi]=p.Phi();
-	varContainer[kMdcPid]=fEvent->GetVertexTrack(idx)->GetPdgId();
+  auto p = fEvent->GetVertexTrack(idx)->GetMomentum();
+  varContainer[kOne]=1.0;
+  varContainer[kMdcPt]=p.Pt();
+  varContainer[kMdcYcm]=p.Rapidity()-Y_BEAM/2;
+  varContainer[kMdcPhi]=p.Phi();
+  varContainer[kMdcPid]=fEvent->GetVertexTrack(idx)->GetPdgId();
 }

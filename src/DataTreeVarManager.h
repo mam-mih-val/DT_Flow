@@ -21,6 +21,13 @@ class DataTreeVarManager{
 	Centrality* fCentrality;
 	DataTreeVarManager() = default;
 	int fCurrentTrackIdx;
+  const double T = 1.23; // AGeV
+  const double M = 0.938; // GeV
+  const double GAMMA = (T+M)/M;
+  const double BETA = sqrt( 1 - (M*M)/( M + T )/( M + T ) );
+  const double PZ = M*BETA*GAMMA;
+  const double E = T+M;
+  const double Y_BEAM = 0.5*log( (E+PZ)/(E-PZ) );
 	public:
 	enum Signals{
 		kAdc=0,
