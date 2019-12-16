@@ -16,8 +16,6 @@ bool Selector::IsCorrectEvent()
         return false;
     if ( fEvent->GetVertexQuality() < 0.5 || fEvent->GetVertexQuality() > 40 )
         return false;
-    if ( !fEvent->GetTrigger(HADES_constants::kGoodTRIGGER)->GetIsFired() )
-        return false;
     if ( !fEvent->GetTrigger(HADES_constants::kGoodVertexClust)->GetIsFired() )
         return false;
     if ( ! fEvent->GetTrigger(HADES_constants::kGoodVertexCand)->GetIsFired() )
@@ -39,19 +37,22 @@ bool Selector::IsCorrectEvent()
 
 bool Selector::IsCorrectTrack(int idx)
 {
-    DataTreeTrack* track = fEvent->GetVertexTrack(idx);
-    DataTreeTOFHit*hit = fEvent->GetTOFHit(idx);
-    Float_t fTof = hit->GetTime();
-    Float_t fLen = hit->GetPathLength();
-    float dca_xy = fabs(track->GetDCAComponent(0));
-    float dca_z = fabs(track->GetDCAComponent(2));
-    if (dca_xy > 15.0 )
-      return false;
-    if( dca_z > 15.0 )
-      return false;
-    if(track->GetPdgId() != fPid )
-      return false;
-    return true;
+  DataTreeTrack* track = fEvent->GetVertexTrack(idx);
+  DataTreeTOFHit*hit = fEvent->GetTOFHit(idx);
+  float dca_xy = fabs(track->GetDCAComponent(0));
+  float dca_z = fabs(track->GetDCAComponent(2));
+
+  if (dca_xy > 15.0 )
+    return false;
+  if( dca_z > 15.0 )
+    return false;
+  if ( hit->GetPositionComponent(0) < -5 || hit->GetPositionComponent(0) > 5 )
+    return false;
+  if ( hit->GetPositionComponent(1) < -5 || hit->GetPositionComponent(1) > 5 )
+    return false;
+  if(track->GetPdgId() != fPid )
+    return false;
+  return true;
 }
 
 bool Selector::IsCorrectFwHit(int idx)
