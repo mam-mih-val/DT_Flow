@@ -9,7 +9,7 @@ bool Selector::IsCorrectEvent()
     }
    if( !fEvent->GetTrigger(HADES_constants::kPT2)->GetIsFired() && !fEvent->GetTrigger(HADES_constants::kPT3)->GetIsFired() )
           return false;
-    if (  fEvent->GetVertexPositionComponent(2) > 0 || fEvent->GetVertexPositionComponent(2) < -60 )
+   if (  fEvent->GetVertexPositionComponent(2) > 0 || fEvent->GetVertexPositionComponent(2) < -60 )
         return false;
     Float_t Rx = fEvent->GetVertexPositionComponent(0), Ry = fEvent->GetVertexPositionComponent(1);
     if ( sqrt(Rx*Rx+Ry*Ry) > 3 )
@@ -46,10 +46,10 @@ bool Selector::IsCorrectTrack(int idx)
     return false;
   if( dca_z > 15.0 )
     return false;
-  if ( hit->GetPositionComponent(0) < -5 || hit->GetPositionComponent(0) > 5 )
-    return false;
-  if ( hit->GetPositionComponent(1) < -5 || hit->GetPositionComponent(1) > 5 )
-    return false;
+//  if ( hit->GetPositionComponent(0) < -5 || hit->GetPositionComponent(0) > 5 )
+//    return false;
+//  if ( hit->GetPositionComponent(1) < -5 || hit->GetPositionComponent(1) > 5 )
+//    return false;
   if(track->GetPdgId() != fPid )
     return false;
   return true;
