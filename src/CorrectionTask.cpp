@@ -122,11 +122,11 @@ void CorrectionTask::Initialize() {
 	// Q-vectors from MDC
 
 	fManager.AddDetector("Mdc1", DetectorType::TRACK, "Phi", "Ones", {}, {1});
-	fManager.AddCut("Mdc1", {"Pt", "Ycm"}, [](const double &pt, const double &ycm){ return 0.80 < pt && pt < 0.85 && -0.5 < ycm && ycm < -0.3; });
+	fManager.AddCut("Mdc1", {"Pt", "Ycm"}, [](const double &pt, const double &ycm){ return 0.0 < pt && pt < 2.0 && -0.5 < ycm && ycm < -0.3; });
 	fManager.SetCorrectionSteps("Mdc1", MdcConfiguration);
 
 	fManager.AddDetector("Mdc2", DetectorType::TRACK, "Phi", "Ones", {}, {1});
-	fManager.AddCut("Mdc2", {"Pt", "Ycm"}, [](const double &pt, const double &ycm){ return 0.80 < pt && pt < 0.85 && 0.3 < ycm && ycm < 0.5; });
+	fManager.AddCut("Mdc2", {"Pt", "Ycm"}, [](const double &pt, const double &ycm){ return 0.0 < pt && pt < 2.0 && 0.3 < ycm && ycm < 0.5; });
 	fManager.SetCorrectionSteps("Mdc2", MdcConfiguration);
 
 	// 3 sub-events method.
