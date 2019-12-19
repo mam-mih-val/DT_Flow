@@ -43,7 +43,7 @@ basic_root=/lustre/nyx/cbm/users/ogolosov/soft/root-6.14.08_std11/bin/thisroot.s
 
 current_dir=$(pwd)
 partition=main
-time=8:00:00
+time=6:00:00
 executable=$current_dir/../Runner/run.sh
 build_dir=$current_dir/../build
 
