@@ -323,6 +323,19 @@ void CorrelationTask::Configure(Qn::CorrelationManager &manager)
       manager.SetRefQinCorrelation(Q1 + "_" + Q2 + "_YX_"+meth, {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
       manager.AddCorrelation(Q1 + "_" + Q2 + "_YY_"+meth, Q1 + ", " + Q2, QyQy);
       manager.SetRefQinCorrelation(Q1 + "_" + Q2 + "_YY_"+meth, {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+
+      for( auto u : u_vector )
+      {
+        // First harmonic
+        manager.AddCorrelation(u + "_" + Q1 + "_XX_"+meth, u + ", " + Q1, uxQx);
+        manager.SetRefQinCorrelation(u + "_" + Q1 + "_XX_"+meth, {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+        manager.AddCorrelation(u + "_" + Q1 + "_XY_"+meth, u + ", " + Q1, uxQy);
+        manager.SetRefQinCorrelation(u + "_" + Q1 + "_XY_"+meth, {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+        manager.AddCorrelation(u + "_" + Q1 + "_YX_"+meth, u + ", " + Q1, uyQx);
+        manager.SetRefQinCorrelation(u + "_" + Q1 + "_YX_"+meth, {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+        manager.AddCorrelation(u + "_" + Q1 + "_YY_"+meth, u + ", " + Q1, uyQy);
+        manager.SetRefQinCorrelation(u + "_" + Q1 + "_YY_"+meth, {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+      }
     }
   }
 
@@ -371,26 +384,6 @@ void CorrelationTask::Configure(Qn::CorrelationManager &manager)
       manager.SetRefQinCorrelation(u + "_" + Q2 + "_YY_"+meth, {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
 
     }
-  }
-
-//  auto cos_phi_Psi = [](const std::vector<Qn::QVector> &qn) {
-//    double phi = atan2( qn.at(0).y(1), qn.at(0).x(1) );
-//    double Psi = atan2( qn.at(1).y(1), qn.at(1).x(1) );
-//    return cos(phi-Psi);
-//  };
-
-  for( auto u : u_vector )
-  {
-    manager.AddCorrelation(u + "_" + "Full" + "_XX_Ep", u + ", " + "Full", uxQxEp);
-    manager.SetRefQinCorrelation(u + "_" + "Full" + "_XX_Ep", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
-    manager.AddCorrelation(u + "_" + "Full" + "_XY_Ep", u + ", " + "Full", uxQyEp);
-    manager.SetRefQinCorrelation(u + "_" + "Full" + "_XY_Ep", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
-    manager.AddCorrelation(u + "_" + "Full" + "_YX_Ep", u + ", " + "Full", uyQxEp);
-    manager.SetRefQinCorrelation(u + "_" + "Full" + "_YX_Ep", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
-    manager.AddCorrelation(u + "_" + "Full" + "_YY_Ep", u + ", " + "Full", uyQyEp);
-    manager.SetRefQinCorrelation(u + "_" + "Full" + "_YY_Ep", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
-//    manager.AddCorrelation(u + "_" + "Full" + "_cos_phi_Psi", u + ", " + "Full", cos_phi_Psi);
-//    manager.SetRefQinCorrelation(u + "_" + "Full" + "_cos_phi_Psi", {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
   }
 }
 
