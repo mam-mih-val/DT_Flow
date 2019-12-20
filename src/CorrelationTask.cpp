@@ -323,19 +323,6 @@ void CorrelationTask::Configure(Qn::CorrelationManager &manager)
       manager.SetRefQinCorrelation(Q1 + "_" + Q2 + "_YX_"+meth, {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
       manager.AddCorrelation(Q1 + "_" + Q2 + "_YY_"+meth, Q1 + ", " + Q2, QyQy);
       manager.SetRefQinCorrelation(Q1 + "_" + Q2 + "_YY_"+meth, {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
-
-      for( auto u : u_vector )
-      {
-        // First harmonic
-        manager.AddCorrelation(u + "_" + Q1 + "_XX_"+meth, u + ", " + Q1, uxQx);
-        manager.SetRefQinCorrelation(u + "_" + Q1 + "_XX_"+meth, {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
-        manager.AddCorrelation(u + "_" + Q1 + "_XY_"+meth, u + ", " + Q1, uxQy);
-        manager.SetRefQinCorrelation(u + "_" + Q1 + "_XY_"+meth, {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
-        manager.AddCorrelation(u + "_" + Q1 + "_YX_"+meth, u + ", " + Q1, uyQx);
-        manager.SetRefQinCorrelation(u + "_" + Q1 + "_YX_"+meth, {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
-        manager.AddCorrelation(u + "_" + Q1 + "_YY_"+meth, u + ", " + Q1, uyQy);
-        manager.SetRefQinCorrelation(u + "_" + Q1 + "_YY_"+meth, {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
-      }
     }
   }
 

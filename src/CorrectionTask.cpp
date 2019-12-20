@@ -76,8 +76,19 @@ void CorrectionTask::Initialize() {
 	
 	// Configuration of MDC.
 
-	auto MdcConfiguration = [](DetectorConfiguration *config)
+	auto uVectorConfiguration = [](DetectorConfiguration *config)
 	{
+          config->SetNormalization(QVector::Normalization::M);
+          auto recenter = new Recentering();
+//          config->AddCorrectionOnQnVector(recenter);
+          auto rescale = new TwistAndRescale();
+          rescale->SetApplyTwist(true);
+          rescale->SetApplyRescale(true);
+          rescale->SetTwistAndRescaleMethod(TwistAndRescale::TWRESCALE_doubleHarmonic);
+//          config->AddCorrectionOnQnVector(rescale);
+	};
+        auto MdcConfiguration = [](DetectorConfiguration *config)
+        {
           config->SetNormalization(QVector::Normalization::M);
           auto recenter = new Recentering();
           config->AddCorrectionOnQnVector(recenter);
@@ -86,7 +97,7 @@ void CorrectionTask::Initialize() {
           rescale->SetApplyRescale(true);
           rescale->SetTwistAndRescaleMethod(TwistAndRescale::TWRESCALE_doubleHarmonic);
 //          config->AddCorrectionOnQnVector(rescale);
-	};
+        };
 
 	//Configuration of FW. Preparing for add axis to qa histograms
 	//Producing the function which will configurate the correction Manager
@@ -113,11 +124,11 @@ void CorrectionTask::Initialize() {
 	// u-vectors from MDC
 	fManager.AddDetector("TracksMdcPt", DetectorType::TRACK, "Phi", "Ones", {pt}, {1, 2, 3});
 	fManager.AddCut("TracksMdcPt", {"Ycm"}, [](const double &y){ return -0.25 < y && y < -0.15; });
-	fManager.SetCorrectionSteps("TracksMdcPt", MdcConfiguration);
+	fManager.SetCorrectionSteps("TracksMdcPt", uVectorConfiguration);
 
 	fManager.AddDetector("TracksMdcYcm", DetectorType::TRACK, "Phi", "Ones", {ycm}, {1, 2, 3});
 	fManager.AddCut("TracksMdcYcm", {"Pt"}, [](const double &pt){ return 0.80 < pt && pt < 0.85; });
-	fManager.SetCorrectionSteps("TracksMdcYcm", MdcConfiguration);
+	fManager.SetCorrectionSteps("TracksMdcYcm", uVectorConfiguration);
 
 	// Q-vectors from MDC
 
