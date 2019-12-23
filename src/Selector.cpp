@@ -16,6 +16,8 @@ bool Selector::IsCorrectEvent()
         return false;
     if ( fEvent->GetVertexQuality() < 0.5 || fEvent->GetVertexQuality() > 40 )
         return false;
+    if ( !fEvent->GetTrigger(HADES_constants::kGoodTRIGGER)->GetIsFired() )
+      return false;
     if ( !fEvent->GetTrigger(HADES_constants::kGoodVertexClust)->GetIsFired() )
         return false;
     if ( ! fEvent->GetTrigger(HADES_constants::kGoodVertexCand)->GetIsFired() )
