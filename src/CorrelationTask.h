@@ -11,6 +11,9 @@ class CorrelationTask {
   CorrelationTask(std::string filelist, std::string treename);
 
   void Configure(Qn::CorrelationManager &manager);
+  void ConfigureEp(Qn::CorrelationManager &manager);
+  void ConfigureRnd(Qn::CorrelationManager &manager);
+  void Configure3SubSp(Qn::CorrelationManager &manager);
   void Run();
 
  private:
