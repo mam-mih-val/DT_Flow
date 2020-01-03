@@ -55,6 +55,7 @@ class CorrectionTask {
 	TTree *out_tree_;
 	Qn::CorrectionManager fManager;
 	bool write_tree_;
+	double fParticlePid{14.0};
 };
 }
 #endif //FLOW_QNTASK_H

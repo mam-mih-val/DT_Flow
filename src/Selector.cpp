@@ -52,8 +52,6 @@ bool Selector::IsCorrectTrack(int idx)
 //    return false;
 //  if ( hit->GetPositionComponent(1) < -5 || hit->GetPositionComponent(1) > 5 )
 //    return false;
-  if(track->GetPdgId() != fPid )
-    return false;
   return true;
 }
 

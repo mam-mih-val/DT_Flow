@@ -47,7 +47,7 @@ void CorrectionTask::SetSelectorConfiguration(bool perChannel, std::string signa
 	fVarManager->SetSignal(signal == "adc" ? DataTreeVarManager::Signals::kAdc : DataTreeVarManager::Signals::kChargeZ);
 	fVarManager->GetSelector()->SetFwChannelSelection(perChannel);
 	fVarManager->GetSelector()->SetFwSignalRange(min, max);
-	fVarManager->GetSelector()->SetPid(pid);
+	fParticlePid = (double) pid;
 }
 
 void CorrectionTask::Initialize() {
@@ -120,24 +120,24 @@ void CorrectionTask::Initialize() {
           }
           config->SetChannelsScheme(fwChannels, fwChannelGroups);
 	};
-
+	auto referencePid = fParticlePid;
 	// u-vectors from MDC
 	fManager.AddDetector("TracksMdcPt", DetectorType::TRACK, "Phi", "Ones", {pt}, {1, 2, 3});
-	fManager.AddCut("TracksMdcPt", {"Ycm"}, [](const double &y){ return -0.25 < y && y < -0.15; });
+	fManager.AddCut("TracksMdcPt", {"Ycm", "Pid"}, [referencePid](const double &y, const double &pid){ return -0.25 < y && y < -0.15 && pid == referencePid; });
 	fManager.SetCorrectionSteps("TracksMdcPt", uVectorConfiguration);
 
 	fManager.AddDetector("TracksMdcYcm", DetectorType::TRACK, "Phi", "Ones", {ycm}, {1, 2, 3});
-	fManager.AddCut("TracksMdcYcm", {"Pt"}, [](const double &pt){ return 0.80 < pt && pt < 0.85; });
+	fManager.AddCut("TracksMdcYcm", {"Pt", "Pid"}, [referencePid](const double &pt, const double &pid){ return 0.80 < pt && pt < 0.85 && pid == referencePid; });
 	fManager.SetCorrectionSteps("TracksMdcYcm", uVectorConfiguration);
 
 	// Q-vectors from MDC
 
 	fManager.AddDetector("MdcBw", DetectorType::TRACK, "Phi", "Ones", {}, {1});
-	fManager.AddCut("MdcBw", {"Pt", "Ycm"}, [](const double &pt, const double &ycm){ return 0.0 < pt && pt < 2.0 && -0.5 < ycm && ycm < -0.3; });
+	fManager.AddCut("MdcBw", {"Pt", "Ycm", "Pid"}, [referencePid](const double &pt, const double &ycm, const double &pid){ return 0.0 < pt && pt < 2.0 && -0.5 < ycm && ycm < -0.3 && pid != referencePid; });
 	fManager.SetCorrectionSteps("MdcBw", MdcConfiguration);
 
 	fManager.AddDetector("MdcFw", DetectorType::TRACK, "Phi", "Ones", {}, {1});
-	fManager.AddCut("MdcFw", {"Pt", "Ycm"}, [](const double &pt, const double &ycm){ return 0.0 < pt && pt < 2.0 && 0.3 < ycm && ycm < 0.5; });
+	fManager.AddCut("MdcFw", {"Pt", "Ycm", "Pid"}, [referencePid](const double &pt, const double &ycm, const double &pid){ return 0.0 < pt && pt < 2.0 && 0.3 < ycm && ycm < 0.5 && pid != referencePid; });
 	fManager.SetCorrectionSteps("MdcFw", MdcConfiguration);
 
 	// 3 sub-events method.
