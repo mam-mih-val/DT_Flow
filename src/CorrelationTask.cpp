@@ -714,7 +714,6 @@ void CorrelationTask::Configure3SubSp(Qn::CorrelationManager &manager) {
                               100); // BOOTSTRAP, SUBSAMPLING
 
   manager.AddQVectors(" Fw1, Fw2, Fw3");
-  manager.AddQVectors("Rs1, Rs2");
   manager.AddQVectors("MdcFw, MdcBw");
   manager.AddQVectors("Full");
   manager.AddQVectors("TracksMdcPt, TracksMdcYcm");
