@@ -41,14 +41,15 @@ bool Selector::IsCorrectTrack(int idx)
 {
   DataTreeTrack* track = fEvent->GetVertexTrack(idx);
   DataTreeTOFHit*hit = fEvent->GetTOFHit(idx);
+
+  if(track->GetPdgId() <= 6 ) // Hadrons
+    return false;
+
   float dca_xy = fabs(track->GetDCAComponent(0));
   float dca_z = fabs(track->GetDCAComponent(2));
-
   if (dca_xy > 15.0 )
     return false;
   if( dca_z > 15.0 )
-    return false;
-  if(track->GetPdgId() <= 6 ) // Hadrons
     return false;
 //  if ( hit->GetPositionComponent(0) < -5 || hit->GetPositionComponent(0) > 5 )
 //    return false;
