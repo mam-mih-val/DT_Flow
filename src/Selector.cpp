@@ -42,7 +42,7 @@ bool Selector::IsCorrectTrack(int idx)
   DataTreeTrack* track = fEvent->GetVertexTrack(idx);
   DataTreeTOFHit*hit = fEvent->GetTOFHit(idx);
 
-  if(track->GetPdgId() <= 6 ) // Hadrons
+  if( track->GetPdgId() <= 6 ) // Hadrons
     return false;
 
   float dca_xy = fabs(track->GetDCAComponent(0));
