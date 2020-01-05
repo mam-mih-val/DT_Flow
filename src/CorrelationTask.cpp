@@ -737,10 +737,6 @@ void CorrelationTask::Configure3SubSp(Qn::CorrelationManager &manager) {
           Q1 + "_" + Q2 + "_YY_Sp",
           {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
     }
-  }
-  Q3Se = {"Fw1", "Fw2", "Fw3"};
-  for (size_t i = 0; i < Q3Se.size(); i++) {
-    auto Q1 = Q3Se.at(i);
     for (auto u : u_vector) {
       // First harmonic
       manager.AddCorrelation(u + "_" + Q1 + "_XX_Sp", u + ", " + Q1, uxQx);
@@ -752,6 +748,13 @@ void CorrelationTask::Configure3SubSp(Qn::CorrelationManager &manager) {
       manager.SetRefQinCorrelation(
           u + "_" + Q1 + "_YY_Sp",
           {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+    }
+  }
+
+  Q3Se = {"Fw1", "Fw2", "Fw3"};
+  for (size_t i = 0; i < Q3Se.size(); i++) {
+    auto Q1 = Q3Se.at(i);
+    for (auto u : u_vector) {
       // Second harmonic
       for (size_t j = i + 1; j < Q3Se.size(); j++) {
         auto Q2 = Q3Se.at(j);
