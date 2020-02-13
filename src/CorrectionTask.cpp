@@ -127,7 +127,7 @@ void CorrectionTask::Initialize() {
 	fManager.SetCorrectionSteps("TracksMdcPt", uVectorConfiguration);
 
 	fManager.AddDetector("TracksMdcYcm", DetectorType::TRACK, "Phi", "Ones", {ycm}, {1, 2, 3});
-	fManager.AddCut("TracksMdcYcm", {"Pt", "Pid"}, [referencePid](const double &pt, const double &pid){ return 0.80 < pt && pt < 0.85 && pid == referencePid; });
+	fManager.AddCut("TracksMdcYcm", {"Pt", "Pid"}, [referencePid](const double &pt, const double &pid){ return 0.0 < pt && pt < 2.0 && pid == referencePid; });
 	fManager.SetCorrectionSteps("TracksMdcYcm", uVectorConfiguration);
 
 	// Q-vectors from MDC
@@ -167,6 +167,11 @@ void CorrectionTask::Initialize() {
         fManager.AddCut("Full", {"FwAdc"}, [](const double &adc) { return adc > 0.0; });
 	fManager.SetCorrectionSteps("Full", FwConfiguration);
 
+
+	fManager.AddHisto2D("TracksMdcPt", {{"Pt", 200, 0., 2.}, {"Ycm", 160, -0.8, 0.8}} );
+	fManager.AddHisto2D("TracksMdcYcm", {{"Pt", 200, 0., 2.}, {"Ycm", 160, -0.8, 0.8}} );
+	fManager.AddHisto2D("MdcFw", {{"Pt", 200, 0., 2.}, {"Ycm", 160, -0.8, 0.8}} );
+	fManager.AddHisto2D("MdcBw", {{"Pt", 200, 0., 2.}, {"Ycm", 160, -0.8, 0.8}} );
 
 	fManager.AddHisto2D("Fw1", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}} );
 	fManager.AddHisto2D("Fw2", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}});
