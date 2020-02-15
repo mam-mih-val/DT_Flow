@@ -675,6 +675,7 @@ void CorrelationTask::Configure3SubSp(Qn::CorrelationManager &manager) {
     return qn.at(0).y(2) * qn.at(1).y(1) * qn.at(2).x(1) / qn.at(0).mag(2);
   };
   // --------------------------------- Third Harmonic ---------------------------------
+  /*
   auto uxQxQxQx = [](const std::vector<Qn::QVector> &qn) {
     return qn.at(0).x(3) * qn.at(1).x(1) * qn.at(2).x(1) * qn.at(3).x(1) /
            qn.at(0).mag(3);
@@ -707,19 +708,16 @@ void CorrelationTask::Configure3SubSp(Qn::CorrelationManager &manager) {
     return -qn.at(0).y(3) * qn.at(1).y(1) * qn.at(2).y(1) * qn.at(3).y(1) /
            qn.at(0).mag(3);
   };
-
+*/
   manager.SetOutputFile("Correlations.root");
-  manager.AddEventVariable({"Centrality", 10, 0, 50});
+  manager.AddEventVariable({"Centrality", 6, 0, 60});
   manager.ConfigureResampling(Qn::Sampler::Method::BOOTSTRAP,
                               100); // BOOTSTRAP, SUBSAMPLING
 
   manager.AddQVectors(" Fw1, Fw2, Fw3");
-  manager.AddQVectors("MdcFw, MdcBw");
-  manager.AddQVectors("Full");
-  manager.AddQVectors("TracksMdcPt, TracksMdcYcm");
+  manager.AddQVectors("TracksMdc");
 
-  std::vector<std::string> Q3Se{"MdcFw", "MdcBw", "Fw1", "Fw2", "Fw3"};
-  std::vector<std::string> u_vector{"TracksMdcPt", "TracksMdcYcm"};
+  std::vector<std::string> Q3Se{"TracksMdc", "Fw1", "Fw2", "Fw3"};
   /**
    * Correlations of all detectors vs PsiRP
    */
@@ -737,21 +735,19 @@ void CorrelationTask::Configure3SubSp(Qn::CorrelationManager &manager) {
           Q1 + "_" + Q2 + "_YY_Sp",
           {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
     }
-    for (auto u : u_vector) {
-      // First harmonic
-      manager.AddCorrelation(u + "_" + Q1 + "_XX_Sp", u + ", " + Q1, uxQx);
-      manager.SetRefQinCorrelation(
-          u + "_" + Q1 + "_XX_Sp",
-          {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
-
-      manager.AddCorrelation(u + "_" + Q1 + "_YY_Sp", u + ", " + Q1, uyQy);
-      manager.SetRefQinCorrelation(
-          u + "_" + Q1 + "_YY_Sp",
-          {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
-    }
   }
+  manager.AddCorrelation("TracksMdc_TracksMdc_XX_Sp", "TracksMdc, TracksMdc",
+                         QxQx);
+  manager.SetRefQinCorrelation("TracksMdc_TracksMdc_XX_Sp",
+                               {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+
+  manager.AddCorrelation("TracksMdc_TracksMdc_YY_Sp", "TracksMdc, TracksMdc",
+                         QyQy);
+  manager.SetRefQinCorrelation("TracksMdc_TracksMdc_YY_Sp",
+                               {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
 
   Q3Se = {"Fw1", "Fw2", "Fw3"};
+  std::vector<std::string> u_vector = {"TracksMdc"};
   for (size_t i = 0; i < Q3Se.size(); i++) {
     auto Q1 = Q3Se.at(i);
     for (auto u : u_vector) {
@@ -783,67 +779,68 @@ void CorrelationTask::Configure3SubSp(Qn::CorrelationManager &manager) {
                                      {Qn::Weight::OBSERVABLE,
                                       Qn::Weight::REFERENCE,
                                       Qn::Weight::REFERENCE});
+        /*
+                for (size_t k = i + 2; k < Q3Se.size(); k++) {
+                  auto Q3 = Q3Se.at(k);
+                  manager.AddCorrelation(
+                      u + "_" + Q1 + "_" + Q2 + "_" + Q3 + "_XXXX_Sp",
+                      u + ", " + Q1 + ", " + Q2 + ", " + Q3, uxQxQxQx);
+                  manager.SetRefQinCorrelation(
+                      u + "_" + Q1 + "_" + Q2 + "_" + Q3 + "_XXXX_Sp",
+                      {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE,
+                       Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+                  manager.AddCorrelation(
+                      u + "_" + Q1 + "_" + Q2 + "_" + Q3 + "_XYYX_Sp",
+                      u + ", " + Q1 + ", " + Q2 + ", " + Q3, uxQyQyQx);
+                  manager.SetRefQinCorrelation(
+                      u + "_" + Q1 + "_" + Q2 + "_" + Q3 + "_XYYX_Sp",
+                      {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE,
+                       Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+                  manager.AddCorrelation(
+                      u + "_" + Q1 + "_" + Q2 + "_" + Q3 + "_XYXY_Sp",
+                      u + ", " + Q1 + ", " + Q2 + ", " + Q3, uxQyQxQy);
+                  manager.SetRefQinCorrelation(
+                      u + "_" + Q1 + "_" + Q2 + "_" + Q3 + "_XYXY_Sp",
+                      {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE,
+                       Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+                  manager.AddCorrelation(
+                      u + "_" + Q1 + "_" + Q2 + "_" + Q3 + "_XXYY_Sp",
+                      u + ", " + Q1 + ", " + Q2 + ", " + Q3, uxQxQyQy);
+                  manager.SetRefQinCorrelation(
+                      u + "_" + Q1 + "_" + Q2 + "_" + Q3 + "_XXYY_Sp",
+                      {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE,
+                       Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
 
-        for (size_t k = i + 2; k < Q3Se.size(); k++) {
-          auto Q3 = Q3Se.at(k);
-          manager.AddCorrelation(
-              u + "_" + Q1 + "_" + Q2 + "_" + Q3 + "_XXXX_Sp",
-              u + ", " + Q1 + ", " + Q2 + ", " + Q3, uxQxQxQx);
-          manager.SetRefQinCorrelation(
-              u + "_" + Q1 + "_" + Q2 + "_" + Q3 + "_XXXX_Sp",
-              {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE,
-               Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
-          manager.AddCorrelation(
-              u + "_" + Q1 + "_" + Q2 + "_" + Q3 + "_XYYX_Sp",
-              u + ", " + Q1 + ", " + Q2 + ", " + Q3, uxQyQyQx);
-          manager.SetRefQinCorrelation(
-              u + "_" + Q1 + "_" + Q2 + "_" + Q3 + "_XYYX_Sp",
-              {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE,
-               Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
-          manager.AddCorrelation(
-              u + "_" + Q1 + "_" + Q2 + "_" + Q3 + "_XYXY_Sp",
-              u + ", " + Q1 + ", " + Q2 + ", " + Q3, uxQyQxQy);
-          manager.SetRefQinCorrelation(
-              u + "_" + Q1 + "_" + Q2 + "_" + Q3 + "_XYXY_Sp",
-              {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE,
-               Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
-          manager.AddCorrelation(
-              u + "_" + Q1 + "_" + Q2 + "_" + Q3 + "_XXYY_Sp",
-              u + ", " + Q1 + ", " + Q2 + ", " + Q3, uxQxQyQy);
-          manager.SetRefQinCorrelation(
-              u + "_" + Q1 + "_" + Q2 + "_" + Q3 + "_XXYY_Sp",
-              {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE,
-               Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
-
-          manager.AddCorrelation(
-              u + "_" + Q1 + "_" + Q2 + "_" + Q3 + "_YYXX_Sp",
-              u + ", " + Q1 + ", " + Q2 + ", " + Q3, uyQyQxQx);
-          manager.SetRefQinCorrelation(
-              u + "_" + Q1 + "_" + Q2 + "_" + Q3 + "_YYXX_Sp",
-              {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE,
-               Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
-          manager.AddCorrelation(
-              u + "_" + Q1 + "_" + Q2 + "_" + Q3 + "_YXYX_Sp",
-              u + ", " + Q1 + ", " + Q2 + ", " + Q3, uyQxQyQx);
-          manager.SetRefQinCorrelation(
-              u + "_" + Q1 + "_" + Q2 + "_" + Q3 + "_YXYX_Sp",
-              {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE,
-               Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
-          manager.AddCorrelation(
-              u + "_" + Q1 + "_" + Q2 + "_" + Q3 + "_YXXY_Sp",
-              u + ", " + Q1 + ", " + Q2 + ", " + Q3, uyQxQxQy);
-          manager.SetRefQinCorrelation(
-              u + "_" + Q1 + "_" + Q2 + "_" + Q3 + "_YXXY_Sp",
-              {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE,
-               Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
-          manager.AddCorrelation(
-              u + "_" + Q1 + "_" + Q2 + "_" + Q3 + "_YYYY_Sp",
-              u + ", " + Q1 + ", " + Q2 + ", " + Q3, uyQyQyQy);
-          manager.SetRefQinCorrelation(
-              u + "_" + Q1 + "_" + Q2 + "_" + Q3 + "_YYYY_Sp",
-              {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE,
-               Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
-        }
+                  manager.AddCorrelation(
+                      u + "_" + Q1 + "_" + Q2 + "_" + Q3 + "_YYXX_Sp",
+                      u + ", " + Q1 + ", " + Q2 + ", " + Q3, uyQyQxQx);
+                  manager.SetRefQinCorrelation(
+                      u + "_" + Q1 + "_" + Q2 + "_" + Q3 + "_YYXX_Sp",
+                      {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE,
+                       Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+                  manager.AddCorrelation(
+                      u + "_" + Q1 + "_" + Q2 + "_" + Q3 + "_YXYX_Sp",
+                      u + ", " + Q1 + ", " + Q2 + ", " + Q3, uyQxQyQx);
+                  manager.SetRefQinCorrelation(
+                      u + "_" + Q1 + "_" + Q2 + "_" + Q3 + "_YXYX_Sp",
+                      {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE,
+                       Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+                  manager.AddCorrelation(
+                      u + "_" + Q1 + "_" + Q2 + "_" + Q3 + "_YXXY_Sp",
+                      u + ", " + Q1 + ", " + Q2 + ", " + Q3, uyQxQxQy);
+                  manager.SetRefQinCorrelation(
+                      u + "_" + Q1 + "_" + Q2 + "_" + Q3 + "_YXXY_Sp",
+                      {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE,
+                       Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+                  manager.AddCorrelation(
+                      u + "_" + Q1 + "_" + Q2 + "_" + Q3 + "_YYYY_Sp",
+                      u + ", " + Q1 + ", " + Q2 + ", " + Q3, uyQyQyQy);
+                  manager.SetRefQinCorrelation(
+                      u + "_" + Q1 + "_" + Q2 + "_" + Q3 + "_YYYY_Sp",
+                      {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE,
+                       Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+                }
+                */
       }
     }
   }

@@ -71,33 +71,21 @@ void CorrectionTask::Initialize() {
 	fManager.SetEventVariable("Centrality");
 	fManager.AddCorrectionAxis({"Centrality", 20, 0, 100});
 
-	Axis pt("Pt", 16, 0.2, 1.8);
+	Axis pt("Pt", 10, 0.0, 2.0);
 	Axis ycm("Ycm", 16, -0.8, 0.8);
 	
 	// Configuration of MDC.
-
-	auto uVectorConfiguration = [](DetectorConfiguration *config)
-	{
-          config->SetNormalization(QVector::Normalization::M);
-          auto recenter = new Recentering();
-//          config->AddCorrectionOnQnVector(recenter);
-          auto rescale = new TwistAndRescale();
-          rescale->SetApplyTwist(true);
-          rescale->SetApplyRescale(true);
-          rescale->SetTwistAndRescaleMethod(TwistAndRescale::TWRESCALE_doubleHarmonic);
-//          config->AddCorrectionOnQnVector(rescale);
-	};
-        auto MdcConfiguration = [](DetectorConfiguration *config)
-        {
-          config->SetNormalization(QVector::Normalization::M);
-          auto recenter = new Recentering();
-          config->AddCorrectionOnQnVector(recenter);
-          auto rescale = new TwistAndRescale();
-          rescale->SetApplyTwist(true);
-          rescale->SetApplyRescale(true);
-          rescale->SetTwistAndRescaleMethod(TwistAndRescale::TWRESCALE_doubleHarmonic);
-//          config->AddCorrectionOnQnVector(rescale);
-        };
+    auto MdcConfiguration = [](DetectorConfiguration *config)
+    {
+      config->SetNormalization(QVector::Normalization::M);
+      auto recenter = new Recentering();
+      config->AddCorrectionOnQnVector(recenter);
+      auto rescale = new TwistAndRescale();
+      rescale->SetApplyTwist(true);
+      rescale->SetApplyRescale(true);
+      rescale->SetTwistAndRescaleMethod(TwistAndRescale::TWRESCALE_doubleHarmonic);
+      config->AddCorrectionOnQnVector(rescale);
+    };
 
 	//Configuration of FW. Preparing for add axis to qa histograms
 	//Producing the function which will configurate the correction Manager
@@ -122,23 +110,13 @@ void CorrectionTask::Initialize() {
 	};
 	auto referencePid = fParticlePid;
 	// u-vectors from MDC
-	fManager.AddDetector("TracksMdcPt", DetectorType::TRACK, "Phi", "Ones", {pt}, {1, 2, 3});
-	fManager.AddCut("TracksMdcPt", {"Ycm", "Pid"}, [referencePid](const double &y, const double &pid){ return -0.25 < y && y < -0.15 && pid == referencePid; });
-	fManager.SetCorrectionSteps("TracksMdcPt", uVectorConfiguration);
-
-	fManager.AddDetector("TracksMdcYcm", DetectorType::TRACK, "Phi", "Ones", {ycm}, {1, 2, 3});
-	fManager.AddCut("TracksMdcYcm", {"Pt", "Pid"}, [referencePid](const double &pt, const double &pid){ return 0.0 < pt && pt < 2.0 && pid == referencePid; });
-	fManager.SetCorrectionSteps("TracksMdcYcm", uVectorConfiguration);
-
-	// Q-vectors from MDC
-
-	fManager.AddDetector("MdcBw", DetectorType::TRACK, "Phi", "Ones", {}, {1});
-	fManager.AddCut("MdcBw", {"Pt", "Ycm", "Pid"}, [](const double &pt, const double &ycm, const double &pid){ return 0.0 < pt && pt < 2.0 && -0.5 < ycm && ycm < -0.3 && pid == 14.0; });
-	fManager.SetCorrectionSteps("MdcBw", MdcConfiguration);
-
-	fManager.AddDetector("MdcFw", DetectorType::TRACK, "Phi", "Ones", {}, {1});
-	fManager.AddCut("MdcFw", {"Pt", "Ycm", "Pid"}, [](const double &pt, const double &ycm, const double &pid){ return 0.0 < pt && pt < 2.0 && 0.3 < ycm && ycm < 0.5 && pid == 14.0; });
-	fManager.SetCorrectionSteps("MdcFw", MdcConfiguration);
+	fManager.AddDetector("TracksMdc", DetectorType::TRACK, "Phi", "Ones", {pt, ycm}, {1, 2});
+	fManager.AddCut("TracksMdc", {"Ycm", "Pid", "Pt"}, [referencePid](const double &y, const double &pid, const double &pt){
+		return
+		-0.8 < y && y < 0.8
+		&& pid == referencePid
+		&& 0.0 < pt && pt < 2.0; });
+	fManager.SetCorrectionSteps("TracksMdc", MdcConfiguration);
 
 	// 3 sub-events method.
 	// Each detector builds own Q-vector, which means, you need to add required count of detectors and then configurate their cuts.
@@ -153,7 +131,7 @@ void CorrectionTask::Initialize() {
 	fManager.AddDetector("Fw3", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
 	fManager.AddCut("Fw3", {"FwRing"}, [](const double &module) { return module >= 8.0 && module <= 10.0; });
 	fManager.SetCorrectionSteps("Fw3", FwConfiguration);
-
+/*
 	// Random sub-event method
 	fManager.AddDetector("Rs1", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
 	fManager.AddCut("Rs1", {"RandomSe"}, [](const double &rs){ return rs == 1.00; });
@@ -167,22 +145,21 @@ void CorrectionTask::Initialize() {
         fManager.AddCut("Full", {"FwAdc"}, [](const double &adc) { return adc > 0.0; });
 	fManager.SetCorrectionSteps("Full", FwConfiguration);
 
-
-	fManager.AddHisto2D("TracksMdcPt", {{"Pt", 200, 0., 2.}, {"Ycm", 160, -0.8, 0.8}} );
-	fManager.AddHisto2D("TracksMdcYcm", {{"Pt", 200, 0., 2.}, {"Ycm", 160, -0.8, 0.8}} );
-	fManager.AddHisto2D("MdcFw", {{"Pt", 200, 0., 2.}, {"Ycm", 160, -0.8, 0.8}} );
-	fManager.AddHisto2D("MdcBw", {{"Pt", 200, 0., 2.}, {"Ycm", 160, -0.8, 0.8}} );
+*/
+	fManager.AddHisto2D("TracksMdc", {{"Pt", 200, 0., 2.}, {"Ycm", 160, -0.8, 0.8}} );
 
 	fManager.AddHisto2D("Fw1", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}} );
 	fManager.AddHisto2D("Fw2", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}});
 	fManager.AddHisto2D("Fw3", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}});
 
+	/*
 	fManager.AddHisto2D("Rs1", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}});
 	fManager.AddHisto2D("Rs2", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}});
 
 	fManager.AddHisto2D("Rs1", {{"moduleX", 50, -1000., 1000.}, {"moduleY", 50, -1000., 1000.}});
 	fManager.AddHisto2D("Rs2", {{"moduleX", 50, -1000., 1000.}, {"moduleY", 50, -1000., 1000.}});
 	fManager.AddHisto2D("Full", {{"moduleX", 50, -1000., 1000.}, {"moduleY", 50, -1000., 1000.}});
+	 */
 	fManager.AddEventHisto1D({{"Centrality", 20, 0, 100}});
 	fManager.SetTree(out_tree_);
 	fManager.Initialize(in_calibration_file_);
