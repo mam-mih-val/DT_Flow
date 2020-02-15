@@ -7,7 +7,7 @@ bool Selector::IsCorrectEvent()
             std::cout << "Event pointer is empty" << std::endl;
             return false;
     }
-   if( !fEvent->GetTrigger(HADES_constants::kPT2)->GetIsFired() && !fEvent->GetTrigger(HADES_constants::kPT3)->GetIsFired() )
+   if( !fEvent->GetTrigger(HADES_constants::kPT2)->GetIsFired() )
           return false;
    if (  fEvent->GetVertexPositionComponent(2) > 0 || fEvent->GetVertexPositionComponent(2) < -60 )
         return false;
@@ -16,8 +16,8 @@ bool Selector::IsCorrectEvent()
         return false;
     if ( fEvent->GetVertexQuality() < 0.5 || fEvent->GetVertexQuality() > 40 )
         return false;
-    if ( !fEvent->GetTrigger(HADES_constants::kGoodTRIGGER)->GetIsFired() )
-      return false;
+//    if ( !fEvent->GetTrigger(HADES_constants::kGoodTRIGGER)->GetIsFired() )
+//      return false;
     if ( !fEvent->GetTrigger(HADES_constants::kGoodVertexClust)->GetIsFired() )
         return false;
     if ( ! fEvent->GetTrigger(HADES_constants::kGoodVertexCand)->GetIsFired() )
