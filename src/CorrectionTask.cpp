@@ -71,7 +71,7 @@ void CorrectionTask::Initialize() {
 	fManager.SetEventVariable("Centrality");
 	fManager.AddCorrectionAxis({"Centrality", 20, 0, 100});
 
-	Axis pt("Pt", 10, 0.0, 2.0);
+	Axis pt("Pt", 1, 0.0, 2.0);
 	Axis ycm("Ycm", 16, -0.8, 0.8);
 	
 	// Configuration of MDC.
@@ -110,7 +110,7 @@ void CorrectionTask::Initialize() {
 	};
 	auto referencePid = fParticlePid;
 	// u-vectors from MDC
-	fManager.AddDetector("TracksMdc", DetectorType::TRACK, "Phi", "Ones", {pt, ycm}, {1, 2});
+	fManager.AddDetector("TracksMdc", DetectorType::TRACK, "Phi", "Ones", {ycm}, {1, 2});
 	fManager.AddCut("TracksMdc", {"Ycm", "Pid", "Pt"}, [referencePid](const double &y, const double &pid, const double &pt){
 		return
 		-0.8 < y && y < 0.8
