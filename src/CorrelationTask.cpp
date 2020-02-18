@@ -598,11 +598,11 @@ void CorrelationTask::ConfigureRnd(Qn::CorrelationManager &manager) {
 
   manager.AddQVectors("Rs1, Rs2");
   manager.AddQVectors("Full");
-  manager.AddQVectors("TracksMdcPt, TracksMdcYcm");
+  manager.AddQVectors("TracksMdc");
 
   std::vector<std::string> QRnd{"Rs1", "Rs2"};
   std::vector<std::string> Full{"Full"};
-  std::vector<std::string> u_vector{"TracksMdcPt", "TracksMdcYcm"};
+  std::vector<std::string> u_vector{"TracksMdc"};
   std::vector<std::string> method{"Sp", "Ep"};
 
   for (auto meth : method) {
@@ -850,7 +850,7 @@ void CorrelationTask::Run() {
   int nEvents = in_tree_->GetEntries();
   Qn::CorrelationManager fManager(reader_, nEvents);
   in_tree_->LoadTree(0); // prevents weird TTree errors
-  this->Configure3SubSp(fManager);
+  this->ConfigureRnd(fManager);
   int events = 1;
   reader_->SetEntry(0); //  first entry needed to access configuration of
                         //  DataContainers in the input file
