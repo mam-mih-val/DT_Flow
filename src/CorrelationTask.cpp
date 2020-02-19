@@ -646,6 +646,16 @@ void CorrelationTask::ConfigureRnd(Qn::CorrelationManager &manager) {
           {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
     }
   }
+  manager.AddCorrelation("TracksMdc_Full_XX_Ep", "TracksMdc,Full", uxQxEp);
+  manager.SetRefQinCorrelation(
+      "TracksMdc_Full_XX_Ep",
+      {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+
+  manager.AddCorrelation("TracksMdc_Full_YY_Ep", "TracksMdc,Full", uyQyEp);
+  manager.SetRefQinCorrelation(
+      "TracksMdc_Full_YY_Ep",
+      {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+
 }
 
 void CorrelationTask::Configure3SubSp(Qn::CorrelationManager &manager) {
