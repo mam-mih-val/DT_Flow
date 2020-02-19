@@ -71,7 +71,7 @@ void CorrectionTask::Initialize() {
 	fManager.SetEventVariable("Centrality");
 	fManager.AddCorrectionAxis({"Centrality", 20, 0, 100});
 
-	Axis pt("Pt", 20, 0.0, 2.0);
+	Axis pt("Pt", 10, 0.0, 2.0);
 	Axis ycm("Ycm", 16, -0.8, 0.8);
 	
 	// Configuration of MDC.
@@ -117,7 +117,7 @@ void CorrectionTask::Initialize() {
 		&& pid == referencePid
 		&& 0.0 < pt && pt < 2.0; });
 	fManager.SetCorrectionSteps("TracksMdc", MdcConfiguration);
-/*
+
 	// 3 sub-events method.
 	// Each detector builds own Q-vector, which means, you need to add required count of detectors and then configurate their cuts.
 	fManager.AddDetector("Fw1", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
@@ -131,7 +131,7 @@ void CorrectionTask::Initialize() {
 	fManager.AddDetector("Fw3", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
 	fManager.AddCut("Fw3", {"FwRing"}, [](const double &module) { return module >= 8.0 && module <= 10.0; });
 	fManager.SetCorrectionSteps("Fw3", FwConfiguration);
-*/
+/*
 	// Random sub-event method
 	fManager.AddDetector("Rs1", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
 	fManager.AddCut("Rs1", {"RandomSe"}, [](const double &rs){ return rs == 1.00; });
@@ -144,20 +144,20 @@ void CorrectionTask::Initialize() {
 	fManager.AddDetector("Full", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
         fManager.AddCut("Full", {"FwAdc"}, [](const double &adc) { return adc > 0.0; });
 	fManager.SetCorrectionSteps("Full", FwConfiguration);
-
+*/
 	fManager.AddHisto2D("TracksMdc", {{"Pt", 200, 0., 2.}, {"Ycm", 160, -0.8, 0.8}} );
-/*
+
 	fManager.AddHisto2D("Fw1", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}} );
 	fManager.AddHisto2D("Fw2", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}});
 	fManager.AddHisto2D("Fw3", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}});
-*/
+/*
 	fManager.AddHisto2D("Rs1", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}});
 	fManager.AddHisto2D("Rs2", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}});
 
 	fManager.AddHisto2D("Rs1", {{"moduleX", 50, -1000., 1000.}, {"moduleY", 50, -1000., 1000.}});
 	fManager.AddHisto2D("Rs2", {{"moduleX", 50, -1000., 1000.}, {"moduleY", 50, -1000., 1000.}});
 	fManager.AddHisto2D("Full", {{"moduleX", 50, -1000., 1000.}, {"moduleY", 50, -1000., 1000.}});
-
+*/
 	fManager.AddEventHisto1D({{"Centrality", 20, 0, 100}});
 	fManager.SetTree(out_tree_);
 	fManager.Initialize(in_calibration_file_);

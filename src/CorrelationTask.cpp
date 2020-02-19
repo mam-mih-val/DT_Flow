@@ -720,7 +720,7 @@ void CorrelationTask::Configure3SubSp(Qn::CorrelationManager &manager) {
   };
 */
   manager.SetOutputFile("Correlations.root");
-  manager.AddEventVariable({"Centrality", 5, 0, 50});
+  manager.AddEventVariable({"Centrality", 10, 0, 50});
   manager.ConfigureResampling(Qn::Sampler::Method::BOOTSTRAP,
                               100); // BOOTSTRAP, SUBSAMPLING
 
@@ -860,7 +860,7 @@ void CorrelationTask::Run() {
   int nEvents = in_tree_->GetEntries();
   Qn::CorrelationManager fManager(reader_, nEvents);
   in_tree_->LoadTree(0); // prevents weird TTree errors
-  this->ConfigureRnd(fManager);
+  this->Configure3SubSp(fManager);
   int events = 1;
   reader_->SetEntry(0); //  first entry needed to access configuration of
                         //  DataContainers in the input file
