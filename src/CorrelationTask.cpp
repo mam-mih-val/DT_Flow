@@ -746,12 +746,12 @@ void CorrelationTask::Configure3SubSp(Qn::CorrelationManager &manager) {
           Q1 + "_" + Q2 + "_YY_Sp",
           {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
     }
-    manager.AddCorrelation(u + "_" + Q1 + "_XX_Sp", u + ", " + Q1, QxQx);
+    manager.AddCorrelation(u + "_" + Q1 + "_XX_Sp", u + ", " + Q1, uxQx);
     manager.SetRefQinCorrelation(
         u + "_" + Q1 + "_XX_Sp",
         {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
 
-    manager.AddCorrelation(u + "_" + Q1 + "_YY_Sp", u + ", " + Q1, QyQy);
+    manager.AddCorrelation(u + "_" + Q1 + "_YY_Sp", u + ", " + Q1, uyQy);
     manager.SetRefQinCorrelation(
         u + "_" + Q1 + "_YY_Sp",
         {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
