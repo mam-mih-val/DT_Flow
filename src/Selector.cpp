@@ -34,9 +34,7 @@ bool Selector::IsCorrectEvent()
         return false;
     if( !fEvent->GetTrigger(HADES_constants::kNoVETO)->GetIsFired() )
         return false;
-        if( fEvent->GetPSDEnergy() == 0 )
-                return false;
-    return true;
+    return fEvent->GetPSDEnergy() != 0;
 }
 
 bool Selector::IsCorrectTrack(int idx)

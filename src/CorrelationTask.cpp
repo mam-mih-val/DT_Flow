@@ -765,7 +765,7 @@ void CorrelationTask::Configure3SubSp(Qn::CorrelationManager &manager) {
                          QyQy);
   manager.SetRefQinCorrelation("MdcQ_MdcQ_YY_Sp",
                                {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
-
+  Q3Se={"Fw1", "Fw2", "Fw3"};
   for (size_t i = 0; i < Q3Se.size(); i++) {
     auto Q1 = Q3Se.at(i);
       // Second harmonic
