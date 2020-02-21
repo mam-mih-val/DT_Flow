@@ -576,6 +576,12 @@ void CorrelationTask::ConfigureRnd(Qn::CorrelationManager &manager) {
   auto uyQySp = [](const std::vector<Qn::QVector> &qn) {
     return qn.at(0).y(1) * qn.at(1).y(1) / qn.at(0).mag(1);
   };
+  auto u2xQxSp = [](const std::vector<Qn::QVector> &qn) {
+    return qn.at(0).x(1) * qn.at(1).x(1) / qn.at(0).mag(1);
+  };
+  auto u2yQySp = [](const std::vector<Qn::QVector> &qn) {
+    return qn.at(0).y(1) * qn.at(1).y(1) / qn.at(0).mag(1);
+  };
   // --------------------------------- Event plane
   // ---------------------------------
   auto QxQxEp = [](const std::vector<Qn::QVector> &qn) {
@@ -590,9 +596,15 @@ void CorrelationTask::ConfigureRnd(Qn::CorrelationManager &manager) {
   auto uyQyEp = [](const std::vector<Qn::QVector> &qn) {
     return qn.at(0).y(1) * qn.at(1).y(1) / (qn.at(0).mag(1) * qn.at(1).mag(1));
   };
+  auto u2xQxEp = [](const std::vector<Qn::QVector> &qn) {
+    return qn.at(0).x(2) * qn.at(1).x(1) / (qn.at(0).mag(1) * qn.at(1).mag(1));
+  };
+  auto u2yQyEp = [](const std::vector<Qn::QVector> &qn) {
+    return qn.at(0).y(2) * qn.at(1).y(1) / (qn.at(0).mag(1) * qn.at(1).mag(1));
+  };
 
   manager.SetOutputFile("Correlations.root");
-  manager.AddEventVariable({"Centrality", 10, 0, 50});
+  manager.AddEventVariable({"Centrality", 5, 0, 50});
   manager.ConfigureResampling(Qn::Sampler::Method::BOOTSTRAP,
                               100); // BOOTSTRAP, SUBSAMPLING
 
@@ -654,6 +666,16 @@ void CorrelationTask::ConfigureRnd(Qn::CorrelationManager &manager) {
   manager.AddCorrelation("TracksMdc_Full_YY_Ep", "TracksMdc,Full", uyQyEp);
   manager.SetRefQinCorrelation(
       "TracksMdc_Full_YY_Ep",
+      {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+
+  manager.AddCorrelation("TracksMdc2_Full_XX_Ep", "TracksMdc,Full", u2xQxEp);
+  manager.SetRefQinCorrelation(
+      "TracksMdc2_Full_XX_Ep",
+      {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+
+  manager.AddCorrelation("TracksMdc2_Full_YY_Ep", "TracksMdc,Full", u2yQyEp);
+  manager.SetRefQinCorrelation(
+      "TracksMdc2_Full_YY_Ep",
       {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
 
 }
@@ -720,7 +742,7 @@ void CorrelationTask::Configure3SubSp(Qn::CorrelationManager &manager) {
   };
 */
   manager.SetOutputFile("Correlations.root");
-  manager.AddEventVariable({"Centrality", 10, 0, 50});
+  manager.AddEventVariable({"Centrality", 5, 0, 50});
   manager.ConfigureResampling(Qn::Sampler::Method::BOOTSTRAP,
                               100); // BOOTSTRAP, SUBSAMPLING
 

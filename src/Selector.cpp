@@ -7,10 +7,10 @@ bool Selector::IsCorrectEvent()
             std::cout << "Event pointer is empty" << std::endl;
             return false;
     }
-   //if(!fEvent->GetTrigger(HADES_constants::kPT2)->GetIsFired())
-     //     return false;
-   if(!fEvent->GetTrigger(HADES_constants::kPT3))
+   if(!fEvent->GetTrigger(HADES_constants::kPT2)->GetIsFired())
           return false;
+//   if(!fEvent->GetTrigger(HADES_constants::kPT3))
+//          return false;
    if (  fEvent->GetVertexPositionComponent(2) > 0 || fEvent->GetVertexPositionComponent(2) < -60 )
         return false;
     Float_t Rx = fEvent->GetVertexPositionComponent(0), Ry = fEvent->GetVertexPositionComponent(1);
