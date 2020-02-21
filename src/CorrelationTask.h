@@ -14,7 +14,7 @@ class CorrelationTask {
   void ConfigureEp(Qn::CorrelationManager &manager);
   void ConfigureRnd(Qn::CorrelationManager &manager);
   void Configure3SubSp(Qn::CorrelationManager &manager);
-  void Run();
+  void Run(std::string method="FW3S");
 
  private:
   std::unique_ptr<TTree> in_tree_;

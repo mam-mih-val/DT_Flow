@@ -28,14 +28,19 @@ class CorrectionTask {
 	public:
 	CorrectionTask(std::string filelist, std::string incalib);
 	~CorrectionTask() = default;
+	std::shared_ptr<Selector> GetSelector(){ return fVarManager->GetSelector(); }
 	void SetSelectorConfiguration(bool perChannel=false, std::string signal="adc", float min=80.0, float max=999.0, int=14);
-	void Run();
+	void Run(std::string method="FW3S");
+        void SetParticlePid(double ParticlePid) {
+          CorrectionTask::fParticlePid = ParticlePid;
+        }
 
-	private:
+      private:
 	/**
 	 * Initializing function of Correction Task class. Makes configuration of Correction Manager.
 	 */
-	void Initialize();
+	void InitializeFW3S();
+        void InitializeRND();
 	/**
 	 * Processes one event;
 	 */
@@ -45,7 +50,6 @@ class CorrectionTask {
 	 */
 	void Finalize();
 	void ProgressBar(float progress);
-
 	protected:
 
 	std::shared_ptr<TFile> out_file_;
