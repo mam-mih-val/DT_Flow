@@ -188,6 +188,7 @@ class SubSamples {
   static SubSamples ScalePointAverage(const SubSamples &, double);
 
   static SubSamples ResFullEventNormal(const SubSamples &samp);
+  static SubSamples ResFullEventElliptic(const SubSamples &samp);
   static double GetResolutionRs( double meanCosine );
 
 

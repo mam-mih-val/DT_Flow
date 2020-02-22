@@ -233,6 +233,15 @@ Stats ResFullEvent(const Stats &stats) {
   return result;
 }
 
+Stats ResFullEventElliptic(const Stats &stats) {
+  Stats result;
+  result.status_ = STAT::REFERENCE;
+  result.bits_ = stats.bits_;
+  result.profile_ = Profile::ResFullEventElliptic(stats.profile_);
+  result.subsamples_ = SubSamples::ResFullEventElliptic(stats.subsamples_);
+  return result;
+}
+
 void Stats::Print() {
   std::cout << std::endl;
   std::cout << "-----Bits------" << std::endl;

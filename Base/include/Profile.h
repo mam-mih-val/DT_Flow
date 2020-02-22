@@ -108,6 +108,7 @@ class Profile {
   static Profile ScalePointAverage(const Profile &, double);
 
   static Profile ResFullEventNormal(const Profile &);
+  static Profile ResFullEventElliptic(const Profile &);
   static double GetFullResolution( double meanCosine );
 
  private:

@@ -96,6 +96,7 @@ class Stats {
   friend Stats operator/(const Stats &, const Stats &);
   friend Stats Sqrt(const Stats &);
   friend Stats ResFullEvent(const Stats &);
+  friend Stats ResFullEventElliptic(const Stats &);
 
   void Fill(const Product &product, const std::vector<size_type> &samples) {
     subsamples_.Fill(product, samples);
@@ -152,6 +153,7 @@ Stats operator*(double, const Stats &);
 Stats operator/(const Stats &, const Stats &);
 Stats Sqrt(const Stats &);
 Stats ResFullEvent(const Stats &);
+Stats ResFullEventElliptic(const Stats &);
 }
 
 #endif //FLOW_STATS_H

@@ -839,6 +839,10 @@ DataContainer<T> ResFullEvent(const DataContainer<T> &a) {
   return a.Map([](const T &x) { return Qn::ResFullEvent(x); });
 }
 template<typename T>
+DataContainer<T> ResFullEventElliptic(const DataContainer<T> &a) {
+  return a.Map([](const T &x) { return Qn::ResFullEventElliptic(x); });
+}
+template<typename T>
 DataContainer<T> Sqrt(const DataContainer<T> &a) {
   return a.Map([](const T &x) { return Qn::Sqrt(x); });
 }
