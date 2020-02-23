@@ -576,16 +576,10 @@ void CorrelationTask::ConfigureRnd(Qn::CorrelationManager &manager) {
     return qn.at(0).y(1) * qn.at(1).y(1) / (qn.at(0).mag(1) * qn.at(1).mag(1));
   };
   auto u2xQ2x = [](const std::vector<Qn::QVector> &qn) {
-    return qn.at(0).x(2) * ( qn.at(1).x(1)*qn.at(1).x(1) - qn.at(1).y(1)*qn.at(1).y(1) ) / (qn.at(0).mag(1) * pow(qn.at(1).mag(1),2));
+    return qn.at(0).x(2) * ( qn.at(1).x(1)*qn.at(1).x(1) - qn.at(1).y(1)*qn.at(1).y(1) ) / (qn.at(0).mag(2) * qn.at(1).mag(1) * qn.at(1).mag(1));
   };
   auto u2yQ2y = [](const std::vector<Qn::QVector> &qn) {
-    return qn.at(0).y(2) *  2 *qn.at(1).x(1)*qn.at(1).y(1)  / (qn.at(0).mag(1) * pow(qn.at(1).mag(1),2));
-  };
-  auto u2xQx = [](const std::vector<Qn::QVector> &qn) {
-    return qn.at(0).x(2) * qn.at(1).x(1) / ( qn.at(0).mag(1) * qn.at(1).mag(1) );
-  };
-  auto u2yQy = [](const std::vector<Qn::QVector> &qn) {
-    return qn.at(0).y(2) * qn.at(1).y(1)  / (qn.at(0).mag(1) * qn.at(1).mag(1) );
+    return qn.at(0).y(2) *  2 *qn.at(1).x(1)*qn.at(1).y(1)  / (qn.at(0).mag(2) * qn.at(1).mag(1) * qn.at(1).mag(1));
   };
 
   manager.SetOutputFile("Correlations.root");
@@ -633,17 +627,6 @@ void CorrelationTask::ConfigureRnd(Qn::CorrelationManager &manager) {
   manager.SetRefQinCorrelation(
       "TracksMdc2_Full2_YY_Ep",
       {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
-
-  manager.AddCorrelation("TracksMdc2_Full_XX_Ep", "TracksMdc,Full", u2xQx);
-  manager.SetRefQinCorrelation(
-      "TracksMdc2_Full_XX_Ep",
-      {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
-
-  manager.AddCorrelation("TracksMdc2_Full_YY_Ep", "TracksMdc,Full", u2yQy);
-  manager.SetRefQinCorrelation(
-      "TracksMdc2_Full_YY_Ep",
-      {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
-
 }
 
 void CorrelationTask::Configure3SubSp(Qn::CorrelationManager &manager) {
