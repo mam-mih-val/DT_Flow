@@ -205,13 +205,13 @@ SubSamples SubSamples::ResFullEventElliptic(const SubSamples &samp) {
             powf(z / 2.0, 2 * k + nu) / (fact(k) * TMath::Gamma(k + nu + 1));
       return result;
     };
-    auto R = [I](double chi) {
-      float chi2_2 = chi * chi / 2;
-      float result = sqrtf(TMath::Pi()) / 2.0 * chi * expf(-chi2_2) *
-                     (I(0.5, chi2_2) + I(1.5, chi2_2));
+    auto R = [I](double chi, double k) {
+      double chi2_2 = chi * chi / 2;
+      double result = sqrt(TMath::Pi()) / 2.0 * chi * exp(-chi2_2) *
+                      (I((k-1.0)/2, chi2_2) + I((k+1.0)/2, chi2_2));
       return result;
     };
-    auto f = [R, mean](double chi) { return R(chi) - sqrt(2 * mean); };
+    auto f = [R,mean](double chi) { return R(chi, 1.0)-sqrt(2*mean); };
     double a = 0.0;
     double b = 3.0;
     int i = 0;
@@ -234,7 +234,7 @@ SubSamples SubSamples::ResFullEventElliptic(const SubSamples &samp) {
       }
     }
     double chi = (a + b) / 2;
-    double res = R(sqrt(2) * chi);
+    double res = R(sqrt(2) * chi, 2);
     sum.sumwy = res * samp.samples_[i].entries;
     sum.sumw = samp.samples_[i].entries;
     i++;
