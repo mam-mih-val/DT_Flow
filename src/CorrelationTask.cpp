@@ -576,10 +576,12 @@ void CorrelationTask::ConfigureRnd(Qn::CorrelationManager &manager) {
     return qn.at(0).y(1) * qn.at(1).y(1) / (qn.at(0).mag(1) * qn.at(1).mag(1));
   };
   auto u2xQ2x = [](const std::vector<Qn::QVector> &qn) {
-    return qn.at(0).x(2) * ( qn.at(1).x(1)*qn.at(1).x(1) - qn.at(1).y(1)*qn.at(1).y(1) ) / (qn.at(0).mag(2) * qn.at(1).mag(1) * qn.at(1).mag(1));
+    return qn.at(0).x(2) * ( qn.at(1).x(1)*qn.at(1).x(1) - qn.at(1).y(1)*qn.at(1).y(1) )
+    / (qn.at(0).mag(2) * qn.at(1).mag(1) * qn.at(1).mag(1));
   };
   auto u2yQ2y = [](const std::vector<Qn::QVector> &qn) {
-    return qn.at(0).y(2) *  2 *qn.at(1).x(1)*qn.at(1).y(1)  / (qn.at(0).mag(2) * qn.at(1).mag(1) * qn.at(1).mag(1));
+    return qn.at(0).y(2) *  2 *qn.at(1).x(1)*qn.at(1).y(1)
+    / (qn.at(0).mag(2) * qn.at(1).mag(1) * qn.at(1).mag(1));
   };
 
   manager.SetOutputFile("Correlations.root");
