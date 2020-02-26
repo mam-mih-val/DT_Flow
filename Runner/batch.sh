@@ -70,12 +70,17 @@ build_dir=$current_dir/../build
 file_list=${1}
 output_dir=${2}
 
+lists_dir=${output_dir}/lists
 log_dir=${output_dir}/log
 
 mkdir -p $output_dir
 mkdir -p $log_dir
+mkdir -p $lists_dir
 
-n_runs=$(cat $file_list | wc -l)
+csplit -s -f "$lists_dir/" -b %1d.list $file_list /01./ {*}
+rm $lists_dir/0.list
+
+n_runs=$(ls $lists_dir/*.list | wc -l)
 
 job_range=1-$n_runs
 
@@ -83,6 +88,7 @@ echo file list=$file_list
 echo executable=$executable
 echo output_dir=$output_dir
 echo log_dir=$log_dir
+echo lists_dir=$lists_dir
 echo n_runs=$n_runs
 echo job_range=$job_range
 

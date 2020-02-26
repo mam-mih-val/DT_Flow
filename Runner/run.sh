@@ -3,6 +3,7 @@ channelSelection=0
 minSignal=0
 maxSignal=999
 pidCode=14
+isList=0
 
 while [ "$#" -gt "2" ]; do
   #echo $#
@@ -57,15 +58,15 @@ build_dir=$2
 
 #no corrections
 echo "executing $build_dir/src/correct --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal $inFile nothing"
-$build_dir/src/correct --method $method --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode $inFile nothing
+$build_dir/src/correct --method $method --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode --list $isList $inFile nothing
 mv output.root output_0.root
 
 #recentering
-$build_dir/src/correct --method $method --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode $inFile qn.root
+$build_dir/src/correct --method $method --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode --list $isList $inFile  qn.root
 mv output.root output_1.root
 
 # # #twist and rescale
-$build_dir/src/correct --method $method --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode $inFile qn.root
+$build_dir/src/correct --method $method --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode --list $isList $inFile qn.root
 mv output.root output_2.root
 
 #correlate q-vecors from desired correction step

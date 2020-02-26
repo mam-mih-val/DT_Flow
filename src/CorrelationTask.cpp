@@ -602,7 +602,7 @@ void CorrelationTask::ConfigureRnd(Qn::CorrelationManager &manager) {
   };
 
   manager.SetOutputFile("Correlations.root");
-  manager.AddEventVariable({"Centrality", 4, 0, 40});
+  manager.AddEventVariable({"Centrality", 8, 0, 40});
   manager.ConfigureResampling(Qn::Sampler::Method::BOOTSTRAP,
                               100); // BOOTSTRAP, SUBSAMPLING
 
@@ -747,7 +747,7 @@ void CorrelationTask::Configure3SubSp(Qn::CorrelationManager &manager) {
   };
 */
   manager.SetOutputFile("Correlations.root");
-  manager.AddEventVariable({"Centrality", 4, 0, 40});
+  manager.AddEventVariable({"Centrality", 8, 0, 40});
   manager.ConfigureResampling(Qn::Sampler::Method::BOOTSTRAP,
                               100); // BOOTSTRAP, SUBSAMPLING
 

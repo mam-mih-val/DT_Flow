@@ -8,13 +8,13 @@
 
 namespace Qn {
 
-CorrectionTask::CorrectionTask(std::string inFile, std::string incalib) :
+CorrectionTask::CorrectionTask(std::string inFile, std::string incalib, bool isList) :
 	out_file_(new TFile("output.root", "RECREATE")),
 	in_calibration_file_(new TFile(incalib.c_str(), "READ")),
 	out_calibration_file_(new TFile("qn.root", "RECREATE")),
 	fManager(),
 	write_tree_(true) ,
-	fVarManager(new DataTreeVarManager(inFile))
+	fVarManager(new DataTreeVarManager(inFile, isList))
 {
 	out_file_->cd();
 	out_tree_= new TTree("tree", "tree");

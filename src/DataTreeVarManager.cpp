@@ -1,9 +1,20 @@
 #include "DataTreeVarManager.h"
 
-DataTreeVarManager::DataTreeVarManager(std::string fileName)
+DataTreeVarManager::DataTreeVarManager(std::string fileName, bool isList)
     : fChain(new TChain("DataTree")), fEvent{new DataTreeEvent},
       fSelector(new Selector), fCentrality(new Centrality(fEvent)) {
-  fChain->Add(fileName.c_str());
+  if( !isList )
+    fChain->Add(fileName.c_str());
+  else{
+    std::stringstream list{fileName};
+    std::string file{};
+    if( !fileName.empty() ){
+      while(std::getline(list,file,',')){
+        fChain->Add( file.data() );
+        std::cout << file << " has been added to sequence" << std::endl;
+      }
+    }
+  }
   fChain->SetBranchAddress("DTEvent", &fEvent);
   fSelector->SetEventAddress(fEvent);
   std::cout << "Data Tree Var Manager Initialized. " << fChain->GetEntries()

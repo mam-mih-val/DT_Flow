@@ -26,7 +26,7 @@ namespace Qn {
  */
 class CorrectionTask {
 	public:
-	CorrectionTask(std::string filelist, std::string incalib);
+	CorrectionTask(std::string filelist, std::string incalib, bool isList=false);
 	~CorrectionTask() = default;
 	std::shared_ptr<Selector> GetSelector(){ return fVarManager->GetSelector(); }
 	void SetSelectorConfiguration(bool perChannel=false, std::string signal="adc", float min=80.0, float max=999.0, int=14);
