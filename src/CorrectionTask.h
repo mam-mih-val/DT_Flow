@@ -39,8 +39,9 @@ class CorrectionTask {
 	/**
 	 * Initializing function of Correction Task class. Makes configuration of Correction Manager.
 	 */
-	void InitializeFW3S();
-        void InitializeRND();
+	void InitializeFw3s();
+	void InitializeFw3x();
+        void InitializeRnd();
 	/**
 	 * Processes one event;
 	 */

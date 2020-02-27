@@ -13,7 +13,8 @@ class CorrelationTask {
   void Configure(Qn::CorrelationManager &manager);
   void ConfigureEp(Qn::CorrelationManager &manager);
   void ConfigureRnd(Qn::CorrelationManager &manager);
-  void Configure3SubSp(Qn::CorrelationManager &manager);
+  void ConfigureFw3s(Qn::CorrelationManager &manager);
+  void ConfigureFw3x(Qn::CorrelationManager &manager);
   void Run(std::string method="FW3S");
 
  private:
