@@ -236,16 +236,20 @@ void CorrectionTask::InitializeFw3x() {
   fManager.AddCut(
       "TracksMdc", {"Ycm", "Pid", "Pt"},
       [referencePid](const double &y, const double &pid, const double &pt) {
-        return -0.8 < y && y < 0.8 && pid == referencePid && 0.0 < pt &&
-               pt < 2.0;
+        return
+        -0.8 < y && y < 0.8
+        && pid == referencePid
+        && 0.0 < pt && pt < 2.0;
       });
   fManager.SetCorrectionSteps("TracksMdc", MdcConfiguration);
 
   fManager.AddDetector("MdcQ", DetectorType::TRACK, "Phi", "Ones", {ycm}, {2});
   fManager.AddCut("MdcQ", {"Ycm", "Pid", "Pt"},
                   [](const double &y, const double &pid, const double &pt) {
-                    return -0.8 < y && y < 0.8 && pid == 14 && 0.0 < pt &&
-                           pt < 2.0;
+                  return
+                    -0.8 < y && y < 0.8
+                    && pid == 14
+                    && 0.0 < pt && pt < 2.0;
                   });
   fManager.SetCorrectionSteps("MdcQ", MdcConfiguration);
 

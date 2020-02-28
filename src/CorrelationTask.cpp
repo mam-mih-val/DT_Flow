@@ -948,10 +948,10 @@ void CorrelationTask::ConfigureFw3x(Qn::CorrelationManager &manager) {
 
   manager.AddCorrelation("TracksMdc2_MdcQ2_XX_Sp", "TracksMdc, MdcQ", u2xQ2x);
   manager.SetRefQinCorrelation("TracksMdc2_MdcQ2_XX_Sp",
-                               {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+                               {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
   manager.AddCorrelation("TracksMdc2_MdcQ2_YY_Sp", "TracksMdc, MdcQ", u2yQ2y);
   manager.SetRefQinCorrelation("TracksMdc2_MdcQ2_YY_Sp",
-                               {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+                               {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
 
   Q3Se = {"Fw1", "Fw2", "Fw3"};
   std::string Q{ "MdcQ" };
@@ -963,26 +963,26 @@ void CorrelationTask::ConfigureFw3x(Qn::CorrelationManager &manager) {
       manager.AddCorrelation(Q + "_" + Q1 + "_" + Q2 + "_XXX_Sp",
                              Q + ", " + Q1 + ", " + Q2, QxQxQx);
       manager.SetRefQinCorrelation(Q + "_" + Q1 + "_" + Q2 + "_XXX_Sp",
-                                   {Qn::Weight::OBSERVABLE,
+                                   {Qn::Weight::REFERENCE,
                                     Qn::Weight::REFERENCE,
                                     Qn::Weight::REFERENCE});
       manager.AddCorrelation(Q + "_" + Q1 + "_" + Q2 + "_XYY_Sp",
                              Q + ", " + Q1 + ", " + Q2, QxQyQy);
       manager.SetRefQinCorrelation(Q + "_" + Q1 + "_" + Q2 + "_XYY_Sp",
-                                   {Qn::Weight::OBSERVABLE,
+                                   {Qn::Weight::REFERENCE,
                                     Qn::Weight::REFERENCE,
                                     Qn::Weight::REFERENCE});
 
       manager.AddCorrelation(Q + "_" + Q1 + "_" + Q2 + "_YYX_Sp",
                              Q + ", " + Q1 + ", " + Q2, QyQyQx);
       manager.SetRefQinCorrelation(Q + "_" + Q1 + "_" + Q2 + "_YYX_Sp",
-                                   {Qn::Weight::OBSERVABLE,
+                                   {Qn::Weight::REFERENCE,
                                     Qn::Weight::REFERENCE,
                                     Qn::Weight::REFERENCE});
       manager.AddCorrelation(Q + "_" + Q1 + "_" + Q2 + "_YXY_Sp",
                              Q + ", " + Q1 + ", " + Q2, QyQxQy);
       manager.SetRefQinCorrelation(Q + "_" + Q1 + "_" + Q2 + "_YXY_Sp",
-                                   {Qn::Weight::OBSERVABLE,
+                                   {Qn::Weight::REFERENCE,
                                     Qn::Weight::REFERENCE,
                                     Qn::Weight::REFERENCE});
     }
