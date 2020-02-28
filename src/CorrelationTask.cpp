@@ -948,10 +948,10 @@ void CorrelationTask::ConfigureFw3x(Qn::CorrelationManager &manager) {
 
   manager.AddCorrelation("TracksMdc2_MdcQ2_XX_Sp", "TracksMdc, MdcQ", u2xQ2x);
   manager.SetRefQinCorrelation("TracksMdc2_MdcQ2_XX_Sp",
-                               {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+                               {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
   manager.AddCorrelation("TracksMdc2_MdcQ2_YY_Sp", "TracksMdc, MdcQ", u2yQ2y);
   manager.SetRefQinCorrelation("TracksMdc2_MdcQ2_YY_Sp",
-                               {Qn::Weight::REFERENCE, Qn::Weight::REFERENCE});
+                               {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
 
   Q3Se = {"Fw1", "Fw2", "Fw3"};
   std::string Q{ "MdcQ" };
