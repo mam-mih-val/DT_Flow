@@ -231,8 +231,7 @@ void CorrectionTask::InitializeFw3x() {
   };
   auto referencePid = fParticlePid;
   // u-vectors from MDC
-  fManager.AddDetector("TracksMdc", DetectorType::TRACK, "Phi", "Ones",
-                       {ycm, pt}, {2});
+  fManager.AddDetector("TracksMdc", DetectorType::TRACK, "Phi", "Ones", {ycm, pt}, {2});
   fManager.AddCut(
       "TracksMdc", {"Ycm", "Pid", "Pt"},
       [referencePid](const double &y, const double &pid, const double &pt) {
