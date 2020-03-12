@@ -9,26 +9,11 @@
 #include "TLorentzVector.h"
 #include "TVector3.h"
 #include <TChain.h>
+#include <TH2F.h>
 
 #include "HADES_constants.h"
 
 class DataTreeVarManager {
-protected:
-  int fSignal = 0;
-  std::shared_ptr<TChain> fChain;
-  std::shared_ptr<Selector> fSelector;
-  DataTreeEvent *fEvent;
-  Centrality *fCentrality;
-  DataTreeVarManager() = default;
-  int fCurrentTrackIdx;
-  const double T = 1.23;  // AGeV
-  const double M = 0.938; // GeV
-  const double GAMMA = (T + M) / M;
-  const double BETA = sqrt(1 - (M * M) / (M + T) / (M + T));
-  const double PZ = M * BETA * GAMMA;
-  const double E = T + M;
-  const double Y_BEAM = 0.5 * log((E + PZ) / (E - PZ));
-
 public:
   enum Signals { kAdc = 0, kChargeZ, kNumOfSignals };
   enum Vars {
@@ -61,4 +46,20 @@ public:
     fSignal = signal;
   }
   std::shared_ptr<Selector> GetSelector() { return fSelector; }
+
+protected:
+  int fSignal = 0;
+  std::shared_ptr<TChain> fChain;
+  std::shared_ptr<Selector> fSelector;
+  DataTreeEvent *fEvent;
+  Centrality *fCentrality;
+  DataTreeVarManager() = default;
+  int fCurrentTrackIdx;
+  const double T = 1.23;  // AGeV
+  const double M = 0.938; // GeV
+  const double GAMMA = (T + M) / M;
+  const double BETA = sqrt(1 - (M * M) / (M + T) / (M + T));
+  const double PZ = M * BETA * GAMMA;
+  const double E = T + M;
+  const double Y_BEAM = 0.5 * log((E + PZ) / (E - PZ));
 };
