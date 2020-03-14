@@ -179,6 +179,7 @@ void CorrectionTask::InitializeFw3x() {
   fManager.AddVariable("Phi", DataTreeVarManager::kMdcPhi, 1);
   fManager.AddVariable("Ycm", DataTreeVarManager::kMdcYcm, 1);
   fManager.AddVariable("Pid", DataTreeVarManager::kMdcPid, 1);
+  fManager.AddVariable("Eff", DataTreeVarManager::kMdcEfficiency, 1);
   fManager.AddVariable("FwRing", DataTreeVarManager::kFwModuleRing, 304);
   fManager.AddVariable("FwModuleId", DataTreeVarManager::kFwModuleId, 304);
   fManager.AddVariable("FwAdc", DataTreeVarManager::kFwModuleAdc, 304);
@@ -255,6 +256,7 @@ void CorrectionTask::InitializeFw3x() {
   // 3 sub-events method.
   // Each detector builds own Q-vector, which means, you need to add required
   // count of detectors and then configurate their cuts.
+
   fManager.AddDetector("Fw1", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
   fManager.AddCut("Fw1", {"FwRing"}, [](const double &module) {
     return module >= 1.0 && module <= 5.0;
@@ -298,6 +300,7 @@ void CorrectionTask::InitializeRnd() {
   fManager.AddVariable("Phi", DataTreeVarManager::kMdcPhi, 1);
   fManager.AddVariable("Ycm", DataTreeVarManager::kMdcYcm, 1);
   fManager.AddVariable("Pid", DataTreeVarManager::kMdcPid, 1);
+  fManager.AddVariable("Eff", DataTreeVarManager::kMdcEfficiency, 1);
   fManager.AddVariable("FwRing", DataTreeVarManager::kFwModuleRing, 304);
   fManager.AddVariable("FwModuleId", DataTreeVarManager::kFwModuleId, 304);
   fManager.AddVariable("FwAdc", DataTreeVarManager::kFwModuleAdc, 304);

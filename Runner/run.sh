@@ -69,6 +69,8 @@ mv output.root output_1.root
 $build_dir/src/correct --method $method --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode --list $isList $inFile qn.root
 mv output.root output_2.root
 
+$build_dir/src/occupancy --pid $pidCode --trigger $trigger $inFile output_2.root
+
 #correlate q-vecors from desired correction step
 ls output_1.root >list
 $build_dir/src/correlate --method $method output_2.root

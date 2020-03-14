@@ -23,6 +23,7 @@ public:
     kMdcYcm,
     kMdcPhi,
     kMdcPid,
+    kMdcEfficiency,
     kFwModuleRing,                     // 1
     kFwModuleId = kFwModuleRing + 304, // 2
     kFwModuleAdc = kFwModuleId + 304,  // 3

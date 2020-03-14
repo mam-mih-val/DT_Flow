@@ -36,11 +36,11 @@ mv output.root output_1.root
 $build_dir/src/correct --method $method --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode --list 1 $input_files qn.root
 mv output.root output_2.root
 
+$build_dir/src/correct --pid $pidCode --trigger $trigger $input_files output_2.root
+
 #correlate q-vecors from desired correction step
 echo Correlation step
 echo
-ls output_1.root > list
-$build_dir/src/correlate --method $method output_1.root
-root -l -q -b "PrimaryQa.cpp(\"output_${nSteps}.root\")"
+$build_dir/src/correlate --method $method output_2.root
 echo JOB FINISHED!
 date $format

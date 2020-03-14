@@ -8,69 +8,91 @@
 #include "Centrality.h"
 #include "DataTreeEvent.h"
 #include "Selector.h"
+#include <DataContainer.h>
 #include <QVector.h>
 #include <TChain.h>
 #include <TFile.h>
 #include <TH2F.h>
+#include <TProfile2D.h>
 #include <memory>
 #include <utility>
 
 class OccupancyCorrections {
 public:
-  explicit OccupancyCorrections(const std::string& file_name_data, bool is_list, std::string file_name_qn) :
+  explicit OccupancyCorrections(const std::string& file_name_data, std::string file_name_qn) :
   chain_data_(new TChain("DataTree")),
   chain_qn_( new TChain("tree") ),
-  event_{new DataTreeEvent},
+  event_(new DataTreeEvent),
+  q_vector_(new Qn::DataContainer<Qn::QVector>),
   selector_(event_),
   centrality_(event_){
     chain_qn_->Add( file_name_qn.data() );
-    if( !is_list)
-      chain_data_->Add(file_name_data.c_str());
-    else{
-      std::stringstream list{file_name_data};
-      std::string file{};
-      if( !file_name_data.empty() ){
-        while(std::getline(list,file,',')){
-          chain_data_->Add( file.data() );
-          std::cout << file << " has been added to sequence" << std::endl;
-        }
+    std::cout << file_name_qn << " has been read" << std::endl;
+    std::stringstream list{file_name_data};
+    std::string file{};
+    if( !file_name_data.empty() ){
+      while(std::getline(list,file,',')){
+        chain_data_->Add( file.data() );
+        std::cout << file << " has been added to sequence" << std::endl;
       }
     }
     chain_data_->SetBranchAddress("DTEvent", &event_);
     chain_qn_->SetBranchAddress("Fw1", &q_vector_);
     for( size_t i=0; i<20; i++ ){
       std::string histo_name{ "occupancy_map_"+std::to_string(5.0*i+2.5) };
-      std::string histo_title{ "#delata#phi;#eta" };
+      std::string histo_title{ ";#Delta#phi;#Theta" };
       occupancy_maps_.insert( std::make_pair( 5.0*i+2.5, new TH2F( histo_name.data(), histo_title.data(), 315, -3.15, 3.15, 170, 0, 1.7 ) ) );
     }
-    std::cout << "Data Tree Var Manager Initialized. " << chain_data_->GetEntries()
+    std::cout << chain_data_->GetEntries()
               << " events were found." << std::endl;
+    std::cout << chain_qn_->GetEntries()
+              << " qvectors were found." << std::endl;
   }
   void ProcessEvent(){
-    float psi = atan2(q_vector_->y(1), q_vector_->x(1));
+    float psi = atan2(q_vector_->At(0).y(1), q_vector_->At(0).x(1));
     size_t n_tracks = event_->GetNVertexTracks();
     for( size_t idx=0; idx<n_tracks; idx++  ){
       if( !selector_.IsCorrectTrack(idx) )
         continue;
+      if( event_->GetVertexTrack(idx)->GetPdgId() != pid_code_ )
+        continue;
       auto p = event_->GetVertexTrack(idx)->GetMomentum();
-      occupancy_maps_.at( centrality_.GetCentrality() )->Fill( p.Phi(), p.Eta() );
+      occupancy_maps_.at( centrality_.GetCentrality() )->Fill( p.Phi()-psi, p.Theta() );
+//      occupancy_maps_.at( 2.5 )->Fill( p.Phi()-psi, p.Theta(), 1.0/n_tracks );
     }
   }
   void Run(){
     size_t n_events = chain_data_->GetEntries();
+    size_t n_qvectors = chain_qn_->GetEntries();
+    size_t j=0;
     for( size_t i=0; i<n_events; i++ ){
       chain_data_->GetEntry(i);
-      chain_qn_->GetEntry(i);
       if( !selector_.IsCorrectEvent() )
         continue;
+      chain_qn_->GetEntry(j);
       ProcessEvent();
+      j++;
+    }
+    std::shared_ptr<TFile> file{ TFile::Open( "pavel.root", "recreate" ) };
+    WriteToFile(file);
+    file->Close();
+  }
+  void WriteToFile( std::shared_ptr<TFile> file ){
+    file->cd();
+    for( auto occupancy_map : occupancy_maps_ ){
+      occupancy_map.second->Scale(1./chain_qn_->GetEntries());
+      occupancy_map.second->Write();
     }
   }
+  Selector &GetSelector() { return selector_; }
+  void SetPidCode(unsigned short pid_code) { pid_code_ = pid_code; }
+
 private:
+  unsigned short pid_code_{14};
   std::map<float, TH2F*> occupancy_maps_;
   std::shared_ptr<TChain> chain_data_;
   std::shared_ptr<TChain> chain_qn_;
-  Qn::QVector* q_vector_;
+  Qn::DataContainer<Qn::QVector>* q_vector_;
   DataTreeEvent* event_;
   Selector selector_;
   Centrality centrality_;

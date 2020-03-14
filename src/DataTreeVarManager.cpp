@@ -63,4 +63,5 @@ void DataTreeVarManager::FillTrackVariables(int idx, double *varContainer) {
   varContainer[kMdcYcm] = p.Rapidity() - Y_BEAM / 2;
   varContainer[kMdcPhi] = p.Phi();
   varContainer[kMdcPid] = fEvent->GetVertexTrack(idx)->GetPdgId();
+  varContainer[kMdcEfficiency] = 1;
 }
