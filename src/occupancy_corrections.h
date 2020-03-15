@@ -63,9 +63,8 @@ public:
         std::cout << e.what() << std::endl;
         std::cout << "Centrality is not correct:" << std::endl;
         std::cout << "Centrality: " << centrality_.GetCentrality() << "%" << std::endl;
+        return;
       }
-
-//      occupancy_maps_.at( 2.5 )->Fill( p.Phi()-psi, p.Theta(), 1.0/n_tracks );
     }
   }
   void Run(){
@@ -86,10 +85,8 @@ public:
   }
   void WriteToFile( std::shared_ptr<TFile> file ){
     file->cd();
-    for( auto occupancy_map : occupancy_maps_ ){
-      occupancy_map.second->Scale(1./chain_qn_->GetEntries());
+    for( auto occupancy_map : occupancy_maps_ )
       occupancy_map.second->Write();
-    }
   }
   Selector &GetSelector() { return selector_; }
   void SetPidCode(unsigned short pid_code) { pid_code_ = pid_code; }
