@@ -25,6 +25,8 @@ void CorrectionTask::Run(std::string method) {
     InitializeFw3x();
   if (method == "RND")
     InitializeRnd();
+  if (method == "FULL")
+    InitializeFull();
   QnCorrectionsSetTracingLevel(kError);
   std::cout << "Processing..." << std::endl;
   int numEvents = fVarManager->GetNumberOfEvents();
@@ -52,6 +54,56 @@ void CorrectionTask::SetSelectorConfiguration(bool perChannel,
   fVarManager->GetSelector()->SetFwChannelSelection(perChannel);
   fVarManager->GetSelector()->SetFwSignalRange(min, max);
   fParticlePid = (double)pid;
+}
+
+void CorrectionTask::InitializeFull(){
+  fManager.AddVariable("Centrality", DataTreeVarManager::kCentrality, 1);
+  fManager.AddVariable("One", DataTreeVarManager::kOne, 1);
+  fManager.AddVariable("FwRing", DataTreeVarManager::kFwModuleRing, 304);
+  fManager.AddVariable("FwModuleId", DataTreeVarManager::kFwModuleId, 304);
+  fManager.AddVariable("FwAdc", DataTreeVarManager::kFwModuleAdc, 304);
+  fManager.AddVariable("FwPhi", DataTreeVarManager::kFwModulePhi, 304);
+  fManager.AddVariable("moduleX", DataTreeVarManager::kFwModuleX, 304);
+  fManager.AddVariable("moduleY", DataTreeVarManager::kFwModuleY, 304);
+  std::cout << "Variables added" << std::endl;
+  // Correction eventvariables
+
+  fManager.SetEventVariable("Centrality");
+  fManager.AddCorrectionAxis({"Centrality", 20, 0, 100});
+
+  auto FwConfiguration = [](DetectorConfiguration *config) {
+    config->SetNormalization(QVector::Normalization::M);
+    auto recenter = new Recentering();
+    config->AddCorrectionOnQnVector(recenter);
+    auto rescale = new TwistAndRescale();
+    rescale->SetApplyTwist(true);
+    rescale->SetApplyRescale(true);
+    rescale->SetTwistAndRescaleMethod(
+        TwistAndRescale::TWRESCALE_doubleHarmonic);
+    //          config->AddCorrectionOnQnVector(rescale);
+    auto fwChannels = new bool[304];
+    auto fwChannelGroups = new int[304];
+    for (int i = 0; i < 304; i++) {
+      fwChannels[i] = true;
+      fwChannelGroups[i] = i;
+    }
+    config->SetChannelsScheme(fwChannels, fwChannelGroups);
+  };
+  auto referencePid = fParticlePid;
+
+  fManager.AddDetector("Full", DetectorType::CHANNEL, "FwPhi", "FwAdc", {},
+                       {1});
+  fManager.AddCut("Full", {"FwAdc"},
+                  [](const double &adc) { return adc > 0.0; });
+  fManager.SetCorrectionSteps("Full", FwConfiguration);
+
+  fManager.AddHisto2D(
+      "Full", {{"moduleX", 50, -1000., 1000.}, {"moduleY", 50, -1000., 1000.}});
+
+  fManager.AddEventHisto1D({{"Centrality", 20, 0, 100}});
+  fManager.SetTree(out_tree_);
+  fManager.Initialize(in_calibration_file_);
+  std::cout << "Successfully initialized" << std::endl;
 }
 
 void CorrectionTask::InitializeFw3s() {

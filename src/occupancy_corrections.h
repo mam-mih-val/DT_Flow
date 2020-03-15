@@ -37,7 +37,7 @@ public:
       }
     }
     chain_data_->SetBranchAddress("DTEvent", &event_);
-    chain_qn_->SetBranchAddress("Fw1", &q_vector_);
+    chain_qn_->SetBranchAddress("Full", &q_vector_);
     for( size_t i=0; i<20; i++ ){
       std::string histo_name{ "occupancy_map_"+std::to_string(5.0*i+2.5) };
       std::string histo_title{ ";#Delta#phi;#Theta" };

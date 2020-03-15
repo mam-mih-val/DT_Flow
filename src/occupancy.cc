@@ -6,6 +6,7 @@
 #include <cstdlib>
 #include <iostream>
 int main(int n_args, char **args){
+  auto start = std::chrono::system_clock::now();
   std::string trigger = "PT3";
   unsigned short pid = 14;
   if (n_args > 4) {
@@ -29,5 +30,8 @@ int main(int n_args, char **args){
   occupancy.GetSelector().SetTrigger(trigger);
   occupancy.SetPidCode(pid);
   occupancy.Run();
+  auto end = std::chrono::system_clock::now();
+  std::chrono::duration<double> elapsed_seconds = end - start;
+  std::cout << "elapsed time: " << elapsed_seconds.count() << " s\n";
   return 0;
 }
