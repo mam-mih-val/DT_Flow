@@ -57,7 +57,14 @@ public:
       if( event_->GetVertexTrack(idx)->GetPdgId() != pid_code_ )
         continue;
       auto p = event_->GetVertexTrack(idx)->GetMomentum();
-      occupancy_maps_.at( centrality_.GetCentrality() )->Fill( p.Phi()-psi, p.Theta() );
+      try {
+        occupancy_maps_.at( (float) centrality_.GetCentrality() )->Fill( p.Phi()-psi, p.Theta() );
+      } catch (const std::exception &e) {
+        std::cout << e.what() << std::endl;
+        std::cout << "Centrality is not correct:" << std::endl;
+        std::cout << "Centrality: " << centrality_.GetCentrality() << "%" << std::endl;
+      }
+
 //      occupancy_maps_.at( 2.5 )->Fill( p.Phi()-psi, p.Theta(), 1.0/n_tracks );
     }
   }
@@ -65,7 +72,7 @@ public:
     size_t n_events = chain_data_->GetEntries();
     size_t n_qvectors = chain_qn_->GetEntries();
     size_t j=0;
-    for( size_t i=0; i<n_events; i++ ){
+    for( size_t i=0; i<n_events && j<n_qvectors; i++ ){
       chain_data_->GetEntry(i);
       if( !selector_.IsCorrectEvent() )
         continue;
