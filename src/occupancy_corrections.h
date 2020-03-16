@@ -25,7 +25,8 @@ public:
   event_(new DataTreeEvent),
   q_vector_(new Qn::DataContainer<Qn::QVector>),
   selector_(event_),
-  centrality_(event_){
+  centrality_(event_),
+  ep_histo_(new TH1F("psi_ep", ";#Psi^{EP};counts", 315, -3.15, 3.15)){
     chain_qn_->Add( file_name_qn.data() );
     std::cout << file_name_qn << " has been read" << std::endl;
     std::stringstream list{file_name_data};
@@ -49,7 +50,8 @@ public:
               << " qvectors were found." << std::endl;
   }
   void ProcessEvent(){
-    float psi = atan2(q_vector_->At(0).y(1), q_vector_->At(0).x(1));
+    float psi = atan2f(q_vector_->At(0).y(1), q_vector_->At(0).x(1));
+    ep_histo_->Fill(psi);
     size_t n_tracks = event_->GetNVertexTracks();
     for( size_t idx=0; idx<n_tracks; idx++  ){
       if( !selector_.IsCorrectTrack(idx) )
@@ -85,6 +87,7 @@ public:
   }
   void WriteToFile( std::shared_ptr<TFile> file ){
     file->cd();
+    ep_histo_->Write();
     for( auto occupancy_map : occupancy_maps_ )
       occupancy_map.second->Write();
   }
@@ -94,6 +97,7 @@ public:
 private:
   unsigned short pid_code_{14};
   std::map<float, TH2F*> occupancy_maps_;
+  std::shared_ptr<TH1F> ep_histo_;
   std::shared_ptr<TChain> chain_data_;
   std::shared_ptr<TChain> chain_qn_;
   Qn::DataContainer<Qn::QVector>* q_vector_;
