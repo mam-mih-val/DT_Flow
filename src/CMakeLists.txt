@@ -17,6 +17,6 @@ add_executable(correlate Correlate.cpp CorrelationTask.cpp)
 target_include_directories(correlate PRIVATE ${ROOT_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries(correlate QnCorrections Base Correlation ${ROOT_LIBRARIES})
 
-add_executable(occupancy occupancy.cc occupancy_corrections.cc Selector.cpp Centrality.cxx)
+add_executable(occupancy occupancy.cc TrackDensity.cc Selector.cpp Centrality.cxx)
 target_include_directories(occupancy PRIVATE ${ROOT_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR} ${DATATREE_HOME})
 target_link_libraries(occupancy QnCorrections Base Correlation DataTree ${ROOT_LIBRARIES})

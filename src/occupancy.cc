@@ -2,7 +2,7 @@
 // Created by mikhail on 3/12/20.
 //
 
-#include "occupancy_corrections.h"
+#include "TrackDensity.h"
 #include <cstdlib>
 #include <iostream>
 int main(int n_args, char **args){
@@ -26,7 +26,7 @@ int main(int n_args, char **args){
   std::cout << "pid code:\t" << pid << std::endl;
   std::cout << "trigger:\t" << trigger << std::endl;
 
-  OccupancyCorrections occupancy( args[n_args - 2], args[n_args - 1] );
+  TrackDensity occupancy( args[n_args - 2], args[n_args - 1] );
   occupancy.GetSelector().SetTrigger(trigger);
   occupancy.SetPidCode(pid);
   occupancy.Run();
