@@ -65,8 +65,8 @@ public:
         if (event_->GetVertexTrack(idx)->GetPdgId() != pid_code_)
           continue;
         auto p = event_->GetVertexTrack(idx)->GetMomentum();
-
-        occupancy_maps_.at((float)centrality_.GetCentrality())
+        if( -0.05 < p.Rapidity()-Y_BEAM && p.Rapidity()-Y_BEAM < 0.05 )
+          occupancy_maps_.at((float)centrality_.GetCentrality())
             ->Fill(p.Phi() - psi, p.Theta());
       }
     } catch (const std::exception &e) {
@@ -113,6 +113,14 @@ private:
   DataTreeEvent *event_;
   Selector selector_;
   Centrality centrality_;
+
+  const double T = 1.23;  // AGeV
+  const double M = 0.938; // GeV
+  const double GAMMA = (T + M) / M;
+  const double BETA = sqrt(1 - (M * M) / (M + T) / (M + T));
+  const double PZ = M * BETA * GAMMA;
+  const double E = T + M;
+  const double Y_BEAM = 0.5 * log((E + PZ) / (E - PZ));
 };
 
 #endif // FLOW_SRC_TRACKDENSITY_H_
