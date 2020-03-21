@@ -36,7 +36,7 @@ public:
       }
     }
     chain_data_->SetBranchAddress("DTEvent", &event_);
-    chain_qn_->SetBranchAddress("Full", &q_vector_);
+    chain_qn_->SetBranchAddress("Fw1", &q_vector_);
     for (short i = 0; i < 20; i++) {
       std::string histo_name{"occupancy_map_" + std::to_string(5.0 * i + 2.5)};
       std::string histo_title{";#Delta#phi;#Theta"};
@@ -62,11 +62,12 @@ public:
       for (size_t idx = 0; idx < n_tracks; idx++) {
         if (!selector_.IsCorrectTrack(idx))
           continue;
-//        if (event_->GetVertexTrack(idx)->GetPdgId() != pid_code_)
-//          continue;
+        if (event_->GetVertexTrack(idx)->GetPdgId() != pid_code_)
+          continue;
         auto p = event_->GetVertexTrack(idx)->GetMomentum();
-//        if( -0.05 < p.Rapidity()-Y_BEAM && p.Rapidity()-Y_BEAM < 0.05 )
-        occupancy_maps_.at((float)centrality_.GetCentrality())
+        float rapidity = p.Rapidity()-Y_BEAM/2;
+        if( -0.05 < rapidity && rapidity < 0.05 )
+          occupancy_maps_.at((float)centrality_.GetCentrality())
             ->Fill(p.Phi() - psi, p.Theta());
       }
     } catch (const std::exception &e) {
