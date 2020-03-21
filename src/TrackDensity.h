@@ -65,10 +65,8 @@ public:
         if (event_->GetVertexTrack(idx)->GetPdgId() != pid_code_)
           continue;
         auto p = event_->GetVertexTrack(idx)->GetMomentum();
-        float rapidity = p.Rapidity()-Y_BEAM/2;
-        if( -0.05 < rapidity && rapidity < 0.05 )
-          occupancy_maps_.at((float)centrality_.GetCentrality())
-            ->Fill(p.Phi() - psi, p.Theta());
+        if( -0.05 < p.Rapidity()-Y_BEAM/2 && p.Rapidity()-Y_BEAM/2 < 0.05 )
+          occupancy_maps_.at((float)centrality_.GetCentrality())->Fill(p.Phi() - psi, p.Theta());
       }
     } catch (const std::exception &e) {
       std::cout << e.what() << std::endl;
