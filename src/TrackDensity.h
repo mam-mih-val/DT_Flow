@@ -62,11 +62,11 @@ public:
       for (size_t idx = 0; idx < n_tracks; idx++) {
         if (!selector_.IsCorrectTrack(idx))
           continue;
-        if (event_->GetVertexTrack(idx)->GetPdgId() != pid_code_)
-          continue;
+//        if (event_->GetVertexTrack(idx)->GetPdgId() != pid_code_)
+//          continue;
         auto p = event_->GetVertexTrack(idx)->GetMomentum();
-        if( -0.05 < p.Rapidity()-Y_BEAM && p.Rapidity()-Y_BEAM < 0.05 )
-          occupancy_maps_.at((float)centrality_.GetCentrality())
+//        if( -0.05 < p.Rapidity()-Y_BEAM && p.Rapidity()-Y_BEAM < 0.05 )
+        occupancy_maps_.at((float)centrality_.GetCentrality())
             ->Fill(p.Phi() - psi, p.Theta());
       }
     } catch (const std::exception &e) {
