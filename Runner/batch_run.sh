@@ -16,6 +16,7 @@ cp PrimaryQa.cpp $output_dir
 cp efficiency.root $output_dir
 cd $output_dir
 mkdir -p $job_num
+cp efficiency.root $job_num
 cd $job_num
 
 echo "loading " $basic_root
