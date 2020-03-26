@@ -20,3 +20,15 @@ target_link_libraries(correlate QnCorrections Base Correlation ${ROOT_LIBRARIES}
 add_executable(occupancy occupancy.cc TrackDensity.cc Selector.cpp Centrality.cxx)
 target_include_directories(occupancy PRIVATE ${ROOT_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR} ${DATATREE_HOME})
 target_link_libraries(occupancy QnCorrections Base Correlation DataTree ${ROOT_LIBRARIES})
+
+add_executable(efficiency CalculateEfficiency.cc efficiency_builder.cc)
+target_include_directories(efficiency PRIVATE ${ROOT_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(efficiency ${ROOT_LIBRARIES})
+
+add_executable(average averager.h BuildAverage.cc efficiency.h)
+target_include_directories(average PRIVATE ${ROOT_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(average ${ROOT_LIBRARIES})
+
+add_executable(optimize optimization.cc efficiency_builder.h efficiency.h averager.h)
+target_include_directories(optimize PRIVATE ${ROOT_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(optimize ${ROOT_LIBRARIES})
