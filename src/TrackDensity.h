@@ -40,14 +40,10 @@ public:
     for (short i = 0; i < 20; i++) {
       std::string histo_name{"occupancy_map_" + std::to_string(5.0 * i + 2.5)};
       std::string histo_title{";#Delta#phi;#Theta"};
-      occupancy_maps_.insert(std::make_pair(
-          5.0 * i + 2.5, new TH2F(histo_name.data(), histo_title.data(), 315,
-                                  -3.15, 3.15, 85, 0, 1.7)));
+      occupancy_maps_.emplace_back(histo_name.data(), histo_title.data(), 315,-3.15, 3.15, 85, 0, 1.7);
       histo_name = "ep_" + std::to_string(5.0 * i + 2.5);
       histo_title = ";#Psi^{EP};counts";
-      ep_maps_.insert(std::make_pair(
-          5.0 * i + 2.5,
-          new TH1F(histo_name.data(), histo_title.data(), 315, -3.15, 3.15)));
+      ep_maps_.emplace_back(histo_name.data(), histo_title.data(), 315, -3.15, 3.15);
     }
     std::cout << chain_data_->GetEntries() << " events were found."
               << std::endl;
@@ -57,18 +53,24 @@ public:
   void ProcessEvent() {
     float psi = atan2f(q_vector_->At(0).y(1), q_vector_->At(0).x(1));
     try {
-      ep_maps_.at((float)centrality_.GetCentrality())->Fill(psi);
+      ep_maps_.at(centrality_.GetCentralityClass()).Fill(psi);
       size_t n_tracks = event_->GetNVertexTracks();
       for (size_t idx = 0; idx < n_tracks; idx++) {
         if (!selector_.IsCorrectTrack(idx))
           continue;
-        if (event_->GetVertexTrack(idx)->GetPdgId() != pid_code_)
-          continue;
+//        if (event_->GetVertexTrack(idx)->GetPdgId() != pid_code_)
+//          continue;
         auto p = event_->GetVertexTrack(idx)->GetMomentum();
-        if( ( (-0.25 < p.Rapidity()-Y_BEAM/2 && p.Rapidity() -Y_BEAM/2 < -0.15) ||
-              (0.15 < p.Rapidity()-Y_BEAM/2 && p.Rapidity()-Y_BEAM/2 < 0.25) ) &&
-              0.2 < p.Pt() && p.Pt() < 0.3 )
-          occupancy_maps_.at((float)centrality_.GetCentrality())->Fill(p.Phi() - psi, p.Theta());
+        float d_phi = p.Phi()-psi;
+//        if( ( (-0.25 < p.Rapidity()-Y_BEAM/2 && p.Rapidity() -Y_BEAM/2 < -0.15) ||
+//              (0.15 < p.Rapidity()-Y_BEAM/2 && p.Rapidity()-Y_BEAM/2 < 0.25) ) &&
+//              0.2 < p.Pt() && p.Pt() < 0.3 )
+        if( -TMath::Pi() <= d_phi && d_phi <= TMath::Pi() )
+          occupancy_maps_.at(centrality_.GetCentralityClass()).Fill(d_phi, p.Theta());
+        if( d_phi < -TMath::Pi() )
+          occupancy_maps_.at(centrality_.GetCentralityClass()).Fill(d_phi+2*TMath::Pi(), p.Theta());
+        if( d_phi > TMath::Pi() )
+          occupancy_maps_.at(centrality_.GetCentralityClass()).Fill(d_phi-2*TMath::Pi(), p.Theta());
       }
     } catch (const std::exception &e) {
       std::cout << e.what() << std::endl;
@@ -97,17 +99,17 @@ public:
   void WriteToFile(std::shared_ptr<TFile> file) {
     file->cd();
     for (auto ep_map : ep_maps_)
-      ep_map.second->Write();
+      ep_map.Write();
     for (auto occupancy_map : occupancy_maps_)
-      occupancy_map.second->Write();
+      occupancy_map.Write();
   }
   Selector &GetSelector() { return selector_; }
   void SetPidCode(unsigned short pid_code) { pid_code_ = pid_code; }
 
 private:
   unsigned short pid_code_{14};
-  std::map<float, TH2F *> occupancy_maps_;
-  std::map<float, TH1F *> ep_maps_;
+  std::vector<TH2F> occupancy_maps_;
+  std::vector<TH1F> ep_maps_;
   std::shared_ptr<TChain> chain_data_;
   std::shared_ptr<TChain> chain_qn_;
   Qn::DataContainer<Qn::QVector> *q_vector_;
