@@ -18,15 +18,15 @@ public:
     LoadCentralityPercentile();
   }
   ~Centrality() = default;;
-  float	GetCentralityClass(){
+  int GetCentralityClass(){
     auto TOFRPChits = event_->GetCentralityEstimator(HADES_constants::kNhitsTOF_RPC_cut);
     auto bin = centrality_percentile_->FindBin(TOFRPChits);
-    return centrality_percentile_->GetBinContent(bin);
+    return static_cast<int>(centrality_percentile_->GetBinContent(bin) - 1);
   };
   float GetCentrality(){
     auto TOFRPChits = event_->GetCentralityEstimator(HADES_constants::kNhitsTOF_RPC_cut);
     auto bin = centrality_percentile_->FindBin(TOFRPChits);
-    return 5.0*centrality_percentile_->GetBinContent(bin)-2.5;
+    return 5.0*GetCentralityClass()+2.5;
   }
   int	GetNumClasses(){
     return centrality_percentile_->GetNbinsX()-1;

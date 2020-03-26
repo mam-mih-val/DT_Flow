@@ -37,13 +37,15 @@ public:
     }
     chain_data_->SetBranchAddress("DTEvent", &event_);
     chain_qn_->SetBranchAddress("Full", &q_vector_);
-    for (short i = 0; i < 20; i++) {
-      std::string histo_name{"occupancy_map_" + std::to_string(5.0 * i + 2.5)};
+    float p=2.5;
+    while(p<100.0) {
+      std::string histo_name{"occupancy_map_" + std::to_string(p)};
       std::string histo_title{";#Delta#phi;#Theta"};
       occupancy_maps_.emplace_back(histo_name.data(), histo_title.data(), 315,-3.15, 3.15, 85, 0, 1.7);
-      histo_name = "ep_" + std::to_string(5.0 * i + 2.5);
+      histo_name = "ep_" + std::to_string(p);
       histo_title = ";#Psi^{EP};counts";
       ep_maps_.emplace_back(histo_name.data(), histo_title.data(), 315, -3.15, 3.15);
+      p+=5.0;
     }
     std::cout << chain_data_->GetEntries() << " events were found."
               << std::endl;
@@ -66,11 +68,11 @@ public:
 //              (0.15 < p.Rapidity()-Y_BEAM/2 && p.Rapidity()-Y_BEAM/2 < 0.25) ) &&
 //              0.2 < p.Pt() && p.Pt() < 0.3 )
         if( -TMath::Pi() <= d_phi && d_phi <= TMath::Pi() )
-          occupancy_maps_.at(centrality_.GetCentralityClass()).Fill(d_phi, p.Theta());
+          occupancy_maps_.at(centrality_.GetCentralityClass() ).Fill(d_phi, p.Theta());
         if( d_phi < -TMath::Pi() )
-          occupancy_maps_.at(centrality_.GetCentralityClass()).Fill(d_phi+2*TMath::Pi(), p.Theta());
+          occupancy_maps_.at(centrality_.GetCentralityClass() ).Fill(d_phi+2*TMath::Pi(), p.Theta());
         if( d_phi > TMath::Pi() )
-          occupancy_maps_.at(centrality_.GetCentralityClass()).Fill(d_phi-2*TMath::Pi(), p.Theta());
+          occupancy_maps_.at(centrality_.GetCentralityClass() ).Fill(d_phi-2*TMath::Pi(), p.Theta());
       }
     } catch (const std::exception &e) {
       std::cout << e.what() << std::endl;
