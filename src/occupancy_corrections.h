@@ -23,8 +23,13 @@ public:
     qn_chain_.GetEntry(idx);
   }
   float GetEfficiency(int c_bin, float phi, float theta){
-    float psi = atan2f(q_vector_->At(0).y(1), q_vector_->At(0).x(1));
-    return efficiency_.GetEfficiency( c_bin, phi-psi, theta );
+    try {
+      float psi = atan2f(q_vector_->At(0).y(1), q_vector_->At(0).x(1));
+      return efficiency_.GetEfficiency( c_bin, phi-psi, theta );
+    }catch (const std::exception &e) {
+      std::cout << e.what() << std::endl;
+      return 0.98;
+    }
   }
 private:
   Efficiency efficiency_;

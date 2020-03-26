@@ -44,8 +44,6 @@ mv output.root output_1.root
 $build_dir/src/correct --method $method --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode $input_files qn.root
 mv output.root output_2.root
 
-$build_dir/src/occupancy --pid $pidCode --trigger $trigger $input_files output_2.root
-
 #correlate q-vecors from desired correction step
 echo Correlation step
 echo

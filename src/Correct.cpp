@@ -70,7 +70,7 @@ int main(int argc, char **argv) {
   std::cout << "trigger:\t" << trigger << std::endl;
   std::cout << "file list:\t" << isList << std::endl;
 
-  Qn::CorrectionTask task(argv[argc - 2], argv[argc - 1], isList);
+  Qn::CorrectionTask task(argv[argc - 2], argv[argc - 1]);
   task.GetSelector()->SetFwChannelSelection(channelSelection);
   task.GetSelector()->SetFwSignalType(signal);
   task.GetSelector()->SetFwSignalRange(minSignal, maxSignal);

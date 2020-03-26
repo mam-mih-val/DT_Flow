@@ -34,7 +34,7 @@ public:
     kFwModuleY = kFwModuleX + 304,
     kNumberOfVars = kFwModuleY + 304 // 5
   };
-  DataTreeVarManager(std::string fileName, bool isList=false);
+  DataTreeVarManager(std::string fileName);
   ~DataTreeVarManager() = default;
   DataTreeEvent *Event() { return fEvent; }
   void FillEventVariables(double *varContainer);

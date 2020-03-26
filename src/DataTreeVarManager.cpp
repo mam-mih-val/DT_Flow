@@ -1,6 +1,6 @@
 #include "DataTreeVarManager.h"
 
-DataTreeVarManager::DataTreeVarManager(std::string fileName, bool isList)
+DataTreeVarManager::DataTreeVarManager(std::string fileName)
     : fChain(new TChain("DataTree")), fEvent{new DataTreeEvent},
       fSelector(new Selector), fCentrality(new Centrality(fEvent)),
       corrections_( "full_1.root", "efficiency.root" ){
