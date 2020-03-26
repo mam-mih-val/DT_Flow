@@ -12,6 +12,7 @@
 #include <TH2F.h>
 
 #include "HADES_constants.h"
+#include "occupancy_corrections.h"
 
 class DataTreeVarManager {
 public:
@@ -42,7 +43,7 @@ public:
   int GetNumberOfTracks() { return fEvent->GetNVertexTracks(); }
   bool IsGoodEvent() { return fSelector->IsCorrectEvent(); }
   bool IsGoodTrack(int idx) { return fSelector->IsCorrectTrack(idx); }
-  void SwitchEvent(int idx) { fChain->GetEntry(idx); }
+  void SwitchEvent(int idx) { fChain->GetEntry(idx); corrections_.SwitchEvent(idx); }
   void SetSignal(int signal = DataTreeVarManager::Signals::kAdc) {
     fSignal = signal;
   }
@@ -54,6 +55,7 @@ protected:
   std::shared_ptr<Selector> fSelector;
   DataTreeEvent *fEvent;
   Centrality *fCentrality;
+  OccupancyCorrections corrections_;
   DataTreeVarManager() = default;
   int fCurrentTrackIdx;
   const double T = 1.23;  // AGeV

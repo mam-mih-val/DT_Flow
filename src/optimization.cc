@@ -43,6 +43,8 @@ int main(int n_args, char** args){
     }
     x -= (n_inn+1)*step;
   }
+  EfficiencyBuilder builder(all_tracks);
+  builder.Compute(x);
   std::cout << "error=" << err << " parameter=" << x << std::endl;
   return 0;
 }

@@ -56,6 +56,12 @@ inFile=$1
 build_dir=$2
 #build q-vectors
 
+$build_dir/src/correct --method FULL --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode --list $isList $inFile nothing
+mv output.root full_0.root
+
+$build_dir/src/correct --method FULL --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode --list $isList $inFile qn.root
+mv output.root full_1.root
+
 #no corrections
 echo "executing $build_dir/src/correct --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal $inFile nothing"
 $build_dir/src/correct --method $method --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode --list $isList $inFile nothing

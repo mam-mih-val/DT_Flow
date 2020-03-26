@@ -13,12 +13,19 @@ while read line; do
 done < $filelist
 
 cp PrimaryQa.cpp $output_dir
+cp efficiency.root $output_dir
 cd $output_dir
 mkdir -p $job_num
 cd $job_num
 
 echo "loading " $basic_root
 source $basic_root
+
+$build_dir/src/correct --method FULL --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode --list $isList $inFile nothing
+mv output.root full_0.root
+
+$build_dir/src/correct --method FULL --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode --list $isList $inFile qn.root
+mv output.root full_1.root
 
 #no corrections
 echo Correction steps

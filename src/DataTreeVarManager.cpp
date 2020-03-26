@@ -2,17 +2,14 @@
 
 DataTreeVarManager::DataTreeVarManager(std::string fileName, bool isList)
     : fChain(new TChain("DataTree")), fEvent{new DataTreeEvent},
-      fSelector(new Selector), fCentrality(new Centrality(fEvent)) {
-  if( !isList )
-    fChain->Add(fileName.c_str());
-  else{
-    std::stringstream list{fileName};
-    std::string file{};
-    if( !fileName.empty() ){
-      while(std::getline(list,file,',')){
-        fChain->Add( file.data() );
-        std::cout << file << " has been added to sequence" << std::endl;
-      }
+      fSelector(new Selector), fCentrality(new Centrality(fEvent)),
+      corrections_( "full_1.root", "efficiency.root" ){
+  std::stringstream list{fileName};
+  std::string file{};
+  if( !fileName.empty() ){
+    while(std::getline(list,file,',')){
+      fChain->Add( file.data() );
+      std::cout << file << " has been added to sequence" << std::endl;
     }
   }
   fChain->SetBranchAddress("DTEvent", &fEvent);
@@ -24,6 +21,9 @@ DataTreeVarManager::DataTreeVarManager(std::string fileName, bool isList)
 void DataTreeVarManager::FillEventVariables(double *varContainer) {
 //  varContainer[kCentrality]=fEvent->GetCentrality(HADES_constants::kNhitsTOF_RPC_cut);
   varContainer[kCentrality] = fCentrality->GetCentrality();
+  float file_cent = fEvent->GetCentrality(HADES_constants::kNhitsTOF_RPC_cut);
+  float my_cent = fCentrality->GetCentrality();
+  float cent = 2.5+5.0*fCentrality->GetCentralityClass();
   for (int idx = 0; idx < 304; idx++) {
     varContainer[kFwModuleId + idx] = (double)idx;
     varContainer[kFwModuleRing + idx] = -1.0;
@@ -63,5 +63,9 @@ void DataTreeVarManager::FillTrackVariables(int idx, double *varContainer) {
   varContainer[kMdcYcm] = p.Rapidity() - Y_BEAM / 2;
   varContainer[kMdcPhi] = p.Phi();
   varContainer[kMdcPid] = fEvent->GetVertexTrack(idx)->GetPdgId();
-  varContainer[kMdcEfficiency] = 1;
+  float efficiency{corrections_.GetEfficiency(fCentrality->GetCentralityClass(), p.Phi(), p.Theta())};
+  if( efficiency == 0 )
+    varContainer[kMdcEfficiency] = 0;
+  else
+    varContainer[kMdcEfficiency] = 1./efficiency;
 }

@@ -352,7 +352,7 @@ void CorrectionTask::InitializeRnd() {
   fManager.AddVariable("Phi", DataTreeVarManager::kMdcPhi, 1);
   fManager.AddVariable("Ycm", DataTreeVarManager::kMdcYcm, 1);
   fManager.AddVariable("Pid", DataTreeVarManager::kMdcPid, 1);
-  fManager.AddVariable("Eff", DataTreeVarManager::kMdcEfficiency, 1);
+  fManager.AddVariable("1/Eff", DataTreeVarManager::kMdcEfficiency, 1);
   fManager.AddVariable("FwRing", DataTreeVarManager::kFwModuleRing, 304);
   fManager.AddVariable("FwModuleId", DataTreeVarManager::kFwModuleId, 304);
   fManager.AddVariable("FwAdc", DataTreeVarManager::kFwModuleAdc, 304);
@@ -405,7 +405,7 @@ void CorrectionTask::InitializeRnd() {
   };
   auto referencePid = fParticlePid;
   // u-vectors from MDC
-  fManager.AddDetector("TracksMdc", DetectorType::TRACK, "Phi", "Ones",
+  fManager.AddDetector("TracksMdc", DetectorType::TRACK, "Phi", "1/Eff",
                        {ycm, pt}, {1, 2});
   fManager.AddCut(
       "TracksMdc", {"Ycm", "Pid", "Pt"},
