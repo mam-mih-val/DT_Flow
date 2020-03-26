@@ -22,16 +22,16 @@ cd $job_num
 echo "loading " $basic_root
 source $basic_root
 
-$build_dir/src/correct --method FULL --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode $inFile nothing
+$build_dir/src/correct --method FULL --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode $input_files nothing
 mv output.root full_0.root
 
-$build_dir/src/correct --method FULL --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode $inFile qn.root
+$build_dir/src/correct --method FULL --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode $input_files qn.root
 mv output.root full_1.root
 
 #no corrections
 echo Correction steps
 echo
-echo "executing $build_dir/src/correct --method $method --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --list 1 $input_files nothing"
+echo "executing $build_dir/src/correct --method $method --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal $input_files nothing"
 
 $build_dir/src/correct --method $method --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode $input_files nothing
 mv output.root output_0.root
