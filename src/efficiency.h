@@ -14,6 +14,8 @@ class Efficiency {
 public:
   explicit Efficiency(const std::string& file_name) {
     std::unique_ptr<TFile> file{TFile::Open(file_name.data())};
+    if( !file )
+      return;
     float p=2.5;
     TH2F* h2d;
     while(p<100.){
