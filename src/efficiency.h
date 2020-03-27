@@ -31,16 +31,28 @@ public:
   }
   float GetEfficiency( int c_bin, float phi, float theta ){
     float efficiency{0.98};
-    if( -3.15 < phi < 3.15 ){
+    try {
+      efficiencies_.at(c_bin);
+    } catch (const std::exception &e) {
+      std::cout << e.what() << std::endl;
+      return 0.98;
+    }
+    if( -TMath::Pi() <= phi && phi <= TMath::Pi() ){
       int bin_x{ efficiencies_.at(c_bin).GetXaxis()->FindBin(phi) };
       int bin_y{ efficiencies_.at(c_bin).GetYaxis()->FindBin(theta) };
       efficiency = efficiencies_.at(c_bin).GetBinContent( bin_x, bin_y );
     }
-    if( phi < -3.15 )
-      efficiency = efficiencies_.at(c_bin).GetBinContent( efficiencies_.at(c_bin).FindBin(phi+2*TMath::Pi(), theta) );
-    if( phi > 3.15 )
-      efficiency = efficiencies_.at(c_bin).GetBinContent( efficiencies_.at(c_bin).FindBin(phi-2*TMath::Pi(), theta) );
+    if( phi < -TMath::Pi() ){
+      int bin_x{ efficiencies_.at(c_bin).GetXaxis()->FindBin(phi+2*TMath::Pi()) };
+      int bin_y{ efficiencies_.at(c_bin).GetYaxis()->FindBin(theta) };
+      efficiency = efficiencies_.at(c_bin).GetBinContent( bin_x, bin_y );
 
+    }
+    if( phi > TMath::Pi() ){
+      int bin_x{ efficiencies_.at(c_bin).GetXaxis()->FindBin(phi-2*TMath::Pi()) };
+      int bin_y{ efficiencies_.at(c_bin).GetYaxis()->FindBin(theta) };
+      efficiency = efficiencies_.at(c_bin).GetBinContent( bin_x, bin_y );
+    }
     return efficiency;
   }
 private:

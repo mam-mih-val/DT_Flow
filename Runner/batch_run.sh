@@ -33,15 +33,15 @@ echo Correction steps
 echo
 echo "executing $build_dir/src/correct --method $method --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal $input_files nothing"
 
-$build_dir/src/correct --method $method --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode $input_files nothing
+$build_dir/src/correct --method $method --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode --eff $efficiency --qn full_1.root $input_files nothing
 mv output.root output_0.root
 
 #recentering
-$build_dir/src/correct --method $method --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode $input_files qn.root
+$build_dir/src/correct --method $method --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode --eff $efficiency --qn full_1.root $input_files qn.root
 mv output.root output_1.root
 
 #twist and rescale
-$build_dir/src/correct --method $method --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode $input_files qn.root
+$build_dir/src/correct --method $method --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode --eff $efficiency --qn full_1.root $input_files qn.root
 mv output.root output_2.root
 
 #correlate q-vecors from desired correction step

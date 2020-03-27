@@ -16,6 +16,9 @@ int main(int argc, char **argv) {
   std::string signal = "adc";
   std::string method = "FW3S";
   std::string trigger = "PT3";
+  std::string efficiency_file{};
+  std::string qn_file{};
+
   int pid = 14;
   float minSignal = 0;
   float maxSignal = 999;
@@ -46,16 +49,16 @@ int main(int argc, char **argv) {
         method = argv[i + 1];
         continue;
       }
-      if (flag == "--method") {
-        method = argv[i + 1];
-        continue;
-      }
       if( flag == "--trigger" ){
         trigger = argv[i+1];
         continue;
       }
-      if( flag == "--list" ){
-        isList = std::atoi(argv[i+1]);
+      if( flag == "--eff" ){
+        efficiency_file = argv[i+1];
+        continue;
+      }
+      if( flag == "--qn" ){
+        qn_file = argv[i+1];
         continue;
       }
     }
@@ -70,7 +73,7 @@ int main(int argc, char **argv) {
   std::cout << "trigger:\t" << trigger << std::endl;
   std::cout << "file list:\t" << isList << std::endl;
 
-  Qn::CorrectionTask task(argv[argc - 2], argv[argc - 1]);
+  Qn::CorrectionTask task(argv[argc - 2], argv[argc - 1], qn_file, efficiency_file);
   task.GetSelector()->SetFwChannelSelection(channelSelection);
   task.GetSelector()->SetFwSignalType(signal);
   task.GetSelector()->SetFwSignalRange(minSignal, maxSignal);

@@ -1,9 +1,9 @@
 #include "DataTreeVarManager.h"
 
-DataTreeVarManager::DataTreeVarManager(std::string fileName)
+DataTreeVarManager::DataTreeVarManager(std::string fileName, std::string file_qn, std::string file_efficiency)
     : fChain(new TChain("DataTree")), fEvent{new DataTreeEvent},
       fSelector(new Selector), fCentrality(new Centrality(fEvent)),
-      corrections_( "full_1.root", "efficiency.root" ){
+      corrections_( file_qn, file_efficiency ){
   std::stringstream list{fileName};
   std::string file{};
   if( !fileName.empty() ){
