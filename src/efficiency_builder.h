@@ -26,7 +26,7 @@ public:
     file->Close();
   }
   virtual ~EfficiencyBuilder() = default;
-  void Compute(float coeff=4424.42){
+  void Compute(float coeff=27000){
     float percentile{2.5};
     float max_eff=0.98;
     std::string histo_title{ ";#Delta#phi;#Theta" };
