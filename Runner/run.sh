@@ -4,6 +4,7 @@ minSignal=0
 maxSignal=999
 pidCode=14
 isList=0
+efficiency=" "
 
 while [ "$#" -gt "2" ]; do
   #echo $#
@@ -43,6 +44,11 @@ while [ "$#" -gt "2" ]; do
     echo found method=$method
     shift
     ;;
+  --eff)
+    efficiency=$2
+    echo found efficency=efficiency
+    shift
+    ;;
   --)
     shift
     break
@@ -56,23 +62,23 @@ inFile=$1
 build_dir=$2
 #build q-vectors
 
-$build_dir/src/correct --method FULL --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode --list $isList $inFile nothing
+$build_dir/src/correct --method FULL --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode $inFile nothing
 mv output.root full_0.root
 
-$build_dir/src/correct --method FULL --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode --list $isList $inFile qn.root
+$build_dir/src/correct --method FULL --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode $inFile qn.root
 mv output.root full_1.root
 
 #no corrections
 echo "executing $build_dir/src/correct --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal $inFile nothing"
-$build_dir/src/correct --method $method --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode --list $isList $inFile nothing
+$build_dir/src/correct --method $method --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode --eff $efficiency --qn full_1.root $inFile nothing
 mv output.root output_0.root
 
 #recentering
-$build_dir/src/correct --method $method --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode --list $isList $inFile  qn.root
+$build_dir/src/correct --method $method --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode --eff $efficiency --qn full_1.root $inFile  qn.root
 mv output.root output_1.root
 
 # # #twist and rescale
-$build_dir/src/correct --method $method --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode --list $isList $inFile qn.root
+$build_dir/src/correct --method $method --trigger $trigger --signal $signal --perchannel $channelSelection --min $minSignal --max $maxSignal --pid $pidCode --eff $efficiency --qn full_1.root $inFile qn.root
 mv output.root output_2.root
 
 $build_dir/src/occupancy --pid $pidCode --trigger $trigger $inFile output_2.root

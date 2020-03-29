@@ -9,9 +9,10 @@ int main( int n_args, char **args ){
     return 1;
   std::string file_in{ args[1] };
   std::string file_out{ args[2] };
+  float coeff = atof(args[3]);
 
   EfficiencyBuilder efficiency(file_in);
-  efficiency.Compute();
+  efficiency.Compute(coeff);
   efficiency.SaveToFile(file_out);
   return 0;
 }

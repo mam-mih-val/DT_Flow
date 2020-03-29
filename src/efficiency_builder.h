@@ -33,8 +33,8 @@ public:
     for( auto occupancy : occupancies_ ){
       std::string histo_name{ "efficiency_map_"+std::to_string(percentile) };
       efficiencies_.emplace_back( histo_name.data(), histo_title.data(), 315, -3.15, 3.15, 85, 0.0, 1.7 );
-      for(short i=0; i<occupancy.GetNbinsX(); ++i){
-        for(short j=0; j<occupancy.GetNbinsY(); ++j){
+      for(short i=1; i<occupancy.GetNbinsX()+1; ++i){
+        for(short j=1; j<occupancy.GetNbinsY()+1; ++j){
           float density = occupancy.GetBinContent(i,j);
           float eff = max_eff - coeff*density*density;
           efficiencies_.back().SetBinContent(i,j, eff);

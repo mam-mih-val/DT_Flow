@@ -8,6 +8,7 @@ pidCode=14
 nSteps=2 # 1 is for recentring, 2 is for twist and rescaling
 method=FW3S
 trigger=PT3
+efficency=''
 
 while [ "$#" -gt "2" ]; do
   #echo $#
@@ -48,8 +49,8 @@ while [ "$#" -gt "2" ]; do
     shift
     ;;
   --eff)
-    efficency=$2
-    echo found efficency=$efficency
+    efficiency=$2
+    echo found efficency=efficiency
     shift
     ;;
   --)
@@ -106,4 +107,4 @@ echo number of correction steps: $nSteps
 echo method: $method
 echo trigger: $trigger
 
-sbatch -J DT_Reader -p $partition -t $time -a $job_range -e ${log_dir}/%A_%a.e -o ${log_dir}/%A_%a.o --export=executable=$executable,output_dir=$output_dir,file_list=$file_list,basic_root=$basic_root,lists_dir=$lists_dir,build_dir=$build_dir,minSignal=$minSignal,maxSignal=$maxSignal,signal=$signal,channelSelection=$channelSelection,nSteps=$nSteps,pidCode=$pidCode,trigger=$trigger,method=$method,efficency=$efficency batch_run.sh
+sbatch -J DT_Reader -p $partition -t $time -a $job_range -e ${log_dir}/%A_%a.e -o ${log_dir}/%A_%a.o --export=executable=$executable,output_dir=$output_dir,file_list=$file_list,basic_root=$basic_root,lists_dir=$lists_dir,build_dir=$build_dir,minSignal=$minSignal,maxSignal=$maxSignal,signal=$signal,channelSelection=$channelSelection,nSteps=$nSteps,pidCode=$pidCode,trigger=$trigger,method=$method,efficiency=$efficiency batch_run.sh

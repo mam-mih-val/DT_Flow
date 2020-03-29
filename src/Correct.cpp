@@ -64,14 +64,16 @@ int main(int argc, char **argv) {
     }
   }
   std::cout << "Configuration:" << std::endl;
-  std::cout << "per channer :\t" << channelSelection << std::endl;
-  std::cout << "signal:\t" << signal << std::endl;
+  std::cout << "per channer:\t" << channelSelection << std::endl;
+  std::cout << "signal:\t\t" << signal << std::endl;
   std::cout << "min signal:\t" << minSignal << std::endl;
   std::cout << "max signal:\t" << maxSignal << std::endl;
   std::cout << "pid code:\t" << pid << std::endl;
   std::cout << "method:\t\t" << method << std::endl;
   std::cout << "trigger:\t" << trigger << std::endl;
-  std::cout << "file list:\t" << isList << std::endl;
+  std::cout << "efficiency:\t" << efficiency_file << std::endl;
+  std::cout << "Qn-file:\t" << qn_file << std::endl;
+
 
   Qn::CorrectionTask task(argv[argc - 2], argv[argc - 1], qn_file, efficiency_file);
   task.GetSelector()->SetFwChannelSelection(channelSelection);
