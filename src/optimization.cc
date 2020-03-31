@@ -11,37 +11,49 @@ int main(int n_args, char **args) {
     return 1;
   std::string all_tracks{args[1]};
   std::string proton_tracks{args[2]};
-  std::vector<float> err{1.0};
-  std::vector<float> coeffs{0.0};
-  float step{1000};
-  double accuracy{powf(10, -7)};
-  for(size_t i = 0; i < 100; ++i) {
-    EfficiencyBuilder builder(all_tracks);
-    float x = step*i;
-    builder.Compute(x);
-    builder.SaveToFile("efficiency.root");
-    Averager averager(proton_tracks);
-    averager.Calculate();
-    auto values = averager.GetValues();
-    float y=0;
-    for(auto value:values)
-      y+=value*value;
-    y=sqrt(y);
-    coeffs.push_back(x);
-    err.push_back(y);
-  }
-  float min{1.0};
-  float point{0.0};
-  for( size_t i=0; i<err.size(); ++i ){
-    if( min > err.at(i) ){
-      min=err.at(i);
-      point=coeffs.at(i);
+
+  double a{0.0}; double b{30000};
+  double accuracy{powf(10, -3)};
+  while(fabs((b-a)/2)>accuracy) {
+    double x1 = (a+b-accuracy)/2;
+    double x2 = (a+b+accuracy)/2;
+    double y1 =0;
+    double y2 =0;
+    {
+      EfficiencyBuilder builder(all_tracks);
+      builder.Compute(x1);
+      builder.SaveToFile("efficiency.root");
+      Averager averager(proton_tracks);
+      averager.Calculate();
+      auto values = averager.GetValues();
+      for (auto value : values)
+        y1 += value * value;
+      y1 = sqrt(y1);
+    }
+    {
+      EfficiencyBuilder builder(all_tracks);
+      builder.Compute(x2);
+      builder.SaveToFile("efficiency.root");
+      Averager averager(proton_tracks);
+      averager.Calculate();
+      auto values = averager.GetValues();
+      for (auto value : values)
+        y2 += value * value;
+      y2 = sqrt(y2);
+    }
+    if( y1 > y2 ){
+      a = x1;
+      continue;
+    }
+    if( y1 < y2 ){
+      b = x2;
+      continue;
     }
   }
   std::cout << std::endl;
-  float mean{0.0};
-  std::cout << "min_err=" << min << " coeff=" << point << std::endl;
+  double mean{(a+b)/2};
+  std::cout << "min_err=" << " coeff=" << mean << std::endl;
   EfficiencyBuilder builder(all_tracks);
-  builder.Compute(point);
+  builder.Compute(mean);
   return 0;
 }
