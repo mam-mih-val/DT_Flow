@@ -25,6 +25,6 @@ source $basic_root
 #no corrections
 echo Optimization steps
 echo
-$build_dir/src/optimization --density $density input_files
+$build_dir/src/optimization --density $density $input_files
 echo JOB FINISHED!
 date $format
