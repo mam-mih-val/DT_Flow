@@ -116,7 +116,8 @@ int main(int argc, char **argv) {
 
   double a{0.0};
   double b{30000};
-  double accuracy{powf(10, 0)};
+  double accuracy{powf(10, 3)};
+  double step{ powf(accuracy, -1) };
   while (fabs((b - a) / 2) > accuracy) {
     double x1 = (a + b - accuracy) / 2;
     double x2 = (a + b + accuracy) / 2;
@@ -146,6 +147,8 @@ int main(int argc, char **argv) {
       st.Run("RND_OPT");
       y2 = Decline("Correlations.root");
     }
+    std::cout << "err1=" << y1 << " err2=" << y2 << std::endl;
+    std::cout << "x1=" << x1 << " x2=" << x2 << std::endl;
     if (y1 > y2) {
       a = x1;
       continue;
