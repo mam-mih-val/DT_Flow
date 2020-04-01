@@ -64,7 +64,7 @@ public:
           continue;
         auto p = event_->GetVertexTrack(idx)->GetMomentum();
         float d_phi = p.Phi()-psi;
-        if( !((0.6 < p.Pt() && p.Pt() < 1.2 ) && ( -0.05 < p.Rapidity()-Y_BEAM/2 && p.Rapidity()-Y_BEAM/2 < 0.05 )) )
+        if( !((0.3 < p.Pt() && p.Pt() < 1.2 ) && ( -0.05 < p.Rapidity()-Y_BEAM/2 && p.Rapidity()-Y_BEAM/2 < 0.05 )) )
           continue;
         if( -TMath::Pi() <= d_phi && d_phi <= TMath::Pi() )
           occupancy_maps_.at(centrality_.GetCentralityClass() ).Fill(d_phi, p.Theta());
