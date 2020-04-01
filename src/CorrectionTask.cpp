@@ -8,8 +8,11 @@
 
 namespace Qn {
 
-CorrectionTask::CorrectionTask(const std::string& inFile, const std::string& incalib, const std::string& qn_file, const std::string& efficiency)
-    : out_file_(new TFile("output.root", "RECREATE")),
+CorrectionTask::CorrectionTask(const std::string& inFile,
+    const std::string& incalib, const std::string&
+    qn_file, const std::string& efficiency,
+    const std::string& out_file)
+    : out_file_(new TFile(out_file.data(), "RECREATE")),
       in_calibration_file_(new TFile(incalib.c_str(), "READ")),
       out_calibration_file_(new TFile("qn.root", "RECREATE")), fManager(),
       write_tree_(true), fVarManager(new DataTreeVarManager(inFile, qn_file, efficiency)) {
@@ -26,6 +29,8 @@ void CorrectionTask::Run(std::string method) {
     InitializeRnd();
   if (method == "FULL")
     InitializeFull();
+  if (method == "RND_OPT")
+    InitializeRndOptimization();
   QnCorrectionsSetTracingLevel(kError);
   std::cout << "Processing..." << std::endl;
   int numEvents = fVarManager->GetNumberOfEvents();
@@ -445,6 +450,87 @@ void CorrectionTask::InitializeRnd() {
       "Rs1", {{"moduleX", 50, -1000., 1000.}, {"moduleY", 50, -1000., 1000.}});
   fManager.AddHisto2D(
       "Rs2", {{"moduleX", 50, -1000., 1000.}, {"moduleY", 50, -1000., 1000.}});
+  fManager.AddHisto2D(
+      "Full", {{"moduleX", 50, -1000., 1000.}, {"moduleY", 50, -1000., 1000.}});
+
+  fManager.AddEventHisto1D({{"Centrality", 20, 0, 100}});
+  fManager.SetTree(out_tree_);
+  fManager.Initialize(in_calibration_file_);
+  std::cout << "Successfully initialized" << std::endl;
+}
+
+void CorrectionTask::InitializeRndOptimization(){
+  fManager.AddVariable("Centrality", DataTreeVarManager::kCentrality, 1);
+  fManager.AddVariable("One", DataTreeVarManager::kOne, 1);
+  fManager.AddVariable("Pt", DataTreeVarManager::kMdcPt, 1);
+  fManager.AddVariable("Phi", DataTreeVarManager::kMdcPhi, 1);
+  fManager.AddVariable("Ycm", DataTreeVarManager::kMdcYcm, 1);
+  fManager.AddVariable("Pid", DataTreeVarManager::kMdcPid, 1);
+  fManager.AddVariable("1/Eff", DataTreeVarManager::kMdcEfficiency, 1);
+  fManager.AddVariable("FwRing", DataTreeVarManager::kFwModuleRing, 304);
+  fManager.AddVariable("FwModuleId", DataTreeVarManager::kFwModuleId, 304);
+  fManager.AddVariable("FwAdc", DataTreeVarManager::kFwModuleAdc, 304);
+  fManager.AddVariable("FwPhi", DataTreeVarManager::kFwModulePhi, 304);
+  fManager.AddVariable("RandomSe", DataTreeVarManager::kRandomSe, 304);
+  fManager.AddVariable("moduleX", DataTreeVarManager::kFwModuleX, 304);
+  fManager.AddVariable("moduleY", DataTreeVarManager::kFwModuleY, 304);
+  std::cout << "Variables added" << std::endl;
+  // Correction eventvariables
+
+  fManager.SetEventVariable("Centrality");
+  fManager.AddCorrectionAxis({"Centrality", 20, 0, 100});
+
+  // Configuration of MDC.
+  auto MdcConfiguration = [](DetectorConfiguration *config) {
+    config->SetNormalization(QVector::Normalization::M);
+  };
+
+  // Configuration of FW. Preparing for add axis to qa histograms
+  // Producing the function which will configurate the correction Manager
+
+  auto FwConfiguration = [](DetectorConfiguration *config) {
+    config->SetNormalization(QVector::Normalization::M);
+    auto recenter = new Recentering();
+    config->AddCorrectionOnQnVector(recenter);
+    auto rescale = new TwistAndRescale();
+    rescale->SetApplyTwist(true);
+    rescale->SetApplyRescale(true);
+    rescale->SetTwistAndRescaleMethod(
+        TwistAndRescale::TWRESCALE_doubleHarmonic);
+    //          config->AddCorrectionOnQnVector(rescale);
+    auto fwChannels = new bool[304];
+    auto fwChannelGroups = new int[304];
+    for (int i = 0; i < 304; i++) {
+      fwChannels[i] = true;
+      fwChannelGroups[i] = i;
+    }
+    config->SetChannelsScheme(fwChannels, fwChannelGroups);
+  };
+  auto referencePid = fParticlePid;
+  // u-vectors from MDC
+  fManager.AddDetector("TracksMdc", DetectorType::TRACK, "Phi", "1/Eff", {}, {1});
+  fManager.AddCut(
+      "TracksMdc", {"Ycm", "Pid", "Pt"},
+      [referencePid](const double &y, const double &pid, const double &pt) {
+        return -0.05 < y && y < 0.05 &&
+        pid == referencePid &&
+        0.3 < pt && pt < 1.2;
+      });
+  fManager.SetCorrectionSteps("TracksMdc", MdcConfiguration);
+
+  // Random sub-event method
+
+  fManager.AddDetector("Full", DetectorType::CHANNEL, "FwPhi", "FwAdc", {},
+                       {1});
+  fManager.AddCut("Full", {"FwAdc"},
+                  [](const double &adc) { return adc > 0.0; });
+  fManager.SetCorrectionSteps("Full", FwConfiguration);
+
+  fManager.AddHisto2D("TracksMdc",
+                      {{"Pt", 200, 0., 2.}, {"Ycm", 160, -0.8, 0.8}});
+  fManager.AddHisto2D("TracksMdc",
+                      {{"Phi", 126, -3.15, 3.15}, {"Ycm", 160, -0.8, 0.8}});
+
   fManager.AddHisto2D(
       "Full", {{"moduleX", 50, -1000., 1000.}, {"moduleY", 50, -1000., 1000.}});
 

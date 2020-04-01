@@ -12,6 +12,11 @@ target_compile_definitions(correct PUBLIC _VANILLA_ROOT_)
 target_include_directories(correct PRIVATE ${ROOT_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR} ${DATATREE_HOME})
 target_link_libraries(correct QnCorrections Base Correction DataTree ${ROOT_LIBRARIES})
 
+add_executable(optimization CorrelationTask.cpp optimize.cc CorrectionTask.cpp DataTreeVarManager.cpp Selector.cpp Centrality.cxx occupancy_corrections.cc efficiency.cc efficiency_builder.cc)
+target_compile_definitions(optimization PUBLIC _VANILLA_ROOT_)
+target_include_directories(optimization PRIVATE ${ROOT_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR} ${DATATREE_HOME})
+target_link_libraries(optimization QnCorrections Base Correction Correlation DataTree ${ROOT_LIBRARIES})
+
 add_executable(correlate Correlate.cpp CorrelationTask.cpp)
 #target_compile_definitions(correlate PUBLIC "-DUSE_ROOT")
 target_include_directories(correlate PRIVATE ${ROOT_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR})

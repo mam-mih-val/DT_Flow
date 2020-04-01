@@ -683,6 +683,38 @@ void CorrelationTask::ConfigureRnd(Qn::CorrelationManager &manager) {
                                {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
 }
 
+void CorrelationTask::ConfigureRndOptimization(Qn::CorrelationManager &manager) {
+  // ------------------------ Event plane ------------------------
+  auto uxQx = [](const std::vector<Qn::QVector> &qn) {
+    return qn.at(0).x(1) * qn.at(1).x(1) / (qn.at(0).mag(1) * qn.at(1).mag(1));
+  };
+  auto uyQy = [](const std::vector<Qn::QVector> &qn) {
+    return qn.at(0).y(1) * qn.at(1).y(1) / (qn.at(0).mag(1) * qn.at(1).mag(1));
+  };
+
+  manager.SetOutputFile("Correlations.root");
+  manager.AddEventVariable({"Centrality", 8, 0, 40});
+  manager.ConfigureResampling(Qn::Sampler::Method::BOOTSTRAP,
+                              100); // BOOTSTRAP, SUBSAMPLING
+
+  manager.AddQVectors("Full");
+  manager.AddQVectors("TracksMdc");
+
+  std::vector<std::string> Full{"Full"};
+  std::vector<std::string> u_vector{"TracksMdc"};
+
+
+  std::string u = "TracksMdc";
+  // First harmonic
+
+  manager.AddCorrelation("TracksMdc_Full_XX_Ep", "TracksMdc,Full", uxQx);
+  manager.SetRefQinCorrelation("TracksMdc_Full_XX_Ep",
+                               {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+  manager.AddCorrelation("TracksMdc_Full_YY_Ep", "TracksMdc,Full", uyQy);
+  manager.SetRefQinCorrelation("TracksMdc_Full_YY_Ep",
+                               {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+}
+
 void CorrelationTask::ConfigureFw3s(Qn::CorrelationManager &manager) {
   auto QxQx = [](const std::vector<Qn::QVector> &qn) {
     return qn.at(0).x(1) * qn.at(1).x(1);
@@ -999,6 +1031,8 @@ void CorrelationTask::Run(std::string method) {
     this->ConfigureFw3x(fManager);
   if (method == "RND")
     this->ConfigureRnd(fManager);
+  if (method == "RND_OPT")
+    this->ConfigureRndOptimization(fManager);
   int events = 1;
   reader_->SetEntry(0); //  first entry needed to access configuration of
                         //  DataContainers in the input file

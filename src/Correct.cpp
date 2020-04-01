@@ -12,7 +12,6 @@ int main(int argc, char **argv) {
     return 1;
   }
   bool channelSelection = false;
-  bool isList = false;
   std::string signal = "adc";
   std::string method = "FW3S";
   std::string trigger = "PT3";

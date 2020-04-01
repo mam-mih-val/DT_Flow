@@ -26,7 +26,11 @@ namespace Qn {
  */
 class CorrectionTask {
 public:
-  CorrectionTask(const std::string& inFile, const std::string& incalib, const std::string& qn_file="", const std::string& efficiency="");
+  CorrectionTask(const std::string& inFile,
+      const std::string& incalib,
+      const std::string& qn_file="",
+      const std::string& efficiency="",
+      const std::string& out_file="output.root");
   ~CorrectionTask() = default;
   std::shared_ptr<Selector> GetSelector() { return fVarManager->GetSelector(); }
   void SetSelectorConfiguration(bool perChannel = false,
@@ -46,6 +50,7 @@ private:
   void InitializeFw3s();
   void InitializeFw3x();
   void InitializeRnd();
+  void InitializeRndOptimization();
   /**
    * Processes one event;
    */
