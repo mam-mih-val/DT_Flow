@@ -158,9 +158,16 @@ int main(int argc, char **argv) {
       continue;
     }
   }
-  std::cout << " coeff=" << (a + b) / 2.0 << std::endl;
   EfficiencyBuilder builder(all_tracks);
   builder.Compute((a + b) / 2.0);
+  Correct(argv[argc - 1], "nothing", "full_1.root", "efficiency.root",
+          "output_0.root", "RND_OPT");
+  Correct(argv[argc - 1], "qn.root", "full_1.root", "efficiency.root",
+          "output_1.root", "RND_OPT");
+  CorrelationTask st("output_1.root", "tree");
+  st.Run("RND_OPT");
+  float err = Decline("Correlations.root");
+  std::cout << "err=" << err << " coeff=" << (a + b) / 2.0 << std::endl;
   auto end = std::chrono::system_clock::now();
   std::chrono::duration<double> elapsed_seconds = end - start;
   std::cout << "elapsed time: " << elapsed_seconds.count() << " s\n";
