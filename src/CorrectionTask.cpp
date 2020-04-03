@@ -39,6 +39,7 @@ void CorrectionTask::Run(std::string method) {
     fVarManager->SwitchEvent(idx);
     if (!fVarManager->IsGoodEvent())
       continue;
+    fVarManager->SwitchEp(goodEvents);
     Process();
     float progress = (float)idx / (float)numEvents;
     // this->ProgressBar(progress);

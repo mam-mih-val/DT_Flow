@@ -19,11 +19,11 @@ DataTreeVarManager::DataTreeVarManager(std::string fileName, std::string file_qn
 }
 
 void DataTreeVarManager::FillEventVariables(double *varContainer) {
-//  varContainer[kCentrality]=fEvent->GetCentrality(HADES_constants::kNhitsTOF_RPC_cut);
-  varContainer[kCentrality] = fCentrality->GetCentrality();
+//  varContainer[kCentrality]=fEvent->GetCentrality5pc(HADES_constants::kNhitsTOF_RPC_cut);
+  varContainer[kCentrality] = fCentrality->GetCentrality5pc();
   float file_cent = fEvent->GetCentrality(HADES_constants::kNhitsTOF_RPC_cut);
-  float my_cent = fCentrality->GetCentrality();
-  float cent = 2.5+5.0*fCentrality->GetCentralityClass();
+  float my_cent = fCentrality->GetCentrality5pc();
+  float cent = 2.5+5.0* fCentrality->GetCentralityClass5pc();
   for (int idx = 0; idx < 304; idx++) {
     varContainer[kFwModuleId + idx] = (double)idx;
     varContainer[kFwModuleRing + idx] = -1.0;
@@ -63,7 +63,8 @@ void DataTreeVarManager::FillTrackVariables(int idx, double *varContainer) {
   varContainer[kMdcYcm] = p.Rapidity() - Y_BEAM / 2;
   varContainer[kMdcPhi] = p.Phi();
   varContainer[kMdcPid] = fEvent->GetVertexTrack(idx)->GetPdgId();
-  float efficiency{corrections_.GetEfficiency(fCentrality->GetCentralityClass(), p.Phi(), p.Theta())};
+  float efficiency{corrections_.GetEfficiency(
+      fCentrality->GetCentralityClass10pc(), p.Phi(), p.Theta())};
   if( efficiency == 0 )
     varContainer[kMdcEfficiency] = 0;
   else

@@ -16,13 +16,13 @@ public:
     std::unique_ptr<TFile> file{TFile::Open(file_name.data())};
     if( !file )
       return;
-    float p=2.5;
+    int p=4;
     TH2F* h2d;
-    while(p<100.){
-      std::string histo_name{"efficiency_map_"+std::to_string(p)};
+    while(p>0){
+      std::string histo_name{"heff"+std::to_string(p)+"_id14"};
       file->GetObject(histo_name.data(), h2d);
       efficiencies_.emplace_back(*h2d);
-      p+=5.0;
+      p--;
     }
   }
   float GetEfficiency( float centrality, float phi, float theta ){
@@ -36,22 +36,25 @@ public:
     try {
       efficiencies_.at(c_bin);
     } catch (const std::exception &e) {
-      std::cout << e.what() << std::endl;
+//      std::cout << e.what() << std::endl;
       return 0.98;
     }
+    auto rad_to_degrees = []( double rad ){return rad*180.0/TMath::Pi();};
+    theta = rad_to_degrees(theta);
     if( -TMath::Pi() <= phi && phi <= TMath::Pi() ){
+      phi = rad_to_degrees(phi);
       int bin_x{ efficiencies_.at(c_bin).GetXaxis()->FindBin(phi) };
       int bin_y{ efficiencies_.at(c_bin).GetYaxis()->FindBin(theta) };
       efficiency = efficiencies_.at(c_bin).GetBinContent( bin_x, bin_y );
     }
     if( phi < -TMath::Pi() ){
-      int bin_x{ efficiencies_.at(c_bin).GetXaxis()->FindBin(phi+2*TMath::Pi()) };
+      int bin_x{ efficiencies_.at(c_bin).GetXaxis()->FindBin(rad_to_degrees(phi+2*TMath::Pi())) };
       int bin_y{ efficiencies_.at(c_bin).GetYaxis()->FindBin(theta) };
       efficiency = efficiencies_.at(c_bin).GetBinContent( bin_x, bin_y );
 
     }
     if( phi > TMath::Pi() ){
-      int bin_x{ efficiencies_.at(c_bin).GetXaxis()->FindBin(phi-2*TMath::Pi()) };
+      int bin_x{ efficiencies_.at(c_bin).GetXaxis()->FindBin(rad_to_degrees(phi-2*TMath::Pi())) };
       int bin_y{ efficiencies_.at(c_bin).GetYaxis()->FindBin(theta) };
       efficiency = efficiencies_.at(c_bin).GetBinContent( bin_x, bin_y );
     }

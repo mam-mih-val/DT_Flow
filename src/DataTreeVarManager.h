@@ -43,7 +43,8 @@ public:
   int GetNumberOfTracks() { return fEvent->GetNVertexTracks(); }
   bool IsGoodEvent() { return fSelector->IsCorrectEvent(); }
   bool IsGoodTrack(int idx) { return fSelector->IsCorrectTrack(idx); }
-  void SwitchEvent(int idx) { fChain->GetEntry(idx); corrections_.SwitchEvent(idx); }
+  void SwitchEvent(int idx) { fChain->GetEntry(idx); }
+  void SwitchEp(int idx){ corrections_.SwitchEvent(idx); }
   void SetSignal(int signal = DataTreeVarManager::Signals::kAdc) {
     fSignal = signal;
   }

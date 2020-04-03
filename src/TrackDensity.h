@@ -55,7 +55,7 @@ public:
   void ProcessEvent() {
     float psi = atan2f(q_vector_->At(0).y(1), q_vector_->At(0).x(1));
     try {
-      ep_maps_.at(centrality_.GetCentralityClass()).Fill(psi);
+      ep_maps_.at(centrality_.GetCentralityClass5pc()).Fill(psi);
       size_t n_tracks = event_->GetNVertexTracks();
       for (size_t idx = 0; idx < n_tracks; idx++) {
         if (!selector_.IsCorrectTrack(idx))
@@ -67,16 +67,16 @@ public:
         if( !((0.3 < p.Pt() && p.Pt() < 1.2 ) && ( -0.05 < p.Rapidity()-Y_BEAM/2 && p.Rapidity()-Y_BEAM/2 < 0.05 )) )
           continue;
         if( -TMath::Pi() <= d_phi && d_phi <= TMath::Pi() )
-          occupancy_maps_.at(centrality_.GetCentralityClass() ).Fill(d_phi, p.Theta());
+          occupancy_maps_.at(centrality_.GetCentralityClass5pc() ).Fill(d_phi, p.Theta());
         if( d_phi < -TMath::Pi() )
-          occupancy_maps_.at(centrality_.GetCentralityClass() ).Fill(d_phi+2*TMath::Pi(), p.Theta());
+          occupancy_maps_.at(centrality_.GetCentralityClass5pc() ).Fill(d_phi+2*TMath::Pi(), p.Theta());
         if( d_phi > TMath::Pi() )
-          occupancy_maps_.at(centrality_.GetCentralityClass() ).Fill(d_phi-2*TMath::Pi(), p.Theta());
+          occupancy_maps_.at(centrality_.GetCentralityClass5pc() ).Fill(d_phi-2*TMath::Pi(), p.Theta());
       }
     } catch (const std::exception &e) {
       std::cout << e.what() << std::endl;
       std::cout << "Centrality is not correct:" << std::endl;
-      std::cout << "Centrality: " << centrality_.GetCentrality() << "%"
+      std::cout << "Centrality: " << centrality_.GetCentrality5pc() << "%"
                 << std::endl;
       return;
     }
