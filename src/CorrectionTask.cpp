@@ -517,7 +517,7 @@ void CorrectionTask::InitializeRndOptimization(){
       [referencePid](const double &y, const double &pid, const double &pt) {
         return -0.45 < y && y < 0.45 &&
         pid == referencePid &&
-        0.6 < pt && pt < 1.4;
+        0.4 < pt && pt < 1.4;
       });
   fManager.SetCorrectionSteps("TracksMdc", MdcConfiguration);
 
