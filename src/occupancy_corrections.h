@@ -24,12 +24,15 @@ public:
   }
   float GetEfficiency(int c_bin, float phi, float theta){
     try {
-      float psi = atan2f(q_vector_->At(0).y(1), q_vector_->At(0).x(1));
+      float psi = GetPsiEp();
       return efficiency_.GetEfficiency( c_bin, phi-psi, theta );
     }catch (const std::exception &e) {
 //      std::cout << e.what() << std::endl;
       return 0.98;
     }
+  }
+  float GetPsiEp(){
+    return atan2f(q_vector_->At(0).y(1), q_vector_->At(0).x(1));
   }
 private:
   Efficiency efficiency_;

@@ -51,9 +51,25 @@ void DataTreeVarManager::FillEventVariables(double *varContainer) {
         (double)fEvent->GetPSDModule(idx)->GetPositionComponent(1);
     moduleList.push_back(moduleId);
   }
+//  FillEp(varContainer);
   random_shuffle(moduleList.begin(), moduleList.end());
   for (int idx = 0; idx < moduleList.size(); idx++)
     varContainer[kRandomSe + moduleList.at(idx)] = idx % 2 == 0 ? 1.0 : 2.0;
+}
+
+void DataTreeVarManager::FillEp(double *varContainer){
+  double Qx=0;
+  double Qy=0;
+  for( int i=0; i<304; i++ ){
+    Qx+=varContainer[kFwModuleAdc+i]*cos(varContainer[kFwModulePhi+i]);
+    Qy+=varContainer[kFwModuleAdc+i]*sin(varContainer[kFwModulePhi+i]);
+  }
+  psi_ep_=atan2f( Qy, Qx );
+  try{
+  std::cout << psi_ep_ - corrections_.GetPsiEp() << std::endl << std::endl;
+  } catch(const std::exception &e){
+    return;
+  }
 }
 
 void DataTreeVarManager::FillTrackVariables(int idx, double *varContainer) {
@@ -64,7 +80,7 @@ void DataTreeVarManager::FillTrackVariables(int idx, double *varContainer) {
   varContainer[kMdcPhi] = p.Phi();
   varContainer[kMdcPid] = fEvent->GetVertexTrack(idx)->GetPdgId();
   float efficiency{corrections_.GetEfficiency(
-      fCentrality->GetCentralityClass10pc(), p.Phi(), p.Theta())};
+      fCentrality->GetCentralityClass5pc(), p.Phi(), p.Theta())};
   if( efficiency == 0 )
     varContainer[kMdcEfficiency] = 0;
   else

@@ -48,6 +48,7 @@ public:
   void SetSignal(int signal = DataTreeVarManager::Signals::kAdc) {
     fSignal = signal;
   }
+  void FillEp(double *varContainer);
   std::shared_ptr<Selector> GetSelector() { return fSelector; }
 
 protected:
@@ -57,6 +58,7 @@ protected:
   DataTreeEvent *fEvent;
   Centrality *fCentrality;
   OccupancyCorrections corrections_;
+  float psi_ep_{0.0};
   DataTreeVarManager() = default;
   int fCurrentTrackIdx;
   const double T = 1.23;  // AGeV

@@ -369,14 +369,14 @@ void CorrectionTask::InitializeRnd() {
   // Correction eventvariables
 
   fManager.SetEventVariable("Centrality");
-  fManager.AddCorrectionAxis({"Centrality", 20, 0, 100});
+  fManager.AddCorrectionAxis({"Centrality", 8, 0, 40});
 
   Axis pt("Pt", 10, 0.0, 2.0);
   Axis ycm("Ycm", 15, -0.75, 0.75);
 
   // Configuration of MDC.
   auto MdcConfiguration = [](DetectorConfiguration *config) {
-    config->SetNormalization(QVector::Normalization::M);
+    config->SetNormalization(QVector::Normalization::NONE);
     auto recenter = new Recentering();
 //    config->AddCorrectionOnQnVector(recenter);
     auto rescale = new TwistAndRescale();
@@ -415,8 +415,10 @@ void CorrectionTask::InitializeRnd() {
   fManager.AddCut(
       "TracksMdc", {"Ycm", "Pid", "Pt"},
       [referencePid](const double &y, const double &pid, const double &pt) {
-        return -0.8 < y && y < 0.8 && pid == referencePid && 0.0 < pt &&
-               pt < 2.0;
+        return
+        -0.8 < y && y < 0.8 &&
+        pid == referencePid &&
+        0.0 < pt && pt < 2.0;
       });
   fManager.SetCorrectionSteps("TracksMdc", MdcConfiguration);
 

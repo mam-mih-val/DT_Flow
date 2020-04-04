@@ -572,6 +572,12 @@ void CorrelationTask::ConfigureRnd(Qn::CorrelationManager &manager) {
   auto uxQx = [](const std::vector<Qn::QVector> &qn) {
     return qn.at(0).x(1) * qn.at(1).x(1) / (qn.at(0).mag(1) * qn.at(1).mag(1));
   };
+  auto uxQy = [](const std::vector<Qn::QVector> &qn) {
+    return qn.at(0).x(1) * qn.at(1).y(1) / (qn.at(0).mag(1) * qn.at(1).mag(1));
+  };
+  auto uyQx = [](const std::vector<Qn::QVector> &qn) {
+    return qn.at(0).y(1) * qn.at(1).x(1) / (qn.at(0).mag(1) * qn.at(1).mag(1));
+  };
   auto uyQy = [](const std::vector<Qn::QVector> &qn) {
     return qn.at(0).y(1) * qn.at(1).y(1) / (qn.at(0).mag(1) * qn.at(1).mag(1));
   };
@@ -644,6 +650,12 @@ void CorrelationTask::ConfigureRnd(Qn::CorrelationManager &manager) {
       {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
 
   manager.AddCorrelation("TracksMdc_Full_XX_Ep", "TracksMdc,Full", uxQx);
+  manager.SetRefQinCorrelation("TracksMdc_Full_XX_Ep",
+                               {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+  manager.AddCorrelation("TracksMdc_Full_XY_Ep", "TracksMdc,Full", uxQy);
+  manager.SetRefQinCorrelation("TracksMdc_Full_XX_Ep",
+                               {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
+  manager.AddCorrelation("TracksMdc_Full_YX_Ep", "TracksMdc,Full", uyQx);
   manager.SetRefQinCorrelation("TracksMdc_Full_XX_Ep",
                                {Qn::Weight::OBSERVABLE, Qn::Weight::REFERENCE});
   manager.AddCorrelation("TracksMdc_Full_YY_Ep", "TracksMdc,Full", uyQy);
