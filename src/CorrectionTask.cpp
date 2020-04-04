@@ -515,7 +515,7 @@ void CorrectionTask::InitializeRndOptimization(){
   fManager.AddCut(
       "TracksMdc", {"Ycm", "Pid", "Pt"},
       [referencePid](const double &y, const double &pid, const double &pt) {
-        return -0.05 < y && y < 0.05 &&
+        return -0.15 < y && y < 0.15 &&
         pid == referencePid &&
         0.6 < pt && pt < 1.2;
       });
