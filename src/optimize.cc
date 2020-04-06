@@ -114,8 +114,8 @@ int main(int argc, char **argv) {
   Correct(argv[argc - 1], "nothing", "", "", "full_0.root", "FULL");
   Correct(argv[argc - 1], "qn.root", "", "", "full_1.root", "FULL");
 
-  double a{0.0};
-  double b{30000};
+  double a{5000.0};
+  double b{15000};
   double accuracy{powf(10, 3)};
   double step{ powf(accuracy, -1) };
   while (fabs((b - a) / 2) > accuracy) {
