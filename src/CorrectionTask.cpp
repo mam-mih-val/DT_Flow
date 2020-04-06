@@ -378,13 +378,13 @@ void CorrectionTask::InitializeRnd() {
   auto MdcConfiguration = [](DetectorConfiguration *config) {
     config->SetNormalization(QVector::Normalization::NONE);
     auto recenter = new Recentering();
-//    config->AddCorrectionOnQnVector(recenter);
+    config->AddCorrectionOnQnVector(recenter);
     auto rescale = new TwistAndRescale();
     rescale->SetApplyTwist(true);
     rescale->SetApplyRescale(true);
     rescale->SetTwistAndRescaleMethod(
         TwistAndRescale::TWRESCALE_doubleHarmonic);
-//    config->AddCorrectionOnQnVector(rescale);
+    config->AddCorrectionOnQnVector(rescale);
   };
 
   // Configuration of FW. Preparing for add axis to qa histograms
@@ -486,6 +486,14 @@ void CorrectionTask::InitializeRndOptimization(){
   // Configuration of MDC.
   auto MdcConfiguration = [](DetectorConfiguration *config) {
     config->SetNormalization(QVector::Normalization::M);
+    auto recenter = new Recentering();
+    config->AddCorrectionOnQnVector(recenter);
+    auto rescale = new TwistAndRescale();
+    rescale->SetApplyTwist(true);
+    rescale->SetApplyRescale(true);
+    rescale->SetTwistAndRescaleMethod(
+        TwistAndRescale::TWRESCALE_doubleHarmonic);
+    config->AddCorrectionOnQnVector(rescale);
   };
 
   // Configuration of FW. Preparing for add axis to qa histograms
@@ -515,7 +523,7 @@ void CorrectionTask::InitializeRndOptimization(){
   fManager.AddCut(
       "TracksMdc", {"Ycm", "Pid", "Pt"},
       [referencePid](const double &y, const double &pid, const double &pt) {
-        return -0.25 < y && y < 0.25 &&
+        return -0.35 < y && y < 0.35 &&
         pid == referencePid &&
         0.4 < pt && pt < 1.0;
       });

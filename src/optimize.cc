@@ -114,10 +114,11 @@ int main(int argc, char **argv) {
   Correct(argv[argc - 1], "nothing", "", "", "full_0.root", "FULL");
   Correct(argv[argc - 1], "qn.root", "", "", "full_1.root", "FULL");
 
-  double a{5000.0};
-  double b{15000};
-  double accuracy{powf(10, 3)};
-  double step{ powf(accuracy, -1) };
+  double a{6000.0};
+  double b{12000.0};
+  double accuracy{5.0*powf(10, 2)};
+  double step{ accuracy*0.1 };
+  unsigned int n_steps{0};
   while (fabs((b - a) / 2) > accuracy) {
     double x1 = (a + b - accuracy) / 2;
     double x2 = (a + b + accuracy) / 2;
@@ -131,7 +132,9 @@ int main(int argc, char **argv) {
               "RND_OPT");
       Correct(argv[argc - 1], "qn.root", "full_1.root", "efficiency.root", "output_1.root",
               "RND_OPT");
-      CorrelationTask st("output_1.root", "tree");
+      Correct(argv[argc - 1], "qn.root", "full_1.root", "efficiency.root", "output_2.root",
+              "RND_OPT");
+      CorrelationTask st("output_2.root", "tree");
       st.Run("RND_OPT");
       y1 = Decline("Correlations.root");
     }
@@ -143,10 +146,13 @@ int main(int argc, char **argv) {
               "output_0.root", "RND_OPT");
       Correct(argv[argc - 1], "qn.root", "full_1.root", "efficiency.root",
               "output_1.root", "RND_OPT");
-      CorrelationTask st("output_1.root", "tree");
+      Correct(argv[argc - 1], "qn.root", "full_1.root", "efficiency.root",
+              "output_2.root", "RND_OPT");
+      CorrelationTask st("output_2.root", "tree");
       st.Run("RND_OPT");
       y2 = Decline("Correlations.root");
     }
+    ++n_steps;
     std::cout << "err1=" << y1 << " err2=" << y2 << std::endl;
     std::cout << "x1=" << x1 << " x2=" << x2 << std::endl;
     if (y1 > y2) {
@@ -164,10 +170,13 @@ int main(int argc, char **argv) {
           "output_0.root", "RND_OPT");
   Correct(argv[argc - 1], "qn.root", "full_1.root", "efficiency.root",
           "output_1.root", "RND_OPT");
-  CorrelationTask st("output_1.root", "tree");
+  Correct(argv[argc - 1], "qn.root", "full_1.root", "efficiency.root",
+          "output_2.root", "RND_OPT");
+  CorrelationTask st("output_2.root", "tree");
   st.Run("RND_OPT");
   float err = Decline("Correlations.root");
   std::cout << "err=" << err << " coeff=" << (a + b) / 2.0 << std::endl;
+  std::cout << "steps: " << n_steps << std::endl;
   auto end = std::chrono::system_clock::now();
   std::chrono::duration<double> elapsed_seconds = end - start;
   std::cout << "elapsed time: " << elapsed_seconds.count() << " s\n";
