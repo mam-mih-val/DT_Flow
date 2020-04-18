@@ -29,6 +29,10 @@ public:
   void Compute(float coeff=27000){
     float percentile{2.5};
     float max_eff=0.98;
+    float min_eff=0.70;
+    float min_mult=occupancies_.at(0).GetMinimum();
+    float max_mult=occupancies_.at(0).GetMaximum();
+    coeff=(max_eff-min_eff)/(max_mult-min_mult)/(max_mult-min_mult);
     std::string histo_title{ ";#Delta#phi;#Theta" };
     for( auto occupancy : occupancies_ ){
       std::string histo_name{ "efficiency_map_"+std::to_string(percentile) };
