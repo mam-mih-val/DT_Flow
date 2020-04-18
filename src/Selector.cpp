@@ -50,12 +50,10 @@ bool Selector::IsCorrectTrack(int idx) {
     return false;
   if (dca_z > 15.0)
     return false;
-  //  if ( hit->GetPositionComponent(0) < -5 || hit->GetPositionComponent(0) > 5
-  //  )
-  //    return false;
-  //  if ( hit->GetPositionComponent(1) < -5 || hit->GetPositionComponent(1) > 5
-  //  )
-  //    return false;
+  if ( hit->GetPositionComponent(0) < -5 || hit->GetPositionComponent(0) > 5 )
+    return false;
+  if ( hit->GetPositionComponent(1) < -5 || hit->GetPositionComponent(1) > 5 )
+    return false;
   return true;
 }
 
