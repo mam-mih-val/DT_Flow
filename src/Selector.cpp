@@ -46,17 +46,13 @@ bool Selector::IsCorrectTrack(int idx) {
 
   float dca_xy = fabs(track->GetDCAComponent(0));
   float dca_z = fabs(track->GetDCAComponent(2));
-  if (dca_xy > 15.0)
+  if (dca_xy > 10.0)
     return false;
-  if (dca_z > 15.0)
+  if (dca_z > 10.0)
     return false;
-  if( track->GetChi2() > 100 )
-    return 0;
-  if ( hit->GetPositionComponent(0) < -5 || hit->GetPositionComponent(0) > 5 )
+  if( track->GetChi2() > 100.0 )
     return false;
-  if ( hit->GetPositionComponent(1) < -5 || hit->GetPositionComponent(1) > 5 )
-    return false;
-  return true;
+  return hit->GetSquaredMassError() <= 3.0;
 }
 
 bool Selector::IsCorrectFwHit(int idx) {
