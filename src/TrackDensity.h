@@ -60,12 +60,12 @@ public:
       for (size_t idx = 0; idx < n_tracks; idx++) {
         if (!selector_.IsCorrectTrack(idx))
           continue;
-        if (event_->GetVertexTrack(idx)->GetPdgId() != pid_code_)
-          continue;
+//        if (event_->GetVertexTrack(idx)->GetPdgId() != pid_code_)
+//          continue;
         auto p = event_->GetVertexTrack(idx)->GetMomentum();
         float d_phi = p.Phi()-psi;
-        if( !((0.3 < p.Pt() && p.Pt() < 1.2 ) && ( -0.05 < p.Rapidity()-Y_BEAM/2 && p.Rapidity()-Y_BEAM/2 < 0.05 )) )
-          continue;
+//        if( !((0.3 < p.Pt() && p.Pt() < 1.2 ) && ( -0.05 < p.Rapidity()-Y_BEAM/2 && p.Rapidity()-Y_BEAM/2 < 0.05 )) )
+//          continue;
         if( -TMath::Pi() <= d_phi && d_phi <= TMath::Pi() )
           occupancy_maps_.at(centrality_.GetCentralityClass5pc() ).Fill(d_phi, p.Theta());
         if( d_phi < -TMath::Pi() )
