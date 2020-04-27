@@ -55,17 +55,17 @@ public:
   void ProcessEvent() {
     float psi = atan2f(q_vector_->At(0).y(1), q_vector_->At(0).x(1));
     try {
-      ep_maps_.at(centrality_.GetCentralityClass5pc()).Fill(psi);
+      ep_maps_.at(centrality_.GetCentralityClass10pc()).Fill(psi);
       size_t n_tracks = event_->GetNVertexTracks();
       for (size_t idx = 0; idx < n_tracks; idx++) {
         if (!selector_.IsCorrectTrack(idx))
           continue;
         auto p = event_->GetVertexTrack(idx)->GetMomentum();
         float d_phi = p.Phi()-psi;
-        if( d_phi < -TMath::Pi() )
-          d_phi += 2*TMath::Pi();
-        if( d_phi > TMath::Pi() )
-          d_phi -= 2*TMath::Pi();
+//        if( d_phi < -TMath::Pi() )
+//          d_phi += 2*TMath::Pi();
+//        if( d_phi > TMath::Pi() )
+//          d_phi -= 2*TMath::Pi();
         auto deg_to_rad = [](float phi){
           return phi/TMath::Pi()*180.0;
         };
