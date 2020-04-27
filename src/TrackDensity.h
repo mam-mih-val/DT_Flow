@@ -60,12 +60,14 @@ public:
       for (size_t idx = 0; idx < n_tracks; idx++) {
         if (!selector_.IsCorrectTrack(idx))
           continue;
+        if( event_->GetVertexTrack(idx)->GetPdgId() !=14 )
+          continue;
         auto p = event_->GetVertexTrack(idx)->GetMomentum();
         float d_phi = p.Phi()-psi;
-//        if( d_phi < -TMath::Pi() )
-//          d_phi += 2*TMath::Pi();
-//        if( d_phi > TMath::Pi() )
-//          d_phi -= 2*TMath::Pi();
+        if( d_phi < -TMath::Pi() )
+          d_phi += 2*TMath::Pi();
+        if( d_phi > TMath::Pi() )
+          d_phi -= 2*TMath::Pi();
         auto deg_to_rad = [](float phi){
           return phi/TMath::Pi()*180.0;
         };
