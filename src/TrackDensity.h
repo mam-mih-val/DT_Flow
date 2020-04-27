@@ -37,15 +37,15 @@ public:
     }
     chain_data_->SetBranchAddress("DTEvent", &event_);
     chain_qn_->SetBranchAddress("Full", &q_vector_);
-    float p=2.5;
+    float p=5.0;
     while(p<100.0) {
       std::string histo_name{"occupancy_map_" + std::to_string(p)};
       std::string histo_title{";#Delta#phi;#Theta"};
-      occupancy_maps_.emplace_back(histo_name.data(), histo_title.data(), 315,-3.15, 3.15, 85, 0, 1.7);
+      occupancy_maps_.emplace_back(histo_name.data(), histo_title.data(), 180,-180.0, 180, 100, 0, 100);
       histo_name = "ep_" + std::to_string(p);
       histo_title = ";#Psi^{EP};counts";
       ep_maps_.emplace_back(histo_name.data(), histo_title.data(), 315, -3.15, 3.15);
-      p+=5.0;
+      p+=10.0;
     }
     std::cout << chain_data_->GetEntries() << " events were found."
               << std::endl;
@@ -60,23 +60,24 @@ public:
       for (size_t idx = 0; idx < n_tracks; idx++) {
         if (!selector_.IsCorrectTrack(idx))
           continue;
-//        if (event_->GetVertexTrack(idx)->GetPdgId() != pid_code_)
-//          continue;
         auto p = event_->GetVertexTrack(idx)->GetMomentum();
         float d_phi = p.Phi()-psi;
-//        if( !((0.3 < p.Pt() && p.Pt() < 1.2 ) && ( -0.05 < p.Rapidity()-Y_BEAM/2 && p.Rapidity()-Y_BEAM/2 < 0.05 )) )
-//          continue;
-        if( -TMath::Pi() <= d_phi && d_phi <= TMath::Pi() )
-          occupancy_maps_.at(centrality_.GetCentralityClass5pc() ).Fill(d_phi, p.Theta());
         if( d_phi < -TMath::Pi() )
-          occupancy_maps_.at(centrality_.GetCentralityClass5pc() ).Fill(d_phi+2*TMath::Pi(), p.Theta());
+          d_phi += 2*TMath::Pi();
         if( d_phi > TMath::Pi() )
-          occupancy_maps_.at(centrality_.GetCentralityClass5pc() ).Fill(d_phi-2*TMath::Pi(), p.Theta());
+          d_phi -= 2*TMath::Pi();
+        auto deg_to_rad = [](float phi){
+          return phi/TMath::Pi()*180.0;
+        };
+        d_phi = deg_to_rad(d_phi);
+        float theta = deg_to_rad(p.Theta());
+        int cent_class = centrality_.GetCentralityClass10pc();
+        occupancy_maps_.at( cent_class ).Fill( d_phi, theta );
       }
     } catch (const std::exception &e) {
       std::cout << e.what() << std::endl;
       std::cout << "Centrality is not correct:" << std::endl;
-      std::cout << "Centrality: " << centrality_.GetCentrality5pc() << "%"
+      std::cout << "Centrality: " << centrality_.GetCentrality10pc() << "%"
                 << std::endl;
       return;
     }
