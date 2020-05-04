@@ -10,12 +10,12 @@
 #include <vector>
 
 #include "CorrectionManager.h"
-#include "DataTreeVarManager.h"
-#include "Selector.h"
 #include "TChain.h"
 #include "TFile.h"
 #include "TTree.h"
 #include "TTreeReader.h"
+#include "data_tree_var_manager.h"
+#include "selector.h"
 
 #include "HADES_constants.h"
 
@@ -32,13 +32,20 @@ public:
       const std::string& efficiency="",
       const std::string& out_file="output.root");
   ~CorrectionTask() = default;
-  std::shared_ptr<Selector> GetSelector() { return fVarManager->GetSelector(); }
+  std::shared_ptr<Selector> GetSelector() { return variable_manager_->GetSelector(); }
   void SetSelectorConfiguration(bool perChannel = false,
                                 std::string signal = "adc", float min = 80.0,
                                 float max = 999.0, int = 14);
   void Run(std::string method = "FW3S");
   void SetParticlePid(double ParticlePid) {
     CorrectionTask::fParticlePid = ParticlePid;
+  }
+  void SetOutFile(const std::shared_ptr<TFile> &out_file) {
+    out_file_ = out_file;
+  }
+  void
+  SetOutCalibrationFile(const std::shared_ptr<TFile> &out_calibration_file) {
+    out_calibration_file_ = out_calibration_file;
   }
 
 private:
@@ -65,9 +72,9 @@ protected:
   std::shared_ptr<TFile> out_file_;
   std::shared_ptr<TFile> in_calibration_file_;
   std::shared_ptr<TFile> out_calibration_file_;
-  std::shared_ptr<DataTreeVarManager> fVarManager;
+  std::shared_ptr<DataTreeVarManager> variable_manager_;
   TTree *out_tree_;
-  Qn::CorrectionManager fManager;
+  Qn::CorrectionManager correction_manager_;
   bool write_tree_;
   double fParticlePid{14.0};
 };

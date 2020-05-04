@@ -15,10 +15,10 @@ public:
     std::shared_ptr<TFile> file{ TFile::Open(file_name.data()) };
     TH2F* h2d;
     TH1F* h1d;
-    for( short i=0; i<20; i++ ){
-      std::string histo_name{ "occupancy_map_"+std::to_string(5.0*i+2.5) };
+    for( short i=0; i<10; i++ ){
+      std::string histo_name{ "occupancy_map_"+std::to_string(10.0*i+5.0) };
       file->GetObject(histo_name.data(), h2d);
-      histo_name = "ep_"+std::to_string(5.0*i+2.5);
+      histo_name = "ep_"+std::to_string(10.0*i+5.0);
       file->GetObject(histo_name.data(), h1d);
       h2d->Scale( 1./h1d->GetEntries() );
       occupancies_.emplace_back( *h2d );
@@ -27,16 +27,16 @@ public:
   }
   virtual ~EfficiencyBuilder() = default;
   void Compute(float coeff=27000){
-    float percentile{2.5};
+    float percentile{5.0};
     float max_eff=0.98;
-    float min_eff=0.70;
+    float min_eff=0.72;
     float min_mult=occupancies_.at(0).GetMinimum();
     float max_mult=occupancies_.at(0).GetMaximum();
     coeff=(max_eff-min_eff)/(max_mult-min_mult)/(max_mult-min_mult);
     std::string histo_title{ ";#Delta#phi;#Theta" };
     for( auto occupancy : occupancies_ ){
       std::string histo_name{ "efficiency_map_"+std::to_string(percentile) };
-      efficiencies_.emplace_back( histo_name.data(), histo_title.data(), 315, -3.15, 3.15, 85, 0.0, 1.7 );
+      efficiencies_.emplace_back( histo_name.data(), histo_title.data(), 180, -180.0, 180.0, 100, 0.0, 100.0 );
       for(short i=1; i<occupancy.GetNbinsX()+1; ++i){
         for(short j=1; j<occupancy.GetNbinsY()+1; ++j){
           float density = occupancy.GetBinContent(i,j);
@@ -44,7 +44,7 @@ public:
           efficiencies_.back().SetBinContent(i,j, eff);
         }
       }
-      percentile+=5.0;
+      percentile+=10.0;
     }
   }
   void SaveToFile(std::string file_name){

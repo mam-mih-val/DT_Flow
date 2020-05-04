@@ -2,11 +2,11 @@
 // Created by mikhail on 4/1/20.
 //
 
-#include "CorrectionTask.h"
-#include "CorrelationTask.h"
 #include "DataContainer.h"
+#include "Processing/correction_task.h"
+#include "Processing/correlation_task.h"
+#include "Processing/efficiency_builder.h"
 #include "Stats.h"
-#include "efficiency_builder.h"
 #include <iostream>
 #include <string>
 #include <utility>
@@ -120,25 +120,24 @@ int main(int argc, char **argv) {
   double step{ accuracy*0.1 };
   unsigned int n_steps{0};
   while (fabs((b - a) / 2) > accuracy) {
-    double x1 = (a + b - accuracy) / 2;
-    double x2 = (a + b + accuracy) / 2;
+    double x1 = (a + b) / 2 - step;
+    double x2 = (a + b) / 2 + step;
     double y1 = 0;
     double y2 = 0;
     {
       EfficiencyBuilder builder(all_tracks);
       builder.Compute(x1);
       builder.SaveToFile("efficiency.root");
-      Correct(argv[argc - 1], "nothing", "full_1.root", "efficiency.root", "output_0.root",
-              "RND_OPT");
-      Correct(argv[argc - 1], "qn.root", "full_1.root", "efficiency.root", "output_1.root",
-              "RND_OPT");
-      Correct(argv[argc - 1], "qn.root", "full_1.root", "efficiency.root", "output_2.root",
-              "RND_OPT");
+      Correct(argv[argc - 1], "nothing", "full_1.root", "efficiency.root",
+      	"output_0.root","RND_OPT");
+      Correct(argv[argc - 1], "qn.root", "full_1.root", "efficiency.root",
+      	"output_1.root","RND_OPT");
+      Correct(argv[argc - 1], "qn.root", "full_1.root", "efficiency.root",
+      	"output_2.root","RND_OPT");
       CorrelationTask st("output_2.root", "tree");
       st.Run("RND_OPT");
       y1 = Decline("Correlations.root");
-    }
-    {
+    }{
       EfficiencyBuilder builder(all_tracks);
       builder.Compute(x2);
       builder.SaveToFile("efficiency.root");

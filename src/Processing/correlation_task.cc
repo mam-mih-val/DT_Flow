@@ -4,7 +4,7 @@
 // Created by Lukas Kreis on 13.11.17.
 //
 
-#include "CorrelationTask.h"
+#include "correlation_task.h"
 
 #include "TCanvas.h"
 #include "TFile.h"

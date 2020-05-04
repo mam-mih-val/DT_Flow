@@ -2,7 +2,7 @@
 #include <iomanip>
 #include <iostream>
 
-#include "CorrectionTask.h"
+#include "Processing/correction_task.h"
 
 int main(int argc, char **argv) {
   auto start = std::chrono::system_clock::now();

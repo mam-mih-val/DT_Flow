@@ -13,12 +13,14 @@
 class Centrality
 {
 public:
-  Centrality(DataTreeEvent *event)
-      : event_(event) {
-    LoadCentrality5pc();
-    LoadCentrality10pc();
+  static Centrality* GetInstance(){
+    if(!instance_)
+      instance_ = new Centrality();
+    return instance_;
   }
-  ~Centrality() = default;;
+  void SetEventAddress(DataTreeEvent *event){
+    event_ = event;
+  }
   int GetCentralityClass5pc(){
     auto TOFRPChits = event_->GetCentralityEstimator(HADES_constants::kNhitsTOF_RPC_cut);
     auto bin = centrality_5pc_->FindBin(TOFRPChits);
@@ -99,7 +101,12 @@ public:
   };
 
 private:
-  Centrality() = default;
+  Centrality(){
+    LoadCentrality5pc();
+    LoadCentrality10pc();
+  };
+  ~Centrality() = default;
+  static Centrality* instance_;
   TH1F* centrality_5pc_;
   TH1F* centrality_10pc_;
   DataTreeEvent* event_;

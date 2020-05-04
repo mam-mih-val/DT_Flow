@@ -2,7 +2,7 @@
 // Created by mikhail on 3/12/20.
 //
 
-#include "TrackDensity.h"
+#include "Processing/track_density.h"
 #include <cstdlib>
 #include <iostream>
 int main(int n_args, char **args){

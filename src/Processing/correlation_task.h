@@ -7,10 +7,10 @@
 
 class CorrelationTask {
  public:
-  CorrelationTask() = default;
-  CorrelationTask(std::string filelist, std::string treename);
+   CorrelationTask() = default;
+   CorrelationTask(std::string filelist, std::string treename);
 
-  void Configure(Qn::CorrelationManager &manager);
+  virtual void Configure(Qn::CorrelationManager &manager);
   void ConfigureEp(Qn::CorrelationManager &manager);
   void ConfigureRnd(Qn::CorrelationManager &manager);
   void ConfigureRndOptimization(Qn::CorrelationManager &manager);

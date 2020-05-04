@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 
-#include "CorrelationTask.h"
+#include "Processing/correlation_task.h"
 
 int main(int argc, char **argv) {
   using namespace std;

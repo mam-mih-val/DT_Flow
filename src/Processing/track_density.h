@@ -2,12 +2,12 @@
 // Created by mikhail on 3/12/20.
 //
 
-#ifndef FLOW_SRC_TRACKDENSITY_H_
-#define FLOW_SRC_TRACKDENSITY_H_
+#ifndef FLOW_SRC_TRACK_DENSITY_H_
+#define FLOW_SRC_TRACK_DENSITY_H_
 
-#include "Centrality.h"
 #include "DataTreeEvent.h"
-#include "Selector.h"
+#include "Processing/centrality.h"
+#include "Processing/selector.h"
 #include <DataContainer.h>
 #include <QVector.h>
 #include <TChain.h>
@@ -59,8 +59,6 @@ public:
       size_t n_tracks = event_->GetNVertexTracks();
       for (size_t idx = 0; idx < n_tracks; idx++) {
         if (!selector_.IsCorrectTrack(idx))
-          continue;
-        if( event_->GetVertexTrack(idx)->GetPdgId() !=14 )
           continue;
         auto p = event_->GetVertexTrack(idx)->GetMomentum();
         float d_phi = p.Phi()-psi;
@@ -130,4 +128,4 @@ private:
   const double Y_BEAM = 0.5 * log((E + PZ) / (E - PZ));
 };
 
-#endif // FLOW_SRC_TRACKDENSITY_H_
+#endif // FLOW_SRC_TRACK_DENSITY_H_
