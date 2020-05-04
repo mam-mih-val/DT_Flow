@@ -57,26 +57,23 @@ public:
   void FillTrackVariables(int idx, double *varContainer);
   int GetNumberOfEvents() { return chain_->GetEntries(); }
   int GetNumberOfTracks() { return fEvent->GetNVertexTracks(); }
-  void SwitchEvent(int idx) { chain_->GetEntry(idx); }
-  void SwitchNextEvent(){
-    try {
-      chain_->GetEntry(position);
-      position++;
-    } catch (const std::exception& e) {
-      std::cout << e.what() << std::endl;
-      abort();
-    }
+  void SwitchEvent(int idx) {
+    if( idx >= chain_->GetEntries() )
+      return;
+    chain_->GetEntry(idx);
   }
-  bool Eof(){
-    position < chain_->GetEntries();
+  void SwitchNextEvent(){
+    chain_->GetEntry(position);
+    position++;
   }
   void SwitchNextGoodEvent(){
     auto selector = Selector::GetInstance();
-    while( !selector->IsCorrectEvent() )
-      if( !Eof() )
-        SwitchNextEvent();
-      else
-        return;
+    do{
+      SwitchNextEvent();
+    }while( !selector->IsCorrectEvent() );
+  }
+  bool Eof(){
+    return position >= chain_->GetEntries();
   }
   void FillEp(double *varContainer);
 
@@ -84,7 +81,6 @@ protected:
   static DataTreeVarManager* instance_;
   std::shared_ptr<TChain> chain_;
   DataTreeEvent *fEvent;
-//  OccupancyCorrections corrections_;
   float psi_ep_{0.0};
   DataTreeVarManager() : chain_(new TChain("DataTree")),
                          fEvent{new DataTreeEvent}

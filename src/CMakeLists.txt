@@ -7,7 +7,7 @@ list(APPEND CMAKE_PREFIX_PATH $ENV{DATATREE_HOME})
 find_package(DataTree REQUIRED)
 
 link_directories(${DataTree_LIBRARY_DIR})
-add_executable(correct Correct.cpp Processing/task_factory.cc Processing/correction_task.cpp Processing/data_tree_var_manager.cc Processing/selector.cpp Processing/centrality.cc Processing/occupancy_corrections.cc Processing/efficiency.cc Processing/correction_task_fw3s.cc Processing/correction_task_fw3s.h)
+add_executable(correct Correct.cpp Processing/task_factory.cc Processing/correction_task.cpp Processing/data_tree_var_manager.cc Processing/selector.cpp Processing/centrality.cc Processing/occupancy_corrections.cc Processing/efficiency.cc Processing/correction_task_fw3s.cc Processing/correction_task_fw3s.h Processing/correction_task_rnd.cc Processing/correction_task_rnd.h)
 target_compile_definitions(correct PUBLIC _VANILLA_ROOT_)
 target_include_directories(correct PRIVATE ${ROOT_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR} ${DATATREE_HOME})
 target_link_libraries(correct QnCorrections Base Correction Correlation DataTree ${ROOT_LIBRARIES})

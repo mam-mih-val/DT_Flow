@@ -7,8 +7,8 @@
 int main(int argc, char **argv) {
   auto start = std::chrono::system_clock::now();
   if (argc < 3) {
-    cout << "Error 1: incorrect number of arguments" << endl;
-    cout << argc << " arguments were given, minimum 2 is required" << endl;
+    std::cout << "Error 1: incorrect number of arguments" << std::endl;
+    std::cout << argc << " arguments were given, minimum 2 is required" << std::endl;
     return 1;
   }
   bool channelSelection = false;

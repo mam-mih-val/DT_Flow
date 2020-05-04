@@ -26,33 +26,33 @@ namespace Qn {
  */
 class CorrectionTask {
 public:
+  CorrectionTask():
+                     out_calibration_file_(new TFile("qn.root", "RECREATE")),
+                     out_tree_(new TTree("tree", "tree")),
+                     correction_manager_(){};
   CorrectionTask(const std::string& inFile,
       const std::string& incalib,
       const std::string& qn_file="",
       const std::string& efficiency="",
       const std::string& out_file="output.root");
   ~CorrectionTask() = default;
-  std::shared_ptr<Selector> GetSelector() { return variable_manager_->GetSelector(); }
-  void SetSelectorConfiguration(bool perChannel = false,
-                                std::string signal = "adc", float min = 80.0,
-                                float max = 999.0, int = 14);
-  void Run(std::string method = "FW3S");
-  void SetParticlePid(double ParticlePid) {
-    CorrectionTask::fParticlePid = ParticlePid;
+  virtual void Run();
+  inline void SetInCalibrationFile(const std::string& file_name ) {
+    in_calibration_file_.reset( TFile::Open( file_name.data() ) );
   }
-  void SetOutFile(const std::shared_ptr<TFile> &out_file) {
-    out_file_ = out_file;
-  }
-  void
-  SetOutCalibrationFile(const std::shared_ptr<TFile> &out_calibration_file) {
+  void SetOutCalibrationFile(const std::shared_ptr<TFile> &out_calibration_file) {
     out_calibration_file_ = out_calibration_file;
   }
+  void SetOutFile(const std::string &out_file) {
+    out_file_.reset(TFile::Open(out_file.data(), "recreate"));
+  }
 
-private:
+protected:
   /**
    * Initializing function of Correction Task class. Makes configuration of
    * Correction Manager.
    */
+  virtual void Initialize(){};
   void InitializeFull();
   void InitializeFw3s();
   void InitializeFw3x();
@@ -61,22 +61,19 @@ private:
   /**
    * Processes one event;
    */
-  void Process();
-  /**
-   * Finalizes TestTask. Called after processing is done.
-   */
-  void Finalize();
+  virtual void Process();
   void ProgressBar(float progress);
 
 protected:
   std::shared_ptr<TFile> out_file_;
   std::shared_ptr<TFile> in_calibration_file_;
   std::shared_ptr<TFile> out_calibration_file_;
-  std::shared_ptr<DataTreeVarManager> variable_manager_;
   TTree *out_tree_;
   Qn::CorrectionManager correction_manager_;
-  bool write_tree_;
-  double fParticlePid{14.0};
+  /**
+   * Finalizes TestTask. Called after processing is done.
+   */
+  void Finalize();
 };
 } // namespace Qn
 #endif // FLOW_QNTASK_H

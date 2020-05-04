@@ -15,9 +15,7 @@ CorrectionTask::CorrectionTask(const std::string& inFile,
     : out_file_(new TFile(out_file.data(), "RECREATE")),
       in_calibration_file_(new TFile(incalib.c_str(), "READ")),
       out_calibration_file_(new TFile("qn.root", "RECREATE")),
-      correction_manager_(),
-      write_tree_(true),
-      variable_manager_(new DataTreeVarManager(inFile, qn_file, efficiency)) {
+      correction_manager_(){
   out_file_->cd();
   out_tree_ = new TTree("tree", "tree");
 }
@@ -35,32 +33,15 @@ void CorrectionTask::Run(std::string method) {
     InitializeRndOptimization();
   QnCorrectionsSetTracingLevel(kError);
   std::cout << "Processing..." << std::endl;
-  int numEvents = variable_manager_->GetNumberOfEvents();
   int goodEvents = 0;
-  for (int idx = 0; idx < numEvents; idx++) {
-    variable_manager_->SwitchEvent(idx);
-    if (!variable_manager_->IsGoodEvent())
-      continue;
-    variable_manager_->SwitchEp(goodEvents);
+  while( !DataTreeVarManager::GetInstance()->Eof() ){
+    DataTreeVarManager::GetInstance()->SwitchNextGoodEvent();
+    OccupancyCorrections::GetInstance()->SwitchNextEvent();
     Process();
-    float progress = (float)idx / (float)numEvents;
-    // this->ProgressBar(progress);
     goodEvents++;
   }
   std::cout << goodEvents << " good events" << std::endl;
   Finalize();
-}
-
-void CorrectionTask::SetSelectorConfiguration(bool perChannel,
-                                              std::string signal, float min,
-                                              float max, int pid) {
-  variable_manager_->GetSelector()->SetFwSignalType(signal);
-  variable_manager_->SetSignal(signal == "adc"
-                             ? DataTreeVarManager::Signals::kAdc
-                             : DataTreeVarManager::Signals::kChargeZ);
-  variable_manager_->GetSelector()->SetFwChannelSelection(perChannel);
-  variable_manager_->GetSelector()->SetFwSignalRange(min, max);
-  fParticlePid = (double)pid;
 }
 
 void CorrectionTask::InitializeFull(){
@@ -555,14 +536,16 @@ void CorrectionTask::InitializeRndOptimization(){
 
 void CorrectionTask::Process() {
   correction_manager_.Reset();
-  variable_manager_->FillEventVariables(correction_manager_.GetVariableContainer());
+  DataTreeVarManager::GetInstance()->FillEventVariables(correction_manager_.GetVariableContainer());
   correction_manager_.ProcessEvent();
   correction_manager_.FillChannelDetectors();
-  int trackNumber = variable_manager_->GetNumberOfTracks();
+  int trackNumber = DataTreeVarManager::GetInstance()->GetNumberOfTracks();
   for (int i = 0; i < trackNumber; i++) {
-    if (!variable_manager_->IsGoodTrack(i))
+    if (!Selector::GetInstance()->IsCorrectTrack(i))
       continue;
-    variable_manager_->FillTrackVariables(i,
+    if(!Selector::GetInstance()->IsCorrectPid(i))
+
+    DataTreeVarManager::GetInstance()->FillTrackVariables(i,
                                     correction_manager_.GetVariableContainer());
     correction_manager_.FillTrackingDetectors();
   }
@@ -572,7 +555,6 @@ void CorrectionTask::Process() {
 void CorrectionTask::Finalize() {
   correction_manager_.Finalize();
   correction_manager_.SaveOutput(out_calibration_file_, out_file_);
-  // std::cout << "Successfully Finalized." << std::endl;
 }
 
 void CorrectionTask::ProgressBar(float progress) {

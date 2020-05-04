@@ -1,18 +1,15 @@
 //
-// Created by mikhail on 4/30/20.
+// Created by mikhail on 5/4/20.
 //
 
-#ifndef FLOW_SRC_PROCESSING_CORRECTION_TASK_FW3S_H_
-#define FLOW_SRC_PROCESSING_CORRECTION_TASK_FW3S_H_
+#ifndef FLOW_SRC_PROCESSING_CORRECTION_TASK_RND_H_
+#define FLOW_SRC_PROCESSING_CORRECTION_TASK_RND_H_
 
 #include "correction_task.h"
-
 namespace Qn {
-
-class CorrectionTaskFw3s : public CorrectionTask {
+class CorrectionTaskRnd : public CorrectionTask {
 public:
-  void Initialize() override {
-    // Add Variables to variable manager needed for filling
+  void Initialize(){
     correction_manager_.AddVariable("Centrality", DataTreeVarManager::kCentrality, 1);
     correction_manager_.AddVariable("One", DataTreeVarManager::kOne, 1);
     correction_manager_.AddVariable("Pt", DataTreeVarManager::kMdcPt, 1);
@@ -23,6 +20,7 @@ public:
     correction_manager_.AddVariable("FwModuleId", DataTreeVarManager::kFwModuleId, 304);
     correction_manager_.AddVariable("FwAdc", DataTreeVarManager::kFwModuleAdc, 304);
     correction_manager_.AddVariable("FwPhi", DataTreeVarManager::kFwModulePhi, 304);
+    correction_manager_.AddVariable("RandomSe", DataTreeVarManager::kRandomSe, 304);
     correction_manager_.AddVariable("moduleX", DataTreeVarManager::kFwModuleX, 304);
     correction_manager_.AddVariable("moduleY", DataTreeVarManager::kFwModuleY, 304);
     std::cout << "Variables added" << std::endl;
@@ -74,16 +72,16 @@ public:
     correction_manager_.AddCut(
         "TracksMdc", {"Ycm", "Pt"},
         [](const double &y, const double &pt) {
-          return -0.8 < y && y < 0.8 && 0.0 < pt &&
-              pt < 2.0;
+          return -0.8 < y && y < 0.8
+                 && 0.0 < pt && pt < 2.0;
         });
     correction_manager_.SetCorrectionSteps("TracksMdc", MdcConfiguration);
 
     correction_manager_.AddDetector("MdcQ", DetectorType::TRACK, "Phi", "Ones", {ycm}, {1});
-    correction_manager_.AddCut("MdcQ", {"Ycm", "Pt"},
-                               [](const double &y, const double &pt) {
-                                 return -0.8 < y && y < 0.8 &&
-                                        0.0 < pt && pt < 2.0;
+    correction_manager_.AddCut("MdcQ", {"Ycm", "Pid", "Pt"},
+                               [](const double &y, const double &pid, const double &pt) {
+                                 return -0.8 < y && y < 0.8 && pid == 14 && 0.0 < pt &&
+                                     pt < 2.0;
                                });
     correction_manager_.SetCorrectionSteps("MdcQ", MdcConfiguration);
 
@@ -131,6 +129,7 @@ public:
     int goodEvents = 0;
     while( !DataTreeVarManager::GetInstance()->Eof() ){
       DataTreeVarManager::GetInstance()->SwitchNextGoodEvent();
+      OccupancyCorrections::GetInstance()->SwitchNextEvent();
       Process();
       goodEvents++;
     }
@@ -155,6 +154,5 @@ protected:
     correction_manager_.ProcessQnVectors();
   }
 };
-
 } // namespace Qn
-#endif // FLOW_SRC_PROCESSING_CORRECTION_TASK_FW3S_H_
+#endif // FLOW_SRC_PROCESSING_CORRECTION_TASK_RND_H_

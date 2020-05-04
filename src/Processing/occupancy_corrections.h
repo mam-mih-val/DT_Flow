@@ -27,6 +27,13 @@ public:
       return;
     qn_chain_->GetEntry(idx);
   }
+  void SwitchNextEvent(){
+    SwitchEvent(position_);
+    position_++;
+  }
+  bool Eof(){
+    return position_ >= qn_chain_->GetEntries();
+  }
   float GetEfficiency(int c_bin, float phi, float theta){
     try {
       float psi = GetPsiEp();
@@ -40,10 +47,11 @@ public:
     return atan2f(q_vector_->At(0).y(1), q_vector_->At(0).x(1));
   }
 private:
-  static OccupancyCorrections* instance_{nullptr};
+  static OccupancyCorrections* instance_;
   OccupancyCorrections() :qn_chain_{new TChain("tree")},
                           q_vector_{new Qn::DataContainer<Qn::QVector>}{};
   ~OccupancyCorrections() = default;
+  long long position_=0;
   Efficiency* efficiency_{nullptr};
   TChain* qn_chain_{nullptr};
   Qn::DataContainer<Qn::QVector> *q_vector_{nullptr};
