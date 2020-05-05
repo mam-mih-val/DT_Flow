@@ -126,6 +126,7 @@ public:
     std::cout << "Successfully initialized" << std::endl;
   }
   void Run() override {
+    Initialize();
     QnCorrectionsSetTracingLevel(kError);
     std::cout << "Processing..." << std::endl;
     int goodEvents = 0;

@@ -5,14 +5,18 @@
 #ifndef FLOW_SRC_PROCESSING_TASK_FACTORY_H_
 #define FLOW_SRC_PROCESSING_TASK_FACTORY_H_
 #include "correction_task.h"
-#include "correlation_task.h"
+#include "correction_task_full.h"
 #include "correction_task_fw3s.h"
+#include "correction_task_fw3x.h"
 #include "correction_task_rnd.h"
+#include "correlation_task.h"
 
 struct Configuration{
   enum methods{
     FW3S=0,
-    FWRS
+    FWRS,
+    FW3X,
+    FULL
   };
   std::string input_data;
   std::string input_calib;
@@ -41,6 +45,10 @@ public:
     case Configuration::FWRS :
       task = new Qn::CorrectionTaskRnd();
       break;
+    case Configuration::FW3X :
+      task = new Qn::CorrectionTaskFw3x();
+    case Configuration::FULL :
+      task = new Qn::CorrectionTaskFull();
     }
     task->SetInCalibrationFile(config_.input_calib);
     task->SetOutFile(config_.output_file);

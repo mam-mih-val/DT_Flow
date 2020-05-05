@@ -1,21 +1,21 @@
 //
-// Created by mikhail on 5/4/20.
+// Created by mikhail on 5/5/20.
 //
 
-#ifndef FLOW_SRC_PROCESSING_CORRECTION_TASK_RND_H_
-#define FLOW_SRC_PROCESSING_CORRECTION_TASK_RND_H_
-
+#ifndef FLOW_SRC_PROCESSING_CORRECTION_TASK_FW3X_H_
+#define FLOW_SRC_PROCESSING_CORRECTION_TASK_FW3X_H_
 #include "correction_task.h"
 namespace Qn {
-class CorrectionTaskRnd : public CorrectionTask {
+class CorrectionTaskFw3x : public CorrectionTask {
 public:
-  void Initialize(){
+  void Initialize() override {
     correction_manager_.AddVariable("Centrality", DataTreeVarManager::kCentrality, 1);
     correction_manager_.AddVariable("One", DataTreeVarManager::kOne, 1);
     correction_manager_.AddVariable("Pt", DataTreeVarManager::kMdcPt, 1);
     correction_manager_.AddVariable("Phi", DataTreeVarManager::kMdcPhi, 1);
     correction_manager_.AddVariable("Ycm", DataTreeVarManager::kMdcYcm, 1);
     correction_manager_.AddVariable("Pid", DataTreeVarManager::kMdcPid, 1);
+    correction_manager_.AddVariable("Eff", DataTreeVarManager::kMdcEfficiency, 1);
     correction_manager_.AddVariable("FwRing", DataTreeVarManager::kFwModuleRing, 304);
     correction_manager_.AddVariable("FwModuleId", DataTreeVarManager::kFwModuleId, 304);
     correction_manager_.AddVariable("FwAdc", DataTreeVarManager::kFwModuleAdc, 304);
@@ -67,27 +67,29 @@ public:
       config->SetChannelsScheme(fwChannels, fwChannelGroups);
     };
     // u-vectors from MDC
-    correction_manager_.AddDetector("TracksMdc", DetectorType::TRACK, "Phi", "Ones",
-                                    {ycm, pt}, {1, 2});
+    correction_manager_.AddDetector("TracksMdc", DetectorType::TRACK, "Phi", "Ones", {ycm, pt}, {2});
     correction_manager_.AddCut(
         "TracksMdc", {"Ycm", "Pt"},
         [](const double &y, const double &pt) {
-          return -0.8 < y && y < 0.8
-                 && 0.0 < pt && pt < 2.0;
+          return
+              -0.8 < y && y < 0.8
+              && 0.0 < pt && pt < 2.0;
         });
     correction_manager_.SetCorrectionSteps("TracksMdc", MdcConfiguration);
 
-    correction_manager_.AddDetector("MdcQ", DetectorType::TRACK, "Phi", "Ones", {ycm}, {1});
-    correction_manager_.AddCut("MdcQ", {"Ycm", "Pid", "Pt"},
-                               [](const double &y, const double &pid, const double &pt) {
-                                 return -0.8 < y && y < 0.8 && pid == 14 && 0.0 < pt &&
-                                     pt < 2.0;
+    correction_manager_.AddDetector("MdcQ", DetectorType::TRACK, "Phi", "Ones", {ycm}, {2});
+    correction_manager_.AddCut("MdcQ", {"Ycm", "Pt"},
+                               [](const double &y, const double &pt) {
+                                 return
+                                     -0.8 < y && y < 0.8
+                                     && 0.0 < pt && pt < 2.0;
                                });
     correction_manager_.SetCorrectionSteps("MdcQ", MdcConfiguration);
 
     // 3 sub-events method.
     // Each detector builds own Q-vector, which means, you need to add required
     // count of detectors and then configurate their cuts.
+
     correction_manager_.AddDetector("Fw1", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
     correction_manager_.AddCut("Fw1", {"FwRing"}, [](const double &module) {
       return module >= 1.0 && module <= 5.0;
@@ -130,7 +132,6 @@ public:
     int goodEvents = 0;
     while( !DataTreeVarManager::GetInstance()->Eof() ){
       DataTreeVarManager::GetInstance()->SwitchNextGoodEvent();
-      OccupancyCorrections::GetInstance()->SwitchNextEvent();
       Process();
       goodEvents++;
     }
@@ -156,4 +157,4 @@ protected:
   }
 };
 } // namespace Qn
-#endif // FLOW_SRC_PROCESSING_CORRECTION_TASK_RND_H_
+#endif // FLOW_SRC_PROCESSING_CORRECTION_TASK_FW3X_H_
