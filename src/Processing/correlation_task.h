@@ -8,14 +8,26 @@
 class CorrelationTask {
 public:
   CorrelationTask() = default;
-  CorrelationTask(std::string filelist, std::string treename);
-  virtual void Configure(Qn::CorrelationManager &manager);
-  void ConfigureEp(Qn::CorrelationManager &manager);
-  void ConfigureRnd(Qn::CorrelationManager &manager);
-  void ConfigureRndOptimization(Qn::CorrelationManager &manager);
-  void ConfigureFw3s(Qn::CorrelationManager &manager);
-  void ConfigureFw3x(Qn::CorrelationManager &manager);
-  void Run(std::string method = "FW3S");
+  virtual void Configure(Qn::CorrelationManager &manager){};
+  void Run(){
+    int nEvents = in_tree_->GetEntries();
+    Qn::CorrelationManager manager(reader_, nEvents);
+    in_tree_->LoadTree(0); // prevents weird TTree errors
+    Configure(manager);
+    reader_->SetEntry(0); //  first entry needed to access configuration of
+    //  DataContainers in the input file
+    manager.Initialize();
+    in_tree_->LoadTree(0); // prevents weird TTree errors
+    std::cout << "Processing..." << std::endl;
+    long long events = 0;
+    do {
+      manager.Process();
+      events++;
+    } while (reader_->Next());
+    manager.Finalize();
+    std::cout << std::endl
+              << "number of analyzed events: " << events << std::endl;
+  };
   void AddFiles(const std::string &file_list) {
     in_tree_ = this->MakeChain(std::move(file_list), "tree");
     reader_.reset(new TTreeReader(in_tree_.get()));
