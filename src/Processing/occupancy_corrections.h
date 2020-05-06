@@ -39,7 +39,7 @@ public:
       float psi = GetPsiEp();
       return efficiency_->GetEfficiency( c_bin, phi-psi, theta );
     }catch (const std::exception &e) {
-      std::cout << e.what() << std::endl;
+//      std::cout << e.what() << std::endl;
       return 0.98;
     }
   }

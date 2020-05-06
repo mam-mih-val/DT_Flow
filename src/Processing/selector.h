@@ -1,14 +1,14 @@
-#pragma once
+#ifndef SELECTOR_H
+#define SELECTOR_H
+
 #include "TAxis.h"
 #include "TCanvas.h"
 #include "TFile.h"
 #include "TH1F.h"
 #include "TStyle.h"
-
-#define DATATREE_SHINE
 #include "DataTreeEvent.h"
 
-#include "Processing/HADES_constants.h"
+#include "HADES_constants.h"
 
 class Selector {
 public:
@@ -17,12 +17,14 @@ public:
       instance_ = new Selector();
     return instance_;
   }
+  Selector( const Selector& ) = delete;
+  void operator=(const Selector& ) = delete;
   bool IsCorrectEvent(){
     if (!event_) {
-      std::cout << "Event pointer is empty" << std::endl;
-      return false;
+      std::cout << "Selector Error: Event pointer is empty" << std::endl;
+      std::abort();
     }
-
+//    auto trigger = event_->GetTrigger(HADES_constants::kNoVETO);
     if (!event_->GetTrigger(trigger_)->GetIsFired())
       return false;
 
@@ -45,9 +47,6 @@ public:
   bool IsCorrectTrack(int idx){
     DataTreeTrack *track = event_->GetVertexTrack(idx);
     DataTreeTOFHit *hit = event_->GetTOFHit(idx);
-
-    if (track->GetPdgId() <= 6) // Hadrons
-      return false;
 
     double dca_xy = fabs(track->GetDCAComponent(0));
     double dca_z = fabs(track->GetDCAComponent(2));
@@ -134,3 +133,5 @@ private:
   float max_signal_ = 999.0;
   int pid_ = 14.0;
 };
+
+#endif // SELECTOR_H

@@ -3,3 +3,5 @@
 //
 
 #include "occupancy_corrections.h"
+
+OccupancyCorrections* OccupancyCorrections::instance_=nullptr;

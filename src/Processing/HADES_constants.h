@@ -22,9 +22,9 @@ enum eTriggers
   kNoVETO,          // 13: 4096  no VETO hit +- 10ns arround START
   kGoodSTARTVETO,   // 14: 8192  no starthit >15ns <350ns uncorrelated with veto
   kGoodSTARTMETA,   // 15: 16384 no starthit >80ns <350ns  correlated with metahits
-  kPT1,
-  kPT2,
-  kPT3,
+  kPT1, // 16
+  kPT2, // 17
+  kPT3, // 18
   kNtriggers
 };
 

@@ -11,7 +11,8 @@ namespace Qn {
 
 class CorrectionTaskFw3s : public CorrectionTask {
 public:
-  void Initialize() override {
+  virtual ~CorrectionTaskFw3s() = default;
+  virtual void Initialize() override {
     // Add Variables to variable manager needed for filling
     correction_manager_.AddVariable("Centrality", DataTreeVarManager::kCentrality, 1);
     correction_manager_.AddVariable("One", DataTreeVarManager::kOne, 1);
@@ -74,8 +75,8 @@ public:
     correction_manager_.AddCut(
         "TracksMdc", {"Ycm", "Pt"},
         [](const double &y, const double &pt) {
-          return -0.8 < y && y < 0.8 && 0.0 < pt &&
-              pt < 2.0;
+          return -0.8 < y && y < 0.8 &&
+                 0.0 < pt && pt < 2.0;
         });
     correction_manager_.SetCorrectionSteps("TracksMdc", MdcConfiguration);
 
@@ -130,6 +131,7 @@ public:
     QnCorrectionsSetTracingLevel(kError);
     std::cout << "Processing..." << std::endl;
     int goodEvents = 0;
+    DataTreeVarManager::GetInstance()->Rewind();
     while( !DataTreeVarManager::GetInstance()->Eof() ){
       DataTreeVarManager::GetInstance()->SwitchNextGoodEvent();
       Process();

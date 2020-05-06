@@ -4,6 +4,7 @@
 
 #ifndef FLOW_SRC_PROCESSING_TASK_FACTORY_H_
 #define FLOW_SRC_PROCESSING_TASK_FACTORY_H_
+
 #include "correction_task.h"
 #include "correction_task_full.h"
 #include "correction_task_fw3s.h"
@@ -24,9 +25,9 @@ struct Configuration{
   std::string input_data;
   std::string input_calib;
   std::string efficiency_file;
-  std::string trigger;
-  int method;
-  int pid_code;
+  std::string trigger="PT2";
+  int method=0;
+  int pid_code=14;
 };
 
 class TaskFactory {
@@ -38,11 +39,16 @@ public:
   }
   void SetConfig(const Configuration &config) { config_ = config; }
   void RunJob(){
-    ConfigureJob();
-    for( const auto& task : correction_tasks_ )
-      task->Run();
-    for( const auto& task : correlation_tasks_ )
-      task->Run();
+    DataTreeVarManager::GetInstance()->OpenFiles(config_.input_data);
+    DataTreeVarManager::GetInstance()->SwitchOnCentrality();
+    DataTreeVarManager::GetInstance()->SwitchOnSelector();
+    Selector::GetInstance()->SetTrigger(config_.trigger);
+    RunFw3s("qn.root", "output_1.root");
+//    ConfigureJob();
+//    for( const auto& task : correction_tasks_ )
+//      task->Run();
+//    for( const auto& task : correlation_tasks_ )
+//      task->Run();
   }
 
 protected:
@@ -65,11 +71,22 @@ protected:
         std::abort();
     }
   }
+  void RunFw3s(std::string calib_file, std::string out_file){
+    Qn::CorrectionTaskFw3s task;
+    task.SetInCalibrationFile(calib_file);
+    std::string out_file_name = out_file;
+    task.SetOutFile(out_file_name);
+    task.Run();
+  }
   void ConfigureFw3s(){
+    std::vector<std::string> calib_files{
+        "nothing", "qn.root", "qn.root"
+    };
     for( int i=0; i<3; ++i ){
       correction_tasks_.push_back( new Qn::CorrectionTaskFw3s );
-      correction_tasks_.back()->SetInCalibrationFile(config_.input_calib);
+      correction_tasks_.back()->SetInCalibrationFile(calib_files.at(i));
       std::string out_file_name = "output_" + std::to_string(i);
+      correction_tasks_.back()->SetOutFile(out_file_name);
     }
     correlation_tasks_.push_back( new CorrelationTaskFw3s );
     correlation_tasks_.back()->AddFiles("output_2");

@@ -2,6 +2,8 @@
 
 #include <random>
 
+DataTreeVarManager* DataTreeVarManager::instance_=nullptr;
+
 void DataTreeVarManager::FillEventVariables(double *varContainer) {
 //  varContainer[kCentrality]=fEvent->GetCentrality5pc(HADES_constants::kNhitsTOF_RPC_cut);
   varContainer[kCentrality] = Centrality::GetInstance()->GetCentrality5pc();
@@ -14,22 +16,22 @@ void DataTreeVarManager::FillEventVariables(double *varContainer) {
     varContainer[kFwModuleX + idx] = 0.0;
     varContainer[kFwModuleY + idx] = 0.0;
   }
-  Int_t nModules = fEvent->GetNPSDModules();
+  Int_t nModules = event_->GetNPSDModules();
   std::vector<int> moduleList;
   for (Int_t idx = 0; idx < nModules; idx++) {
     if (!Selector::GetInstance()->IsCorrectFwHit(idx))
       continue;
-    int moduleId = fEvent->GetPSDModule(idx)->GetId();
+    int moduleId = event_->GetPSDModule(idx)->GetId();
     varContainer[kFwModuleRing + moduleId] =
-        (double)fEvent->GetPSDModule(idx)->GetRing();
+        (double)event_->GetPSDModule(idx)->GetRing();
     varContainer[kFwModuleAdc + moduleId] =
-        (double)fEvent->GetPSDModule(idx)->GetEnergy();
+        (double)event_->GetPSDModule(idx)->GetEnergy();
     varContainer[kFwModulePhi + moduleId] =
-        (double)fEvent->GetPSDModule(idx)->GetPhi();
+        (double)event_->GetPSDModule(idx)->GetPhi();
     varContainer[kFwModuleX + idx] =
-        (double)fEvent->GetPSDModule(idx)->GetPositionComponent(0);
+        (double)event_->GetPSDModule(idx)->GetPositionComponent(0);
     varContainer[kFwModuleY + idx] =
-        (double)fEvent->GetPSDModule(idx)->GetPositionComponent(1);
+        (double)event_->GetPSDModule(idx)->GetPositionComponent(1);
     moduleList.push_back(moduleId);
   }
   shuffle(moduleList.begin(), moduleList.end(), std::mt19937(std::random_device()()));
@@ -53,12 +55,12 @@ void DataTreeVarManager::FillEp(double *varContainer){
 }
 
 void DataTreeVarManager::FillTrackVariables(int idx, double *varContainer) {
-  auto p = fEvent->GetVertexTrack(idx)->GetMomentum();
+  auto p = event_->GetVertexTrack(idx)->GetMomentum();
   varContainer[kOne] = 1.0;
   varContainer[kMdcPt] = p.Pt();
   varContainer[kMdcYcm] = p.Rapidity() - Y_BEAM / 2;
   varContainer[kMdcPhi] = p.Phi();
-  varContainer[kMdcPid] = fEvent->GetVertexTrack(idx)->GetPdgId();
+  varContainer[kMdcPid] = event_->GetVertexTrack(idx)->GetPdgId();
   float efficiency{OccupancyCorrections::GetInstance()->GetEfficiency(
       Centrality::GetInstance()->GetCentralityClass5pc(), p.Phi(), p.Theta())};
   if( efficiency == 0 )

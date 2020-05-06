@@ -30,10 +30,10 @@ public:
                      out_calibration_file_(new TFile("qn.root", "RECREATE")),
                      out_tree_(new TTree("tree", "tree")),
                      correction_manager_(){};
-  ~CorrectionTask() = default;
+  virtual ~CorrectionTask() = default;
   virtual void Run(){};
   inline void SetInCalibrationFile(const std::string& file_name ) {
-    in_calibration_file_.reset( TFile::Open( file_name.data() ) );
+    in_calibration_file_.reset( TFile::Open( file_name.data(), "read" ) );
   }
   void SetOutCalibrationFile(const std::shared_ptr<TFile> &out_calibration_file) {
     out_calibration_file_ = out_calibration_file;

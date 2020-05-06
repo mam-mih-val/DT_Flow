@@ -1,14 +1,15 @@
-#pragma once
+
+#ifndef CENTRALITY_H
+#define CENTRALITY_H
 
 #include "TH1F.h"
 #include "TFile.h"
 
 #include "HADES_constants.h"
 
-#define  DATATREE_SHINE
-#include "DataTreeEvent.h"
-#include <string>
 #include <iostream>
+#include <string>
+#include "DataTreeEvent.h"
 
 class Centrality
 {
@@ -22,11 +23,19 @@ public:
     event_ = event;
   }
   int GetCentralityClass5pc(){
+    if (!event_) {
+      std::cout << "Centrality Error: Event pointer is empty" << std::endl;
+      std::abort();
+    }
     auto TOFRPChits = event_->GetCentralityEstimator(HADES_constants::kNhitsTOF_RPC_cut);
     auto bin = centrality_5pc_->FindBin(TOFRPChits);
     return static_cast<int>(centrality_5pc_->GetBinContent(bin) - 1);
   };
   int GetCentralityClass10pc(){
+    if (!event_) {
+      std::cout << "Centrality Error: Event pointer is empty" << std::endl;
+      std::abort();
+    }
     auto TOFRPChits = event_->GetCentralityEstimator(HADES_constants::kNhitsTOF_RPC_cut);
     auto bin = centrality_10pc_->FindBin(TOFRPChits);
     return static_cast<int>(centrality_10pc_->GetBinContent(bin) - 1);
@@ -99,7 +108,6 @@ public:
     centrality_10pc_->SetBinError(9,0.00100254);
     centrality_10pc_->SetEntries(9);
   };
-
 private:
   Centrality(){
     LoadCentrality5pc();
@@ -111,3 +119,5 @@ private:
   TH1F* centrality_10pc_;
   DataTreeEvent* event_;
 };
+
+#endif // CENTRALITY_H
