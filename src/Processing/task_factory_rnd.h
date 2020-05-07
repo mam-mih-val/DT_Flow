@@ -8,6 +8,12 @@
 
 class TaskFactoryRnd : public TaskFactory {
 public:
+  static TaskFactoryRnd* GetInstance(){
+    if( !instance_ ){
+      instance_ = new TaskFactoryRnd();
+    }
+    return instance_;
+  }
   void RunJob() override {
     DataTreeVarManager::GetInstance()->OpenFiles(config_.input_data);
     DataTreeVarManager::GetInstance()->SwitchOnCentrality();
@@ -23,6 +29,9 @@ public:
     RunCorrelationTask();
   }
 protected:
+  static TaskFactoryRnd* instance_;
+  TaskFactoryRnd() : TaskFactory(){}
+  ~TaskFactoryRnd() = default;
   void RunCorrectionTask(const std::string& calib_file) override {
     Qn::CorrectionTaskRnd task;
     task.SetInCalibrationFile(calib_file);
@@ -37,7 +46,7 @@ protected:
     task.Run();
   }
   void RunCorrelationTask() override{
-    CorrelationTaskFw3s task;
+    CorrelationTaskRnd task;
     task.AddFiles("output.root");
     task.Run();
   }

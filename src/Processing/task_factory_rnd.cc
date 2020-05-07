@@ -3,3 +3,5 @@
 //
 
 #include "task_factory_rnd.h"
+
+TaskFactoryRnd* TaskFactoryRnd::instance_=nullptr;

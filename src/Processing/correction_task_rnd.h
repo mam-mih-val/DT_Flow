@@ -9,13 +9,14 @@
 namespace Qn {
 class CorrectionTaskRnd : public CorrectionTask {
 public:
-  void Initialize(){
+  void Initialize() override {
     correction_manager_.AddVariable("Centrality", DataTreeVarManager::kCentrality, 1);
     correction_manager_.AddVariable("One", DataTreeVarManager::kOne, 1);
     correction_manager_.AddVariable("Pt", DataTreeVarManager::kMdcPt, 1);
     correction_manager_.AddVariable("Phi", DataTreeVarManager::kMdcPhi, 1);
     correction_manager_.AddVariable("Ycm", DataTreeVarManager::kMdcYcm, 1);
     correction_manager_.AddVariable("Pid", DataTreeVarManager::kMdcPid, 1);
+    correction_manager_.AddVariable("1/Eff", DataTreeVarManager::kMdcEfficiency, 1);
     correction_manager_.AddVariable("FwRing", DataTreeVarManager::kFwModuleRing, 304);
     correction_manager_.AddVariable("FwModuleId", DataTreeVarManager::kFwModuleId, 304);
     correction_manager_.AddVariable("FwAdc", DataTreeVarManager::kFwModuleAdc, 304);
@@ -34,7 +35,7 @@ public:
 
     // Configuration of MDC.
     auto MdcConfiguration = [](DetectorConfiguration *config) {
-      config->SetNormalization(QVector::Normalization::M);
+      config->SetNormalization(QVector::Normalization::NONE);
       auto recenter = new Recentering();
       config->AddCorrectionOnQnVector(recenter);
       auto rescale = new TwistAndRescale();
@@ -67,56 +68,50 @@ public:
       config->SetChannelsScheme(fwChannels, fwChannelGroups);
     };
     // u-vectors from MDC
-    correction_manager_.AddDetector("TracksMdc", DetectorType::TRACK, "Phi", "Ones",
-                                    {ycm, pt}, {1, 2});
+    correction_manager_.AddDetector("TracksMdc", DetectorType::TRACK, "Phi", "1/Eff",
+                         {ycm, pt}, {1, 2});
     correction_manager_.AddCut(
         "TracksMdc", {"Ycm", "Pt"},
         [](const double &y, const double &pt) {
-          return -0.8 < y && y < 0.8
-                 && 0.0 < pt && pt < 2.0;
+          return
+              -0.8 < y && y < 0.8 &&
+              0.0 < pt && pt < 2.0;
         });
     correction_manager_.SetCorrectionSteps("TracksMdc", MdcConfiguration);
 
-    correction_manager_.AddDetector("MdcQ", DetectorType::TRACK, "Phi", "Ones", {ycm}, {1});
-    correction_manager_.AddCut("MdcQ", {"Ycm", "Pid", "Pt"},
-                               [](const double &y, const double &pid, const double &pt) {
-                                 return -0.8 < y && y < 0.8 && pid == 14 && 0.0 < pt &&
-                                     pt < 2.0;
-                               });
-    correction_manager_.SetCorrectionSteps("MdcQ", MdcConfiguration);
+    // Random sub-event method
+    correction_manager_.AddDetector("Rs1", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
+    correction_manager_.AddCut("Rs1", {"RandomSe"},
+                    [](const double &rs) { return rs == 1.00; });
+    correction_manager_.SetCorrectionSteps("Rs1", FwConfiguration);
 
-    // 3 sub-events method.
-    // Each detector builds own Q-vector, which means, you need to add required
-    // count of detectors and then configurate their cuts.
-    correction_manager_.AddDetector("Fw1", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
-    correction_manager_.AddCut("Fw1", {"FwRing"}, [](const double &module) {
-      return module >= 1.0 && module <= 5.0;
-    });
-    correction_manager_.SetCorrectionSteps("Fw1", FwConfiguration);
+    correction_manager_.AddDetector("Rs2", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
+    correction_manager_.AddCut("Rs2", {"RandomSe"},
+                    [](const double &rs) { return rs == 2.00; });
+    correction_manager_.SetCorrectionSteps("Rs2", FwConfiguration);
 
-    correction_manager_.AddDetector("Fw2", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
-    correction_manager_.AddCut("Fw2", {"FwRing"}, [](const double &module) {
-      return module == 6.0 || module == 7.0;
-    });
-    correction_manager_.SetCorrectionSteps("Fw2", FwConfiguration);
-
-    correction_manager_.AddDetector("Fw3", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
-    correction_manager_.AddCut("Fw3", {"FwRing"}, [](const double &module) {
-      return module >= 8.0 && module <= 10.0;
-    });
-    correction_manager_.SetCorrectionSteps("Fw3", FwConfiguration);
+    correction_manager_.AddDetector("Full", DetectorType::CHANNEL, "FwPhi", "FwAdc", {},
+                         {1});
+    correction_manager_.AddCut("Full", {"FwAdc"},
+                    [](const double &adc) { return adc > 0.0; });
+    correction_manager_.SetCorrectionSteps("Full", FwConfiguration);
 
     correction_manager_.AddHisto2D("TracksMdc",
-                                   {{"Pt", 200, 0., 2.}, {"Ycm", 160, -0.8, 0.8}});
+                        {{"Pt", 200, 0., 2.}, {"Ycm", 160, -0.8, 0.8}});
     correction_manager_.AddHisto2D("TracksMdc",
-                                   {{"Phi", 126, -3.15, 3.15}, {"Ycm", 160, -0.8, 0.8}});
+                        {{"Phi", 126, -3.15, 3.15}, {"Ycm", 160, -0.8, 0.8}});
 
     correction_manager_.AddHisto2D(
-        "Fw1", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}});
+        "Rs1", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}});
     correction_manager_.AddHisto2D(
-        "Fw2", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}});
+        "Rs2", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}});
+
     correction_manager_.AddHisto2D(
-        "Fw3", {{"FwAdc", 100, 0., 1000.}, {"FwModuleId", 304, 0., 304.}});
+        "Rs1", {{"moduleX", 50, -1000., 1000.}, {"moduleY", 50, -1000., 1000.}});
+    correction_manager_.AddHisto2D(
+        "Rs2", {{"moduleX", 50, -1000., 1000.}, {"moduleY", 50, -1000., 1000.}});
+    correction_manager_.AddHisto2D(
+        "Full", {{"moduleX", 50, -1000., 1000.}, {"moduleY", 50, -1000., 1000.}});
 
     correction_manager_.AddEventHisto1D({{"Centrality", 20, 0, 100}});
     correction_manager_.SetTree(out_tree_);

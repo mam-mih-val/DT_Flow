@@ -53,7 +53,8 @@ public:
 private:
   static OccupancyCorrections* instance_;
   OccupancyCorrections() :qn_chain_{new TChain("tree")},
-                          q_vector_{new Qn::DataContainer<Qn::QVector>}{};
+                          q_vector_{new Qn::DataContainer<Qn::QVector>},
+                          efficiency_{new Efficiency}{};
   ~OccupancyCorrections() = default;
   long long position_=0;
   Efficiency* efficiency_{nullptr};
