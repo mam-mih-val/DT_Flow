@@ -7,6 +7,7 @@
 #include "correction_task.h"
 namespace Qn {
 class CorrectionTaskFull : public CorrectionTask {
+public:
   void Initialize() override {
     correction_manager_.AddVariable("Centrality", DataTreeVarManager::kCentrality, 1);
     correction_manager_.AddVariable("One", DataTreeVarManager::kOne, 1);
@@ -59,6 +60,7 @@ class CorrectionTaskFull : public CorrectionTask {
     QnCorrectionsSetTracingLevel(kError);
     std::cout << "Processing..." << std::endl;
     int goodEvents = 0;
+    DataTreeVarManager::GetInstance()->Rewind();
     while( !DataTreeVarManager::GetInstance()->Eof() ){
       DataTreeVarManager::GetInstance()->SwitchNextGoodEvent();
       Process();

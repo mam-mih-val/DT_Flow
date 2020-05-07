@@ -31,6 +31,10 @@ public:
     SwitchEvent(position_);
     position_++;
   }
+  void Rewind(){
+    position_=0;
+    SwitchEvent(position_);
+  }
   bool Eof(){
     return position_ >= qn_chain_->GetEntries();
   }

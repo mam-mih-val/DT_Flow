@@ -11,8 +11,9 @@ namespace Qn {
 
 class CorrectionTaskFw3s : public CorrectionTask {
 public:
-  virtual ~CorrectionTaskFw3s() = default;
-  virtual void Initialize() override {
+  CorrectionTaskFw3s() : CorrectionTask() {};
+  ~CorrectionTaskFw3s() override = default;
+  void Initialize() override {
     // Add Variables to variable manager needed for filling
     correction_manager_.AddVariable("Centrality", DataTreeVarManager::kCentrality, 1);
     correction_manager_.AddVariable("One", DataTreeVarManager::kOne, 1);
@@ -146,8 +147,8 @@ protected:
     DataTreeVarManager::GetInstance()->FillEventVariables(correction_manager_.GetVariableContainer());
     correction_manager_.ProcessEvent();
     correction_manager_.FillChannelDetectors();
-    int trackNumber = DataTreeVarManager::GetInstance()->GetNumberOfTracks();
-    for (int i = 0; i < trackNumber; i++) {
+    int track_number = DataTreeVarManager::GetInstance()->GetNumberOfTracks();
+    for (int i = 0; i < track_number; i++) {
       if (!Selector::GetInstance()->IsCorrectTrack(i))
         continue;
       if(!Selector::GetInstance()->IsCorrectPid(i))

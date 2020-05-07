@@ -27,11 +27,17 @@ namespace Qn {
 class CorrectionTask {
 public:
   CorrectionTask():
-                     out_calibration_file_(new TFile("qn.root", "RECREATE")),
-                     out_tree_(new TTree("tree", "tree")),
-                     correction_manager_(){};
+    out_file_( new TFile("output.root", "RECREATE") ),
+//    out_calibration_file_(new TFile("qn.root", "RECREATE")),
+    correction_manager_(){
+    out_tree_ = new TTree("tree", "tree");
+  };
+
   virtual ~CorrectionTask() = default;
   virtual void Run(){};
+  inline void SetOutCalibrationFile(const std::string& file_name ) {
+    out_calibration_file_.reset( TFile::Open( file_name.data(), "recreate" ) );
+  }
   inline void SetInCalibrationFile(const std::string& file_name ) {
     in_calibration_file_.reset( TFile::Open( file_name.data(), "read" ) );
   }
@@ -40,6 +46,7 @@ public:
   }
   void SetOutFile(const std::string &out_file) {
     out_file_.reset(TFile::Open(out_file.data(), "recreate"));
+    out_tree_ = new TTree("tree", "tree");
   }
 protected:
   /**
@@ -74,7 +81,7 @@ protected:
   std::shared_ptr<TFile> in_calibration_file_;
   std::shared_ptr<TFile> out_calibration_file_;
   TTree *out_tree_;
-  Qn::CorrectionManager correction_manager_;
+  CorrectionManager correction_manager_;
   /**
    * Finalizes TestTask. Called after processing is done.
    */

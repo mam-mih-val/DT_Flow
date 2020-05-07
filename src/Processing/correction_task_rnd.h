@@ -128,6 +128,8 @@ public:
     QnCorrectionsSetTracingLevel(kError);
     std::cout << "Processing..." << std::endl;
     int goodEvents = 0;
+    DataTreeVarManager::GetInstance()->Rewind();
+    OccupancyCorrections::GetInstance()->Rewind();
     while( !DataTreeVarManager::GetInstance()->Eof() ){
       DataTreeVarManager::GetInstance()->SwitchNextGoodEvent();
       OccupancyCorrections::GetInstance()->SwitchNextEvent();

@@ -22,7 +22,7 @@ set(SOURCES
         Processing/correlation_task_fw3x.cc
         Processing/correlation_task_rnd.cc
         Processing/task_factory.cc
-        )
+        Processing/task_factory_fw3s.cc Processing/task_factory_fw3s.h Processing/task_factory_rnd.cc Processing/task_factory_rnd.h)
 set(HEADERS
         Processing/data_tree_var_manager.h
         Processing/selector.h
