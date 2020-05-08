@@ -3,6 +3,7 @@
 //
 
 #include <Processing/task_factory.h>
+#include <Processing/task_factory_track_density.h>
 #include <chrono>
 #include <iomanip>
 #include <iostream>
@@ -15,11 +16,13 @@ int main(int argc, char **argv) {
   auto start = std::chrono::system_clock::now();
   enum methods{
     kFW3S=0,
-    kFWRS
+    kFWRS,
+    kTD
   };
   std::map<std::string, int> method_map{
       std::make_pair( "FW3S", kFW3S ),
       std::make_pair( "FWRS", kFWRS ),
+      std::make_pair( "TD", kTD ),
       std::make_pair( "FW3X", 2 ),
       std::make_pair( "FULL", 3 )
   };
@@ -76,6 +79,9 @@ int main(int argc, char **argv) {
     break;
   case kFWRS:
     factory = TaskFactoryRnd::GetInstance();
+    break;
+  case kTD:
+    factory = TaskFactoryTrackDensity::GetInstance();
     break;
   default:
     std::cout<<"Unknown method" << std::endl;
