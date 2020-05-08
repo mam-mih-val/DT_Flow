@@ -19,6 +19,7 @@ cd $job_num
 echo "loading " $basic_root
 source $basic_root
 
+echo "executing $build_dir/src/process -m $method -t $trigger -p $pidCode -i $input_files -e $efficiency"
 $build_dir/src/process -m $method -t $trigger -p $pidCode -i $input_files -e $efficiency
 
 echo JOB FINISHED!
