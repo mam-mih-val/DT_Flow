@@ -23,17 +23,17 @@ public:
       : chain_data_(new TChain("DataTree")), chain_qn_(new TChain("tree")),
         q_vector_(new Qn::DataContainer<Qn::QVector>),
         event_(new DataTreeEvent) {
-    float p = 5.0;
+    float p = 2.50;
     while (p < 100.0) {
       std::string histo_name{"occupancy_map_" + std::to_string(p)};
       std::string histo_title{";#Delta#phi;#Theta"};
-      occupancy_maps_.emplace_back(histo_name.data(), histo_title.data(), 180,
-                                   -180.0, 180, 100, 0, 100);
+      occupancy_maps_.emplace_back(histo_name.data(), histo_title.data(), 315,
+                                   -3.15, 3.15, 87, 0, 1.74);
       histo_name = "ep_" + std::to_string(p);
       histo_title = ";#Psi^{EP};counts";
       ep_maps_.emplace_back(histo_name.data(), histo_title.data(), 315, -3.15,
                             3.15);
-      p += 10.0;
+      p += 5.0;
     }
   }
   void AddDataFiles( std::string file_list ){
@@ -77,17 +77,17 @@ public:
     Selector::GetInstance()->SetEventAddress(event_);
     Centrality::GetInstance()->SetEventAddress(event_);
     chain_qn_->SetBranchAddress("Full", &q_vector_);
-    float p = 5.0;
+    float p = 2.50;
     while (p < 100.0) {
       std::string histo_name{"occupancy_map_" + std::to_string(p)};
       std::string histo_title{";#Delta#phi;#Theta"};
-      occupancy_maps_.emplace_back(histo_name.data(), histo_title.data(), 180,
-                                   -180.0, 180, 100, 0, 100);
+      occupancy_maps_.emplace_back(histo_name.data(), histo_title.data(), 315,
+                                   -3.15, 3.15, 87, 0, 1.74);
       histo_name = "ep_" + std::to_string(p);
       histo_title = ";#Psi^{EP};counts";
       ep_maps_.emplace_back(histo_name.data(), histo_title.data(), 315, -3.15,
                             3.15);
-      p += 10.0;
+      p += 5.0;
     }
     std::cout << chain_data_->GetEntries() << " events were found."
               << std::endl;
@@ -97,7 +97,7 @@ public:
   void ProcessEvent() {
     float psi = atan2f(q_vector_->At(0).y(1), q_vector_->At(0).x(1));
     try {
-      ep_maps_.at(Centrality::GetInstance()->GetCentralityClass10pc())
+      ep_maps_.at(Centrality::GetInstance()->GetCentralityClass5pc())
           .Fill(psi);
       size_t n_tracks = event_->GetNVertexTracks();
       for (size_t idx = 0; idx < n_tracks; idx++) {
@@ -110,16 +110,15 @@ public:
         if (d_phi > TMath::Pi())
           d_phi -= 2 * TMath::Pi();
         auto deg_to_rad = [](float phi) { return phi / TMath::Pi() * 180.0; };
-        d_phi = deg_to_rad(d_phi);
-        float theta = deg_to_rad(p.Theta());
-        int cent_class = Centrality::GetInstance()->GetCentralityClass10pc();
+        float theta = p.Theta();
+        int cent_class = Centrality::GetInstance()->GetCentralityClass5pc();
         occupancy_maps_.at(cent_class).Fill(d_phi, theta);
       }
     } catch (const std::exception &e) {
       std::cout << e.what() << std::endl;
       std::cout << "Centrality is not correct:" << std::endl;
       std::cout << "Centrality: "
-                << Centrality::GetInstance()->GetCentrality10pc() << "%"
+                << Centrality::GetInstance()->GetCentrality5pc() << "%"
                 << std::endl;
       return;
     }

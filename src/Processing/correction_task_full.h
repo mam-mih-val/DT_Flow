@@ -58,7 +58,7 @@ public:
   void Run() override {
     Initialize();
     QnCorrectionsSetTracingLevel(kError);
-    std::cout << "Processing..." << std::endl;
+    std::cout << "Processing Correction Task for Full Q..." << std::endl;
     int goodEvents = 0;
     DataTreeVarManager::GetInstance()->Rewind();
     while( !DataTreeVarManager::GetInstance()->Eof() ){
