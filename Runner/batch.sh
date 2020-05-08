@@ -3,7 +3,7 @@
 pidCode=14
 method=FW3S
 trigger=PT3
-efficency='nothing'
+efficiency='nothing'
 file_list=''
 
 while [ "$#" -gt "1" ]; do
@@ -26,7 +26,7 @@ while [ "$#" -gt "1" ]; do
     ;;
   -e)
     efficiency=$2
-    echo found efficency=efficiency
+    echo found efficiency=$efficiency
     shift
     ;;
   -i)
