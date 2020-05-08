@@ -43,7 +43,7 @@ while [ "$#" -gt "1" ]; do
   shift
 done
 
-basic_root=/lustre/nyx/cbm/users/ogolosov/soft/root-6.14.08_std11/bin/thisroot.sh
+basic_root=/lustre/nyx/hades/user/mmamaev/soft/root/install/bin/thisroot.sh
 
 current_dir=$(pwd)
 partition=main
