@@ -3,7 +3,7 @@
 pidCode=14
 method=FW3S
 trigger=PT3
-efficency=''
+efficency='nothing'
 file_list=''
 
 while [ "$#" -gt "1" ]; do
