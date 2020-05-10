@@ -50,13 +50,14 @@ public:
 
     double dca_xy = fabs(track->GetDCAComponent(0));
     double dca_z = fabs(track->GetDCAComponent(2));
-    if (dca_xy > 10.0)
+    if (dca_xy > 15.0)
       return false;
-    if (dca_z > 10.0)
+    if (dca_z > 15.0)
       return false;
-    if( track->GetChi2() > 100.0 )
-      return false;
-    return hit->GetSquaredMassError() <= 3.0;
+    
+//    if( track->GetChi2() > 100.0 )
+//      return false;
+//    return hit->GetSquaredMassError() <= 3.0;
   }
   bool IsCorrectFwHit(int idx){
     if (event_->GetPSDModule(idx)->GetEnergy() < 80.0)
