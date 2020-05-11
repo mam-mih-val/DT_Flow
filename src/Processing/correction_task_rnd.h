@@ -121,7 +121,7 @@ public:
   void Run() override {
     Initialize();
     QnCorrectionsSetTracingLevel(kError);
-    std::cout << "Processing..." << std::endl;
+    std::cout << "Processing RND-Sub correction task" << std::endl;
     int goodEvents = 0;
     DataTreeVarManager::GetInstance()->Rewind();
     OccupancyCorrections::GetInstance()->Rewind();

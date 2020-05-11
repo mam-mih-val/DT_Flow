@@ -18,7 +18,7 @@ public:
     //  DataContainers in the input file
     manager.Initialize();
     in_tree_->LoadTree(0); // prevents weird TTree errors
-    std::cout << "Processing..." << std::endl;
+    std::cout << "Processing Correlation Task" << std::endl;
     long long events = 0;
     do {
       manager.Process();

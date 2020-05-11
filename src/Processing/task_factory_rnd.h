@@ -19,6 +19,7 @@ public:
     DataTreeVarManager::GetInstance()->SwitchOnCentrality();
     DataTreeVarManager::GetInstance()->SwitchOnSelector();
     Selector::GetInstance()->SetTrigger(config_.trigger);
+    Selector::GetInstance()->SetPid(config_.pid_code);
     RunFullCorrectionTask("nothing");
     RunFullCorrectionTask("qn.root");
     OccupancyCorrections::GetInstance()->SetQnFile("pavel.root");

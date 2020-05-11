@@ -57,7 +57,10 @@ public:
     
 //    if( track->GetChi2() > 100.0 )
 //      return false;
-//    return hit->GetSquaredMassError() <= 3.0;
+//    if(hit->GetSquaredMassError() > 3.0)
+//        return false;
+
+    return true;
   }
   bool IsCorrectFwHit(int idx){
     if (event_->GetPSDModule(idx)->GetEnergy() < 80.0)
