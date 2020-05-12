@@ -50,7 +50,7 @@ public:
     try {
       efficiencies_.at(c_bin);
     } catch (const std::exception &e) {
-      return 0.98;
+      return 1.0;
     }
     if( -TMath::Pi() <= phi && phi <= TMath::Pi()  ){
       phi = phi;
