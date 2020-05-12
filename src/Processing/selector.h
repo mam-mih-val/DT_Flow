@@ -130,7 +130,6 @@ private:
       HADES_constants::kGoodSTARTVETO,
       HADES_constants::kGoodSTARTMETA,
       HADES_constants::kNoVETO,
-      HADES_constants::kGoodTRIGGER,
   };
   DataTreeEvent *event_{nullptr};
   int trigger_ = HADES_constants::kPT3;
