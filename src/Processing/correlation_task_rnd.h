@@ -16,41 +16,41 @@ class CorrelationTaskRnd : public CorrelationTask {
       return qn.at(0).y(1) * qn.at(1).y(1) / (qn.at(0).mag(1) * qn.at(1).mag(1));
     };
     auto uxQx = [](const std::vector<Qn::QVector> &qn) {
-      return qn.at(0).x(1) * qn.at(1).x(1) / (qn.at(1).mag(1));
+      return qn.at(0).x(1) * qn.at(1).x(1) / (qn.at(0).mag(1) * qn.at(1).mag(1));
     };
     auto uxQy = [](const std::vector<Qn::QVector> &qn) {
-      return qn.at(0).x(1) * qn.at(1).y(1) / (qn.at(1).mag(1));
+      return qn.at(0).x(1) * qn.at(1).y(1) / (qn.at(0).mag(1) * qn.at(1).mag(1));
     };
     auto uyQx = [](const std::vector<Qn::QVector> &qn) {
-      return qn.at(0).y(1) * qn.at(1).x(1) / (qn.at(1).mag(1));
+      return qn.at(0).y(1) * qn.at(1).x(1) / (qn.at(0).mag(1) * qn.at(1).mag(1));
     };
     auto uyQy = [](const std::vector<Qn::QVector> &qn) {
-      return qn.at(0).y(1) * qn.at(1).y(1) / (qn.at(1).mag(1));
+      return qn.at(0).y(1) * qn.at(1).y(1) / (qn.at(0).mag(1) * qn.at(1).mag(1));
     };
     auto u2xQ2x = [](const std::vector<Qn::QVector> &qn) {
       return qn.at(0).x(2) *
           (qn.at(1).x(1) * qn.at(1).x(1) - qn.at(1).y(1) * qn.at(1).y(1)) /
-          (qn.at(1).mag(1) * qn.at(1).mag(1));
+          (qn.at(0).mag(2) * qn.at(1).mag(1) * qn.at(1).mag(1));
     };
     auto u2yQ2y = [](const std::vector<Qn::QVector> &qn) {
       return qn.at(0).y(2) * 2 * qn.at(1).x(1) * qn.at(1).y(1) /
-          (qn.at(1).mag(1) * qn.at(1).mag(1));
+          (qn.at(0).mag(2) * qn.at(1).mag(1) * qn.at(1).mag(1));
     };
     auto uxQxQx = [](const std::vector<Qn::QVector> &qn) {
       return qn.at(0).x(2) * qn.at(1).x(1) * qn.at(2).x(1) /
-          (qn.at(1).mag(1) * qn.at(2).mag(1));
+          (qn.at(0).mag(2) * qn.at(1).mag(1) * qn.at(2).mag(1));
     };
     auto uxQyQy = [](const std::vector<Qn::QVector> &qn) {
       return -qn.at(0).x(2) * qn.at(1).y(1) * qn.at(2).y(1) /
-          (qn.at(1).mag(1) * qn.at(2).mag(1));
+          (qn.at(0).mag(2) * qn.at(1).mag(1) * qn.at(2).mag(1));
     };
     auto uyQxQy = [](const std::vector<Qn::QVector> &qn) {
       return qn.at(0).y(2) * qn.at(1).x(1) * qn.at(2).y(1) /
-          (qn.at(1).mag(1) * qn.at(2).mag(1));
+          (qn.at(0).mag(2) * qn.at(1).mag(1) * qn.at(2).mag(1));
     };
     auto uyQyQx = [](const std::vector<Qn::QVector> &qn) {
       return qn.at(0).y(2) * qn.at(1).y(1) * qn.at(2).x(1) /
-          (qn.at(1).mag(1) * qn.at(2).mag(1));
+          (qn.at(0).mag(2) * qn.at(1).mag(1) * qn.at(2).mag(1));
     };
 
     manager.SetOutputFile("Correlations.root");
