@@ -24,7 +24,7 @@ public:
       std::cout << "Selector Error: Event pointer is empty" << std::endl;
       std::abort();
     }
-//    auto trigger = event_->GetTrigger(HADES_constants::kNoVETO);
+
     if (!event_->GetTrigger(trigger_)->GetIsFired())
       return false;
 
@@ -129,7 +129,8 @@ private:
       HADES_constants::kNoPileUpSTART,
       HADES_constants::kGoodSTARTVETO,
       HADES_constants::kGoodSTARTMETA,
-      HADES_constants::kNoVETO
+      HADES_constants::kNoVETO,
+      HADES_constants::kGoodTRIGGER,
   };
   DataTreeEvent *event_{nullptr};
   int trigger_ = HADES_constants::kPT3;
