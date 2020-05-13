@@ -30,7 +30,7 @@ public:
     correction_manager_.SetEventVariable("Centrality");
     correction_manager_.AddCorrectionAxis({"Centrality", 8, 0, 40});
 
-    Axis pt("Pt", 10, 0.0, 2.0);
+    Axis pt("Pt", 18, 0.2, 2.0);
     Axis ycm("Ycm", 15, -0.75, 0.75);
 
     // Configuration of MDC.

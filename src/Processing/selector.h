@@ -34,7 +34,7 @@ public:
 
     if( r_z > 0.0 )
       return false;
-    if( r_z < 60.0 )
+    if( r_z < -60.0 )
       return false;
     if (sqrt(r_x * r_x + r_y * r_y) > 3.0)
       return false;
