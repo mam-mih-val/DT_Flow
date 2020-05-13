@@ -28,12 +28,15 @@ public:
     if (!event_->GetTrigger(trigger_)->GetIsFired())
       return false;
 
-    if (event_->GetVertexPositionComponent(2) > 0 ||
-        event_->GetVertexPositionComponent(2) < -60)
+    double r_x = event_->GetVertexPositionComponent(0);
+    double r_y = event_->GetVertexPositionComponent(1);
+    double r_z = event_->GetVertexPositionComponent(2);
+
+    if( r_z > 0.0 )
       return false;
-    Float_t r_x = event_->GetVertexPositionComponent(0),
-            r_y = event_->GetVertexPositionComponent(1);
-    if (sqrt(r_x * r_x + r_y * r_y) > 3)
+    if( r_z < 60.0 )
+      return false;
+    if (sqrt(r_x * r_x + r_y * r_y) > 3.0)
       return false;
     if (event_->GetVertexQuality() < 0.5 || event_->GetVertexQuality() > 40)
       return false;
@@ -42,7 +45,10 @@ public:
       if( !event_->GetTrigger(trigger)->GetIsFired() )
         return false;
     }
-    return event_->GetPSDEnergy() != 0;
+    if( event_->GetPSDEnergy() == 0 )
+      return false;
+
+    return true;
   }
   bool IsCorrectTrack(int idx){
     DataTreeTrack *track = event_->GetVertexTrack(idx);
@@ -63,36 +69,39 @@ public:
     return true;
   }
   bool IsCorrectFwHit(int idx){
-    if (event_->GetPSDModule(idx)->GetEnergy() < 80.0)
-      return false;
+    double adc = event_->GetPSDModule(idx)->GetEnergy();
+    double beta = event_->GetPSDModule(idx)->GetBeta();
     short ring = event_->GetPSDModule(idx)->GetRing();
-
+    if ( adc < min_signal_ )
+      return false;
+    if ( adc > max_signal_ )
+      return false;
     if (ring < 1)
       return false;
     if (ring > 10)
       return false;
     if (ring <= 5) {
-      if (event_->GetPSDModule(idx)->GetBeta() < 0.84)
+      if (beta < 0.84)
         return false;
-      if (event_->GetPSDModule(idx)->GetBeta() > 1.0)
+      if (beta > 1.0)
         return false;
-      if (event_->GetPSDModule(idx)->GetEnergy() < 80.0)
+      if (adc < 80.0)
         return false;
     }
     if (ring == 6 || ring == 7) {
-      if (event_->GetPSDModule(idx)->GetBeta() < 0.85)
+      if (beta < 0.85)
         return false;
-      if (event_->GetPSDModule(idx)->GetBeta() > 1.0)
+      if (beta > 1.0)
         return false;
-      if (event_->GetPSDModule(idx)->GetEnergy() < 85.0)
+      if (adc < 85.0)
         return false;
     }
     if (ring >= 8) {
-      if (event_->GetPSDModule(idx)->GetBeta() < 0.80)
+      if (beta < 0.80)
         return false;
-      if (event_->GetPSDModule(idx)->GetBeta() > 1.0)
+      if (beta > 1.0)
         return false;
-      if (event_->GetPSDModule(idx)->GetEnergy() < 88.0)
+      if (adc < 88.0)
         return false;
     }
     return true;

@@ -34,7 +34,7 @@ public:
     Axis ycm("Ycm", 15, -0.75, 0.75);
 
     // Configuration of MDC.
-    auto MdcConfiguration = [](DetectorConfiguration *config) {
+    auto mdc_configuration = [](DetectorConfiguration *config) {
       config->SetNormalization(QVector::Normalization::M);
       auto recenter = new Recentering();
 //      config->AddCorrectionOnQnVector(recenter);
@@ -49,7 +49,7 @@ public:
     // Configuration of FW. Preparing for add axis to qa histograms
     // Producing the function which will configurate the correction Manager
 
-    auto FwConfiguration = [](DetectorConfiguration *config) {
+    auto fw_configuration = [](DetectorConfiguration *config) {
       config->SetNormalization(QVector::Normalization::M);
       auto recenter = new Recentering();
       config->AddCorrectionOnQnVector(recenter);
@@ -77,24 +77,23 @@ public:
               -0.8 < y && y < 0.8 &&
               0.0 < pt && pt < 2.0;
         });
-    correction_manager_.SetCorrectionSteps("TracksMdc", MdcConfiguration);
+    correction_manager_.SetCorrectionSteps("TracksMdc", mdc_configuration);
 
     // Random sub-event method
     correction_manager_.AddDetector("Rs1", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
     correction_manager_.AddCut("Rs1", {"RandomSe"},
                     [](const double &rs) { return rs == 1.00; });
-    correction_manager_.SetCorrectionSteps("Rs1", FwConfiguration);
+    correction_manager_.SetCorrectionSteps("Rs1", fw_configuration);
 
     correction_manager_.AddDetector("Rs2", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
     correction_manager_.AddCut("Rs2", {"RandomSe"},
                     [](const double &rs) { return rs == 2.00; });
-    correction_manager_.SetCorrectionSteps("Rs2", FwConfiguration);
+    correction_manager_.SetCorrectionSteps("Rs2", fw_configuration);
 
-    correction_manager_.AddDetector("Full", DetectorType::CHANNEL, "FwPhi", "FwAdc", {},
-                         {1});
+    correction_manager_.AddDetector("Full", DetectorType::CHANNEL, "FwPhi", "FwAdc", {}, {1});
     correction_manager_.AddCut("Full", {"FwAdc"},
                     [](const double &adc) { return adc > 0.0; });
-    correction_manager_.SetCorrectionSteps("Full", FwConfiguration);
+    correction_manager_.SetCorrectionSteps("Full", fw_configuration);
 
     correction_manager_.AddHisto2D("TracksMdc",
                         {{"Pt", 200, 0., 2.}, {"Ycm", 160, -0.8, 0.8}});

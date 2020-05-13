@@ -16,23 +16,23 @@ void DataTreeVarManager::FillEventVariables(double *varContainer) {
     varContainer[kFwModuleX + idx] = 0.0;
     varContainer[kFwModuleY + idx] = 0.0;
   }
-  Int_t nModules = event_->GetNPSDModules();
+  Int_t n_modules = event_->GetNPSDModules();
   std::vector<int> moduleList;
-  for (Int_t idx = 0; idx < nModules; idx++) {
+  for (Int_t idx = 0; idx < n_modules; idx++) {
     if (!Selector::GetInstance()->IsCorrectFwHit(idx))
       continue;
-    int moduleId = event_->GetPSDModule(idx)->GetId();
-    varContainer[kFwModuleRing + moduleId] =
+    int module_id = event_->GetPSDModule(idx)->GetId();
+    varContainer[kFwModuleRing + module_id] =
         (double)event_->GetPSDModule(idx)->GetRing();
-    varContainer[kFwModuleAdc + moduleId] =
+    varContainer[kFwModuleAdc + module_id] =
         (double)event_->GetPSDModule(idx)->GetEnergy();
-    varContainer[kFwModulePhi + moduleId] =
+    varContainer[kFwModulePhi + module_id] =
         (double)event_->GetPSDModule(idx)->GetPhi();
     varContainer[kFwModuleX + idx] =
         (double)event_->GetPSDModule(idx)->GetPositionComponent(0);
     varContainer[kFwModuleY + idx] =
         (double)event_->GetPSDModule(idx)->GetPositionComponent(1);
-    moduleList.push_back(moduleId);
+    moduleList.push_back(module_id);
   }
   shuffle(moduleList.begin(), moduleList.end(), std::mt19937(std::random_device()()));
   for (int idx = 0; idx < moduleList.size(); idx++)
