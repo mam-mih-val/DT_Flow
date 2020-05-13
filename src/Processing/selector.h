@@ -31,9 +31,9 @@ public:
     if (event_->GetVertexPositionComponent(2) > 0 ||
         event_->GetVertexPositionComponent(2) < -60)
       return false;
-    Float_t Rx = event_->GetVertexPositionComponent(0),
-        Ry = event_->GetVertexPositionComponent(1);
-    if (sqrt(Rx * Rx + Ry * Ry) > 3)
+    Float_t r_x = event_->GetVertexPositionComponent(0),
+            r_y = event_->GetVertexPositionComponent(1);
+    if (sqrt(r_x * r_x + r_y * r_y) > 3)
       return false;
     if (event_->GetVertexQuality() < 0.5 || event_->GetVertexQuality() > 40)
       return false;
@@ -127,9 +127,9 @@ private:
       HADES_constants::kGoodVertexCand,
       HADES_constants::kGoodSTART,
       HADES_constants::kNoPileUpSTART,
+      HADES_constants::kNoVETO,
       HADES_constants::kGoodSTARTVETO,
       HADES_constants::kGoodSTARTMETA,
-      HADES_constants::kNoVETO,
   };
   DataTreeEvent *event_{nullptr};
   int trigger_ = HADES_constants::kPT3;
