@@ -31,7 +31,7 @@ public:
   void Compute(float coeff=27000){
     float percentile{2.5};
     float max_eff=0.98;
-    float min_eff=0.7;
+    float min_eff=0.62;
     float min_mult=occupancies_.at(3).GetMinimum();
     float max_mult=occupancies_.at(0).GetMaximum();
     coeff=(max_eff-min_eff)/(max_mult-min_mult)/(max_mult-min_mult);
